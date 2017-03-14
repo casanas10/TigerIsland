@@ -12,7 +12,7 @@ public class MeepleTest {
         Pieces piecesTester = new Pieces();
         piecesTester.createMeeple();
         // Arrange
-        Assert.assertEquals(piecesTester.getNumberOfMeeple(), 40);
+        Assert.assertEquals(piecesTester.getNumberOfMeeple(), 20);
 
         // Act
 

@@ -2,23 +2,23 @@
  * Created by Connor on 3/14/2017.
  */
 public class Pieces {
-    private int numberOfTotoros;
-    private int numberOfMeeple;
+    private Totoro[] totoros;
+    private Meeple[] meeples;
 
     public int getNumberOfTotoros() {
-        return numberOfTotoros;
+        return totoros.length;
     }
 
     public int getNumberOfMeeple() {
-        return numberOfMeeple;
+        return meeples.length;
     }
 
     public void createMeeple() {
-        numberOfMeeple = 40;
+        meeples = new Meeple[20];
     }
 
     public void createTotoros() {
-        numberOfTotoros = 6;
+        totoros = new Totoro[3];
     }
 
 
