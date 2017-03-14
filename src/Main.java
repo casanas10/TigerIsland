@@ -4,7 +4,7 @@
 public class Main {
 
     public static void main(String[] args){
-        System.out.print("Game Starts");
+        System.out.println("Game Starts");
         Game game = new Game();
     }
 }

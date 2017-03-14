@@ -15,10 +15,12 @@ public class Pieces {
 
     public void createMeeple() {
         meeples = new Meeple[20];
+        System.out.println(meeples.length);
     }
 
     public void createTotoros() {
         totoros = new Totoro[3];
+        System.out.println(totoros.length);
     }
 
 
