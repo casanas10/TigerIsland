@@ -8,11 +8,10 @@ public class Game {
         Player Black = new Player();
         Player White = new Player();
 
-        Pieces meeples = new Pieces();
-        Pieces totoros = new Pieces();
+        Pieces gamePieces = new Pieces();
 
-        meeples.createMeeple();
-        totoros.createTotoros();
+        gamePieces.createMeeple();
+        gamePieces.createTotoros();
     }
 
 
