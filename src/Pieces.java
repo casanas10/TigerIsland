@@ -23,7 +23,7 @@ public class Pieces {
     }
 
     public void createMeeple() {
-        meeples = new ArrayList(20);
+        meeples.add(new Meeple());
         setMeepleColor();
     }
 
@@ -33,12 +33,12 @@ public class Pieces {
 
     private void setMeepleColor() {
         for(int i = 0; i < meeples.size(); i++) {
-            meeples.get(i)
+            meeples.get(i).
         }
     }
 
     private void setTotoroColor() {
-        for(int i = 0; i < totoros.length; i++) {
+        for(int i = 0; i < totoros.size(); i++) {
             totoros[i].setColor(Color);
         }
     }
