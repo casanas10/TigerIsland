@@ -24,6 +24,4 @@ public class Tile {
         return terrains;
     }
 
-
-
 }
