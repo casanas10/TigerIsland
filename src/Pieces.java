@@ -1,12 +1,14 @@
+import java.util.ArrayList;
+
 /**
  * Created by Connor on 3/14/2017.
  */
 public class Pieces {
-    private Totoro[] totoros;
-    private Meeple[] meeples;
+    private ArrayList totoros;
+    private ArrayList meeples;
     private String Color;
 
-    public void Pieces(String Color) {
+    public Pieces(String Color) {
         this.Color = Color;
         createMeeple();
         createTotoros();
@@ -21,12 +23,12 @@ public class Pieces {
     }
 
     public void createMeeple() {
-        meeples = new Meeple[20];
+        meeples = new ArrayList(20);
         setMeepleColor();
     }
 
     public void createTotoros() {
-        totoros = new Totoro[3];
+        totoros = new ArrayList(3);
     }
 
     private void setMeepleColor() {
