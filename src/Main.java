@@ -4,6 +4,8 @@
 public class Main {
 
     public static void main(String[] args){
-        System.out.print("hi");
+
+        IslandMap map = new IslandMap();
+        map.PlaceTile(1);
     }
 }
