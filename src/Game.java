@@ -8,11 +8,16 @@ public class Game {
         Player Black = new Player("black", 0);
         Player White = new Player("white", 0);
 
-        Black.getRemainingMeeples();
-        Black.getRemainingTotoros();
+        System.out.println("Player Color: " + Black.getPlayerColor());
+        System.out.println("Meeples: " + Black.getRemainingMeeples());
+        System.out.println("Totoros: " + Black.getRemainingTotoros());
+        System.out.println("Score" + Black.getCurrentScore());
 
-        White.getRemainingMeeples();
-        White.getRemainingTotoros();
+        System.out.println("Player Color: " + White.getPlayerColor());
+        System.out.println("Meeples: " + White.getRemainingMeeples());
+        System.out.println("Totoros: " + White.getRemainingTotoros());
+        System.out.println("Score" + White.getCurrentScore());
+
     }
 
 

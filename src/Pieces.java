@@ -16,12 +16,10 @@ public class Pieces {
     }
 
     public int getNumberOfTotoros() {
-        System.out.println(totoros.length);
         return totoros.length;
     }
 
     public int getNumberOfMeeple() {
-        System.out.println(meeples.length);
         return meeples.length;
     }
 
