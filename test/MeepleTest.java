@@ -8,11 +8,10 @@ public class MeepleTest {
 
 
     @Test
-    public void whenTheGameStartsThen40MeeplesAreCreated(){
-        Pieces piecesTester = new Pieces();
-        piecesTester.createMeeple();
+    public void whenTheGameStartsThen20MeeplesAreCreated(){
+
         // Arrange
-        Assert.assertEquals(piecesTester.getNumberOfMeeple(), 40);
+
 
         // Act
 
