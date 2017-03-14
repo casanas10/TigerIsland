@@ -4,42 +4,36 @@ import java.util.ArrayList;
  * Created by Connor on 3/14/2017.
  */
 public class Pieces {
-    private ArrayList totoros;
-    private ArrayList meeples;
-    private String Color;
 
-    public Pieces(String Color) {
-        this.Color = Color;
-        createMeeple();
-        createTotoros();
+    private Meeple meeples[];
+    private Totoro totoros[];
+    private String color;
+
+    public Pieces(String color) {
+        this.color = color;
+        this.meeples = new Meeple[20];
+        this.totoros = new Totoro[3];
     }
 
     public int getNumberOfTotoros() {
-        return totoros.size();
+        System.out.println(totoros.length);
+        return totoros.length;
     }
 
     public int getNumberOfMeeple() {
-        return meeples.size();
-    }
-
-    public void createMeeple() {
-        meeples.add(new Meeple());
-        setMeepleColor();
-    }
-
-    public void createTotoros() {
-        totoros = new ArrayList(3);
+        System.out.println(meeples.length);
+        return meeples.length;
     }
 
     private void setMeepleColor() {
-        for(int i = 0; i < meeples.size(); i++) {
-            meeples.get(i).
+        for (Meeple meeple : meeples){
+            meeple.setColor(color);
         }
     }
 
     private void setTotoroColor() {
-        for(int i = 0; i < totoros.size(); i++) {
-            totoros[i].setColor(Color);
+        for (Totoro totoro : totoros){
+            totoro.setColor(color);
         }
     }
 

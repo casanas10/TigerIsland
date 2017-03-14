@@ -11,13 +11,13 @@ public class MeepleTest {
     public void whenTheGameStartsThen20MeeplesAreCreated(){
 
         // Arrange
-        Pieces piecesTester = new Pieces();
+
 
         // Act
-        piecesTester.createMeeple();
+
 
         // Assert
-        Assert.assertEquals(piecesTester.getNumberOfMeeple(), 20);
+
     }
 
 
