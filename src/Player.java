@@ -6,7 +6,7 @@ public class Player {
     private int currentScore;
     private Pieces playerPieces;
 
-    public void Player(String playerColor, int currentScore){
+    public Player(String playerColor, int currentScore){
         this.playerColor = playerColor;
         this.currentScore = currentScore;
         playerPieces = new Pieces(playerColor);
