@@ -6,11 +6,13 @@ import org.junit.Test;
  */
 public class MeepleTest {
 
+
     @Test
     public void whenTheGameStartsThen40MeeplesAreCreated(){
-
+        Pieces piecesTester = new Pieces();
+        piecesTester.createMeeple();
         // Arrange
-        
+        Assert.assertEquals(piecesTester.getNumberOfMeeple(), 40);
 
         // Act
 
