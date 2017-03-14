@@ -5,13 +5,8 @@ public class Game {
 
     public Game() {
 
-        Player Black = new Player();
-        Player White = new Player();
-
-        Pieces gamePieces = new Pieces();
-
-        gamePieces.createMeeple();
-        gamePieces.createTotoros();
+        Player Black = new Player("black", 0);
+        Player White = new Player("white", 0);
     }
 
 
