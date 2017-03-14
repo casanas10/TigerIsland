@@ -13,5 +13,17 @@ public class Meeple {
         return status;
     }
 
+    public void setColor(String color){
+        this.color = color;
+    }
+    public String getColor(){
+        return color;
+    }
 
+    public void setScore(int score){
+        this.score = score;
+    }
+    public int getScore(){
+        return score;
+    }
 }
