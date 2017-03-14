@@ -6,7 +6,7 @@ public class Pieces {
     private Meeple[] meeples;
 
     public int getNumberOfTotoros() {
-        return totoros.length;
+        return totoros.length;//
     }
 
     public int getNumberOfMeeple() {
