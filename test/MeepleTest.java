@@ -7,10 +7,10 @@ import org.junit.Test;
 public class MeepleTest {
 
     @Test
-    public void MeepleCreated(){
+    public void whenTheGameStartsThen40MeeplesAreCreated(){
 
         // Arrange
-
+        
 
         // Act
 
