@@ -33,7 +33,7 @@ public class Pieces {
 
     private void setMeepleColor() {
         for(int i = 0; i < meeples.size(); i++) {
-            meeples.get(i).setColor(Color);
+            meeples.get(i)
         }
     }
 
