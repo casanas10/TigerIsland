@@ -15,11 +15,11 @@ public class Pieces {
     }
 
     public int getNumberOfTotoros() {
-        return totoros.length;
+        return totoros.size();
     }
 
     public int getNumberOfMeeple() {
-        return meeples.length;
+        return meeples.size();
     }
 
     public void createMeeple() {
@@ -32,7 +32,7 @@ public class Pieces {
     }
 
     private void setMeepleColor() {
-        for(int i = 0; i < meeples.length; i++) {
+        for(int i = 0; i < meeples.size(); i++) {
             meeples[i].setColor(Color);
         }
     }
