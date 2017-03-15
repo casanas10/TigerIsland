@@ -5,7 +5,10 @@ public class Main {
 
     public static void main(String[] args){
 
-        //IslandMap map = new IslandMap();
-        //map.PlaceTile(1);
+        System.out.println("Game Starts");
+        Game game = new Game();
+
+        IslandMap map = new IslandMap();
+        map.PlaceTile(1);
     }
 }

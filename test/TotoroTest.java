@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TotoroTest {
 
     @Test
-    public void TotoroCreated(){
+    public void whenTheGameStartsThen3TotorosAreCreated(){
 
     }
 }
