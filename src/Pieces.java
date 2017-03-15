@@ -5,22 +5,22 @@ import java.util.ArrayList;
  */
 public class Pieces {
 
-    private Meeple meeples[];
-    private Totoro totoros[];
+    private ArrayList<Meeple> meeples;
+    private ArrayList<Totoro> totoros;
     private String color;
 
     public Pieces(String color) {
         this.color = color;
-        this.meeples = new Meeple[20];
-        this.totoros = new Totoro[3];
+        this.meeples = new ArrayList(20);
+        this.totoros = new ArrayList(3);
     }
 
     public int getNumberOfTotoros() {
-        return totoros.length;
+        return totoros.size();
     }
 
     public int getNumberOfMeeple() {
-        return meeples.length;
+        return meeples.size();
     }
 
     private void setMeepleColor() {
