@@ -25,6 +25,10 @@ public class Tile {
         return containerOfHexes.get(hexNumber).getTerrainType();
     }
 
+    public void updateSpecificHexTerrainType(int hexNumber, String terrainType){
+        containerOfHexes.get(hexNumber).updateTerrainType(terrainType);
+    }
+
     public void setEdges(int edges[]){
         for (int edge : edges) {
             this.edges[edge] = edges[edge];

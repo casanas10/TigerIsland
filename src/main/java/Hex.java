@@ -32,12 +32,23 @@ public class Hex {
         return terrain.getIsFounded();
     }
 
+    public void foundOnTerrain(boolean foundTerrain){
+        terrain.setIsFounded(foundTerrain);
+    }
+
+    public void updateTerrainType(String newTerrain){
+        terrain.setType(newTerrain);
+    }
+
     public int getNumberOfMeeplesOnHex(){
         return meepleContainer.size();
     }
 
-    public void addMeeple(Meeple meepleToAdd){
-        meepleContainer.add(meepleToAdd);
+    public void addMeepleToHex(Meeple meepleToAdd){
+            meepleContainer.add(meepleToAdd);
+            if(!checkIfFounded()){
+                foundOnTerrain(true);
+            }
     }
 
     public int getNumberOfTotorosOnHex(){
@@ -46,5 +57,8 @@ public class Hex {
 
     public void addTotoroToHex(Totoro totoroToAdd){
         totoroContainer.add(totoroToAdd);
+        if(!checkIfFounded()){
+            foundOnTerrain(true);
+        }
     }
 }

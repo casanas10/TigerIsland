@@ -20,4 +20,11 @@ public class TileTest {
         Assert.assertEquals(tileToTest.getSpecificHexTerrain(2), "Lake");
     }
 
+    @Test
+    public void updateSpecificHexTerrainType(){
+        tileToTest.updateSpecificHexTerrainType(1, "Lake");
+        tileToTest.updateSpecificHexTerrainType(2, "Rock");
+        Assert.assertEquals(tileToTest.getSpecificHexTerrain(1), "Lake");
+        Assert.assertEquals(tileToTest.getSpecificHexTerrain(2), "Rock");
+    }
 }
