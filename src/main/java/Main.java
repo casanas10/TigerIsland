@@ -8,6 +8,8 @@ public class Main {
         System.out.println("Game Starts");
         Game game = new Game();
 
+        System.out.println(Player.numberOfPlayers);
+
         IslandMap map = new IslandMap();
         map.tileGenerator();    // Generate all tiles
        // map.printTiles();
