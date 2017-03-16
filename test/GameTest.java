@@ -9,13 +9,12 @@ public class GameTest {
     @Test
     public void whenTheGameStartsThen2PlayersAreCreatedWith20MeeplesAnd3TotorosEach(){
 
-//        // Arrange
-//        Game game = new Game();
-//
-//        // Act
-//
-//
-//        // Assert
-//        Assert.assertEquals();
+        // Arrange
+        Game game = new Game();
+
+        // Act
+
+        // Assert
+        Assert.assertEquals(40, game.getRemainingMeeples());
     }
 }
