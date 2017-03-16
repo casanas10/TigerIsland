@@ -31,13 +31,7 @@ public class Pieces {
 
     public void create3Totoros() {
         for (int i = 0; i < 3; i++) {
-            totoros.add(new Totoro());
-        }
-    }
-
-    private void setTotoroColor() {
-        for (Totoro totoro : totoros){
-            totoro.setColor(color);
+            totoros.add(new Totoro(color));
         }
     }
 
