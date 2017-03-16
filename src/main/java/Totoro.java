@@ -6,6 +6,11 @@ public class Totoro {
     private String color;
     private int score;
 
+    public Totoro(String color) {
+        this.color = color;
+        status = "Not played";
+    }
+
     public void setStatus(String status){
         this.status = status;
     }

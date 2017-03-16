@@ -36,6 +36,10 @@ public class Player {
         this.currentScore = score;
     }
 
+    public Pieces getPieces() {
+        return playerPieces;
+    }
+
     public int getRemainingMeeples(){
         return playerPieces.getNumberOfMeeple();
     }

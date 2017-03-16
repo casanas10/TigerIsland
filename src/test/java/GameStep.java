@@ -1,5 +1,8 @@
 import cucumber.api.PendingException;
+<<<<<<< HEAD
 import cucumber.api.java.Before;
+=======
+>>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
