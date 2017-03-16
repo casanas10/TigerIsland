@@ -1,9 +1,9 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("sample.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("test.feature");
 formatter.feature({
   "line": 2,
-  "name": "To test my cucumber test is running I want to run a simple feature file",
+  "name": "Test Cucumber",
   "description": "",
-  "id": "to-test-my-cucumber-test-is-running-i-want-to-run-a-simple-feature-file",
+  "id": "test-cucumber",
   "keyword": "Feature",
   "tags": [
     {
@@ -16,18 +16,18 @@ formatter.scenario({
   "line": 4,
   "name": "cucumber setup",
   "description": "",
-  "id": "to-test-my-cucumber-test-is-running-i-want-to-run-a-simple-feature-file;cucumber-setup",
+  "id": "test-cucumber;cucumber-setup",
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
   "line": 6,
-  "name": "sample feature file is ready",
+  "name": "something",
   "keyword": "Given "
 });
 formatter.step({
   "line": 7,
-  "name": "I run the feature file",
+  "name": "I run the program",
   "keyword": "When "
 });
 formatter.step({
@@ -35,18 +35,25 @@ formatter.step({
   "name": "run should be successful",
   "keyword": "Then "
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "MyStepdefs.something()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 244981513,
+  "status": "passed"
 });
 formatter.match({
-  "location": "PiecesDef.runShouldBeSuccessful()"
+  "location": "MyStepdefs.iRunTheProgram()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 48108,
+  "status": "passed"
+});
+formatter.match({
+  "location": "MyStepdefs.runShouldBeSuccessful()"
+});
+formatter.result({
+  "duration": 37933,
+  "status": "passed"
 });
 });

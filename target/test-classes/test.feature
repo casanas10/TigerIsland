@@ -1,3 +1,4 @@
+@smokeTest
 Feature: Test Cucumber
 
   Scenario: cucumber setup
