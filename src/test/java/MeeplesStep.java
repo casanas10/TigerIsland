@@ -10,12 +10,7 @@ import org.junit.Before;
  */
 public class MeeplesStep {
 
-    private Game game;
-
-    @cucumber.api.java.Before
-    public void setUp(){
-        game = new Game();
-    }
+    private Game game = new Game();
 
     @Given("^a new game is created$")
     public void aNewGameIsCreated() throws Throwable {
@@ -29,6 +24,7 @@ public class MeeplesStep {
 
     @Then("^(\\d+) meeples are successfully created with the correct properties$")
     public void meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int meeples) throws Throwable {
+
         Assert.assertEquals(meeples, game.getRemainingMeeples());
     }
 

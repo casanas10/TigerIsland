@@ -6,13 +6,19 @@ public class Player {
     private int currentScore;
     private Pieces playerPieces;
 
+    public static int numberOfPlayers = 0;
+
     public Player(String playerColor, int currentScore){
+
+        numberOfPlayers++;
         this.playerColor = playerColor;
         this.currentScore = currentScore;
         playerPieces = new Pieces(playerColor);
         playerPieces.create20Meeples();
         playerPieces.create3Totoros();
     }
+
+
 
     public String getPlayerColor(){
         return this.playerColor;
