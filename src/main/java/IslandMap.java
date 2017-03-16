@@ -1,12 +1,41 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  * Created by cyonkee on 3/14/17.
  */
 public class IslandMap {
     Scanner s = new Scanner(System.in);
+    private ArrayList<Tile> tilesLeftToPickFrom;
+    private int[][] map;
 
-    private int[][] map = new int[48][15];
+    public IslandMap(){
+        map = new int[48][15];
+        tilesLeftToPickFrom = new ArrayList<Tile>(48);
+    }
+
+    // Generates the correct 48 tiles at the start of the game
+    public void tileGenerator(){
+        String terrainList[] = {"Lake", "Grass", "Rock", "Desert"};
+        for(int i=0;i<3;i++){
+            for(int j=0;j<4;j++){
+                for(int k=0;k<4;k++){
+                    tilesLeftToPickFrom.add(new Tile("Volcano",terrainList[j],terrainList[k]));
+                }
+            }
+
+        }
+    }
+
+    public void printTiles(){
+        int counter = 0;
+        for(Tile tile : tilesLeftToPickFrom){
+            System.out.print(counter + ".) ");
+            tile.printHexTerrains();
+            counter++;
+        }
+    }
+
 
     public void PlaceTile(int currentTile){
         System.out.println("Enter how many tiles you will touch:");

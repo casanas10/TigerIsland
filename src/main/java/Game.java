@@ -16,4 +16,8 @@ public class Game {
         return (black.getRemainingMeeples() + white.getRemainingMeeples());
     }
 
+    public int getRemainingTotoros(){
+        return (black.getRemainingTotoros() + white.getRemainingTotoros());
+    }
+
 }
