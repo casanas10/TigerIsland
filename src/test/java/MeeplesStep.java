@@ -32,4 +32,9 @@ public class MeeplesStep {
         Assert.assertEquals(meeples, game.getRemainingMeeples());
     }
 
+    @Then("^(\\d+) Totoros are successfully created with the correct properties$")
+    public void totorosAreSuccessfullyCreatedWithTheCorrectProperties(int totoros) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        Assert.assertEquals(totoros, game.getRemainingTotoros());
+    }
 }
