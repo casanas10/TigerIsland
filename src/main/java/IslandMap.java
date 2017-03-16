@@ -30,7 +30,7 @@ public class IslandMap {
     public void printTiles(){
         int counter = 0;
         for(Tile tile : tilesLeftToPickFrom){
-            System.out.println(counter + ".) ");
+            System.out.print(counter + ".) ");
             tile.printHexTerrains();
             counter++;
         }
