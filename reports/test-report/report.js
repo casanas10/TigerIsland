@@ -13,7 +13,11 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 139415,
+  "duration": 147113,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 49180,
   "status": "passed"
 });
 formatter.scenario({
@@ -43,21 +47,21 @@ formatter.match({
   "location": "GameStep.nothingHasYetHappened()"
 });
 formatter.result({
-  "duration": 97517261,
+  "duration": 95184842,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.theGameInitiates()"
 });
 formatter.result({
-  "duration": 82537,
+  "duration": 57306,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.aNewGameIsSuccessfullyCreated()"
 });
 formatter.result({
-  "duration": 2300345,
+  "duration": 2837905,
   "status": "passed"
 });
 formatter.uri("pieces.feature");
@@ -75,7 +79,11 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 31219,
+  "duration": 32501,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 18389,
   "status": "passed"
 });
 formatter.scenario({
@@ -108,26 +116,26 @@ formatter.step({
 });
 formatter.step({
   "line": 10,
-  "name": "the White player has 3 White Totoros",
+  "name": "the White player has 3 \"white\" Totoros",
   "keyword": "And "
 });
 formatter.step({
   "line": 11,
-  "name": "the Black player has 3 Black Totoros",
+  "name": "the Black player has 3 \"black\" Totoros",
   "keyword": "And "
 });
 formatter.match({
   "location": "MeeplesStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 64575,
+  "duration": 58161,
   "status": "passed"
 });
 formatter.match({
   "location": "MeeplesStep.theGameBegins()"
 });
 formatter.result({
-  "duration": 80826,
+  "duration": 56451,
   "status": "passed"
 });
 formatter.match({
@@ -140,7 +148,7 @@ formatter.match({
   "location": "MeeplesStep.meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 2430352,
+  "duration": 2043325,
   "status": "passed"
 });
 formatter.match({
@@ -153,7 +161,7 @@ formatter.match({
   "location": "MeeplesStep.totorosAreSuccessfullyCratedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 107341,
+  "duration": 102637,
   "status": "passed"
 });
 formatter.match({
@@ -161,12 +169,16 @@ formatter.match({
     {
       "val": "3",
       "offset": 21
+    },
+    {
+      "val": "white",
+      "offset": 24
     }
   ],
-  "location": "MeeplesStep.theWhitePlayerHasWhiteTotoros(int)"
+  "location": "MeeplesStep.theWhitePlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 132572,
+  "duration": 1513036,
   "status": "passed"
 });
 formatter.match({
@@ -174,12 +186,106 @@ formatter.match({
     {
       "val": "3",
       "offset": 21
+    },
+    {
+      "val": "black",
+      "offset": 24
     }
   ],
-  "location": "MeeplesStep.theBlackPlayerHasBlackTotoros(int)"
+  "location": "MeeplesStep.theBlackPlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 87241,
+  "duration": 165074,
+  "status": "passed"
+});
+formatter.uri("player.feature");
+formatter.feature({
+  "line": 3,
+  "name": "Player",
+  "description": "",
+  "id": "player",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@smokeTest"
+    }
+  ]
+});
+formatter.before({
+  "duration": 308337,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 40627,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 5,
+  "name": "A new game is created",
+  "description": "",
+  "id": "player;a-new-game-is-created",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 7,
+  "name": "A new game is created",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 8,
+  "name": "The game starts",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 9,
+  "name": "A player is successfully created with a start score of 0",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 10,
+  "name": "The player is assigned a color \"White\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "PlayerStep.aNewGameIsCreated()"
+});
+formatter.result({
+  "duration": 84676,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PlayerStep.theGameStarts()"
+});
+formatter.result({
+  "duration": 124447,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "0",
+      "offset": 55
+    }
+  ],
+  "location": "PlayerStep.playerCreation(int)"
+});
+formatter.result({
+  "duration": 92373,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "White",
+      "offset": 32
+    }
+  ],
+  "location": "PlayerStep.thePlayerIsAssignedAColor(String)"
+});
+formatter.result({
+  "duration": 79116,
   "status": "passed"
 });
 });
