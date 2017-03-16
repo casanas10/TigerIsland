@@ -6,6 +6,10 @@ public class Meeple {
     private String color;
     private int score;
 
+    public Meeple(String color){
+        this.color = color;
+        this.status = "Not Played";
+    }
     public void setStatus(String status){
         this.status = status;
     }

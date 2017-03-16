@@ -13,7 +13,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 247224,
+  "duration": 142409,
   "status": "passed"
 });
 formatter.scenario({
@@ -43,21 +43,21 @@ formatter.match({
   "location": "GameStep.nothingHasYetHappened()"
 });
 formatter.result({
-  "duration": 254956253,
+  "duration": 88868409,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.theGameInitiates()"
 });
 formatter.result({
-  "duration": 177895,
+  "duration": 33785,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.aNewGameIsSuccessfullyCreated()"
 });
 formatter.result({
-  "duration": 8191565,
+  "duration": 38916,
   "status": "passed"
 });
 formatter.uri("pieces.feature");
@@ -75,7 +75,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 256937,
+  "duration": 33785,
   "status": "passed"
 });
 formatter.scenario({
@@ -101,18 +101,23 @@ formatter.step({
   "name": "40 meeples are successfully created with the correct properties",
   "keyword": "Then "
 });
+formatter.step({
+  "line": 9,
+  "name": "6 Totoros are successfully created with the correct properties",
+  "keyword": "And "
+});
 formatter.match({
   "location": "MeeplesStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 245787,
+  "duration": 54739,
   "status": "passed"
 });
 formatter.match({
   "location": "MeeplesStep.theGameBegins()"
 });
 formatter.result({
-  "duration": 223103,
+  "duration": 66287,
   "status": "passed"
 });
 formatter.match({
@@ -125,7 +130,20 @@ formatter.match({
   "location": "MeeplesStep.meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 11562212,
+  "duration": 1946249,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "6",
+      "offset": 0
+    }
+  ],
+  "location": "MeeplesStep.totorosAreSuccessfullyCratedWithTheCorrectProperties(int)"
+});
+formatter.result({
+  "duration": 101781,
   "status": "passed"
 });
 });
