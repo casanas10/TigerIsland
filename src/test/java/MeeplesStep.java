@@ -43,6 +43,8 @@ public class MeeplesStep {
     public void theWhitePlayerHasTotoros(int numberOfTotoros, String color) throws Throwable {
         ArrayList<Totoro> totoros = game.getWhitePlayer().getPieces().getTotoros();
 
+        Assert.assertEquals(numberOfTotoros, totoros.size());
+
         for(int i = 0; i < numberOfTotoros; i++) {
             Assert.assertEquals("white", totoros.get(i).getColor());
         }
@@ -51,6 +53,8 @@ public class MeeplesStep {
     @And("^the Black player has (\\d+) \"([^\"]*)\" Totoros$")
     public void theBlackPlayerHasTotoros(int numberOfTotoros, String color) throws Throwable {
         ArrayList<Totoro> totoros = game.getBlackPlayer().getPieces().getTotoros();
+
+        Assert.assertEquals(numberOfTotoros, totoros.size());
 
         for(int i = 0; i < numberOfTotoros; i++) {
             Assert.assertEquals("black", totoros.get(i).getColor());
