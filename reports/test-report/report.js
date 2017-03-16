@@ -1,4 +1,66 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("pieces.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("game.feature");
+formatter.feature({
+  "line": 2,
+  "name": "Game Board",
+  "description": "",
+  "id": "game-board",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@smokeTest"
+    }
+  ]
+});
+formatter.before({
+  "duration": 247224,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 4,
+  "name": "A new game has started",
+  "description": "",
+  "id": "game-board;a-new-game-has-started",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 5,
+  "name": "Nothing has yet happened",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "The game initiates",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "A new game is successfully created",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "GameStep.nothingHasYetHappened()"
+});
+formatter.result({
+  "duration": 254956253,
+  "status": "passed"
+});
+formatter.match({
+  "location": "GameStep.theGameInitiates()"
+});
+formatter.result({
+  "duration": 177895,
+  "status": "passed"
+});
+formatter.match({
+  "location": "GameStep.aNewGameIsSuccessfullyCreated()"
+});
+formatter.result({
+  "duration": 8191565,
+  "status": "passed"
+});
+formatter.uri("pieces.feature");
 formatter.feature({
   "line": 2,
   "name": "Pieces",
@@ -13,7 +75,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 210833,
+  "duration": 256937,
   "status": "passed"
 });
 formatter.scenario({
@@ -43,14 +105,14 @@ formatter.match({
   "location": "MeeplesStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 93897179,
+  "duration": 245787,
   "status": "passed"
 });
 formatter.match({
   "location": "MeeplesStep.theGameBegins()"
 });
 formatter.result({
-  "duration": 125730,
+  "duration": 223103,
   "status": "passed"
 });
 formatter.match({
@@ -63,61 +125,7 @@ formatter.match({
   "location": "MeeplesStep.meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 4940247,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 44048,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 10,
-  "name": "A new game is created and all Totoro are created",
-  "description": "",
-  "id": "pieces;a-new-game-is-created-and-all-totoro-are-created",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 12,
-  "name": "a new game is created",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 13,
-  "name": "the game begins",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 14,
-  "name": "6 Totoros are successfully created with the correct properties",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "MeeplesStep.aNewGameIsCreated()"
-});
-formatter.result({
-  "duration": 34640,
-  "status": "passed"
-});
-formatter.match({
-  "location": "MeeplesStep.theGameBegins()"
-});
-formatter.result({
-  "duration": 32929,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "6",
-      "offset": 0
-    }
-  ],
-  "location": "MeeplesStep.totorosAreSuccessfullyCreatedWithTheCorrectProperties(int)"
-});
-formatter.result({
-  "duration": 109052,
+  "duration": 11562212,
   "status": "passed"
 });
 });
