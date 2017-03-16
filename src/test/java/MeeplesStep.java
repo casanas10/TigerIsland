@@ -1,4 +1,5 @@
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -32,4 +33,8 @@ public class MeeplesStep {
         Assert.assertEquals(meeples, game.getRemainingMeeples());
     }
 
+    @And("^(\\d+) Totoros are successfully created with the correct properties$")
+    public void totorosAreSuccessfullyCratedWithTheCorrectProperties(int numberOfTotoros) throws Throwable {
+        Assert.assertEquals(numberOfTotoros, game.getRemainingTotoros());
+    }
 }

@@ -25,25 +25,13 @@ public class Pieces {
 
     public void create20Meeples() {
         for (int i = 0; i < 20; i++) {
-            meeples.add(new Meeple());
+            meeples.add(new Meeple(color));
         }
     }
 
     public void create3Totoros() {
         for (int i = 0; i < 3; i++) {
-            totoros.add(new Totoro());
-        }
-    }
-
-    private void setMeepleColor() {
-        for (Meeple meeple : meeples){
-            meeple.setColor(color);
-        }
-    }
-
-    private void setTotoroColor() {
-        for (Totoro totoro : totoros){
-            totoro.setColor(color);
+            totoros.add(new Totoro(color));
         }
     }
 
