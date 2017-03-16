@@ -14,9 +14,16 @@ public class IslandMap {
         tilesLeftToPickFrom = new ArrayList<Tile>(48);
     }
 
+    // Generates the correct 48 tiles at the start of the game
     public void tileGenerator(){
-        for(int i=0;i<48;i++){
-            tilesLeftToPickFrom.add(new Tile("Volcano","Lake","Grass"));
+        String terrainList[] = {"Lake", "Grass", "Rock", "Desert"};
+        for(int i=0;i<3;i++){
+            for(int j=0;j<4;j++){
+                for(int k=0;k<4;k++){
+                    tilesLeftToPickFrom.add(new Tile("Volcano",terrainList[j],terrainList[k]));
+                }
+            }
+
         }
     }
 
