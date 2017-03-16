@@ -12,17 +12,6 @@ formatter.feature({
     }
   ]
 });
-<<<<<<< HEAD
-=======
-formatter.before({
-  "duration": 147968,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 48324,
-  "status": "passed"
-});
->>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
 formatter.scenario({
   "line": 4,
   "name": "A new game has started",
@@ -55,30 +44,21 @@ formatter.match({
   "location": "GameStep.nothingHasYetHappened()"
 });
 formatter.result({
-<<<<<<< HEAD
-  "duration": 197088834,
-=======
-  "duration": 94825186,
->>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
+  "duration": 260699018,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.theGameInitiates()"
 });
 formatter.result({
-<<<<<<< HEAD
-  "duration": 793508,
-=======
-  "duration": 40627,
->>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
+  "duration": 137819,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.aNewGameIsSuccessfullyCreated()"
 });
 formatter.result({
-<<<<<<< HEAD
-  "duration": 6114966,
+  "duration": 8407404,
   "status": "passed"
 });
 formatter.match({
@@ -91,10 +71,7 @@ formatter.match({
   "location": "GameStep.playersAreSuccessfullyCreatedEachHoldingSpecificPlayerAttributes(int)"
 });
 formatter.result({
-  "duration": 7704830,
-=======
-  "duration": 48753,
->>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
+  "duration": 14669833,
   "status": "passed"
 });
 formatter.uri("pieces.feature");
@@ -111,17 +88,6 @@ formatter.feature({
     }
   ]
 });
-<<<<<<< HEAD
-=======
-formatter.before({
-  "duration": 62865,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 53884,
-  "status": "passed"
-});
->>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
 formatter.scenario({
   "line": 4,
   "name": "A new game is created and all meeples are create",
@@ -164,22 +130,14 @@ formatter.match({
   "location": "MeeplesStep.aNewGameIsCreated()"
 });
 formatter.result({
-<<<<<<< HEAD
-  "duration": 1740680,
-=======
-  "duration": 66714,
->>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
+  "duration": 206162,
   "status": "passed"
 });
 formatter.match({
   "location": "MeeplesStep.theGameBegins()"
 });
 formatter.result({
-<<<<<<< HEAD
-  "duration": 246090,
-=======
-  "duration": 47042,
->>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
+  "duration": 173748,
   "status": "passed"
 });
 formatter.match({
@@ -192,17 +150,7 @@ formatter.match({
   "location": "MeeplesStep.meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int)"
 });
 formatter.result({
-<<<<<<< HEAD
-  "duration": 506199,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 10,
-  "name": "A new game is created and all Totoro are created",
-  "description": "",
-  "id": "pieces;a-new-game-is-created-and-all-totoro-are-created",
-=======
-  "duration": 1950098,
+  "duration": 164612,
   "status": "passed"
 });
 formatter.match({
@@ -215,7 +163,7 @@ formatter.match({
   "location": "MeeplesStep.totorosAreSuccessfullyCratedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 97077,
+  "duration": 525663,
   "status": "passed"
 });
 formatter.match({
@@ -232,7 +180,7 @@ formatter.match({
   "location": "MeeplesStep.theWhitePlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 1336843,
+  "duration": 10342888,
   "status": "passed"
 });
 formatter.match({
@@ -249,7 +197,7 @@ formatter.match({
   "location": "MeeplesStep.theBlackPlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 136422,
+  "duration": 479212,
   "status": "passed"
 });
 formatter.uri("player.feature");
@@ -266,52 +214,15 @@ formatter.feature({
     }
   ]
 });
-formatter.before({
-  "duration": 27797,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 17106,
-  "status": "passed"
-});
 formatter.scenario({
   "line": 5,
   "name": "A new game is created",
   "description": "",
   "id": "player;a-new-game-is-created",
->>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
-<<<<<<< HEAD
-  "line": 12,
-  "name": "a new game is created",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 13,
-  "name": "the game begins",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 14,
-  "name": "6 Totoros are successfully created with the correct properties",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "MeeplesStep.aNewGameIsCreated()"
-});
-formatter.result({
-  "duration": 263301,
-  "status": "passed"
-});
-formatter.match({
-  "location": "MeeplesStep.theGameBegins()"
-});
-formatter.result({
-  "duration": 217803,
-=======
   "line": 7,
   "name": "A new game is created",
   "keyword": "Given "
@@ -335,30 +246,19 @@ formatter.match({
   "location": "PlayerStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 81681,
+  "duration": 702529,
   "status": "passed"
 });
 formatter.match({
   "location": "PlayerStep.theGameStarts()"
 });
 formatter.result({
-  "duration": 42765,
->>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
+  "duration": 61449,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-<<<<<<< HEAD
-      "val": "6",
-      "offset": 0
-    }
-  ],
-  "location": "MeeplesStep.totorosAreSuccessfullyCreatedWithTheCorrectProperties(int)"
-});
-formatter.result({
-  "duration": 403825,
-=======
       "val": "0",
       "offset": 55
     }
@@ -366,7 +266,7 @@ formatter.result({
   "location": "PlayerStep.playerCreation(int)"
 });
 formatter.result({
-  "duration": 120170,
+  "duration": 135042,
   "status": "passed"
 });
 formatter.match({
@@ -379,8 +279,65 @@ formatter.match({
   "location": "PlayerStep.thePlayerIsAssignedAColor(String)"
 });
 formatter.result({
-  "duration": 80399,
->>>>>>> 3ff3707e2c768e3559bb792df46eda2878d370ca
+  "duration": 3337924,
+  "status": "passed"
+});
+formatter.uri("turns.feature");
+formatter.feature({
+  "line": 2,
+  "name": "Turns",
+  "description": "",
+  "id": "turns",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@smokeTest"
+    }
+  ]
+});
+formatter.scenario({
+  "line": 4,
+  "name": "The game has just started.",
+  "description": "",
+  "id": "turns;the-game-has-just-started.",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 5,
+  "name": "A brand new game",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "It’s time to begin",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "A player is chosen at random to start the game",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "TurnsStep.aBrandNewGame()"
+});
+formatter.result({
+  "duration": 1207472,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TurnsStep.itSTimeToBegin()"
+});
+formatter.result({
+  "duration": 62530,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TurnsStep.aPlayerIsChosenAtRandomToStartTheGame()"
+});
+formatter.result({
+  "duration": 64577,
   "status": "passed"
 });
 });

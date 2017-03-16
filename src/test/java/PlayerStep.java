@@ -9,13 +9,7 @@ import org.junit.Assert;
  */
 public class PlayerStep {
 
-    private Player player;
-    @cucumber.api.java.Before
-
-    public void set(){
-        player = new Player("White", 0);
-    }
-
+    private Player player = new Player("White", 0);
 
     @Given("^A new game is created")
     public void aNewGameIsCreated() throws Throwable{
@@ -25,13 +19,11 @@ public class PlayerStep {
     @When("^The game starts")
     public void theGameStarts() throws Throwable{
         System.out.println("The game starts");
-
     }
 
     @Then("^A player is successfully created with a start score of (\\d+)")
     public void playerCreation(int start) throws Throwable{
-    Assert.assertEquals(start, player.getCurrentScore());
-
+        Assert.assertEquals(start, player.getCurrentScore());
     }
 
 
