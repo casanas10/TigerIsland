@@ -12,9 +12,7 @@ public class Pieces {
     public Pieces(String color) {
         this.color = color;
         this.meeples = new ArrayList(20);
-        create20Meeples();
         this.totoros = new ArrayList(3);
-        create3Totoros();
     }
 
     public int getNumberOfTotoros() {
@@ -25,13 +23,13 @@ public class Pieces {
         return meeples.size();
     }
 
-    private void create20Meeples() {
+    public void create20Meeples() {
         for (int i = 0; i < 20; i++) {
             meeples.add(new Meeple());
         }
     }
 
-    private void create3Totoros() {
+    public void create3Totoros() {
         for (int i = 0; i < 3; i++) {
             totoros.add(new Totoro());
         }

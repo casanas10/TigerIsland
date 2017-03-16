@@ -10,6 +10,8 @@ public class Player {
         this.playerColor = playerColor;
         this.currentScore = currentScore;
         playerPieces = new Pieces(playerColor);
+        playerPieces.create20Meeples();
+        playerPieces.create3Totoros();
     }
 
     public String getPlayerColor(){
