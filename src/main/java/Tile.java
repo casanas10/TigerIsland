@@ -5,7 +5,6 @@ import java.util.ArrayList;
  */
 public class Tile {
     private int edges[] = new int[12];
-    //private String terrains[] = new String[3];   May not need this
     private ArrayList<Hex> containerOfHexes;
 
     public Tile(String terrainType1, String terrainType2, String terrainType3){
@@ -31,16 +30,4 @@ public class Tile {
     public int[] getEdges(){
         return edges;
     }
-
-    /* May not need this
-    public void setTerrains(String terrains[]){
-        for (int i = 0; i < terrains.length; i++) {
-            this.terrains[i] = terrains[i];
-        }
-    }
-
-    public String[] getTerrains(){
-        return terrains;
-    }
-    */
 }
