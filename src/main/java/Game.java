@@ -12,6 +12,14 @@ public class Game {
         this.white = new Player("white", 0);
     }
 
+    public Player getBlackPlayer() {
+        return black;
+    }
+
+    public Player getWhitePlayer() {
+        return white;
+    }
+
     public int getRemainingMeeples(){
         return (black.getRemainingMeeples() + white.getRemainingMeeples());
     }

@@ -13,7 +13,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 137277,
+  "duration": 139415,
   "status": "passed"
 });
 formatter.scenario({
@@ -43,21 +43,21 @@ formatter.match({
   "location": "GameStep.nothingHasYetHappened()"
 });
 formatter.result({
-  "duration": 115480821,
+  "duration": 97517261,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.theGameInitiates()"
 });
 formatter.result({
-  "duration": 41482,
+  "duration": 82537,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.aNewGameIsSuccessfullyCreated()"
 });
 formatter.result({
-  "duration": 60727,
+  "duration": 2300345,
   "status": "passed"
 });
 formatter.uri("pieces.feature");
@@ -75,7 +75,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 46187,
+  "duration": 31219,
   "status": "passed"
 });
 formatter.scenario({
@@ -106,18 +106,28 @@ formatter.step({
   "name": "6 Totoros are successfully created with the correct properties",
   "keyword": "And "
 });
+formatter.step({
+  "line": 10,
+  "name": "the White player has 3 White Totoros",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 11,
+  "name": "the Black player has 3 Black Totoros",
+  "keyword": "And "
+});
 formatter.match({
   "location": "MeeplesStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 62865,
+  "duration": 64575,
   "status": "passed"
 });
 formatter.match({
   "location": "MeeplesStep.theGameBegins()"
 });
 formatter.result({
-  "duration": 56878,
+  "duration": 80826,
   "status": "passed"
 });
 formatter.match({
@@ -130,7 +140,7 @@ formatter.match({
   "location": "MeeplesStep.meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 2844319,
+  "duration": 2430352,
   "status": "passed"
 });
 formatter.match({
@@ -143,7 +153,33 @@ formatter.match({
   "location": "MeeplesStep.totorosAreSuccessfullyCratedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 130434,
+  "duration": 107341,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "3",
+      "offset": 21
+    }
+  ],
+  "location": "MeeplesStep.theWhitePlayerHasWhiteTotoros(int)"
+});
+formatter.result({
+  "duration": 132572,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "3",
+      "offset": 21
+    }
+  ],
+  "location": "MeeplesStep.theBlackPlayerHasBlackTotoros(int)"
+});
+formatter.result({
+  "duration": 87241,
   "status": "passed"
 });
 });

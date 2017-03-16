@@ -23,6 +23,18 @@ public class Pieces {
         return meeples.size();
     }
 
+    public ArrayList<Meeple> getMeeples() {
+        return meeples;
+    }
+
+    public ArrayList<Totoro> getTotoros() {
+        return totoros;
+    }
+
+    public String getColorOfPieces() {
+        return color;
+    }
+
     public void create20Meeples() {
         for (int i = 0; i < 20; i++) {
             meeples.add(new Meeple(color));
