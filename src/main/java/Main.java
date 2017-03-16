@@ -9,6 +9,8 @@ public class Main {
         Game game = new Game();
 
         IslandMap map = new IslandMap();
-        map.PlaceTile(1);
+        map.tileGenerator();
+        map.printTiles();
+        //map.PlaceTile(1);
     }
 }
