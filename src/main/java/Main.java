@@ -12,7 +12,7 @@ public class Main {
 
         IslandMap map = new IslandMap();
         map.tileGenerator();    // Generate all tiles
-       // map.printTiles();
+        //map.printTiles();
         //map.PlaceTile(1);
     }
 }

@@ -18,8 +18,6 @@ public class Player {
         playerPieces.create3Totoros();
     }
 
-
-
     public String getPlayerColor(){
         return this.playerColor;
     }

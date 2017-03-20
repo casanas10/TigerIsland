@@ -16,7 +16,7 @@ public class IslandMap {
 
     // Generates the correct 48 tiles at the start of the game
     public void tileGenerator(){
-        String terrainList[] = {"Lake", "Grass", "Rock", "Desert"};
+        String terrainList[] = {"Lake", "Grassland", "Rocky", "Jungle"};
         for(int i=0;i<3;i++){
             for(int j=0;j<4;j++){
                 for(int k=0;k<4;k++){
