@@ -14,8 +14,8 @@ public class Hex {
         this.hexID = hexID;
         this.x = x;
         this.y = y;
-        terrain = "";
-        level = 0;
+        this.terrain = "";
+        this.level = 0;
     }
 
     public int getHexID() {

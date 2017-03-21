@@ -11,7 +11,6 @@ public class Tile {
         this.tileContainer = tileContainer;
     }
 
-
     public int getTileID() {
         return tileID;
     }
