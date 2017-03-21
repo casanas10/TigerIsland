@@ -4,11 +4,11 @@
 public class Tile {
 
     private int tileID;
-    private int[] tileContainer;
+    private int[] hexContainer;
 
     public Tile(int tileID, int[] tileContainer) {
         this.tileID = tileID;
-        this.tileContainer = tileContainer;
+        this.hexContainer = tileContainer;
     }
 
     public int getTileID() {
@@ -19,11 +19,11 @@ public class Tile {
         this.tileID = tileID;
     }
 
-    public int[] getTileContainer() {
-        return tileContainer;
+    public int[] getHexContainer() {
+        return hexContainer;
     }
 
-    public void setTileContainer(int[] tileContainer) {
-        this.tileContainer = tileContainer;
+    public void setHexContainer(int[] hexContainer) {
+        this.hexContainer = hexContainer;
     }
 }

@@ -8,7 +8,7 @@ public class IslandMap {
     private HashMap<Integer, int[]> gameBoardMap = new HashMap<Integer, int[]>();
 
     public void addTileToMap(Tile tile) {
-        gameBoardMap.put(tile.getTileID(), tile.getTileContainer());
+        gameBoardMap.put(tile.getTileID(), tile.getHexContainer());
     }
 
     public void printMap(){
