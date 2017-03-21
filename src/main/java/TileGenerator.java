@@ -3,6 +3,12 @@ import java.util.*;
 /**
  * Created by Eric on 3/20/2017.
  */
+
+// Returns a new tile as a string array of terrains.
+// Will return them in random order each time.
+// Once a tile is retrieved, the same tile cannot be retrieved again
+// until the next game.
+
 public class TileGenerator {
     private HashMap<Integer, String[]> terrainMap = new HashMap<Integer, String[]>();
     String terrainList[] = {"Lake", "Grassland", "Rocky", "Jungle"};
@@ -36,6 +42,7 @@ public class TileGenerator {
         return terrainMap.get(tileId);
     }
 
+    // Call this to have a new tile returned as a string array of terrains
     public String[] getNewTile(){
         String terrainArray[];
 
