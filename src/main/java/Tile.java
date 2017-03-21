@@ -4,7 +4,6 @@ import java.util.ArrayList;
  * Created by alecasanas on 3/14/17.
  */
 public class Tile {
-    private int edges[] = new int[12];
     private ArrayList<Hex> containerOfHexes;
 
     public Tile(String terrainType1, String terrainType2, String terrainType3){

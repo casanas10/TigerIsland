@@ -4,17 +4,14 @@ import org.junit.Test;
 /**
  * Created by alecasanas on 3/20/17.
  */
-public class IsMapTest {
-
+public class IslandMapTest {
     @Test
     public void whenUserAddAHexThenItShouldBeOnTheMap(){
 
         //Arrange
-        HexPoint hex = new HexPoint();
+        Hex hex = new Hex(2,2,2);
 
-        hex.setPoint(2,0,0);
-
-        IsMap map = new IsMap();
+        IslandMap map = new IslandMap();
 
         //Act
         map.addHexToMap(hex);
@@ -24,6 +21,4 @@ public class IsMapTest {
 
         map.printMap();
     }
-
-    
 }
