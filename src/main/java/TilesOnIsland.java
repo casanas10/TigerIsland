@@ -6,9 +6,9 @@ import java.util.*;
 public class TilesOnIsland {
     private HashMap<Integer, int[]> tilesPlaced;
 
-    public void addTileToIsland(Tile tile, Hex hex1, Hex hex2, Hex hex3) {
+    public void addTileToIsland(int tileNumber, Hex hex1, Hex hex2, Hex hex3) {
         int[] threeHexes = {hex1.getHexID(), hex2.getHexID(), hex3.getHexID()};
-        tilesPlaced.put(tile.getTileID(), threeHexes);      //TODO: add a getTileID() function in Tile class
+        tilesPlaced.put(tileNumber, threeHexes);
     }
 
     public int[] getHexesIDFromTileOnMap(int tileNumber) {
