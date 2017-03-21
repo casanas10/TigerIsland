@@ -12,18 +12,18 @@ import static junit.framework.TestCase.assertEquals;
 public class TilePlacedOnEmptyGameBoardStep {
     IslandMap islandMap;
 
-    @Given("^an empty game board$")
-    public void anEmptyGameBoard() throws Throwable {
-        islandMap = new IslandMap();
-    }
-
-    @When("^a tile is placed$")
-    public void aTileIsPlaced() throws Throwable {
-        islandMap.placeFirstTile(0);
-    }
-
-    @Then("^it should successfully become part of the game board$")
-    public void itShouldSuccessfullyBecomePartOfTheGameBoard() throws Throwable {
-        assertEquals(0,islandMap.getFirstTile());
-    }
+//    @Given("^an empty game board$")
+//    public void anEmptyGameBoard() throws Throwable {
+//        islandMap = new IslandMap();
+//    }
+//
+//    @When("^a tile is placed$")
+//    public void aTileIsPlaced() throws Throwable {
+//        islandMap.placeFirstTile(0);
+//    }
+//
+//    @Then("^it should successfully become part of the game board$")
+//    public void itShouldSuccessfullyBecomePartOfTheGameBoard() throws Throwable {
+//        assertEquals(0,islandMap.getFirstTile());
+//    }
 }
