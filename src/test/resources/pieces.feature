@@ -1,7 +1,7 @@
 @smokeTest
 Feature: Pieces
 
-  Scenario: A new game is created and all meeples are create
+  Scenario: A new game is created and all meeples are created
 
     Given a new game is created
     When the game begins
