@@ -28,8 +28,5 @@ public class Game {
         return (black.getRemainingTotoros() + white.getRemainingTotoros());
     }
 
-//    public String assingTurn(){
-//
-//    }
 
 }

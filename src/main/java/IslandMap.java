@@ -4,14 +4,15 @@ import java.util.*;
  * Created by cyonkee on 3/14/17.
  */
 public class IslandMap {
-    private HashMap<Integer, Hex> hashMap = new HashMap<Integer, Hex>();
 
-    public void addHexToMap(Hex hex) {
-        hashMap.put(hex.getHexID(), hex);
+    private HashMap<Integer, int[]> gameBoardMap = new HashMap<Integer, int[]>();
+
+    public void addTileToMap(Tile tile) {
+        gameBoardMap.put(tile.getTileID(), tile.getTileContainer());
     }
 
     public void printMap(){
-        Set set = hashMap.entrySet();
+        Set set = gameBoardMap.entrySet();
         Iterator iterator = set.iterator();
 
         while (iterator.hasNext()){
@@ -23,8 +24,8 @@ public class IslandMap {
         }
     }
 
-    public boolean containsHexKey(Hex hex){
-        if (hashMap.containsKey(hex.getHexID())){
+    public boolean containsHexKey(Tile tile){
+        if (gameBoardMap.containsKey(tile.getTileID())){
             return true;
         }
         return false;

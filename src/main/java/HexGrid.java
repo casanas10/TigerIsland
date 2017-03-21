@@ -8,23 +8,18 @@ import java.util.Set;
  */
 public class HexGrid {
 
+    public static final int GRID_SIZE = 200;
+
     private HashMap<Integer, Hex> hexMap = new HashMap<Integer, Hex>();
 
     public void generateHexGrid() {
-
         int hexID = 0;
-
-        for (int i = 0; i < 200; i++){
-
-            for (int j = 0; j < 200; j++){
-
+        for (int i = 0; i < GRID_SIZE; i++){
+            for (int j = 0; j < GRID_SIZE; j++){
                 Hex hex = new Hex(hexID,i,j);
-
                 hexMap.put(hexID, hex);
-
                 hexID++;
             }
-
         }
     }
 
