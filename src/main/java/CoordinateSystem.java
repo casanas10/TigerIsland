@@ -5,17 +5,16 @@ public class CoordinateSystem {
     private int x, y;
     private int maxArrayLength = 200;
 
-    public int getTileNumber(int x, int y) {
+    public int getHexID(int x, int y) {
         return maxArrayLength*y + x;
     }
 
-    public int getXCoordinate(int tileNumber) {
-        return tileNumber%maxArrayLength;
+    public int getXCoordinate(int hexID) {
+        return hexID%maxArrayLength;
     }
 
-    public int getYCoordinate(int tileNumber) {
-        return tileNumber/maxArrayLength;
+    public int getYCoordinate(int hexID) {
+        return hexID/maxArrayLength;
     }
-
 
 }

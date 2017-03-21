@@ -17,7 +17,7 @@ public class CoordinateSystemTest {
 
     @Test
     public void getTileNumber() throws Exception {
-        Assert.assertEquals(1003, coordinates.getTileNumber(3, 5));
+        Assert.assertEquals(1003, coordinates.getHexID(3, 5));
     }
 
     @Test
