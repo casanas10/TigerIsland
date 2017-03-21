@@ -11,7 +11,7 @@ public class TilesOnIsland {
         tilesPlaced.put(tile.getTileID(), threeHexes);
     }
 
-    public int[] getHexesFromTile(int tileNumber) {
+    public int[] getHexesIDFromTileOnMap(int tileNumber) {
         return tilesPlaced.get(tileNumber);
     }
 }
