@@ -19,6 +19,5 @@ public class IslandMapTest {
         //Assert
         Assert.assertTrue(map.containsHexKey(hex));
 
-        map.printMap();
     }
 }

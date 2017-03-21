@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -14,10 +15,7 @@ public class HexGridTest {
 
         Hex hexo = hexGrid.getHexValue(1);
 
-        System.out.println(hexo.getX());
-        System.out.println(hexo.getY());
-
-
-        //hexGrid.printMap();
+        Assert.assertEquals(0,hexo.getX());
+        Assert.assertEquals(1,hexo.getY());
     }
 }

@@ -8,7 +8,7 @@ import java.util.Set;
  */
 public class HexGrid {
 
-    private HashMap<Integer, Hex> hashMap = new HashMap<Integer, Hex>();
+    private HashMap<Integer, Hex> hexMap = new HashMap<Integer, Hex>();
 
     public void generateHexGrid() {
 
@@ -20,7 +20,7 @@ public class HexGrid {
 
                 Hex hex = new Hex(hexID,i,j);
 
-                hashMap.put(hexID, hex);
+                hexMap.put(hexID, hex);
 
                 hexID++;
             }
@@ -29,7 +29,7 @@ public class HexGrid {
     }
 
     public void printMap(){
-        Set set = hashMap.entrySet();
+        Set set = hexMap.entrySet();
         Iterator iterator = set.iterator();
 
         while (iterator.hasNext()){
@@ -43,6 +43,6 @@ public class HexGrid {
     }
 
     public Hex getHexValue(int hexID){
-        return hashMap.get(hexID);
+        return hexMap.get(hexID);
     }
 }
