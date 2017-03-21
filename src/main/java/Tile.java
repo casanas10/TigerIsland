@@ -4,6 +4,7 @@ import java.util.ArrayList;
  * Created by alecasanas on 3/14/17.
  */
 public class Tile {
+    /*
     private ArrayList<Hex> containerOfHexes;
 
     public Tile(String terrainType1, String terrainType2, String terrainType3){
@@ -37,4 +38,5 @@ public class Tile {
     public int[] getEdges(){
         return edges;
     }
+*/
 }
