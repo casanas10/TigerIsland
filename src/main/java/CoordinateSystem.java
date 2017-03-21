@@ -6,7 +6,7 @@ public class CoordinateSystem {
     private int maxArrayLength = 200;
 
     public int getHexID(int x, int y) {
-        return maxArrayLength*y + x;
+        return maxArrayLength * y + x;
     }
 
     public int getXCoordinate(int hexID) {
