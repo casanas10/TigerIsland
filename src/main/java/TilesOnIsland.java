@@ -8,7 +8,7 @@ public class TilesOnIsland {
 
     public void addTileToIsland(Tile tile, Hex hex1, Hex hex2, Hex hex3) {
         int[] threeHexes = {hex1.getHexID(), hex2.getHexID(), hex3.getHexID()};
-        tilesPlaced.put(tile.getTileID(), threeHexes);
+        tilesPlaced.put(tile.getTileID(), threeHexes);      //TODO: add a getTileID() function in Tile class
     }
 
     public int[] getHexesIDFromTileOnMap(int tileNumber) {
