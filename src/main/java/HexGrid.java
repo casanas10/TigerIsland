@@ -40,4 +40,6 @@ public class HexGrid {
     public Hex getHexValue(int hexID){
         return hexMap.get(hexID);
     }
+
+
 }

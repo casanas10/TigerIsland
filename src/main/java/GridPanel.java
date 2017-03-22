@@ -6,21 +6,37 @@ import java.awt.*;
  */
 public class GridPanel extends JPanel{
 
-    HexGrid hexGrid = new HexGrid();
-
     CoordinateSystem coor = new CoordinateSystem();
 
-    private boolean isOdd;
+    private boolean isOdd = false;
+    private int x;
+    private int y;
 
-    JTextField textField;
+    Hexagon hex = new Hexagon();
 
     @Override
     protected void paintComponent(Graphics g){
 
-        super.paintComponent(g);
-
         paintGrid(g);
 
+    }
+
+    public void paintHexOnGrid(int x, int y) {
+        Graphics2D g2 = (Graphics2D) this.getGraphics();
+        g2.setStroke(new BasicStroke(3));
+        g2.setPaint(Color.red);
+
+        if (y%2 == 0){
+
+            x = x * 30 + 30;
+            y = y * 25 + 25;
+
+        } else {
+            x = x * 30 + 30 + 15;
+            y = y * 25 + 25;
+        }
+
+        g2.drawPolygon(hex.getHexagon(x, y));
     }
 
     private void paintGrid(Graphics g) {
@@ -59,4 +75,20 @@ public class GridPanel extends JPanel{
         return String.valueOf(id);
     }
 
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
