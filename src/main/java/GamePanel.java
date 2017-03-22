@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.HashMap;
@@ -31,13 +33,22 @@ public class GamePanel extends JPanel{
     private void drawButton() {
         JButton okButton = new JButton("OK");
         okButton.setBounds(950,250,100,40);
+
+        okButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                System.out.println("Ok clicked");
+            }
+        });
+        
         this.add(okButton);
+        
+        
     }
 
     private void DrawTexfields(Graphics g) {
         g.drawString("Tiger Island" , 950, 50);
-
-
+        
         g.drawString("Pick a Hex: " , 875, 100);
 
         textField = new JTextField(3);
