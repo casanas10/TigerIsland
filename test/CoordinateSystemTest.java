@@ -17,17 +17,17 @@ public class CoordinateSystemTest {
 
     @Test
     public void getTileNumber() throws Exception {
-        Assert.assertEquals(1003, coordinates.getHexID(3, 5));
+        Assert.assertEquals(133, coordinates.getHexID(3, 5));
     }
 
     @Test
     public void getXCoordinate() throws Exception {
-        Assert.assertEquals(0, coordinates.getXCoordinate(200));
+        Assert.assertEquals(18, coordinates.getXCoordinate(200));
     }
 
     @Test
     public void getYCoordinate() throws Exception {
-        Assert.assertEquals(1, coordinates.getYCoordinate(200));
+        Assert.assertEquals(7, coordinates.getYCoordinate(200));
     }
 
 }
