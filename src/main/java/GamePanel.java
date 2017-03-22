@@ -1,5 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -13,11 +17,51 @@ public class GamePanel extends JPanel{
 
     private boolean isOdd;
 
+    JTextField textField;
+
     @Override
     protected void paintComponent(Graphics g){
 
         paintGrid(g);
 
+        DrawTexfields(g);
+
+        drawButton();
+
+    }
+
+    private void drawButton() {
+        JButton okButton = new JButton("OK");
+        okButton.setBounds(950,250,100,40);
+
+        okButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                System.out.println("Ok clicked");
+            }
+        });
+        
+        this.add(okButton);
+        
+        
+    }
+
+    private void DrawTexfields(Graphics g) {
+        g.drawString("Tiger Island" , 950, 50);
+        
+        g.drawString("Pick a Hex: " , 875, 100);
+
+        textField = new JTextField(3);
+        textField.setBounds(950, 75, 100, 40); // to get height, set large font
+        textField.setFont(textField.getFont().deriveFont(40f));
+        this.add(textField);
+
+        g.drawString("Orientation: " , 870, 200);
+
+        textField = new JTextField(3);
+        textField.setBounds(950, 175, 100, 40); // to get height, set large font
+        textField.setFont(textField.getFont().deriveFont(40f));
+        this.add(textField);
     }
 
     private void paintGrid(Graphics g) {
@@ -30,11 +74,11 @@ public class GamePanel extends JPanel{
                     if (isOdd){
 
                         g.drawPolygon(hex.getHexagon(i+15, j));
-                        g.drawString(String.valueOf(i%30), i+15-8, j+5);
+                        g.drawString(String.valueOf(hexGridToPixelConversion(i,j)), i+15-8, j+5);
 
                     } else {
                         g.drawPolygon(hex.getHexagon(i, j));
-                        g.drawString(String.valueOf(i/30), i-8, j+5);
+                        g.drawString(String.valueOf(hexGridToPixelConversion(i,j)), i-8, j+5);
                     }
                 }
                 isOdd();
@@ -48,18 +92,12 @@ public class GamePanel extends JPanel{
 
     public String hexGridToPixelConversion(int x, int y){
 
-        int i = x - 30;
-        int j = y - 25;
+        int i = x/30 - 1;
+        int j = y/25 - 1;
 
         int id = coor.getHexID(i, j);
-        System.out.println(coor.getHexID(i, j));
 
         return String.valueOf(id);
-    }
-
-    public void test() {
-
-        System.out.println(coor.getHexID(0,1));
     }
 
 }

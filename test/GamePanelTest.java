@@ -5,12 +5,6 @@ import org.junit.Test;
  */
 public class GamePanelTest {
 
-    @Test
-    public void test() {
 
-        GamePanel gamePanel = new GamePanel();
-
-        gamePanel.test();
-    }
 
 }
