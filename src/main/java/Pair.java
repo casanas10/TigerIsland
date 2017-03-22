@@ -1,16 +1,16 @@
 /**
  * Created by Val on 3/21/2017.
  */
-public class pair {
+public class Pair {
     int x;
     int y;
 
-    public pair(int x, int y) {
+    public Pair(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public pair() {
+    public Pair() {
     }
 
     public int getx(){

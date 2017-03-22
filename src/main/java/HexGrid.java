@@ -41,5 +41,13 @@ public class HexGrid {
         return hexMap.get(hexID);
     }
 
+    public void setTerrains(int hexIDs[], String hexTerrains[]){
+        Hex hex;
+        for(int i=0; i<3; i++){
+            hex = getHexValue(hexIDs[i]);
+            hex.setTerrain(hexTerrains[i]);
+        }
+    }
+
 
 }
