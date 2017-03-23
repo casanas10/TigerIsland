@@ -4,3 +4,5 @@
 .idea/*
 out/*
 workspace.xml
+reports/*
+target/*
