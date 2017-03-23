@@ -12,5 +12,8 @@ public class Main {
                 new GameFrame();
             }
         });
+
+        Game game = new Game();
+        game.gameRunning();
     }
 }
