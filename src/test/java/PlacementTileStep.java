@@ -42,4 +42,9 @@ public class PlacementTileStep {
     public void theTileIsUnsuccessfullyPlacedInTheMap() throws Throwable {
         Assert.assertFalse(isPlacedSuccessfully);
     }
+
+    @When("^you place a new tile that is adjacent to the other$")
+    public void youPlaceANewTileThatIsAdjacentToTheOther() throws Throwable {
+        isPlacedSuccessfully = islandMap.addTileToMap(403,180);
+    }
 }

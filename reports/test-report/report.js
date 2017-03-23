@@ -44,21 +44,21 @@ formatter.match({
   "location": "GameStep.nothingHasYetHappened()"
 });
 formatter.result({
-  "duration": 500146898,
+  "duration": 554543064,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.theGameInitiates()"
 });
 formatter.result({
-  "duration": 45942322,
+  "duration": 60824643,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.aNewGameIsSuccessfullyCreated()"
 });
 formatter.result({
-  "duration": 5206246,
+  "duration": 7409086,
   "status": "passed"
 });
 formatter.match({
@@ -71,7 +71,7 @@ formatter.match({
   "location": "GameStep.playersAreSuccessfullyCreatedEachHoldingSpecificPlayerAttributes(int)"
 });
 formatter.result({
-  "duration": 7006665,
+  "duration": 8922122,
   "status": "passed"
 });
 formatter.uri("pieces.feature");
@@ -130,14 +130,14 @@ formatter.match({
   "location": "MeeplesStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 17529064,
+  "duration": 23999025,
   "status": "passed"
 });
 formatter.match({
   "location": "MeeplesStep.theGameBegins()"
 });
 formatter.result({
-  "duration": 121453,
+  "duration": 201852,
   "status": "passed"
 });
 formatter.match({
@@ -150,7 +150,7 @@ formatter.match({
   "location": "MeeplesStep.meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 259157,
+  "duration": 384032,
   "status": "passed"
 });
 formatter.match({
@@ -163,7 +163,7 @@ formatter.match({
   "location": "MeeplesStep.totorosAreSuccessfullyCratedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 192016,
+  "duration": 417389,
   "status": "passed"
 });
 formatter.match({
@@ -180,7 +180,7 @@ formatter.match({
   "location": "MeeplesStep.theWhitePlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 4657995,
+  "duration": 4986860,
   "status": "passed"
 });
 formatter.match({
@@ -197,7 +197,7 @@ formatter.match({
   "location": "MeeplesStep.theBlackPlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 383177,
+  "duration": 419956,
   "status": "passed"
 });
 formatter.uri("placement.feature");
@@ -241,21 +241,21 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
-  "duration": 7172167,
+  "duration": 12520822,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceATile()"
 });
 formatter.result({
-  "duration": 1891509,
+  "duration": 2401698,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theTileIsSuccessfullyPlacedInTheMap()"
 });
 formatter.result({
-  "duration": 89380,
+  "duration": 124019,
   "status": "passed"
 });
 formatter.scenario({
@@ -285,21 +285,65 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyOnTheBoard()"
 });
 formatter.result({
-  "duration": 9226611,
+  "duration": 13362014,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceANewTileThatOverlapsTheOther()"
 });
 formatter.result({
-  "duration": 694081,
+  "duration": 846753,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theTileIsUnsuccessfullyPlacedInTheMap()"
 });
 formatter.result({
-  "duration": 92373,
+  "duration": 1992007,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 14,
+  "name": "Touching Adjacent Tiles",
+  "description": "",
+  "id": "placing-tiles;touching-adjacent-tiles",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 15,
+  "name": "a tile is already on the board",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 16,
+  "name": "you place a new tile that is adjacent to the other",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 17,
+  "name": "the tile is successfully placed in the map",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "PlacementTileStep.aTileIsAlreadyOnTheBoard()"
+});
+formatter.result({
+  "duration": 8167742,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PlacementTileStep.youPlaceANewTileThatIsAdjacentToTheOther()"
+});
+formatter.result({
+  "duration": 479826,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PlacementTileStep.theTileIsSuccessfullyPlacedInTheMap()"
+});
+formatter.result({
+  "duration": 77832,
   "status": "passed"
 });
 formatter.uri("player.feature");
@@ -348,14 +392,14 @@ formatter.match({
   "location": "PlayerStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 418245,
+  "duration": 344688,
   "status": "passed"
 });
 formatter.match({
   "location": "PlayerStep.theGameStarts()"
 });
 formatter.result({
-  "duration": 168495,
+  "duration": 146684,
   "status": "passed"
 });
 formatter.match({
@@ -368,7 +412,7 @@ formatter.match({
   "location": "PlayerStep.playerCreation(int)"
 });
 formatter.result({
-  "duration": 230933,
+  "duration": 280540,
   "status": "passed"
 });
 formatter.match({
@@ -381,7 +425,163 @@ formatter.match({
   "location": "PlayerStep.thePlayerIsAssignedAColor(String)"
 });
 formatter.result({
-  "duration": 161653,
+  "duration": 227084,
   "status": "passed"
+});
+formatter.uri("tile.feature");
+formatter.feature({
+  "line": 2,
+  "name": "Tiles",
+  "description": "",
+  "id": "tiles",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@smokeTest"
+    }
+  ]
+});
+formatter.scenario({
+  "line": 4,
+  "name": "A new game board has been created",
+  "description": "",
+  "id": "tiles;a-new-game-board-has-been-created",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 6,
+  "name": "an empty game board",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 7,
+  "name": "a tile is placed",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 8,
+  "name": "it should successfully become part of the game board",
+  "keyword": "Then "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.scenario({
+  "line": 10,
+  "name": "A tile has already been placed on the board",
+  "description": "",
+  "id": "tiles;a-tile-has-already-been-placed-on-the-board",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 12,
+  "name": "another tile is going to be placed on the board",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 13,
+  "name": "the tile is placed unconnected to another tile",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 14,
+  "name": "placing the tile fails",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 15,
+  "name": "there is a warning message",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 17,
+  "name": "another tile is going to be placed on the board",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 18,
+  "name": "the tile is placed overlapping another tile",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 19,
+  "name": "placing tile fails",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 20,
+  "name": "warning message",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 22,
+  "name": "another tile is going to be placed on the board",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 23,
+  "name": "the tile is placed while its edges are touching one or more other tiles",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 24,
+  "name": "The tile is successfully placed",
+  "keyword": "Then "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
 });
 });
