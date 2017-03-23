@@ -30,4 +30,19 @@ public class CoordinateSystemTest {
         Assert.assertEquals(1, coordinates.getYCoordinate(200));
     }
 
+    @Test
+    public void checkFirstHexID() throws Exception {
+        Assert.assertEquals(0, coordinates.getHexID(0,0));
+    }
+
+    @Test
+    public void checkLastHexID() throws Exception {
+        Assert.assertEquals(39999, coordinates.getHexID(199,199));
+    }
+
+    @Test
+    public void checkIfCoordinateArrayLengthIs200() throws Exception {
+        Assert.assertEquals(200, coordinates.getHexID(0, 1));
+    }
+
 }
