@@ -91,6 +91,8 @@ public class Game {
 
             islandMap.addTileToMap(hexID, tileOrientation);
 
+            islandMap.printMap();
+
             gameOver = true;
         }
     }

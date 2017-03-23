@@ -24,28 +24,31 @@ public class IslandMap {
         RotateTile rotateTile = new RotateTile(hexID, orientation);
         tileHexIDsArray = rotateTile.checkPair();
 
+        System.out.println(Arrays.toString(tileHexIDsArray));
+
         String tileTerrainsArray[] = new String[3];
         tileTerrainsArray = myGen.getNewTile();
-
-
-
 
         boolean hexesCanBePlaced = false;
         boolean adjacentTilesValid = false;
         PlacementValidity placementValidity = new PlacementValidity();
         //I want the function below to take hexID array instead and also terrain array
-        //hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray, tileTerrainsArray);
-        //adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
+        hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray, tileTerrainsArray);
+        adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
 
+        System.out.println(hexesCanBePlaced);
+        System.out.println(adjacentTilesValid);
 
         if(hexesCanBePlaced && adjacentTilesValid){
             Tile tile = new Tile(tileCount,tileHexIDsArray);
             hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             tileCount++;
+            System.out.println("Tile Successfully Placed!");
         }
         else{
             //return to user to request new hexID and Orientation
+            System.out.println("Tile could not be placed, select another location");
         }
     }
 
