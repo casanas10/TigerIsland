@@ -19,10 +19,11 @@ public class PlacementValidity {
     HexGrid findHex = new HexGrid();
 
 
-    public boolean checkIfHexesCanBePlaced(HexGrid hexGrid, int[] tileHexIDsArray, String[] tileTerrainsArray){
-            int counter = 0;
 
-        for(int i=0; i<tileHexIDsArray.length; i++) {
+    public boolean checkIfHexesCanBePlaced(HexGrid hexGrid, int[] tileHexIDsArray, String[] tileTerrainsArray) {
+        int counter = 0;
+
+        for (int i = 0; i < tileHexIDsArray.length; i++) {
             if (hexGrid.getHexValue(tileHexIDsArray[i]).getTerrain().isEmpty() == false) {
 
                 counter++;
@@ -30,15 +31,10 @@ public class PlacementValidity {
             }
         }
 
-            if(counter == tileHexIDsArray.length){
-                    return true;
-            }else return false;
-
-
+        if (counter == tileHexIDsArray.length) {
+            return true;
+        } else return false;
     }
-
-
-
 
 
     public boolean SearchAdjacentTiles(HexGrid hexGrid, int[] tileHexIDsArray){
@@ -51,9 +47,6 @@ public class PlacementValidity {
        hex2= tileHexIDsArray[1];
        hex3= tileHexIDsArray[2];
 
-       Hex testHex = hexGrid.getHexValue(602);
-
-       testHex.setTerrain("Jungle");
 
 
 
@@ -61,12 +54,9 @@ public class PlacementValidity {
        for(int i=0; i< tileHexIDsArray.length; i++) {
 
             int row = hex1/200;
-          //  double floorRow = Math.floor(row);
-                System.out.println("row is" + row%2);
 
            if( row%2 != 0 ) {
 
-               System.out.println("Odd");
 
 
                givenHexID = hex1;
@@ -74,8 +64,6 @@ public class PlacementValidity {
                xStart = searchCoordinates.getXCoordinate(givenHexID);
                yStart = searchCoordinates.getYCoordinate(givenHexID);
 
-               System.out.println("xStart is " + xStart);
-               System.out.println("yStart is " + yStart);
 
 
                testX = xStart + 1;
@@ -84,36 +72,32 @@ public class PlacementValidity {
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
 
-               System.out.println("Counter is" + counter);
 
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
                            counter++;
-                           System.out.println("1");
+
 
                        }
                    }
                }
 
-               System.out.println("xStart is !!" + xStart);
-               System.out.println("yStart is !!" + yStart);
 
 
                testX = xStart + 1;
                testY = yStart - 1;
 
-               System.out.println("testX " + testX);
-               System.out.println("testY " + testY);
+
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
 
-               System.out.println("Counter is" + counter);
+
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
                            counter++;
-                           System.out.println("2");
+
                        }
                    }
                }
@@ -122,15 +106,12 @@ public class PlacementValidity {
                testY = yStart-1;
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
-               System.out.println("Counter is" + counter);
-
-               System.out.println("tester hex is" + testerHexID);
 
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
                            counter++;
-                           System.out.println("3");
+
                        }
                    }
                }
@@ -142,12 +123,12 @@ public class PlacementValidity {
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
 
-               System.out.println("Counter is" + counter);
+
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
                            counter++;
-                           System.out.println("4");
+
                        }
                    }
                }
@@ -163,7 +144,7 @@ public class PlacementValidity {
 
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
                            counter++;
-                           System.out.println("5");
+
 
                        }
                    }
@@ -173,14 +154,14 @@ public class PlacementValidity {
                testY = yStart + 1;
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
-               System.out.println("Counter is" + counter);
+
 
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        // Hex sub = findHex.getHexValue(testerHexID);
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
 
-                           System.out.println("6");
+
 
                            counter++;
                        }
@@ -188,7 +169,7 @@ public class PlacementValidity {
                }
 
            }else if(row %2 == 0 ) {
-               System.out.println("Even");
+
 
                //OTHER ROW
                givenHexID = hex1;
@@ -196,8 +177,7 @@ public class PlacementValidity {
                xStart = searchCoordinates.getXCoordinate(givenHexID);
                yStart = searchCoordinates.getYCoordinate(givenHexID);
 
-               System.out.println("xStart is " + xStart);
-               System.out.println("yStart is " + yStart);
+
 
 
                testX = xStart+1;
@@ -206,13 +186,13 @@ public class PlacementValidity {
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
 
-               System.out.println("Counter is" + counter);
+
 
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
                            counter++;
-                           System.out.println("1");
+
 
                        }
                    }
@@ -222,17 +202,16 @@ public class PlacementValidity {
                testX = xStart;
                testY = yStart-1;
 
-               System.out.println("testX" + testX);
-               System.out.println("testY" + testY);
+
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
 
-               System.out.println("Counter is" + counter);
+
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
                            counter++;
-                           System.out.println("2");
+
                        }
                    }
                }
@@ -241,14 +220,13 @@ public class PlacementValidity {
                testY = yStart-1;
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
-               System.out.println("Counter is" + counter);
-               System.out.println("tester hex is" + testerHexID);
+
 
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
                            counter++;
-                           System.out.println("3");
+
                        }
                    }
                }
@@ -259,12 +237,12 @@ public class PlacementValidity {
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
 
-               System.out.println("Counter is" + counter);
+
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
                            counter++;
-                           System.out.println("4");
+
                        }
                    }
                }
@@ -274,12 +252,12 @@ public class PlacementValidity {
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
 
-               System.out.println("Counter is" + counter);
+
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
                            counter++;
-                           System.out.println("5");
+
 
                        }
                    }
@@ -289,14 +267,14 @@ public class PlacementValidity {
                testY = yStart + 1;
 
                testerHexID = searchCoordinates.getHexID(testX, testY);
-               System.out.println("Counter is" + counter);
+
 
                if (testerHexID != hex2) {
                    if (testerHexID != hex3) {
                        // Hex sub = findHex.getHexValue(testerHexID);
                        if (hexGrid.getHexValue(testerHexID).getTerrain().isEmpty() == false) {
 
-                           System.out.println("6");
+
 
                            counter++;
                        }
@@ -325,6 +303,7 @@ public class PlacementValidity {
 
 
        }
+
 
         if(counter > 0){
             return true;
