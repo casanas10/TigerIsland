@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 /**
  * Created by Val on 3/20/2017.
  */
@@ -16,6 +19,7 @@ public class RotateTile {
     public int[] checkPair(){
 
         int[] Hex1Offset = new int[6];
+<<<<<<< HEAD
         int[] Hex2Offset = new int[6];
 
         // Determine if the origin is on an odd or even row
@@ -49,6 +53,24 @@ public class RotateTile {
             Hex2Offset[4] = -1;
             Hex2Offset[5] = 199;
         }
+=======
+
+        Hex1Offset[0] = 200;
+        Hex1Offset[1] = 201;
+        Hex1Offset[2] = 1;
+        Hex1Offset[3] = -199;
+        Hex1Offset[4] = -200;
+        Hex1Offset[5] = -1;
+
+        int[] Hex2Offset = new int[6];
+
+        Hex2Offset[0] = 201;
+        Hex2Offset[1] = 1;
+        Hex2Offset[2] = -199;
+        Hex2Offset[3] = -200;
+        Hex2Offset[4] = -1;
+        Hex2Offset[5] = 200;
+>>>>>>> master
 
         Tile[0] = HexID;
         Tile[1] = this.HexID + Hex1Offset[Orientation/60];

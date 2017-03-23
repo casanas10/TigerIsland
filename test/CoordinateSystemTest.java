@@ -1,8 +1,7 @@
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Connor on 3/21/2017.
@@ -43,6 +42,21 @@ public class CoordinateSystemTest {
     @Test
     public void checkIfCoordinateArrayLengthIs200() throws Exception {
         Assert.assertEquals(200, coordinates.getHexID(0, 1));
+    }
+
+    @Test
+    public void checkFirstHexID() throws Exception {
+        Assert.assertEquals(0, coordinates.getHexID(0,0));
+    }
+
+    @Test
+    public void checkLastHexID() throws Exception {
+        Assert.assertEquals(702, coordinates.getHexID(26,26));
+    }
+
+    @Test
+    public void checkIfCoordinateArrayLengthIs200() throws Exception {
+        Assert.assertEquals(26, coordinates.getHexID(0, 1));
     }
 
 }
