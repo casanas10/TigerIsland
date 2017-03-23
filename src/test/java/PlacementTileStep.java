@@ -23,6 +23,7 @@ public class PlacementTileStep {
 
     @Then("^the tile is successfully placed in the map$")
     public void theTileIsSuccessfullyPlacedInTheMap() throws Throwable {
+        IslandMap islandMap = new IslandMap();
         Assert.assertTrue(islandMap.addTileToMap(402,0));
     }
 }
