@@ -44,21 +44,21 @@ formatter.match({
   "location": "GameStep.nothingHasYetHappened()"
 });
 formatter.result({
-  "duration": 554543064,
+  "duration": 152795674,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.theGameInitiates()"
 });
 formatter.result({
-  "duration": 60824643,
+  "duration": 10016913,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.aNewGameIsSuccessfullyCreated()"
 });
 formatter.result({
-  "duration": 7409086,
+  "duration": 2223795,
   "status": "passed"
 });
 formatter.match({
@@ -71,7 +71,7 @@ formatter.match({
   "location": "GameStep.playersAreSuccessfullyCreatedEachHoldingSpecificPlayerAttributes(int)"
 });
 formatter.result({
-  "duration": 8922122,
+  "duration": 1817952,
   "status": "passed"
 });
 formatter.uri("pieces.feature");
@@ -130,14 +130,14 @@ formatter.match({
   "location": "MeeplesStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 23999025,
+  "duration": 3925853,
   "status": "passed"
 });
 formatter.match({
   "location": "MeeplesStep.theGameBegins()"
 });
 formatter.result({
-  "duration": 201852,
+  "duration": 46614,
   "status": "passed"
 });
 formatter.match({
@@ -150,7 +150,7 @@ formatter.match({
   "location": "MeeplesStep.meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 384032,
+  "duration": 123592,
   "status": "passed"
 });
 formatter.match({
@@ -163,7 +163,7 @@ formatter.match({
   "location": "MeeplesStep.totorosAreSuccessfullyCratedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 417389,
+  "duration": 115894,
   "status": "passed"
 });
 formatter.match({
@@ -180,7 +180,7 @@ formatter.match({
   "location": "MeeplesStep.theWhitePlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 4986860,
+  "duration": 1193152,
   "status": "passed"
 });
 formatter.match({
@@ -197,7 +197,7 @@ formatter.match({
   "location": "MeeplesStep.theBlackPlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 419956,
+  "duration": 103920,
   "status": "passed"
 });
 formatter.uri("placement.feature");
@@ -241,21 +241,21 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
-  "duration": 12520822,
+  "duration": 2457293,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceATile()"
 });
 formatter.result({
-  "duration": 2401698,
+  "duration": 550817,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theTileIsSuccessfullyPlacedInTheMap()"
 });
 formatter.result({
-  "duration": 124019,
+  "duration": 26087,
   "status": "passed"
 });
 formatter.scenario({
@@ -285,21 +285,21 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyOnTheBoard()"
 });
 formatter.result({
-  "duration": 13362014,
+  "duration": 1890225,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceANewTileThatOverlapsTheOther()"
 });
 formatter.result({
-  "duration": 846753,
+  "duration": 251460,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theTileIsUnsuccessfullyPlacedInTheMap()"
 });
 formatter.result({
-  "duration": 1992007,
+  "duration": 45331,
   "status": "passed"
 });
 formatter.scenario({
@@ -329,21 +329,21 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyOnTheBoard()"
 });
 formatter.result({
-  "duration": 8167742,
+  "duration": 1559222,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceANewTileThatIsAdjacentToTheOther()"
 });
 formatter.result({
-  "duration": 479826,
+  "duration": 144974,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theTileIsSuccessfullyPlacedInTheMap()"
 });
 formatter.result({
-  "duration": 77832,
+  "duration": 23949,
   "status": "passed"
 });
 formatter.uri("player.feature");
@@ -392,14 +392,14 @@ formatter.match({
   "location": "PlayerStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 344688,
+  "duration": 112045,
   "status": "passed"
 });
 formatter.match({
   "location": "PlayerStep.theGameStarts()"
 });
 formatter.result({
-  "duration": 146684,
+  "duration": 67142,
   "status": "passed"
 });
 formatter.match({
@@ -412,7 +412,7 @@ formatter.match({
   "location": "PlayerStep.playerCreation(int)"
 });
 formatter.result({
-  "duration": 280540,
+  "duration": 124019,
   "status": "passed"
 });
 formatter.match({
@@ -425,7 +425,7 @@ formatter.match({
   "location": "PlayerStep.thePlayerIsAssignedAColor(String)"
 });
 formatter.result({
-  "duration": 227084,
+  "duration": 82964,
   "status": "passed"
 });
 formatter.uri("tile.feature");

@@ -15,11 +15,13 @@ public class PlacementTileStep {
     @Given("^a tile is already place in the board$")
     public void aTileIsAlreadyPlaceInTheBoard() throws Throwable {
         islandMap = new IslandMap();
+        Assert.assertNotNull(islandMap);
     }
 
     @When("^you place a tile$")
     public void youPlaceATile() throws Throwable {
         isPlacedSuccessfully = islandMap.addTileToMap(402,0);
+        Assert.assertNotNull(isPlacedSuccessfully);
     }
 
     @Then("^the tile is successfully placed in the map$")
@@ -30,7 +32,9 @@ public class PlacementTileStep {
     @Given("^a tile is already on the board$")
     public void aTileIsAlreadyOnTheBoard() throws Throwable {
         islandMap = new IslandMap();
-        islandMap.addTileToMap(402, 0);
+
+        isPlacedSuccessfully = islandMap.addTileToMap(402, 0);
+        Assert.assertTrue(isPlacedSuccessfully);
     }
 
     @When("^you place a new tile that overlaps the other$")

@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/test-report/report.js" afterPath="$PROJECT_DIR$/reports/test-report/report.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/PlacementTileStep.java" afterPath="$PROJECT_DIR$/src/test/java/PlacementTileStep.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/placement.feature" afterPath="$PROJECT_DIR$/src/test/resources/placement.feature" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,11 +21,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PlacementTileStep.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlacementTileStep.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/PlacementTileStep.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="47" column="31" lean-forward="false" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+            <state relative-caret-position="242">
+              <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,7 +33,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CucumberRunner.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CucumberRunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/CucumberRunner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
@@ -203,6 +202,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -653,7 +660,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490304588603</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added acceptance tests to placement.feature">
+      <created>1490304974605</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1490304974605</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -663,23 +677,23 @@
     <history-entry file="CucumberRunner - 2017.03.23 at 17h 35m 00s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.03.21 at 14h 27m 30s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="CucumberRunner - 2017.03.23 at 17h 44m 48s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.03.23 at 17h 16m 53s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="CucumberRunner - 2017.03.23 at 17h 45m 04s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RotateTileTest - 2017.03.23 at 10h 23m 21s.xml">
-      <configuration name="RotateTileTest" configurationId="JUnit" />
+    <history-entry file="CucumberRunner - 2017.03.23 at 17h 46m 07s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RotateTileTest - 2017.03.23 at 10h 24m 15s.xml">
-      <configuration name="RotateTileTest" configurationId="JUnit" />
+    <history-entry file="CucumberRunner - 2017.03.23 at 17h 46m 25s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RotateTileTest - 2017.03.23 at 10h 29m 29s.xml">
-      <configuration name="RotateTileTest" configurationId="JUnit" />
+    <history-entry file="CucumberRunner - 2017.03.23 at 17h 46m 43s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RotateTileTest - 2017.03.23 at 10h 34m 22s.xml">
-      <configuration name="RotateTileTest" configurationId="JUnit" />
+    <history-entry file="CucumberRunner - 2017.03.23 at 17h 49m 18s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RotateTileTest - 2017.03.23 at 10h 44m 37s.xml">
       <configuration name="RotateTileTest" configurationId="JUnit" />
@@ -760,7 +774,8 @@
     <MESSAGE value="Updated Rotate Tile Tests to account for the origin being on an even row and an odd row" />
     <MESSAGE value="Updated tile rotation test so that it has tests for even and odd rows. Updated some logic in placement validity for checking for empty hexes. Added logic in game to place tiles in a loop. Tiles can be placed correctly and incorrectly and have an error message shown." />
     <MESSAGE value="Fixed Merge Issues in master" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Merge Issues in master" />
+    <MESSAGE value="Added acceptance tests to placement.feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added acceptance tests to placement.feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1119,21 +1134,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/PlacementTileStep.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="47" column="31" lean-forward="false" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/CucumberRunner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/PlacementTileStep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
