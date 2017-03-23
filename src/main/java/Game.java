@@ -28,4 +28,5 @@ public class Game {
         return (black.getRemainingTotoros() + white.getRemainingTotoros());
     }
 
+
 }

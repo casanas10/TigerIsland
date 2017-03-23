@@ -1,18 +1,16 @@
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * Created by alecasanas on 3/14/17.
  */
 public class Main {
-
     public static void main(String[] args){
-
-        System.out.println("Game Starts");
-        Game game = new Game();
-
-        System.out.println(Player.numberOfPlayers);
-
-        IslandMap map = new IslandMap();
-        map.tileGenerator();    // Generate all tiles
-        //map.printTiles();
-        //map.PlaceTile(1);
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new GameFrame();
+            }
+        });
     }
 }
