@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="Updated tile rotation test so that it has tests for even and odd rows. Updated some logic in placement validity for checking for empty hexes. Added logic in game to place tiles in a loop. Tiles can be placed correctly and incorrectly and have an error message shown.">
+    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/RotateTileTest.java" afterPath="$PROJECT_DIR$/test/RotateTileTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/test-report/formatter.js" afterPath="$PROJECT_DIR$/reports/test-report/formatter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/test-report/index.html" afterPath="$PROJECT_DIR$/reports/test-report/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/test-report/jquery-1.8.2.min.js" afterPath="$PROJECT_DIR$/reports/test-report/jquery-1.8.2.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/test-report/report.js" afterPath="$PROJECT_DIR$/reports/test-report/report.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/test-report/style.css" afterPath="$PROJECT_DIR$/reports/test-report/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/PlacementTileStep.java" afterPath="$PROJECT_DIR$/src/test/java/PlacementTileStep.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,11 +25,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RotateTileTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RotateTileTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/RotateTileTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="35" column="69" lean-forward="true" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
+            <state relative-caret-position="119">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,14 +37,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HexTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/HexTest.java">
+      <file leaf-file-name="IslandMapTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/IslandMapTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="placement.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/placement.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#2249#0" expanded="true" />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlacementTileStep.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/PlacementTileStep.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,34 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Tile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-              <folding>
-                <element signature="e#529#530#0" expanded="true" />
-                <element signature="e#581#582#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
               <caret line="110" column="60" lean-forward="false" selection-start-line="110" selection-start-column="60" selection-end-line="110" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -166,10 +166,11 @@
         <option value="$PROJECT_DIR$/test/rotateTileTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/RotateTile.java" />
-        <option value="$PROJECT_DIR$/test/RotateTileTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/PlacementValidity.java" />
         <option value="$PROJECT_DIR$/src/main/java/IslandMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/Game.java" />
+        <option value="$PROJECT_DIR$/test/RotateTileTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/PlacementTileStep.java" />
       </list>
     </option>
   </component>
@@ -237,6 +238,36 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TigerIsland" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TigerIsland" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -288,31 +319,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration default="false" name="All Features in: test" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="myFilePath" value="$PROJECT_DIR$/test" />
-      <option name="GLUE" value="" />
-      <option name="myNameFilter" value="" />
-      <option name="myGeneratedName" value="All Features in: test" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="TigerIsland" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.CucumberRunner">
     <configuration default="false" name="HexGridTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="TigerIsland" />
@@ -382,6 +389,27 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RotateTileTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="CucumberRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="TigerIsland" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CucumberRunner" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -643,19 +671,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="JUnit.JUnit Test" />
-      <item index="1" class="java.lang.String" itemvalue="Cucumber java.All Features in: test" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.HexGridTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CoordinateSystemTest and 3 more" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.RotateTileTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.HexGridTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CoordinateSystemTest and 3 more" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.RotateTileTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.CucumberRunner" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.RotateTileTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CoordinateSystemTest and 3 more" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HexGridTest" />
-        <item index="4" class="java.lang.String" itemvalue="Cucumber java.All Features in: test" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CucumberRunner" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.RotateTileTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CoordinateSystemTest and 3 more" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.HexGridTest" />
       </list>
     </recent_temporary>
   </component>
@@ -705,15 +733,22 @@
       <option name="project" value="LOCAL" />
       <updated>1490283793870</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Updated tile rotation test so that it has tests for even and odd rows. Updated some logic in placement validity for checking for empty hexes. Added logic in game to place tiles in a loop. Tiles can be placed correctly and incorrectly and have an error message shown.">
+      <created>1490300687374</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1490300687374</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_Features_in__test - 2017.03.21 at 14h 17m 12s.xml">
-      <configuration name="All Features in: test" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="CucumberRunner - 2017.03.23 at 16h 29m 39s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CoordinateSystemTest_and_3_more - 2017.03.21 at 14h 18m 16s.xml">
-      <configuration name="CoordinateSystemTest and 3 more" configurationId="JUnit" />
+    <history-entry file="CucumberRunner - 2017.03.23 at 16h 32m 17s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
     <history-entry file="HexGridTest - 2017.03.21 at 14h 17m 21s.xml">
       <configuration name="HexGridTest" configurationId="JUnit" />
@@ -742,19 +777,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.49707174" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3280757" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3280757" sideWeight="0.5087848" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3280757" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.49707174" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3280757" sideWeight="0.49121523" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -824,32 +859,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/RotateTileTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="30" column="2" lean-forward="false" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HexGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PlacementValidity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/IslandMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1236,11 +1245,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/RotateTileTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="35" column="69" lean-forward="true" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/IslandMapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/placement.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/PlacementTileStep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
