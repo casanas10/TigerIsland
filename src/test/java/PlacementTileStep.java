@@ -10,6 +10,7 @@ import org.junit.Assert;
 public class PlacementTileStep {
 
     private IslandMap islandMap;
+    private boolean isPlacedSuccessfully;
 
     @Given("^a tile is already place in the board$")
     public void aTileIsAlreadyPlaceInTheBoard() throws Throwable {
@@ -18,12 +19,27 @@ public class PlacementTileStep {
 
     @When("^you place a tile$")
     public void youPlaceATile() throws Throwable {
-        islandMap.addTileToMap(402,0);
+        isPlacedSuccessfully = islandMap.addTileToMap(402,0);
     }
 
     @Then("^the tile is successfully placed in the map$")
     public void theTileIsSuccessfullyPlacedInTheMap() throws Throwable {
-        IslandMap islandMap = new IslandMap();
-        Assert.assertTrue(islandMap.addTileToMap(402,0));
+        Assert.assertTrue(isPlacedSuccessfully);
+    }
+
+    @Given("^a tile is already on the board$")
+    public void aTileIsAlreadyOnTheBoard() throws Throwable {
+        islandMap = new IslandMap();
+        islandMap.addTileToMap(402, 0);
+    }
+
+    @When("^you place a new tile that overlaps the other$")
+    public void youPlaceANewTileThatOverlapsTheOther() throws Throwable {
+        isPlacedSuccessfully = islandMap.addTileToMap(402,0);
+    }
+
+    @Then("^the tile is unsuccessfully placed in the map$")
+    public void theTileIsUnsuccessfullyPlacedInTheMap() throws Throwable {
+        Assert.assertFalse(isPlacedSuccessfully);
     }
 }
