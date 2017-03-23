@@ -8,7 +8,7 @@ import java.util.Set;
  */
 public class HexGrid {
 
-    public static final int GRID_SIZE = 26;
+    public static final int GRID_SIZE = 200;
 
     private HashMap<Integer, Hex> hexMap = new HashMap<Integer, Hex>();
 
