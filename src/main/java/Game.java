@@ -11,6 +11,7 @@ public class Game {
     private boolean gameOver;
     private boolean activePlayerBlack;
     private boolean activePlayerWhite;
+    private int numberOfTurns;
     Scanner input = new Scanner(System.in);
 
     public Game() {
@@ -18,6 +19,7 @@ public class Game {
         this.white = new Player("white", 0);
         this.islandMap = new IslandMap();
         gameOver = false;
+        numberOfTurns = 0;
     }
 
     public Player getBlackPlayer() {
@@ -79,21 +81,40 @@ public class Game {
         setActiveStartingPlayer();
         int hexID = -1;
         int tileOrientation = -1;
+        boolean tileSuccessfullyPlaced = false;
+        int quit;
 
         while(!gameOver){
+            tileSuccessfullyPlaced = false;
+            while(!tileSuccessfullyPlaced) {
 
-            System.out.print("Enter a hex ID for your volcano to be placed: ");
-            hexID = input.nextInt();
+                if(numberOfTurns == 0){
+                    // First tile will actually be placed in the center, this is for testing purposes
+                    tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+                    break;
+                }
+
+                System.out.print("Enter a hex ID for your volcano to be placed: ");
+                hexID = input.nextInt();
 
 
-            System.out.print("\nEnter an orientation for your tile: ");
-            tileOrientation = input.nextInt();
+                System.out.print("\nEnter an orientation for your tile: ");
+                tileOrientation = input.nextInt();
 
-            islandMap.addTileToMap(hexID, tileOrientation);
+                tileSuccessfullyPlaced = islandMap.addTileToMap(hexID, tileOrientation);
 
-            islandMap.printMap();
+                islandMap.printTilesOnMap();
+            }
 
-            gameOver = true;
+            numberOfTurns++;
+
+            System.out.print("Would you like to quit? ");
+            quit = input.nextInt();
+
+            if(quit == 1){
+                gameOver = true;
+            }
+
         }
     }
 

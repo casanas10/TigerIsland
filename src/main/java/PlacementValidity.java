@@ -24,7 +24,7 @@ public class PlacementValidity {
         int counter = 0;
 
         for (int i = 0; i < tileHexIDsArray.length; i++) {
-            if (hexGrid.getHexValue(tileHexIDsArray[i]).getTerrain().isEmpty() == false) {
+            if (hexGrid.getHexValue(tileHexIDsArray[i]).getTerrain().isEmpty() == true) {
 
                 counter++;
 
@@ -33,7 +33,10 @@ public class PlacementValidity {
 
         if (counter == tileHexIDsArray.length) {
             return true;
-        } else return false;
+        }
+        else {
+            return false;
+        }
     }
 
 

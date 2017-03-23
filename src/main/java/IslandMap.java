@@ -19,7 +19,8 @@ public class IslandMap {
     }
 
 
-    public void addTileToMap(int hexID, int orientation) {
+    public boolean addTileToMap(int hexID, int orientation) {
+
         int tileHexIDsArray[] = new int[3];
         RotateTile rotateTile = new RotateTile(hexID, orientation);
         tileHexIDsArray = rotateTile.checkPair();
@@ -28,6 +29,13 @@ public class IslandMap {
 
         String tileTerrainsArray[] = new String[3];
         tileTerrainsArray = myGen.getNewTile();
+
+        // Place first tile in the middle of the map automatically
+        if(getNumberOfTiles() == 47){
+            placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+            System.out.println("First tile successfully placed!");
+            return true;
+        }
 
         boolean hexesCanBePlaced = false;
         boolean adjacentTilesValid = false;
@@ -45,10 +53,12 @@ public class IslandMap {
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             tileCount++;
             System.out.println("Tile Successfully Placed!");
+            return true;
         }
         else{
             //return to user to request new hexID and Orientation
             System.out.println("Tile could not be placed, select another location");
+            return false;
         }
     }
 
@@ -70,6 +80,31 @@ public class IslandMap {
             return true;
         }
         return false;
+    }
+
+    public int getNumberOfTiles(){
+        return myGen.getTilesRemaining();
+    }
+
+    public void placeFirstTile(int[] tileHexIDsArray, String[] tileTerrainsArray){
+        Tile tile = new Tile(tileCount,tileHexIDsArray);
+        hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
+        gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+        tileCount++;
+        System.out.println("Tile Successfully Placed!");
+    }
+
+    public void printTilesOnMap(){
+        Iterator<Map.Entry<Integer, int[]>> iterator = gameBoardMap.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, int[]> entry = iterator.next();
+            System.out.print("Tile " + entry.getKey() + ": ");
+            for(int i=0;i<3;i++){
+                System.out.print(entry.getValue()[i] + " ");
+            }
+            System.out.println();
+        }
+
     }
 
 
