@@ -6,13 +6,13 @@ import java.util.*;
 public class IslandMap {
 
     private HashMap<Integer, int[]> gameBoardMap;
-    private TileGenerator tileGenerator;
     private HexGrid hexGrid;
     private int tileCount;
+    private TileGenerator myGen;
 
     public IslandMap(){
         gameBoardMap = new HashMap<Integer, int[]>();
-        tileGenerator = new TileGenerator();
+        myGen = new TileGenerator();
         hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
         tileCount = 0;
@@ -25,7 +25,9 @@ public class IslandMap {
         tileHexIDsArray = rotateTile.checkPair();
 
         String tileTerrainsArray[] = new String[3];
-        tileTerrainsArray = tileGenerator.getNewTile();
+        tileTerrainsArray = myGen.getNewTile();
+
+
 
 
         boolean hexesCanBePlaced = false;
