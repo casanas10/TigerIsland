@@ -12,7 +12,7 @@ public class HexGridTest {
         HexGrid hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();
-        
+
         Hex hexo = hexGrid.getHexValue(26);
 
         Assert.assertEquals(0,hexo.getX());
