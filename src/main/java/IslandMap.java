@@ -14,6 +14,7 @@ public class IslandMap {
         gameBoardMap = new HashMap<Integer, int[]>();
         tileGenerator = new TileGenerator();
         hexGrid = new HexGrid();
+        hexGrid.generateHexGrid();
         tileCount = 0;
     }
 
@@ -27,12 +28,15 @@ public class IslandMap {
         tileTerrainsArray = tileGenerator.getNewTile();
 
 
-        boolean isValidPlacement = false;
+        boolean hexesCanBePlaced = false;
+        boolean adjacentTilesValid = false;
         PlacementValidity placementValidity = new PlacementValidity();
         //I want the function below to take hexID array instead and also terrain array
-        isValidPlacement = placementValidity.checkIfHexesCanBePlaced(tileHexIDsArray,tileTerrainsArray);
+        hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray, tileTerrainsArray);
+        adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
 
-        if(isValidPlacement){
+
+        if(hexesCanBePlaced && adjacentTilesValid){
             Tile tile = new Tile(tileCount,tileHexIDsArray);
             hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
