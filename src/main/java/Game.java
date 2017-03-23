@@ -108,7 +108,7 @@ public class Game {
 
             numberOfTurns++;
 
-            System.out.print("Would you like to quit? ");
+            System.out.print("Would you like to quit(1 or 0)? ");
             quit = input.nextInt();
 
             if(quit == 1){
