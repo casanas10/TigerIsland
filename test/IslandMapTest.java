@@ -49,5 +49,5 @@ public class IslandMapTest {
         Assert.assertFalse(islandMap.addTileToMap(412,300));
     }
 
-    
+
 }
