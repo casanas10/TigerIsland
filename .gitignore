@@ -3,6 +3,11 @@
 *.iml
 .idea/*
 out/*
+<<<<<<< HEAD
 workspace.xml
 reports/*
 target/*
+=======
+reports/*
+target/*
+>>>>>>> MakingNewMap
