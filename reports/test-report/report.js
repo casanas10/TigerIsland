@@ -12,6 +12,10 @@ formatter.feature({
     }
   ]
 });
+formatter.before({
+  "duration": 6136790,
+  "status": "passed"
+});
 formatter.scenario({
   "line": 4,
   "name": "A new game has started",
@@ -44,21 +48,21 @@ formatter.match({
   "location": "GameStep.nothingHasYetHappened()"
 });
 formatter.result({
-  "duration": 298707136,
+  "duration": 63914671,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.theGameInitiates()"
 });
 formatter.result({
-  "duration": 38362147,
+  "duration": 5692558,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.aNewGameIsSuccessfullyCreated()"
 });
 formatter.result({
-  "duration": 4835680,
+  "duration": 1064513,
   "status": "passed"
 });
 formatter.match({
@@ -71,7 +75,7 @@ formatter.match({
   "location": "GameStep.playersAreSuccessfullyCreatedEachHoldingSpecificPlayerAttributes(int)"
 });
 formatter.result({
-  "duration": 7507534,
+  "duration": 1518776,
   "status": "passed"
 });
 formatter.uri("pieces.feature");
@@ -87,6 +91,10 @@ formatter.feature({
       "name": "@smokeTest"
     }
   ]
+});
+formatter.before({
+  "duration": 3144696,
+  "status": "passed"
 });
 formatter.scenario({
   "line": 4,
@@ -130,14 +138,14 @@ formatter.match({
   "location": "MeeplesStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 13658187,
+  "duration": 3878216,
   "status": "passed"
 });
 formatter.match({
   "location": "MeeplesStep.theGameBegins()"
 });
 formatter.result({
-  "duration": 200988,
+  "duration": 44436,
   "status": "passed"
 });
 formatter.match({
@@ -150,7 +158,7 @@ formatter.match({
   "location": "MeeplesStep.meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 352370,
+  "duration": 98039,
   "status": "passed"
 });
 formatter.match({
@@ -163,7 +171,7 @@ formatter.match({
   "location": "MeeplesStep.totorosAreSuccessfullyCratedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 302337,
+  "duration": 76616,
   "status": "passed"
 });
 formatter.match({
@@ -180,7 +188,7 @@ formatter.match({
   "location": "MeeplesStep.theWhitePlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 3719556,
+  "duration": 1184075,
   "status": "passed"
 });
 formatter.match({
@@ -197,7 +205,7 @@ formatter.match({
   "location": "MeeplesStep.theBlackPlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 339969,
+  "duration": 99489,
   "status": "passed"
 });
 formatter.uri("placement.feature");
@@ -213,6 +221,10 @@ formatter.feature({
       "name": "@smokeTest"
     }
   ]
+});
+formatter.before({
+  "duration": 3185768,
+  "status": "passed"
 });
 formatter.scenario({
   "line": 4,
@@ -241,21 +253,165 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
-  "duration": 7979213,
+  "duration": 15010,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceATile()"
 });
 formatter.result({
-  "duration": 3258568,
+  "duration": 13907,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theTileIsSuccessfullyPlacedInTheMap()"
 });
 formatter.result({
-  "duration": 38037572,
+  "duration": 556706,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 3077005,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 9,
+  "name": "Placing tiles next to each other",
+  "description": "",
+  "id": "placing-tiles;placing-tiles-next-to-each-other",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 10,
+  "name": "a tile is already place in the board",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 11,
+  "name": "you place a tile next to another tile",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 12,
+  "name": "the tile is added to the map",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
+});
+formatter.result({
+  "duration": 19910,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PlacementTileStep.youPlaceATileNextToAnotherTile()"
+});
+formatter.result({
+  "duration": 95713,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PlacementTileStep.theTileIsAddedToTheMap()"
+});
+formatter.result({
+  "duration": 219784,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 2582862,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 14,
+  "name": "Placing a tile directly on top of another",
+  "description": "",
+  "id": "placing-tiles;placing-a-tile-directly-on-top-of-another",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 15,
+  "name": "a tile is already place in the board",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 16,
+  "name": "you place a tile directly on top of another tile",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 17,
+  "name": "the placement fails",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
+});
+formatter.result({
+  "duration": 15629,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PlacementTileStep.youPlaceATileDirectlyOnTopOfAnotherTile()"
+});
+formatter.result({
+  "duration": 97861,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PlacementTileStep.thePlacementFails()"
+});
+formatter.result({
+  "duration": 105240,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 2351410,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 19,
+  "name": "Placing an unnconnected tile",
+  "description": "",
+  "id": "placing-tiles;placing-an-unnconnected-tile",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 20,
+  "name": "a tile is already place in the board",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 21,
+  "name": "you place the tile unnconnected to another tile",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 22,
+  "name": "the unnconnected placement fails",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
+});
+formatter.result({
+  "duration": 38505,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PlacementTileStep.youPlaceTheTileUnnconnectedToAnotherTile()"
+});
+formatter.result({
+  "duration": 94141,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PlacementTileStep.theUnnconnectedPlacementFails()"
+});
+formatter.result({
+  "duration": 93117,
   "status": "passed"
 });
 formatter.uri("player.feature");
@@ -271,6 +427,10 @@ formatter.feature({
       "name": "@smokeTest"
     }
   ]
+});
+formatter.before({
+  "duration": 2703645,
+  "status": "passed"
 });
 formatter.scenario({
   "line": 5,
@@ -304,14 +464,14 @@ formatter.match({
   "location": "PlayerStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 6179732,
+  "duration": 162288,
   "status": "passed"
 });
 formatter.match({
   "location": "PlayerStep.theGameStarts()"
 });
 formatter.result({
-  "duration": 128290,
+  "duration": 32629,
   "status": "passed"
 });
 formatter.match({
@@ -324,7 +484,7 @@ formatter.match({
   "location": "PlayerStep.playerCreation(int)"
 });
 formatter.result({
-  "duration": 247172,
+  "duration": 76963,
   "status": "passed"
 });
 formatter.match({
@@ -337,7 +497,7 @@ formatter.match({
   "location": "PlayerStep.thePlayerIsAssignedAColor(String)"
 });
 formatter.result({
-  "duration": 185165,
+  "duration": 56931,
   "status": "passed"
 });
 formatter.uri("tile.feature");
@@ -353,6 +513,10 @@ formatter.feature({
       "name": "@smokeTest"
     }
   ]
+});
+formatter.before({
+  "duration": 2254477,
+  "status": "passed"
 });
 formatter.scenario({
   "line": 4,
@@ -388,6 +552,10 @@ formatter.result({
 formatter.match({});
 formatter.result({
   "status": "undefined"
+});
+formatter.before({
+  "duration": 2326346,
+  "status": "passed"
 });
 formatter.scenario({
   "line": 10,
@@ -452,72 +620,48 @@ formatter.step({
   "name": "The tile is successfully placed",
   "keyword": "Then "
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.anotherTileIsGoingToBePlacedOnTheBoard()"
-});
+formatter.match({});
 formatter.result({
-  "duration": 4655646,
-  "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat PlacingTileAfterFirstTilePlacedStep.anotherTileIsGoingToBePlacedOnTheBoard(PlacingTileAfterFirstTilePlacedStep.java:14)\r\n\tat ✽.Given another tile is going to be placed on the board(tile.feature:12)\r\n",
-  "status": "pending"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.theTileIsPlacedUnconnectedToAnotherTile()"
-});
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.placingTheTileFails()"
-});
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.thereIsAWarningMessage()"
-});
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.anotherTileIsGoingToBePlacedOnTheBoard()"
-});
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.theTileIsPlacedOverlappingAnotherTile()"
-});
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.placingTileFails()"
-});
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.warningMessage()"
-});
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.anotherTileIsGoingToBePlacedOnTheBoard()"
-});
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.theTileIsPlacedWhileItsEdgesAreTouchingOneOrMoreOtherTiles()"
-});
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "PlacingTileAfterFirstTilePlacedStep.theTileIsSuccessfullyPlaced()"
-});
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
 });
