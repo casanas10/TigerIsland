@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="Updated branch to add placing pieces on hexes. No settlement checking has been implemented,">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Builder.java" />
+    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="Deleted">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Game.java" afterPath="$PROJECT_DIR$/src/main/java/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/GamePiece.java" afterPath="$PROJECT_DIR$/src/main/java/GamePiece.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Hex.java" afterPath="$PROJECT_DIR$/src/main/java/Hex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/HexGrid.java" afterPath="$PROJECT_DIR$/src/main/java/HexGrid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/IslandMap.java" afterPath="$PROJECT_DIR$/src/main/java/IslandMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Player.java" afterPath="$PROJECT_DIR$/src/main/java/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java" afterPath="$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -71,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="125" column="89" lean-forward="false" selection-start-line="125" selection-start-column="89" selection-end-line="125" selection-end-column="89" />
+            <state relative-caret-position="391">
+              <caret line="121" column="86" lean-forward="false" selection-start-line="121" selection-start-column="86" selection-end-line="121" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -124,10 +117,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HexGrid.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HexGrid.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/HexGrid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
+            <state relative-caret-position="402">
               <caret line="54" column="41" lean-forward="false" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
               <folding />
             </state>
@@ -188,8 +181,8 @@
         <option value="$PROJECT_DIR$/src/main/java/IslandMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/GamePiece.java" />
         <option value="$PROJECT_DIR$/src/main/java/Builder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/HexGrid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Game.java" />
       </list>
     </option>
   </component>
@@ -763,7 +756,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490389308638</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Updated branch to add placing pieces on hexes. No settlement checking has been implemented. Player pieces successfully decrement. Pieces cannot be added on volcanos, or where other pieces already exist.">
+      <created>1490399529845</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1490399529845</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -874,7 +874,8 @@
     <MESSAGE value="Gettng this stupid shit to work" />
     <MESSAGE value="Making builder" />
     <MESSAGE value="workspace issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="workspace issue" />
+    <MESSAGE value="Updated branch to add placing pieces on hexes. No settlement checking has been implemented. Player pieces successfully decrement. Pieces cannot be added on volcanos, or where other pieces already exist." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated branch to add placing pieces on hexes. No settlement checking has been implemented. Player pieces successfully decrement. Pieces cannot be added on volcanos, or where other pieces already exist." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1239,14 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="125" column="89" lean-forward="false" selection-start-line="125" selection-start-column="89" selection-end-line="125" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1284,8 +1277,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HexGrid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
+        <state relative-caret-position="402">
           <caret line="54" column="41" lean-forward="false" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="121" column="86" lean-forward="false" selection-start-line="121" selection-start-column="86" selection-end-line="121" selection-end-column="86" />
           <folding />
         </state>
       </provider>

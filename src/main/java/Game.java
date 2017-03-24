@@ -120,15 +120,8 @@ public class Game {
                 System.out.print("\nSelect hex: ");
                 hexID = input.nextInt();
                 buildSuccessful = builder.build(black, islandMap, buildOption, hexID);
-
-                System.out.println("Black player meeples: " + black.getRemainingMeeples());
-                System.out.println("Black player totoros: " + black.getRemainingTotoros());
-                System.out.println("Black player tigers: " + black.getRemainingTigers());
             }
 
-            System.out.println("Black player meeples: " + black.getRemainingMeeples());
-            System.out.println("Black player totoros: " + black.getRemainingTotoros());
-            System.out.println("Black player tigers: " + black.getRemainingTigers());
 
             numberOfTurns++;
 
