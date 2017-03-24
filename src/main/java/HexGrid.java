@@ -49,5 +49,14 @@ public class HexGrid {
         }
     }
 
+    public void setLevels(int hexIDs[]){
+        Hex hex;
+        for(int i=0; i<3; i++){
+            hex = getHexValue(hexIDs[i]);
+            int currentLevel = hex.getLevel();
+            hex.setLevel(currentLevel++);
+        }
+    }
+
 
 }
