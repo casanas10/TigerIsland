@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Eric on 3/15/2017.
@@ -9,6 +10,7 @@ public class Hex {
     private int y;
     private String terrain;
     private int level;
+    private HashMap<String, Integer> gamePiecesMap;
 
     Hex (int hexID, int x, int y){
         this.hexID = hexID;
@@ -16,6 +18,7 @@ public class Hex {
         this.y = y;
         this.terrain = "";
         this.level = 0;
+        gamePiecesMap = new HashMap<>();
     }
 
     public int getHexID() {
@@ -49,4 +52,5 @@ public class Hex {
     public void printHexCoordinates() {
         System.out.print("x:" + x + " y:" + y);
     }
+    
 }
