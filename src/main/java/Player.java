@@ -4,7 +4,7 @@
 public class Player {
     private String playerColor;
     private int currentScore;
-    private PlayerPieceContainer playerPlayerPieceContainer;
+    private PlayerPieceContainer playerPieceContainer;
 
     public static int numberOfPlayers = 0;
 
@@ -13,9 +13,10 @@ public class Player {
         numberOfPlayers++;
         this.playerColor = playerColor;
         this.currentScore = currentScore;
-        playerPlayerPieceContainer = new PlayerPieceContainer(playerColor);
-        playerPlayerPieceContainer.create20Meeples();
-        playerPlayerPieceContainer.create3Totoros();
+        playerPieceContainer = new PlayerPieceContainer(playerColor);
+        playerPieceContainer.create20Meeples();
+        playerPieceContainer.create3Totoros();
+        playerPieceContainer.create2Tigers();
     }
 
     public String getPlayerColor(){
@@ -35,14 +36,16 @@ public class Player {
     }
 
     public PlayerPieceContainer getPieces() {
-        return playerPlayerPieceContainer;
+        return playerPieceContainer;
     }
 
     public int getRemainingMeeples(){
-        return playerPlayerPieceContainer.getNumberOfMeeple();
+        return playerPieceContainer.getNumberOfMeeples();
     }
 
     public int getRemainingTotoros(){
-        return playerPlayerPieceContainer.getNumberOfTotoros();
+        return playerPieceContainer.getNumberOfTotoros();
     }
+
+    public int getRemainingTigers(){ return playerPieceContainer.getNumberOfTigers();}
 }

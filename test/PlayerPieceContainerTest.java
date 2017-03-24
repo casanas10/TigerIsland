@@ -16,7 +16,7 @@ public class PlayerPieceContainerTest {
         playerPieceContainer.create20Meeples();
 
         // Assert
-        Assert.assertEquals(20, playerPieceContainer.getNumberOfMeeple());
+        Assert.assertEquals(20, playerPieceContainer.getNumberOfMeeples());
     }
 
     @Test
