@@ -47,9 +47,12 @@ public class IslandMap {
         System.out.println(hexesCanBePlaced);
         System.out.println(adjacentTilesValid);
 
+
+
         if(hexesCanBePlaced && adjacentTilesValid){
             Tile tile = new Tile(tileCount,tileHexIDsArray);
             hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
+            hexGrid.increaseLevelsByOne(tileHexIDsArray);
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             tileCount++;
             System.out.println("Tile Successfully Placed!");
@@ -89,6 +92,7 @@ public class IslandMap {
     public void placeFirstTile(int[] tileHexIDsArray, String[] tileTerrainsArray){
         Tile tile = new Tile(tileCount,tileHexIDsArray);
         hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
+        hexGrid.increaseLevelsByOne(tileHexIDsArray);
         gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
         tileCount++;
         System.out.println("Tile Successfully Placed!");
@@ -105,6 +109,10 @@ public class IslandMap {
             System.out.println();
         }
 
+    }
+
+    public Hex getHex(int hexID){
+        return hexGrid.getHexValue(hexID);
     }
 
 

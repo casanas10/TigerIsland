@@ -16,6 +16,14 @@ public abstract class GamePiece {
         return this.name;
     }
 
+    public int getRequiredLevel(){
+        return this.requiredLevel;
+    }
+
+    public int getRequiredSettlementSize(){
+        return this.requiredSettlementSize;
+    }
+
     public int calculateScore(int level){
         return this.score;
     }

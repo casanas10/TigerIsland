@@ -48,4 +48,12 @@ public class Player {
     }
 
     public int getRemainingTigers(){ return playerPieceContainer.getNumberOfTigers();}
+
+    public void updateScore(int value){
+        currentScore += value;
+    }
+
+    public GamePiece placeGamePiece(String pieceName){
+        return playerPieceContainer.placeGamePiece(pieceName);
+    }
 }

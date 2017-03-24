@@ -53,4 +53,20 @@ public class Hex {
         System.out.print("x:" + x + " y:" + y);
     }
 
+    public int getLevel(){
+        return this.level;
+    }
+
+    public void incrementLevel(){
+        level++;
+    }
+
+    public boolean checkIfHexIsNotSettled(){
+        return gamePiecesMap.isEmpty();
+    }
+
+    public void addGamePieceToHex(GamePiece piece){
+        gamePiecesMap.put(piece.getName(), 1);
+        System.out.println(piece.getName() + " successfully placed on Hex: " + getHexID());
+    }
 }

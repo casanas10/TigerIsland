@@ -12,6 +12,7 @@ public class Game {
     private boolean activePlayerBlack;
     private boolean activePlayerWhite;
     private int numberOfTurns;
+    private Builder builder;
     Scanner input = new Scanner(System.in);
 
     public Game() {
@@ -20,6 +21,7 @@ public class Game {
         this.islandMap = new IslandMap();
         gameOver = false;
         numberOfTurns = 0;
+        builder = new Builder();
     }
 
     public Player getBlackPlayer() {
@@ -82,6 +84,8 @@ public class Game {
         int hexID = -1;
         int tileOrientation = -1;
         boolean tileSuccessfullyPlaced = false;
+        boolean buildSuccessful = false;
+        int buildOption;
         int quit;
 
         while(!gameOver){
@@ -105,6 +109,26 @@ public class Game {
 
                 islandMap.printTilesOnMap();
             }
+
+            buildSuccessful = false;
+
+            while(!buildSuccessful){
+                System.out.println("1.) Build a new settlement\n" + "2.) Expand\n" + "3.) Build a totoro sanctuary\n"
+                                    + "4.) Build a tiger playground\n");
+                System.out.print("Select choice: ");
+                buildOption = input.nextInt();
+                System.out.print("\nSelect hex: ");
+                hexID = input.nextInt();
+                buildSuccessful = builder.build(black, islandMap, buildOption, hexID);
+
+                System.out.println("Black player meeples: " + black.getRemainingMeeples());
+                System.out.println("Black player totoros: " + black.getRemainingTotoros());
+                System.out.println("Black player tigers: " + black.getRemainingTigers());
+            }
+
+            System.out.println("Black player meeples: " + black.getRemainingMeeples());
+            System.out.println("Black player totoros: " + black.getRemainingTotoros());
+            System.out.println("Black player tigers: " + black.getRemainingTigers());
 
             numberOfTurns++;
 
