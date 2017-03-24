@@ -5,6 +5,7 @@ import java.util.ArrayList;
  */
 public class Hex {
     private int hexID;
+    private int settlementID;
     private int x;
     private int y;
     private String terrain;
@@ -25,6 +26,10 @@ public class Hex {
     public void setHexID(int hexID) {
         this.hexID = hexID;
     }
+
+    public int getSettlementID(){ return settlementID; }
+
+    public void setSettlementID(int settlementID){ this.settlementID = settlementID; }
 
     public int getX() {
         return x;
