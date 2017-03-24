@@ -3,13 +3,13 @@ import java.util.ArrayList;
 /**
  * Created by Connor on 3/14/2017.
  */
-public class Pieces {
+public class PlayerPieceContainer {
 
     private ArrayList<Meeple> meeples;
     private ArrayList<Totoro> totoros;
     private String color;
 
-    public Pieces(String color) {
+    public PlayerPieceContainer(String color) {
         this.color = color;
         this.meeples = new ArrayList(20);
         this.totoros = new ArrayList(3);
