@@ -52,5 +52,5 @@ public class Hex {
     public void printHexCoordinates() {
         System.out.print("x:" + x + " y:" + y);
     }
-    
+
 }

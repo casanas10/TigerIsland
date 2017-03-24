@@ -7,7 +7,7 @@ import org.junit.Test;
 public class PlayerPieceContainerTest {
 
     @Test
-    public void whenTheGameStartsThen20MeeplesAreCreated(){
+    public void whenTheGameStartsThen20MeeplesAreCreated() throws Exception{
 
         // Arrange
         PlayerPieceContainer playerPieceContainer = new PlayerPieceContainer("White");
@@ -20,7 +20,7 @@ public class PlayerPieceContainerTest {
     }
 
     @Test
-    public void whenTheGameStartsThen3TotorosAreCreated(){
+    public void whenTheGameStartsThen3TotorosAreCreated() throws Exception{
 
         // Arrange
         PlayerPieceContainer playerPieceContainer = new PlayerPieceContainer("White");
@@ -30,6 +30,19 @@ public class PlayerPieceContainerTest {
 
         // Assert
         Assert.assertEquals(3, playerPieceContainer.getNumberOfTotoros());
+    }
+
+    @Test
+    public void whenTheGameStartsThen2TigersAreCreated() throws Exception{
+
+        // Arrange
+        PlayerPieceContainer playerPieceContainer = new PlayerPieceContainer("White");
+
+        // Act
+        playerPieceContainer.create2Tigers();
+
+        // Assert
+        Assert.assertEquals(2, playerPieceContainer.getNumberOfTigers());
     }
 
 }
