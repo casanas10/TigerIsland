@@ -50,6 +50,7 @@ public class IslandMap {
         if(hexesCanBePlaced && adjacentTilesValid){
             Tile tile = new Tile(tileCount,tileHexIDsArray);
             hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
+            hexGrid.setLevels(tileHexIDsArray);
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             tileCount++;
             System.out.println("Tile Successfully Placed!");
@@ -104,7 +105,10 @@ public class IslandMap {
             }
             System.out.println();
         }
+    }
 
+    public int[] getHexIDsForTile(int tileID){
+        return gameBoardMap.get(tileID);
     }
 
 
