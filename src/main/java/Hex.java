@@ -9,6 +9,7 @@ public class Hex {
     private int x;
     private int y;
     private String terrain;
+    private String color;
     private int level;
 
     Hex (int hexID, int x, int y){
@@ -53,5 +54,13 @@ public class Hex {
 
     public void printHexCoordinates() {
         System.out.print("x:" + x + " y:" + y);
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
