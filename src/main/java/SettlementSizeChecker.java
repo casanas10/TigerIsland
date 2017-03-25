@@ -23,14 +23,14 @@ public class SettlementSizeChecker {
             return hexesInSettlement;
     }
 
-    public boolean playerColorMatchesHexColor(int hexID, Player player) {
+    private boolean playerColorMatchesHexColor(int hexID, Player player) {
         if(player.getPlayerColor() == hexGrid.getHexValue(hexID).getColor())
             return true;
         else
             return false;
     }
 
-    public ArrayList<Integer> BFS(int hexID, Player player) {
+    private ArrayList<Integer> BFS(int hexID, Player player) {
         HashMap<Integer, Boolean> visited = new HashMap<Integer, Boolean>();
         Queue<Integer> queue = new LinkedList<Integer>();
 
@@ -83,43 +83,43 @@ public class SettlementSizeChecker {
         return hexesInSettlement;
     }
 
-    public int upperRightHexID(int hexID) {
+    private int upperRightHexID(int hexID) {
         if(hexIsInEvenRow(hexID))
             return hexID - maxArrayLength;
         else
             return hexID - (maxArrayLength - 1);
     }
 
-    public int rightHexID(int hexID) {
+    private int rightHexID(int hexID) {
         return hexID + 1;
     }
 
-    public int bottomRightHexID(int hexID) {
+    private int bottomRightHexID(int hexID) {
         if(hexIsInEvenRow(hexID))
             return hexID + maxArrayLength;
         else
             return hexID + maxArrayLength + 1;
     }
 
-    public int bottomLeftHexID(int hexID) {
+    private int bottomLeftHexID(int hexID) {
         if(hexIsInEvenRow(hexID))
             return hexID + maxArrayLength - 1;
         else
             return hexID + maxArrayLength;
     }
 
-    public int leftHexID(int hexID) {
+    private int leftHexID(int hexID) {
         return  hexID - 1;
     }
 
-    public int upperLeftHexID(int hexID) {
+    private int upperLeftHexID(int hexID) {
         if(hexIsInEvenRow(hexID))
             return hexID - maxArrayLength - 1;
         else
             return hexID - maxArrayLength;
     }
 
-    public boolean hexIsInEvenRow(int hexID) {
+    private boolean hexIsInEvenRow(int hexID) {
         if(coordinates.getYCoordinate(hexID)%2 == 0)
             return true;
         else
