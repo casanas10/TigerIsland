@@ -8,11 +8,11 @@ public class Game {
     private Player black;
     private Player white;
     private IslandMap islandMap;
+    Builder builder;
     private boolean gameOver;
     private boolean activePlayerBlack;
     private boolean activePlayerWhite;
     private int numberOfTurns;
-    private Builder builder;
     Scanner input = new Scanner(System.in);
 
     public Game() {

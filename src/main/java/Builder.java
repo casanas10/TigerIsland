@@ -7,6 +7,8 @@ public class Builder {
         switch(buildOption) {
             case 1: return(buildANewSettlement(player, islandMap, hexID));
 
+            case 2: // Expand
+                    break;
             case 3: return(buildATotoroSanctuary(player, islandMap, hexID));
 
             case 4: return(buildATigerPlayground(player, islandMap, hexID));

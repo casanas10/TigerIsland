@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * Created by Eric on 3/15/2017.
@@ -55,6 +54,16 @@ public class Hex {
 
     public int getLevel(){
         return this.level;
+    }
+
+    public String getPieceOnHex(){
+        Iterator<Map.Entry<String, Integer>> iterator = gamePiecesMap.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<String, Integer> entry = iterator.next();
+            return entry.getKey();
+        }
+
+        return "No game piece on hex";
     }
 
     public void incrementLevel(){
