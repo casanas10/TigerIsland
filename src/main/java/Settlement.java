@@ -66,7 +66,7 @@ public class Settlement {
         }
         System.out.println("here");
         ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
-        NewHexIDs = settlementSizeChecker.BFS(hexID, player);
+        NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
 
         System.out.println("here");
 
