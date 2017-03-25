@@ -20,9 +20,12 @@ public class Builder {
 
     public boolean buildANewSettlement(Player player, IslandMap islandMap, int hexID){
         Hex currentHex = islandMap.getHex(hexID);
+        GamePiece piece;
         if(player.getRemainingMeeples() != 0 && verifyValidHexForSettlement(currentHex)){
-            // Add scoring
-            currentHex.addGamePieceToHex(player.placeGamePiece("Meeple"));
+
+            piece = player.placeGamePiece("Meeple");    // Get the new Meeple piece
+            currentHex.addGamePieceToHex(piece);                  // Place the piece on the current hex
+            updateScore(player, piece, currentHex.getLevel());    // Update player score with 1 point
             return true;
         }
         else{
@@ -33,8 +36,12 @@ public class Builder {
 
     public boolean buildATotoroSanctuary(Player player, IslandMap islandMap, int hexID){
         Hex currentHex = islandMap.getHex(hexID);
+        GamePiece piece;
         if(player.getRemainingTotoros() != 0 && verifyValidHexForTotoro(currentHex)){
-            currentHex.addGamePieceToHex(player.placeGamePiece("Totoro"));
+            piece = player.placeGamePiece("Totoro");        // Get the new Totoro piece
+            currentHex.addGamePieceToHex(piece);                      // Add the Totoro to the map
+            updateScore(player, piece, currentHex.getLevel());        // Update the players score with 200 points
+
             return true;
         }
         else{
@@ -45,8 +52,11 @@ public class Builder {
 
     public boolean buildATigerPlayground(Player player, IslandMap islandMap, int hexID){
         Hex currentHex = islandMap.getHex(hexID);
+        GamePiece piece;
         if(player.getRemainingTigers() != 0 && verifyValidHexForTiger(currentHex)){
-            currentHex.addGamePieceToHex(player.placeGamePiece("Tiger"));
+            piece = player.placeGamePiece("Tiger");         // Get the new Tiger piece
+            currentHex.addGamePieceToHex(piece);                      // Add the Tiger to the map
+            updateScore(player, piece, currentHex.getLevel());        // Update the player score with 75 points
             return true;
         }
         else{
@@ -85,5 +95,12 @@ public class Builder {
         else{
             return false;
         }
+    }
+
+    public void updateScore(Player player, GamePiece piece, int level){
+        player.updateScore(piece.calculateScore(level));
+        System.out.println(piece.calculateScore(level) + " point(s) added to " + player.getPlayerColor() + "'s score.");
+        System.out.println(player.getPlayerColor() + " player's total score: " + player.getCurrentScore());
+
     }
 }

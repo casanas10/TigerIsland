@@ -25,6 +25,6 @@ public abstract class GamePiece {
     }
 
     public int calculateScore(int level){
-        return this.score;
+        return score;
     }
 }

@@ -179,4 +179,28 @@ public class BuilderTest {
         Assert.assertEquals(false, builder.verifyValidHexForTiger(currentHex));
     }
 
+    @Test
+    public void updateScoreForAddingANewSettlement(){
+        builder.build(player,islandMap,1,806);
+
+        Assert.assertEquals(1,player.getCurrentScore());
+    }
+
+    @Test
+    public void updateScoreForAddingATotoro(){
+        builder.build(player,islandMap,3,806);
+
+        Assert.assertEquals(200,player.getCurrentScore());
+    }
+
+    @Test
+    public void updateScoreForAddingATiger(){
+        Hex currentHex = islandMap.getHex(806);
+        currentHex.incrementLevel();
+        currentHex.incrementLevel();
+        builder.build(player,islandMap,4,806);
+
+        Assert.assertEquals(75,player.getCurrentScore());
+    }
+
 }
