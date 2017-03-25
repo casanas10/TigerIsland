@@ -25,8 +25,6 @@ public class IslandMap {
         RotateTile rotateTile = new RotateTile(hexID, orientation);
         tileHexIDsArray = rotateTile.checkPair();
 
-        System.out.println(Arrays.toString(tileHexIDsArray));
-
         String tileTerrainsArray[] = new String[3];
         tileTerrainsArray = myGen.getNewTile();
 
@@ -43,11 +41,6 @@ public class IslandMap {
         //I want the function below to take hexID array instead and also terrain array
         hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray, tileTerrainsArray);
         adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
-
-        System.out.println(hexesCanBePlaced);
-        System.out.println(adjacentTilesValid);
-
-
 
         if(hexesCanBePlaced && adjacentTilesValid){
             Tile tile = new Tile(tileCount,tileHexIDsArray);

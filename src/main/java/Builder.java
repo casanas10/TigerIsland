@@ -24,6 +24,12 @@ public class Builder {
         if(player.getRemainingMeeples() != 0 && verifyValidHexForSettlement(currentHex)){
 
             piece = player.placeGamePiece("Meeple");    // Get the new Meeple piece
+
+            if(piece == null){
+                System.out.println("Out of meeples!");
+                return false;
+            }
+
             currentHex.addGamePieceToHex(piece);                  // Place the piece on the current hex
             updateScore(player, piece, currentHex.getLevel());    // Update player score with 1 point
             return true;
@@ -39,6 +45,12 @@ public class Builder {
         GamePiece piece;
         if(player.getRemainingTotoros() != 0 && verifyValidHexForTotoro(currentHex)){
             piece = player.placeGamePiece("Totoro");        // Get the new Totoro piece
+
+            if(piece == null){
+                System.out.println("Out of totoros!");
+                return false;
+            }
+
             currentHex.addGamePieceToHex(piece);                      // Add the Totoro to the map
             updateScore(player, piece, currentHex.getLevel());        // Update the players score with 200 points
 
@@ -55,6 +67,12 @@ public class Builder {
         GamePiece piece;
         if(player.getRemainingTigers() != 0 && verifyValidHexForTiger(currentHex)){
             piece = player.placeGamePiece("Tiger");         // Get the new Tiger piece
+
+            if(piece == null){
+                System.out.println("Out of Tigers!");
+                return false;
+            }
+
             currentHex.addGamePieceToHex(piece);                      // Add the Tiger to the map
             updateScore(player, piece, currentHex.getLevel());        // Update the player score with 75 points
             return true;
