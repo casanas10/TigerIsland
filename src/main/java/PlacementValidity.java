@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by NatalieGoldstein on 3/21/17.
  */
@@ -37,6 +39,69 @@ public class PlacementValidity {
         else {
             return false;
         }
+    }
+
+
+    public ArrayList<Integer> searchTheSixAdjacentHexes(HexGrid hexGrid, Hex hex) {
+
+        ArrayList<Integer> adjacentHexes = new ArrayList<Integer>(); //arraylist that holds the 6 hexes IDs
+
+        adjacentHexes.add(findNE(hexGrid, hex));
+        adjacentHexes.add(findNW(hexGrid, hex));
+        adjacentHexes.add(findW(hexGrid, hex));
+        adjacentHexes.add(findSW(hexGrid, hex));
+        adjacentHexes.add(findSE(hexGrid, hex));
+        adjacentHexes.add(findE(hexGrid, hex));
+
+        return adjacentHexes;
+    }
+
+    private int findNE(HexGrid hexGrid, Hex hex) {
+
+        int newX = hex.getX();
+        int newY = hex.getY() - 1;
+
+        return searchCoordinates.getHexID(newX, newY);  //gets the NorthEast Hex ID
+    }
+
+    private int findNW(HexGrid hexGrid, Hex hex) {
+
+        int newX = hex.getX() - 1;
+        int newY = hex.getY() - 1;
+
+        return searchCoordinates.getHexID(newX, newY);  //gets the NorthWest Hex ID
+    }
+
+    private int findW(HexGrid hexGrid, Hex hex) {
+
+        int newX = hex.getX() - 1;
+        int newY = hex.getY();
+
+        return searchCoordinates.getHexID(newX, newY);  //gets the West Hex ID
+    }
+
+    private int findSW(HexGrid hexGrid, Hex hex) {
+
+        int newX = hex.getX() - 1;
+        int newY = hex.getY() + 1;
+
+        return searchCoordinates.getHexID(newX, newY);  //gets the SouthWest Hex ID
+    }
+
+    private int findSE(HexGrid hexGrid, Hex hex) {
+
+        int newX = hex.getX();
+        int newY = hex.getY() + 1;
+
+        return searchCoordinates.getHexID(newX, newY);  //gets the SouthEast Hex ID
+    }
+
+    private int findE(HexGrid hexGrid, Hex hex) {
+
+        int newX = hex.getX() + 1;
+        int newY = hex.getY();
+
+        return searchCoordinates.getHexID(newX, newY);  //gets the East Hex ID
     }
 
 
