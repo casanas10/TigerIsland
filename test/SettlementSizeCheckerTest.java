@@ -8,11 +8,16 @@ import static org.junit.Assert.*;
  * Created by Connor on 3/25/2017.
  */
 public class SettlementSizeCheckerTest {
+    static Player blackPlayer;
+    static Player whitePlayer;
+    static HexGrid hexGrid;
+    static SettlementSizeChecker checkSettlementSize;
 
-    @Test
-    public void checkBFS() {
-        Player player = new Player("Black", 0);
-        HexGrid hexGrid = new HexGrid();
+    @BeforeClass
+    static public void setupGameScenario() {
+        blackPlayer = new Player("Black", 0);
+        whitePlayer = new Player("White", 0);
+        hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();
         hexGrid.getHexValue(609).setColor("Black");
@@ -24,16 +29,27 @@ public class SettlementSizeCheckerTest {
         hexGrid.getHexValue(1010).setColor("Black");
         hexGrid.getHexValue(1008).setColor("Black");
 
+        checkSettlementSize = new SettlementSizeChecker(hexGrid);
+    }
 
-        SettlementSizeChecker checkSettlementSize = new SettlementSizeChecker(hexGrid);
+    @Test
+    public void checkBFS() {
+        Assert.assertEquals(0, checkSettlementSize.checkSettlementSize(810,blackPlayer).size());
+    }
 
-//        Assert.assertEquals(1,checkSettlementSize.upperLeftHexID(201));
-//        Assert.assertTrue(checkSettlementSize.playerColorMatchesHexColor(201,player));
-//        Assert.assertFalse(checkSettlementSize.playerColorMatchesHexColor(401, player));
+    @Test
+    public void checkBFS2() {
+        Assert.assertEquals(7, checkSettlementSize.checkSettlementSize(609,blackPlayer).size());
+    }
 
-        //System.out.println(checkSettlementSize.checkSettlementSize(201, player));
-        Assert.assertEquals(0, checkSettlementSize.checkSettlementSize(810,player).size());
-        System.out.println(checkSettlementSize.checkSettlementSize(810,player));
+    @Test
+    public void checkBFS3() {
+        Assert.assertEquals(1,checkSettlementSize.checkSettlementSize(810, whitePlayer).size());
+    }
+
+    @Test
+    public void checkBFS4() {
+        Assert.assertEquals(0,checkSettlementSize.checkSettlementSize(200,whitePlayer).size());
     }
 
 }

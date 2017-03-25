@@ -1,3 +1,4 @@
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -6,28 +7,33 @@ import org.junit.Assert;
  */
 public class PlayerTest {
 
+    static private Player whitePlayer;
+    static private Player blackPlayer;
 
-@Test
+    @BeforeClass
+    static public void createPlayer() {
+        whitePlayer = new Player("White", 0);
+        blackPlayer = new Player("Black", 0);
+    }
+
+    @Test
     public void checkColorOfPlayerAtStart(){
+        Assert.assertEquals("White", whitePlayer.getPlayerColor());
+    }
 
-    Player player = new Player("White", 0);
-
-    Assert.assertEquals("White", player.getPlayerColor());
-
-
-}
-
-@Test
+    @Test
     public void checkPlayerScoreAtStart(){
-        Player player = new Player("Black", 0);
+        Assert.assertEquals(0,blackPlayer.getCurrentScore() );
+    }
 
-        Assert.assertEquals(0,player.getCurrentScore() );
+    @Test
+    public void newPlayerStartsWith20Meeples() {
+        Assert.assertEquals(20, whitePlayer.getRemainingMeeples());
+    }
 
-}
-
-
-
-
-
+    @Test
+    public void newPlayerStartsWith3Totoros() {
+        Assert.assertEquals(3, whitePlayer.getRemainingTotoros());
+    }
 
 }

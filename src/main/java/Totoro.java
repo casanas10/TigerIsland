@@ -8,7 +8,7 @@ public class Totoro {
 
     public Totoro(String color) {
         this.color = color;
-        status = "Not played";
+        status = "Not Played";
     }
 
     public void setStatus(String status){
