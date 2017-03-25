@@ -10,6 +10,7 @@ public class Hex {
     private String terrain;
     private int level;
     private HashMap<String, Integer> gamePiecesMap;
+    private String playerColorOnHex;
 
     Hex (int hexID, int x, int y){
         this.hexID = hexID;
@@ -18,6 +19,7 @@ public class Hex {
         this.terrain = "";
         this.level = 0;
         gamePiecesMap = new HashMap<>();
+        playerColorOnHex = "";
     }
 
     public int getHexID() {
@@ -56,13 +58,24 @@ public class Hex {
         return this.level;
     }
 
+    public void setPlayerColorOnHex(String color){
+        playerColorOnHex = color;
+    }
+
+    public void resetPlayerColorOnHex(){
+        playerColorOnHex = "";
+    }
+
+    public String getPlayerColorOnHex(){
+        return playerColorOnHex;
+    }
+
     public String getPieceOnHex(){
         Iterator<Map.Entry<String, Integer>> iterator = gamePiecesMap.entrySet().iterator();
         while(iterator.hasNext()){
             Map.Entry<String, Integer> entry = iterator.next();
             return entry.getKey();
         }
-
         return "No game piece on hex";
     }
 
@@ -76,6 +89,7 @@ public class Hex {
 
     public void addGamePieceToHex(GamePiece piece){
         gamePiecesMap.put(piece.getName(), 1);
-        System.out.println(piece.getName() + " successfully placed on Hex: " + getHexID());
+        setPlayerColorOnHex(piece.getColor());
+        System.out.println(getPlayerColorOnHex() + " " + piece.getName() + " successfully placed on Hex: " + getHexID());
     }
 }
