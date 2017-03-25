@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Created by Connor on 3/24/2017.
@@ -11,16 +8,19 @@ public class SettlementSizeChecker {
     private CoordinateSystem coordinates = new CoordinateSystem();
     private int maxArrayLength = 200;
     private int settlementCount = 0;
+    private ArrayList<Integer> hexesInSettlement;
 
     public SettlementSizeChecker(HexGrid hexGrid) {
         this.hexGrid = hexGrid;
     }
 
-    public int checkSettlementSize(int hexID, Player player) {
+    public ArrayList<Integer> checkSettlementSize(int hexID, Player player) {
+        hexesInSettlement = new ArrayList<Integer>();
+
         if(playerColorMatchesHexColor(hexID, player))
             return BFS(hexID, player);
         else
-            return 0;
+            return hexesInSettlement;
     }
 
     public boolean playerColorMatchesHexColor(int hexID, Player player) {
@@ -30,7 +30,7 @@ public class SettlementSizeChecker {
             return false;
     }
 
-    public int BFS(int hexID, Player player) {
+    public ArrayList<Integer> BFS(int hexID, Player player) {
         HashMap<Integer, Boolean> visited = new HashMap<Integer, Boolean>();
         Queue<Integer> queue = new LinkedList<Integer>();
 
@@ -38,6 +38,7 @@ public class SettlementSizeChecker {
         queue.add(hexID);
 
         while(queue.size() != 0) {
+
             hexID = queue.remove();
             visited.put(hexID, true);
 
@@ -75,11 +76,11 @@ public class SettlementSizeChecker {
 
 
             if(playerColorMatchesHexColor(hexID, player))
-                settlementCount++;
+                hexesInSettlement.add(hexID);
 
         }
 
-        return settlementCount;
+        return hexesInSettlement;
     }
 
     public int upperRightHexID(int hexID) {

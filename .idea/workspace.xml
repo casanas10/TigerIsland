@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/SettlementSizeCheckerTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/Settlement.java" afterPath="" />
+    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="SettlementSizeChecker now returns an ArrayList">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/test-report/report.js" afterPath="$PROJECT_DIR$/reports/test-report/report.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Hex.java" afterPath="$PROJECT_DIR$/src/main/java/Hex.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java" afterPath="$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/SettlementSizeCheckerTest.java" afterPath="$PROJECT_DIR$/test/SettlementSizeCheckerTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,18 +25,15 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SettlementSizeChecker.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SettlementSizeChecker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+            <state relative-caret-position="308">
+              <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#checkSettlementSize#0;class#SettlementSizeChecker#0" expanded="false" />
                 <element signature="method#playerColorMatchesHexColor#0;class#SettlementSizeChecker#0" expanded="false" />
-                <element signature="method#BFS#0;class#SettlementSizeChecker#0" expanded="false" />
-                <element signature="e#972#990#0" expanded="true" />
-                <element signature="e#1039#1048#0" expanded="true" />
+                <element signature="e#1037#1055#0" expanded="true" />
+                <element signature="e#1104#1113#0" expanded="true" />
                 <element signature="method#upperRightHexID#0;class#SettlementSizeChecker#0" expanded="false" />
                 <element signature="method#bottomRightHexID#0;class#SettlementSizeChecker#0" expanded="false" />
                 <element signature="method#bottomLeftHexID#0;class#SettlementSizeChecker#0" expanded="false" />
@@ -50,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettlementSizeCheckerTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SettlementSizeCheckerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/SettlementSizeCheckerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="33" column="74" lean-forward="false" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
+            <state relative-caret-position="73">
+              <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -702,38 +696,45 @@
       <option name="project" value="LOCAL" />
       <updated>1490387926320</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Created SettlementSizeChecker">
+      <created>1490459082480</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1490459082480</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 04m 53s.xml">
+    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 42m 40s.xml">
       <configuration name="SettlementSizeCheckerTest.checkBFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 06m 24s.xml">
+    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 43m 16s.xml">
       <configuration name="SettlementSizeCheckerTest.checkBFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 08m 58s.xml">
+    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 44m 09s.xml">
       <configuration name="SettlementSizeCheckerTest.checkBFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 09m 29s.xml">
+    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 44m 26s.xml">
       <configuration name="SettlementSizeCheckerTest.checkBFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 09m 33s.xml">
+    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 45m 21s.xml">
       <configuration name="SettlementSizeCheckerTest.checkBFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 12m 08s.xml">
+    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 45m 32s.xml">
       <configuration name="SettlementSizeCheckerTest.checkBFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 12m 17s.xml">
+    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 46m 08s.xml">
       <configuration name="SettlementSizeCheckerTest.checkBFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 12m 56s.xml">
+    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 47m 04s.xml">
       <configuration name="SettlementSizeCheckerTest.checkBFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 21m 52s.xml">
+    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 47m 34s.xml">
       <configuration name="SettlementSizeCheckerTest.checkBFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 22m 05s.xml">
+    <history-entry file="SettlementSizeCheckerTest_checkBFS - 2017.03.25 at 12h 47m 50s.xml">
       <configuration name="SettlementSizeCheckerTest.checkBFS" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -751,7 +752,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.505625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.494375" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26893523" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26893523" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -779,7 +780,8 @@
     <MESSAGE value="Updated Rotate Tile Tests to account for the origin being on an even row and an odd row" />
     <MESSAGE value="Updated tile rotation test so that it has tests for even and odd rows. Updated some logic in placement validity for checking for empty hexes. Added logic in game to place tiles in a loop. Tiles can be placed correctly and incorrectly and have an error message shown." />
     <MESSAGE value="Created Settlement class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Settlement class" />
+    <MESSAGE value="Created SettlementSizeChecker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created SettlementSizeChecker" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -788,12 +790,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java</url>
           <line>33</line>
           <properties />
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="hexesInSettlement" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1130,7 +1136,7 @@
         <state relative-caret-position="264">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#393#394#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1163,32 +1169,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/SettlementSizeCheckerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="33" column="74" lean-forward="false" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+        <state relative-caret-position="308">
+          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#checkSettlementSize#0;class#SettlementSizeChecker#0" expanded="false" />
             <element signature="method#playerColorMatchesHexColor#0;class#SettlementSizeChecker#0" expanded="false" />
-            <element signature="method#BFS#0;class#SettlementSizeChecker#0" expanded="false" />
-            <element signature="e#972#990#0" expanded="true" />
-            <element signature="e#1039#1048#0" expanded="true" />
+            <element signature="e#1037#1055#0" expanded="true" />
+            <element signature="e#1104#1113#0" expanded="true" />
             <element signature="method#upperRightHexID#0;class#SettlementSizeChecker#0" expanded="false" />
             <element signature="method#bottomRightHexID#0;class#SettlementSizeChecker#0" expanded="false" />
             <element signature="method#bottomLeftHexID#0;class#SettlementSizeChecker#0" expanded="false" />
             <element signature="method#upperLeftHexID#0;class#SettlementSizeChecker#0" expanded="false" />
             <element signature="method#hexIsInEvenRow#0;class#SettlementSizeChecker#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/SettlementSizeCheckerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
