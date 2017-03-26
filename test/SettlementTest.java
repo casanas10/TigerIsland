@@ -1,3 +1,4 @@
+import cucumber.api.java.cs.A;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -7,17 +8,18 @@ import org.junit.Test;
 public class SettlementTest {
 
     @Test
-    public void createNewSettlement() {
+    public void isNewSettlementTest() {
 
         Player player = new Player("Black", 0);
         HexGrid hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();
-        hexGrid.getHexValue(402).setColor("Black");
 
         Settlement settlement = new Settlement(hexGrid);
 
-        Assert.assertTrue(settlement.isNewSettlement(402, player));
+        settlement.addSettlement(402,player);
+
+        Assert.assertTrue(settlement.isNewSettlement(402,player));
     }
 
     @Test
@@ -27,16 +29,12 @@ public class SettlementTest {
         HexGrid hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();
-        Hex hex = hexGrid.getHexValue(402);
 
         Settlement settlement = new Settlement(hexGrid);
 
-        settlement.foundNewSettlement(810,player);
+        settlement.addSettlement(402,player);
 
-        settlement.foundNewSettlement(809, player);
-
-        Assert.assertTrue(settlement.isPiecePartOfASettlement(0,810));
-        Assert.assertTrue(settlement.isPiecePartOfASettlement(1,809));
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(0,402));
     }
 
     @Test
@@ -46,29 +44,43 @@ public class SettlementTest {
         HexGrid hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();
-        hexGrid.getHexValue(609).setColor("Black");
-        hexGrid.getHexValue(610).setColor("Black");
-        hexGrid.getHexValue(809).setColor("Black");
-        hexGrid.getHexValue(810).setColor("White");
-        hexGrid.getHexValue(811).setColor("Black");
-        hexGrid.getHexValue(1009).setColor("Black");
-        hexGrid.getHexValue(1010).setColor("Black");
-        hexGrid.getHexValue(1008).setColor("Black");
-
 
         Settlement settlement = new Settlement(hexGrid);
 
-        settlement.foundNewSettlement(810,player);
+        settlement.addSettlement(402,player);
+        settlement.addSettlement(602,player);
 
-        settlement.addPieceToAnExistingSettlement(hexGrid, 809, player);
+        settlement.addSettlement(604,player);
 
+        settlement.addSettlement(603,player);
 
+        settlement.addSettlement(850,player);
+        settlement.addSettlement(205,player);
+        settlement.addSettlement(405,player);
 
+        //settlement.printAllSettlements();
 
-        //Assert.assertTrue(settlement.isPiecePartOfASettlement(1,610));
-
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(2,405));
     }
 
+    @Test
+    public void addSeperateSettlements() {
+
+        Player player = new Player("Black", 0);
+        HexGrid hexGrid = new HexGrid();
+
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = new Settlement(hexGrid);
+
+        settlement.addSettlement(409,player);
+        settlement.addSettlement(820, player);
+
+        //settlement.printAllSettlements();
+
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(0,409));
+
+    }
 
 
 

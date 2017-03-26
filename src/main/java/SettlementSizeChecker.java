@@ -23,7 +23,7 @@ public class SettlementSizeChecker {
             return hexesInSettlement;
     }
 
-    private boolean playerColorMatchesHexColor(int hexID, Player player) {
+    public boolean playerColorMatchesHexColor(int hexID, Player player) {
         if(player.getPlayerColor() == hexGrid.getHexValue(hexID).getColor())
             return true;
         else
