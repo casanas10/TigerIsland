@@ -36,7 +36,7 @@ public class Settlement {
 
         Hex hex = hexGrid.getHexValue(hexID);
 
-        hex.setColor(player.getPlayerColor());
+        hex.setPlayerColorOnHex(player.getPlayerColor());
 
         if (isNewSettlement(hexID,player)){
 
@@ -49,9 +49,6 @@ public class Settlement {
 
 
     }
-
-
-
 
     public void addPieceToAnExistingSettlement(int hexID, Player player) {
 

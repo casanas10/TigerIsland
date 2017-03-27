@@ -11,6 +11,7 @@ public class Hex {
     private int level;
     private HashMap<String, Integer> gamePiecesMap;
     private String playerColorOnHex;
+    private int settlementID;
 
     Hex (int hexID, int x, int y){
         this.hexID = hexID;
@@ -20,6 +21,7 @@ public class Hex {
         this.level = 0;
         gamePiecesMap = new HashMap<>();
         playerColorOnHex = "";
+        this.settlementID = -1;
     }
 
     public int getHexID() {
@@ -91,5 +93,13 @@ public class Hex {
         gamePiecesMap.put(piece.getName(), 1);
         setPlayerColorOnHex(piece.getColor());
         System.out.println(getPlayerColorOnHex() + " " + piece.getName() + " successfully placed on Hex: " + getHexID());
+    }
+
+    public int getSettlementID() {
+        return settlementID;
+    }
+
+    public void setSettlementID(int settlementID) {
+        this.settlementID = settlementID;
     }
 }

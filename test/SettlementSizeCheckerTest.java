@@ -20,14 +20,14 @@ public class SettlementSizeCheckerTest {
         hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();
-        hexGrid.getHexValue(609).setColor("Black");
-        hexGrid.getHexValue(610).setColor("Black");
-        hexGrid.getHexValue(809).setColor("Black");
-        hexGrid.getHexValue(810).setColor("White");
-        hexGrid.getHexValue(811).setColor("Black");
-        hexGrid.getHexValue(1009).setColor("Black");
-        hexGrid.getHexValue(1010).setColor("Black");
-        hexGrid.getHexValue(1008).setColor("Black");
+        hexGrid.getHexValue(609).setPlayerColorOnHex("Black");
+        hexGrid.getHexValue(610).setPlayerColorOnHex("Black");
+        hexGrid.getHexValue(809).setPlayerColorOnHex("Black");
+        hexGrid.getHexValue(810).setPlayerColorOnHex("White");
+        hexGrid.getHexValue(811).setPlayerColorOnHex("Black");
+        hexGrid.getHexValue(1009).setPlayerColorOnHex("Black");
+        hexGrid.getHexValue(1010).setPlayerColorOnHex("Black");
+        hexGrid.getHexValue(1008).setPlayerColorOnHex("Black");
 
         checkSettlementSize = new SettlementSizeChecker(hexGrid);
     }

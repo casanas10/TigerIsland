@@ -10,6 +10,7 @@ public class IslandMap {
     private int tileCount;
     private TileGenerator myGen;
 
+
     public IslandMap(){
         gameBoardMap = new HashMap<Integer, int[]>();
         myGen = new TileGenerator();
