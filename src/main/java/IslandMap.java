@@ -9,12 +9,15 @@ public class IslandMap {
     private HexGrid hexGrid;
     private int tileCount;
     private TileGenerator myGen;
+    private Settlement settlement;
+
 
     public IslandMap(){
         gameBoardMap = new HashMap<Integer, int[]>();
         myGen = new TileGenerator();
         hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
+        settlement = new Settlement(hexGrid);
         tileCount = 0;
     }
 
@@ -24,8 +27,6 @@ public class IslandMap {
         int tileHexIDsArray[] = new int[3];
         RotateTile rotateTile = new RotateTile(hexID, orientation);
         tileHexIDsArray = rotateTile.checkPair();
-
-        System.out.println(Arrays.toString(tileHexIDsArray));
 
         String tileTerrainsArray[] = new String[3];
         tileTerrainsArray = myGen.getNewTile();
@@ -44,17 +45,10 @@ public class IslandMap {
         hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray, tileTerrainsArray);
         adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
 
-        System.out.println(hexesCanBePlaced);
-        System.out.println(adjacentTilesValid);
-
-
-
         if(hexesCanBePlaced && adjacentTilesValid){
             Tile tile = new Tile(tileCount,tileHexIDsArray);
             hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
-            hexGrid.setLevels(tileHexIDsArray);
-            //hexGrid.increaseLevelsByOne(tileHexIDsArray);
-
+            hexGrid.increaseLevelsByOne(tileHexIDsArray);
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             tileCount++;
             System.out.println("Tile Successfully Placed!");
@@ -94,8 +88,7 @@ public class IslandMap {
     public void placeFirstTile(int[] tileHexIDsArray, String[] tileTerrainsArray){
         Tile tile = new Tile(tileCount,tileHexIDsArray);
         hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
-        hexGrid.setLevels(tileHexIDsArray);
-       // hexGrid.increaseLevelsByOne(tileHexIDsArray);
+        hexGrid.increaseLevelsByOne(tileHexIDsArray);
         gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
         tileCount++;
         System.out.println("Tile Successfully Placed!");
@@ -111,14 +104,15 @@ public class IslandMap {
             }
             System.out.println();
         }
-    }
 
-    public int[] getHexIDsForTile(int tileID){
-        return gameBoardMap.get(tileID);
     }
 
     public Hex getHex(int hexID){
         return hexGrid.getHexValue(hexID);
+    }
+
+    public HashMap<Integer, ArrayList<Integer>> getSettlementsMap(){
+        return settlement.getSettlementsMap();
     }
 
 

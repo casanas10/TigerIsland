@@ -11,6 +11,7 @@ public class Hex {
     private int level;
     private HashMap<String, Integer> gamePiecesMap;
     private String playerColorOnHex;
+    private int settlementID;
 
     Hex (int hexID, int x, int y){
         this.hexID = hexID;
@@ -20,6 +21,7 @@ public class Hex {
         this.level = 0;
         gamePiecesMap = new HashMap<>();
         playerColorOnHex = "";
+        this.settlementID = -1;
     }
 
     public int getHexID() {
@@ -50,10 +52,6 @@ public class Hex {
 
     public void setTerrain(String terrain){ this.terrain = terrain; }
 
-    //public int getLevel(){ return level; }
-
-    public void setLevel(int level){ this.level = level; }
-
     public void printHexCoordinates() {
         System.out.print("x:" + x + " y:" + y);
     }
@@ -83,6 +81,10 @@ public class Hex {
         return "No game piece on hex";
     }
 
+    public void removeGamePiecesFromMap(){
+        gamePiecesMap.clear();
+    }
+
     public void incrementLevel(){
         level++;
     }
@@ -95,5 +97,13 @@ public class Hex {
         gamePiecesMap.put(piece.getName(), 1);
         setPlayerColorOnHex(piece.getColor());
         System.out.println(getPlayerColorOnHex() + " " + piece.getName() + " successfully placed on Hex: " + getHexID());
+    }
+
+    public int getSettlementID() {
+        return settlementID;
+    }
+
+    public void setSettlementID(int settlementID) {
+        this.settlementID = settlementID;
     }
 }

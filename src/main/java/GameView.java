@@ -38,10 +38,20 @@ public class GameView extends JPanel {
                 String getOrientation = orientationField.getText();
 
                 int hexID = Integer.parseInt(getHex);
+                int orientation = Integer.parseInt(getOrientation);
 
-                Hex hex = hexGrid.getHexValue(hexID);
+                RotateTile tile = new RotateTile(hexID,orientation);
 
-                gridPanel.paintHexOnGrid(hex.getX(),hex.getY());
+                int[] hexes = tile.checkPair();
+
+                Hex hex1 = hexGrid.getHexValue(hexes[0]);
+                Hex hex2 = hexGrid.getHexValue(hexes[1]);
+                Hex hex3 = hexGrid.getHexValue(hexes[2]);
+
+                gridPanel.paintHexOnGrid(hex1.getX(),hex1.getY());
+                gridPanel.paintHexOnGrid(hex2.getX(),hex2.getY());
+                gridPanel.paintHexOnGrid(hex3.getX(),hex3.getY());
+
 
             }
         });
