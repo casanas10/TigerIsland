@@ -13,7 +13,11 @@ formatter.feature({
   ]
 });
 formatter.before({
+<<<<<<< .merge_file_vx9cec
   "duration": 21379630,
+=======
+  "duration": 7822272,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.scenario({
@@ -48,21 +52,33 @@ formatter.match({
   "location": "GameStep.nothingHasYetHappened()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 235184699,
+=======
+  "duration": 107044792,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.theGameInitiates()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 33218215,
+=======
+  "duration": 11141564,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.aNewGameIsSuccessfullyCreated()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 14725889,
+=======
+  "duration": 1489875,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
@@ -75,7 +91,11 @@ formatter.match({
   "location": "GameStep.playersAreSuccessfullyCreatedEachHoldingSpecificPlayerAttributes(int)"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 5752979,
+=======
+  "duration": 1754152,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.uri("pieces.feature");
@@ -93,7 +113,11 @@ formatter.feature({
   ]
 });
 formatter.before({
+<<<<<<< .merge_file_vx9cec
   "duration": 11489050,
+=======
+  "duration": 8354248,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.scenario({
@@ -138,14 +162,22 @@ formatter.match({
   "location": "MeeplesStep.aNewGameIsCreated()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 7305549,
+=======
+  "duration": 5283412,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "MeeplesStep.theGameBegins()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 86295,
+=======
+  "duration": 59868,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
@@ -158,7 +190,11 @@ formatter.match({
   "location": "MeeplesStep.meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int)"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 192271,
+=======
+  "duration": 107764,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
@@ -171,7 +207,11 @@ formatter.match({
   "location": "MeeplesStep.totorosAreSuccessfullyCratedWithTheCorrectProperties(int)"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 140705,
+=======
+  "duration": 130001,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
@@ -188,7 +228,11 @@ formatter.match({
   "location": "MeeplesStep.theWhitePlayerHasTotoros(int,String)"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 1988011,
+=======
+  "duration": 2391754,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
@@ -205,7 +249,11 @@ formatter.match({
   "location": "MeeplesStep.theBlackPlayerHasTotoros(int,String)"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 277473,
+=======
+  "duration": 339113,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.uri("placement.feature");
@@ -223,7 +271,11 @@ formatter.feature({
   ]
 });
 formatter.before({
+<<<<<<< .merge_file_vx9cec
   "duration": 10348331,
+=======
+  "duration": 2372938,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.scenario({
@@ -253,25 +305,41 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 50266,
+=======
+  "duration": 163784,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceATile()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 40076,
+=======
+  "duration": 26941,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theTileIsSuccessfullyPlacedInTheMap()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 1118378,
   "status": "passed"
 });
 formatter.before({
   "duration": 7941938,
+=======
+  "duration": 931813,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 2479419,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.scenario({
@@ -301,25 +369,41 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 27989,
+=======
+  "duration": 21809,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceATileNextToAnotherTile()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 168155,
+=======
+  "duration": 101776,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theTileIsAddedToTheMap()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 7533599,
   "status": "passed"
 });
 formatter.before({
   "duration": 15322424,
+=======
+  "duration": 303193,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 7933029,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.scenario({
@@ -349,25 +433,41 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 34588,
+=======
+  "duration": 24375,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceATileDirectlyOnTopOfAnotherTile()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 265825,
+=======
+  "duration": 150954,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.thePlacementFails()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 1483101,
   "status": "passed"
 });
 formatter.before({
   "duration": 5859739,
+=======
+  "duration": 200560,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1899120,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.scenario({
@@ -397,21 +497,33 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 39722,
+=======
+  "duration": 79112,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceTheTileUnnconnectedToAnotherTile()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 218518,
+=======
+  "duration": 217238,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theUnnconnectedPlacementFails()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 239734,
+=======
+  "duration": 176612,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.uri("player.feature");
@@ -429,7 +541,11 @@ formatter.feature({
   ]
 });
 formatter.before({
+<<<<<<< .merge_file_vx9cec
   "duration": 2454174,
+=======
+  "duration": 1749877,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.scenario({
@@ -464,14 +580,22 @@ formatter.match({
   "location": "PlayerStep.aNewGameIsCreated()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 182446,
+=======
+  "duration": 162500,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
   "location": "PlayerStep.theGameStarts()"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 123372,
+=======
+  "duration": 47040,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
@@ -484,7 +608,11 @@ formatter.match({
   "location": "PlayerStep.playerCreation(int)"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 260747,
+=======
+  "duration": 112040,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.match({
@@ -497,7 +625,11 @@ formatter.match({
   "location": "PlayerStep.thePlayerIsAssignedAColor(String)"
 });
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 4312218,
+=======
+  "duration": 73125,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.uri("terrains.feature");
@@ -515,7 +647,11 @@ formatter.feature({
   ]
 });
 formatter.before({
+<<<<<<< .merge_file_vx9cec
   "duration": 7602699,
+=======
+  "duration": 2588893,
+>>>>>>> .merge_file_41lG9I
   "status": "passed"
 });
 formatter.scenario({
@@ -583,8 +719,22 @@ formatter.result({
   "duration": 3400622,
   "status": "passed"
 });
+<<<<<<< .merge_file_vx9cec
 formatter.match({
   "location": "TerrainsStep.aNewSetOfTiles()"
+=======
+formatter.before({
+  "duration": 9515273,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 10,
+  "name": "A tile has already been placed on the board",
+  "description": "",
+  "id": "tiles;a-tile-has-already-been-placed-on-the-board",
+  "type": "scenario",
+  "keyword": "Scenario"
+>>>>>>> .merge_file_41lG9I
 });
 formatter.result({
   "duration": 85919,
@@ -678,6 +828,7 @@ formatter.step({
   "name": "the turn changes to the next player",
   "keyword": "Then "
 });
+<<<<<<< .merge_file_vx9cec
 formatter.match({
   "location": "TurnsStep.aBrandNewGame()"
 });
@@ -687,36 +838,63 @@ formatter.result({
 });
 formatter.match({
   "location": "TurnsStep.itSTimeToBegin()"
-});
+=======
+formatter.match({});
 formatter.result({
+  "status": "undefined"
+>>>>>>> .merge_file_41lG9I
+});
+formatter.match({});
+formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 12139516,
   "status": "passed"
 });
 formatter.match({
   "location": "TurnsStep.aPlayerIsChosenAtRandomToStartTheGame()"
+=======
+  "status": "undefined"
+>>>>>>> .merge_file_41lG9I
 });
+formatter.match({});
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 215084,
   "status": "passed"
 });
 formatter.match({
   "location": "TurnsStep.aPlayerToBegin()"
+=======
+  "status": "undefined"
+>>>>>>> .merge_file_41lG9I
 });
+formatter.match({});
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 16394269,
   "error_message": "cucumber.api.PendingException: TODO: implement me\n\tat TurnsStep.aPlayerToBegin(TurnsStep.java:33)\n\tat ✽.Given a player to begin(turns.feature:9)\n",
   "status": "pending"
 });
 formatter.match({
   "location": "TurnsStep.thatPlayerSTurnIsOver()"
+=======
+  "status": "undefined"
+>>>>>>> .merge_file_41lG9I
 });
+formatter.match({});
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "status": "skipped"
 });
 formatter.match({
   "location": "TurnsStep.theTurnChangesToTheNextPlayer()"
+=======
+  "status": "undefined"
+>>>>>>> .merge_file_41lG9I
 });
+formatter.match({});
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "status": "skipped"
 });
 formatter.before({
@@ -748,22 +926,44 @@ formatter.step({
 });
 formatter.match({
   "location": "TurnsStep.onePlayerSTurnIsCurrentlyGoingOn()"
+=======
+  "status": "undefined"
 });
+formatter.match({});
 formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+>>>>>>> .merge_file_41lG9I
+});
+formatter.match({});
+formatter.result({
+<<<<<<< .merge_file_vx9cec
   "duration": 290112,
   "error_message": "cucumber.api.PendingException: TODO: implement me\n\tat TurnsStep.onePlayerSTurnIsCurrentlyGoingOn(TurnsStep.java:51)\n\tat ✽.Given one player’s turn is currently going on(turns.feature:14)\n",
   "status": "pending"
 });
 formatter.match({
   "location": "TurnsStep.thatPlayerSTurnIsOver()"
+=======
+  "status": "undefined"
+>>>>>>> .merge_file_41lG9I
 });
+formatter.match({});
 formatter.result({
+<<<<<<< .merge_file_vx9cec
   "status": "skipped"
 });
 formatter.match({
   "location": "TurnsStep.theNextPlayerSTurnBegins()"
+=======
+  "status": "undefined"
+>>>>>>> .merge_file_41lG9I
 });
+formatter.match({});
 formatter.result({
-  "status": "skipped"
+  "status": "undefined"
 });
 });

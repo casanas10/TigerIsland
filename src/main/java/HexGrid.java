@@ -41,22 +41,30 @@ public class HexGrid {
         return hexMap.get(hexID);
     }
 
-    public void setTerrains(int hexIDs[], String hexTerrains[]){
+    public void setTerrains(int hexIDs[], String hexTerrains[]) {
         Hex hex;
-        for(int i=0; i<3; i++){
+        for (int i = 0; i < 3; i++) {
             hex = getHexValue(hexIDs[i]);
             hex.setTerrain(hexTerrains[i]);
         }
     }
 
-    public void setLevels(int hexIDs[]){
+    public void setLevels(int hexIDs[]) {
         Hex hex;
-        for(int i=0; i<3; i++){
+        for (int i = 0; i < 3; i++) {
             hex = getHexValue(hexIDs[i]);
             int currentLevel = hex.getLevel();
             hex.setLevel(currentLevel++);
         }
     }
+   /* public void increaseLevelsByOne(int hexIDs[]){
+        Hex hex;
+        for(int i=0; i<3; i++){
+            hex = getHexValue(hexIDs[i]);
+            hex.incrementLevel();
 
+        }
+    }
+    */
 
 }
