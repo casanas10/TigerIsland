@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" afterPath="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,14 +45,20 @@
       <file leaf-file-name="ExtendSettlement.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ExtendSettlement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="71" lean-forward="false" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
+            <state relative-caret-position="345">
+              <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#453#462#0" expanded="true" />
                 <element signature="e#534#543#0" expanded="true" />
                 <element signature="e#611#620#0" expanded="true" />
                 <element signature="e#689#698#0" expanded="true" />
+                <element signature="method#checkUpperRightHexID#0;class#ExtendSettlement#0" expanded="false" />
+                <element signature="method#checkRightHexID#0;class#ExtendSettlement#0" expanded="false" />
+                <element signature="method#checkBottomRightHexID#0;class#ExtendSettlement#0" expanded="false" />
+                <element signature="method#checkBottomLeftHexID#0;class#ExtendSettlement#0" expanded="false" />
+                <element signature="method#checkLeftHexID#0;class#ExtendSettlement#0" expanded="false" />
+                <element signature="method#checkUpperLeftHexID#0;class#ExtendSettlement#0" expanded="false" />
                 <element signature="method#hexIsInEvenRow#0;class#ExtendSettlement#0" expanded="false" />
                 <element signature="method#checkIfSameTerrain#0;class#ExtendSettlement#0" expanded="false" />
                 <element signature="method#checkIfValidTile#0;class#ExtendSettlement#0" expanded="false" />
@@ -759,7 +764,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490647425484</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Changing extending settlements to account for terrains.">
+      <created>1490656155551</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1490656155551</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -796,7 +808,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1267" height="722" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -812,7 +824,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30285713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30285713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1243,14 +1255,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ExtendSettlement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="71" lean-forward="false" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
+        <state relative-caret-position="345">
+          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#453#462#0" expanded="true" />
             <element signature="e#534#543#0" expanded="true" />
             <element signature="e#611#620#0" expanded="true" />
             <element signature="e#689#698#0" expanded="true" />
+            <element signature="method#checkUpperRightHexID#0;class#ExtendSettlement#0" expanded="false" />
+            <element signature="method#checkRightHexID#0;class#ExtendSettlement#0" expanded="false" />
+            <element signature="method#checkBottomRightHexID#0;class#ExtendSettlement#0" expanded="false" />
+            <element signature="method#checkBottomLeftHexID#0;class#ExtendSettlement#0" expanded="false" />
+            <element signature="method#checkLeftHexID#0;class#ExtendSettlement#0" expanded="false" />
+            <element signature="method#checkUpperLeftHexID#0;class#ExtendSettlement#0" expanded="false" />
             <element signature="method#hexIsInEvenRow#0;class#ExtendSettlement#0" expanded="false" />
             <element signature="method#checkIfSameTerrain#0;class#ExtendSettlement#0" expanded="false" />
             <element signature="method#checkIfValidTile#0;class#ExtendSettlement#0" expanded="false" />
