@@ -32,6 +32,11 @@ public class Settlement {
         this.settlementSizeChecker = new SettlementSizeChecker(hexGrid);
     }
 
+    public void updateSettlementAfterNuke(RotateTile tile, Player player){
+
+
+    }
+
     public void addSettlement(int hexID, Player player){
 
         Hex hex = hexGrid.getHexValue(hexID);
