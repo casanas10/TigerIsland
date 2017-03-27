@@ -49,5 +49,13 @@ public class HexGrid {
         }
     }
 
+    public void increaseLevelsByOne(int hexIDs[]){
+        Hex hex;
+        for(int i=0; i<3; i++){
+            hex = getHexValue(hexIDs[i]);
+            hex.incrementLevel();
+        }
+    }
+
 
 }

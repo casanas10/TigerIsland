@@ -25,8 +25,6 @@ public class IslandMap {
         RotateTile rotateTile = new RotateTile(hexID, orientation);
         tileHexIDsArray = rotateTile.checkPair();
 
-        System.out.println(Arrays.toString(tileHexIDsArray));
-
         String tileTerrainsArray[] = new String[3];
         tileTerrainsArray = myGen.getNewTile();
 
@@ -44,12 +42,10 @@ public class IslandMap {
         hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray, tileTerrainsArray);
         adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
 
-        System.out.println(hexesCanBePlaced);
-        System.out.println(adjacentTilesValid);
-
         if(hexesCanBePlaced && adjacentTilesValid){
             Tile tile = new Tile(tileCount,tileHexIDsArray);
             hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
+            hexGrid.increaseLevelsByOne(tileHexIDsArray);
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             tileCount++;
             System.out.println("Tile Successfully Placed!");
@@ -89,6 +85,7 @@ public class IslandMap {
     public void placeFirstTile(int[] tileHexIDsArray, String[] tileTerrainsArray){
         Tile tile = new Tile(tileCount,tileHexIDsArray);
         hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
+        hexGrid.increaseLevelsByOne(tileHexIDsArray);
         gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
         tileCount++;
         System.out.println("Tile Successfully Placed!");
@@ -105,6 +102,10 @@ public class IslandMap {
             System.out.println();
         }
 
+    }
+
+    public Hex getHex(int hexID){
+        return hexGrid.getHexValue(hexID);
     }
 
 

@@ -1,30 +1,17 @@
 /**
  * Created by alecasanas on 3/14/17.
  */
-public class Meeple {
-    private String status;
-    private String color;
-    private int score;
-
+public class Meeple extends GamePiece{
     public Meeple(String color){
+        requiredLevel = 1;
+        requiredSettlementSize = 0;
+        score = 1;
         this.color = color;
-        this.status = "Not Played";
-    }
-    public void setStatus(String status){
-        this.status = status;
-    }
-    public String getStatus(){
-        return status;
+        name = "Meeple";
     }
 
-    public String getColor(){
-        return color;
-    }
-
-    public void setScore(int score){
-        this.score = score;
-    }
-    public int getScore(){
-        return score;
+    @Override
+    public int calculateScore(int level){
+        return (score * level);
     }
 }

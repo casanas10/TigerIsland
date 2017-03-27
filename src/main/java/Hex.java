@@ -1,16 +1,16 @@
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by Eric on 3/15/2017.
  */
 public class Hex {
     private int hexID;
-    private int settlementID;
     private int x;
     private int y;
     private String terrain;
-    private String color;
     private int level;
+    private HashMap<String, Integer> gamePiecesMap;
+    private String playerColorOnHex;
 
     Hex (int hexID, int x, int y){
         this.hexID = hexID;
@@ -18,7 +18,8 @@ public class Hex {
         this.y = y;
         this.terrain = "";
         this.level = 0;
-        this.settlementID = -1;
+        gamePiecesMap = new HashMap<>();
+        playerColorOnHex = "";
     }
 
     public int getHexID() {
@@ -28,10 +29,6 @@ public class Hex {
     public void setHexID(int hexID) {
         this.hexID = hexID;
     }
-
-    public int getSettlementID(){ return settlementID; }
-
-    public void setSettlementID(int settlementID){ this.settlementID = settlementID; }
 
     public int getX() {
         return x;
@@ -57,11 +54,42 @@ public class Hex {
         System.out.print("x:" + x + " y:" + y);
     }
 
-    public String getColor() {
-        return color;
+    public int getLevel(){
+        return this.level;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setPlayerColorOnHex(String color){
+        playerColorOnHex = color;
+    }
+
+    public void resetPlayerColorOnHex(){
+        playerColorOnHex = "";
+    }
+
+    public String getPlayerColorOnHex(){
+        return playerColorOnHex;
+    }
+
+    public String getPieceOnHex(){
+        Iterator<Map.Entry<String, Integer>> iterator = gamePiecesMap.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<String, Integer> entry = iterator.next();
+            return entry.getKey();
+        }
+        return "No game piece on hex";
+    }
+
+    public void incrementLevel(){
+        level++;
+    }
+
+    public boolean checkIfHexIsNotSettled(){
+        return gamePiecesMap.isEmpty();
+    }
+
+    public void addGamePieceToHex(GamePiece piece){
+        gamePiecesMap.put(piece.getName(), 1);
+        setPlayerColorOnHex(piece.getColor());
+        System.out.println(getPlayerColorOnHex() + " " + piece.getName() + " successfully placed on Hex: " + getHexID());
     }
 }

@@ -1,36 +1,34 @@
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Created by cyonkee on 3/14/17.
  */
 public class TotoroTest {
+    Totoro testTotoro;
 
-    static private Player whitePlayer;
-    static private Player blackPlayer;
-
-    @BeforeClass
-    static public void createNewPlayerAndGame() {
-        whitePlayer = new Player("white", 0);
-        blackPlayer = new Player("black", 0);
+    @Before
+    public void setUp() throws Exception {
+        testTotoro = new Totoro("white");
     }
 
     @Test
-    public void whenTheGameStartsThen3TotorosAreCreatedPerPlayer(){
-        Assert.assertEquals(3, whitePlayer.getRemainingTotoros());
-        Assert.assertEquals(3, blackPlayer.getRemainingTotoros());
+    public void calculateScoreTestLevel1() throws Exception{
+        int score = testTotoro.calculateScore(1);
+        Assert.assertEquals(200,score);
     }
 
     @Test
-    public void totoroColorMatchesPlayerColor() {
-        Assert.assertEquals(whitePlayer.getPlayerColor(), whitePlayer.getPieces().getTotoros().get(0).getColor());
-        Assert.assertEquals(blackPlayer.getPlayerColor(), blackPlayer.getPieces().getTotoros().get(0).getColor());
+    public void calculateScoreTestLevel3() throws Exception{
+        int score = testTotoro.calculateScore(3);
+        Assert.assertEquals(200, score);
     }
 
     @Test
-    public void totoroStatusIsNotPlayed() {
-        Assert.assertEquals("Not Played", whitePlayer.getPieces().getTotoros().get(0).getStatus());
-        Assert.assertEquals("Not Played", blackPlayer.getPieces().getTotoros().get(0).getStatus());
+    public void checkName() throws Exception{
+        String name = testTotoro.getName();
+        Assert.assertEquals("Totoro", name);
     }
+
 }

@@ -1,36 +1,34 @@
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Created by alecasanas on 3/14/17.
  */
 public class MeepleTest {
-    static private Player whitePlayer;
-    static private Player blackPlayer;
+    Meeple testMeeple;
 
-    @BeforeClass
-    static public void createNewPlayerAndGame() {
-        whitePlayer = new Player("white", 0);
-        blackPlayer = new Player("black", 0);
+    @Before
+    public void setUp() throws Exception {
+        testMeeple = new Meeple("black");
     }
 
     @Test
-    public void whenTheGameStartsThen20MeeplesAreCreatedPerPlayer(){
-        Assert.assertEquals(20, whitePlayer.getRemainingMeeples());
-        Assert.assertEquals(20, blackPlayer.getRemainingMeeples());
+    public void calculateScoreTestLevel1() throws Exception{
+        int score = testMeeple.calculateScore(1);
+        Assert.assertEquals(1,score);
     }
 
     @Test
-    public void meepleColorMatchesPlayerColor() {
-        Assert.assertEquals(whitePlayer.getPlayerColor(), whitePlayer.getPieces().getMeeples().get(0).getColor());
-        Assert.assertEquals(blackPlayer.getPlayerColor(), blackPlayer.getPieces().getMeeples().get(0).getColor());
+    public void calculateScoreTestLevel3() throws Exception{
+        int score = testMeeple.calculateScore(3);
+        Assert.assertEquals(3, score);
     }
 
     @Test
-    public void meepleStatusIsNotPlayed() {
-        Assert.assertEquals("Not Played", whitePlayer.getPieces().getMeeples().get(0).getStatus());
-        Assert.assertEquals("Not Played", blackPlayer.getPieces().getMeeples().get(0).getStatus());
+    public void checkName() throws Exception{
+        String name = testMeeple.getName();
+        Assert.assertEquals("Meeple", name);
     }
 
 }
