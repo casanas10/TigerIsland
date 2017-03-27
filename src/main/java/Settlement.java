@@ -150,4 +150,8 @@ public class Settlement {
         }
 
     }
+
+    public HashMap<Integer, ArrayList<Integer>> getSettlementsMap(){
+        return settlementMap;
+    }
 }

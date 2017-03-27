@@ -7,7 +7,7 @@ public class Builder {
         switch(buildOption) {
             case 1: return(buildANewSettlement(player, islandMap, hexID));
 
-            case 2: // Expand
+            case 2: ExtendSettlement extend = new ExtendSettlement(hexID, islandMap);
                     break;
             case 3: return(buildATotoroSanctuary(player, islandMap, hexID));
 

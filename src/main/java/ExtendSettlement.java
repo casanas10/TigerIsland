@@ -205,7 +205,7 @@ public class ExtendSettlement {
     private boolean checkIfValidTile(int hexID) {
         Hex hex;
         hex = islandMap.getHex(hexID);
-        if(hex.getTile() == -1){
+        if(hex.getTileID() == -1){
             return true;
         }
         else{
