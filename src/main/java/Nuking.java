@@ -40,8 +40,7 @@ public class Nuking {
             else return false;
         }
 
-        public void performNuke(HexGrid hexGrid, int[] hexIDS, String[] hexTerrains, IslandMap islandMap){
-            int nextTile = islandMap.getTileCount();
+        public void performNuke(HexGrid hexGrid, int[] hexIDS, String[] hexTerrains, int nextTile){
 
             for(int i=0; i<hexIDS.length; i++){
                 hexGrid.getHexValue(hexIDS[i]).incrementLevel();
