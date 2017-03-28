@@ -19,7 +19,7 @@ public class PlacementValidityTest {
 
         Hex hex = new Hex(402,2,2);
 
-        ArrayList<Integer> hexes = validity.searchTheSixAdjacentHexes(hexGrid,hex);
+        ArrayList<Integer> hexes = validity.searchTheSixAdjacentHexes(hex);
 
         ArrayList<Integer> expectedHexes = new ArrayList<Integer>() {{
             add(202);
@@ -30,6 +30,6 @@ public class PlacementValidityTest {
             add(403);
         }};
 
-        Assert.assertEquals(hexes, expectedHexes);
+        Assert.assertEquals(expectedHexes, hexes);
     }
 }

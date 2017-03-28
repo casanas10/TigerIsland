@@ -25,6 +25,8 @@ public class Settlement {
 
     private SettlementSizeChecker settlementSizeChecker;
 
+    PlacementValidity validity = new PlacementValidity();
+
     private int settleID = 0;
 
     Settlement(HexGrid hexGrid) {
@@ -32,9 +34,48 @@ public class Settlement {
         this.settlementSizeChecker = new SettlementSizeChecker(hexGrid);
     }
 
-    public void updateSettlementAfterNuke(RotateTile tile, Player player){
+    public void updateSettlementAfterNuke(ArrayList<Integer> hexes, Player player){
+
+        hexGrid.getHexValue(hexes.get(0)).resetPlayerColorOnHex(); //reset player color
+        hexGrid.getHexValue(hexes.get(0)).setSettlementID(-1);  //and settlement id
+
+        hexGrid.getHexValue(hexes.get(1)).resetPlayerColorOnHex();
+        hexGrid.getHexValue(hexes.get(1)).setSettlementID(-1);
+
+        hexGrid.getHexValue(hexes.get(2)).resetPlayerColorOnHex();
+        hexGrid.getHexValue(hexes.get(2)).setSettlementID(-1);
+
+        int hexID = 0;
 
 
+        for (int index = 0; index < hexes.size(); index++ ){
+
+            ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexes.get(index)));
+
+            ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
+
+            for (int i = 0; i < adjacentHexes.size(); i++){
+
+                if (hexGrid.getHexValue(adjacentHexes.get(i)).getSettlementID() != - 1){
+                    hexID = adjacentHexes.get(i);
+
+                    int settID = getSettlementID(hexID);
+                    settlementMap.remove(settID);
+
+                    NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
+
+                    for (int j = 0; j < NewHexIDs.size(); j++){
+                        System.out.println(NewHexIDs.get(j));
+                        setSettlementID(NewHexIDs.get(j),settID);
+                    }
+
+                    settlementMap.put(settleID,NewHexIDs);
+                    settleID++;
+
+                }
+
+            }
+        }
     }
 
     public void addSettlement(int hexID, Player player){
@@ -57,9 +98,7 @@ public class Settlement {
 
     public void addPieceToAnExistingSettlement(int hexID, Player player) {
 
-        PlacementValidity validity = new PlacementValidity();
-
-        ArrayList<Integer> hexes = validity.searchTheSixAdjacentHexes(hexGrid,hexGrid.getHexValue(hexID));
+        ArrayList<Integer> hexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
 
         int settID = 0;
 
@@ -68,8 +107,6 @@ public class Settlement {
         ArrayList<Integer> setIDPlaceHolder = new ArrayList<Integer>();
 
         for(int i = 0; i < hexes.size(); i++){
-
-            NewHexIDs = new ArrayList<Integer>();
 
             if(hexGrid.getHexValue(hexes.get(i)).getSettlementID() != - 1){
 
@@ -80,11 +117,15 @@ public class Settlement {
 
 
         for(int i = 0; i<setIDPlaceHolder.size(); i++){
-
             settlementMap.remove(setIDPlaceHolder.get(i));
         }
 
         NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
+
+
+        for (int i = 0; i < NewHexIDs.size(); i++){
+            setSettlementID(NewHexIDs.get(i),settID);
+        }
 
         settlementMap.put(settID,NewHexIDs);
         settleID++;
@@ -150,4 +191,6 @@ public class Settlement {
         }
 
     }
+
+
 }

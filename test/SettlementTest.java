@@ -2,6 +2,8 @@ import cucumber.api.java.cs.A;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 /**
  * Created by alecasanas on 3/25/17.
  */
@@ -82,6 +84,39 @@ public class SettlementTest {
 
     }
 
+
+    @Test
+    public void updateSettlementAfterNukeTest() {
+
+        Player player = new Player("Black", 0);
+        HexGrid hexGrid = new HexGrid();
+
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = new Settlement(hexGrid);
+
+        settlement.addSettlement(202,player);
+        settlement.addSettlement(403, player);
+        settlement.addSettlement(603, player);
+        settlement.addSettlement(604, player);
+        settlement.addSettlement(605, player);
+
+
+
+        ArrayList<Integer> expectedHexes = new ArrayList<Integer>() {{
+            add(603);
+            add(604);
+            add(804);
+        }};
+
+        settlement.updateSettlementAfterNuke(expectedHexes, player);
+
+        settlement.printAllSettlements();
+
+        //settlement.printAllSettlements();
+
+        //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,409));
+    }
 
 
 }
