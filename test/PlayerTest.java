@@ -36,4 +36,9 @@ public class PlayerTest {
         Assert.assertEquals(3, whitePlayer.getRemainingTotoros());
     }
 
+    @Test
+    public void newPlayerStartsWith2Tigers(){
+        Assert.assertEquals(2, whitePlayer.getRemainingTigers());
+    }
+
 }
