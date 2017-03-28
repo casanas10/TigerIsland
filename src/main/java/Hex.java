@@ -81,8 +81,10 @@ public class Hex {
         return "No game piece on hex";
     }
 
+    // Completely clears players piece and color from the hex
     public void removeGamePiecesFromMap(){
         gamePiecesMap.clear();
+        resetPlayerColorOnHex();
     }
 
     public void incrementLevel(){
