@@ -63,6 +63,7 @@ public class Settlement {
 
                     int settID = getSettlementID(hexID);
                     settlementMap.remove(settID);
+                    listOfActiveSettlementIDs.remove(Integer.valueOf(settID));//NEW
 
                     NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
 
@@ -72,6 +73,7 @@ public class Settlement {
                     }
 
                     settlementMap.put(settleID,NewHexIDs);
+                    listOfActiveSettlementIDs.add(settleID);//NEW
                     settleID++;
 
                 }

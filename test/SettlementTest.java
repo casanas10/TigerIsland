@@ -2,7 +2,9 @@ import cucumber.api.java.cs.A;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by alecasanas on 3/25/17.
@@ -115,7 +117,7 @@ public class SettlementTest {
 
         //settlement.printAllSettlements();
 
-        //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,409));
+        Assert.assertEquals(2, settlement.getListOfActiveSettlementIDs().size());
     }
 
     @Test
