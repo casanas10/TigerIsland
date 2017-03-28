@@ -110,4 +110,7 @@ public class IslandMap {
     }
 
 
+    public int getTileCount(){return tileCount;}
+
+
 }
