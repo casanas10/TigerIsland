@@ -81,6 +81,10 @@ public class Hex {
         return "No game piece on hex";
     }
 
+    public void removeGamePiecesFromMap(){
+        gamePiecesMap.clear();
+    }
+
     public void incrementLevel(){
         level++;
     }
