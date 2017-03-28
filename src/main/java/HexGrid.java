@@ -57,5 +57,11 @@ public class HexGrid {
         }
     }
 
-
+    public void setHexTileIDs(int hexIDs[], int tileID){
+        Hex hex;
+        for(int i=0; i<3; i++){
+            hex = getHexValue(hexIDs[i]);
+            hex.setTileID(tileID);
+        }
+    }
 }

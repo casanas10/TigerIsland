@@ -9,6 +9,7 @@ public class IslandMap {
     private HexGrid hexGrid;
     private int tileCount;
     private TileGenerator myGen;
+    Nuking nuker;
 
 
     public IslandMap(){
@@ -17,6 +18,7 @@ public class IslandMap {
         hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
         tileCount = 0;
+        nuker = new Nuking();
     }
 
 
@@ -36,6 +38,19 @@ public class IslandMap {
             return true;
         }
 
+        // CHECK FOR NUKE
+        if(nuker.isVolcanoOverVolcano(hexGrid, hexID) && nuker.doesNukeSpanTwoTiles(hexGrid, tileHexIDsArray)
+                && nuker.areBelowHexesOnSameLevel(hexGrid, tileHexIDsArray)){
+
+            nuker.performNuke(hexGrid, tileHexIDsArray, tileTerrainsArray, tileCount);
+
+            Tile tile = new Tile(tileCount,tileHexIDsArray);
+            gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+            tileCount++;
+            System.out.println("Nuke Successful!");
+            return true;
+        }
+
         boolean hexesCanBePlaced = false;
         boolean adjacentTilesValid = false;
         PlacementValidity placementValidity = new PlacementValidity();
@@ -48,6 +63,7 @@ public class IslandMap {
             hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
             hexGrid.increaseLevelsByOne(tileHexIDsArray);
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+            hexGrid.setHexTileIDs(tileHexIDsArray, tileCount);
             tileCount++;
             System.out.println("Tile Successfully Placed!");
             return true;
@@ -88,6 +104,7 @@ public class IslandMap {
         hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
         hexGrid.increaseLevelsByOne(tileHexIDsArray);
         gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+        hexGrid.setHexTileIDs(tileHexIDsArray, tileCount);
         tileCount++;
         System.out.println("Tile Successfully Placed!");
     }

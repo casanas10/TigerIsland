@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 /**
  * Created by NatalieGoldstein on 3/28/17.
  */
@@ -25,11 +27,16 @@ public class Nuking {
             tileID2 = hexGrid.getHexValue(HexIDsArray[1]).getTileID();
             tileID3 = hexGrid.getHexValue(HexIDsArray[2]).getTileID();
 
-            if(tileID1 != -1 && tileID2 != -1 && tileID3 != -1)
-                if(tileID1 == tileID2 && tileID2 == tileID3){
+            if(tileID1 != -1 && tileID2 != -1 && tileID3 != -1) {
+                if (tileID1 == tileID2 && tileID2 == tileID3) {
                     return false;
-                }else if(tileID1 != -1 && tileID2 != -1 && tileID3 != -1){
-                    return true; }
+                }
+                else{
+                    return true;
+                }
+
+            }
+
             return false;
         }
 
