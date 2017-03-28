@@ -47,7 +47,6 @@ public class Settlement {
 
         int hexID = 0;
 
-
         for (int index = 0; index < hexes.size(); index++ ){
 
             ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexes.get(index)));
@@ -65,7 +64,6 @@ public class Settlement {
                     NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
 
                     for (int j = 0; j < NewHexIDs.size(); j++){
-                        System.out.println(NewHexIDs.get(j));
                         setSettlementID(NewHexIDs.get(j),settID);
                     }
 
@@ -92,8 +90,6 @@ public class Settlement {
 
             addPieceToAnExistingSettlement(hexID, player);
         }
-
-
     }
 
     public void addPieceToAnExistingSettlement(int hexID, Player player) {

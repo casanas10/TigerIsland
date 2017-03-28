@@ -40,7 +40,7 @@ public class IslandMap {
         boolean adjacentTilesValid = false;
         PlacementValidity placementValidity = new PlacementValidity();
         //I want the function below to take hexID array instead and also terrain array
-        hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray, tileTerrainsArray);
+        hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray);
         adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
 
         if(hexesCanBePlaced && adjacentTilesValid){
@@ -110,4 +110,7 @@ public class IslandMap {
     }
 
 
+    public HexGrid getHexGrid(){
+        return this.hexGrid;
+    }
 }

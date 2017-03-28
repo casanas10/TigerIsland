@@ -101,8 +101,6 @@ public class SettlementTest {
         settlement.addSettlement(604, player);
         settlement.addSettlement(605, player);
 
-
-
         ArrayList<Integer> expectedHexes = new ArrayList<Integer>() {{
             add(603);
             add(604);
@@ -111,11 +109,9 @@ public class SettlementTest {
 
         settlement.updateSettlementAfterNuke(expectedHexes, player);
 
-        settlement.printAllSettlements();
-
         //settlement.printAllSettlements();
 
-        //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,409));
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(5,403));
     }
 
 
