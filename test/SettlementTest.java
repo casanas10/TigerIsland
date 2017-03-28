@@ -82,6 +82,7 @@ public class SettlementTest {
 
         Assert.assertTrue(settlement.isPiecePartOfASettlement(0,409));
 
+
     }
 
 
@@ -102,7 +103,6 @@ public class SettlementTest {
         settlement.addSettlement(605, player);
 
 
-
         ArrayList<Integer> expectedHexes = new ArrayList<Integer>() {{
             add(603);
             add(604);
@@ -118,5 +118,25 @@ public class SettlementTest {
         //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,409));
     }
 
+    @Test
+    public void listOfActiveSettlementsTest() {
+        Player player = new Player("Black", 0);
+        HexGrid hexGrid = new HexGrid();
+        Settlement settlement = new Settlement(hexGrid);
+
+        hexGrid.generateHexGrid();
+
+        settlement.addSettlement(402,player);
+        settlement.addSettlement(602,player);
+        settlement.addSettlement(604,player);
+        settlement.addSettlement(603,player);
+        settlement.addSettlement(850,player);
+        settlement.addSettlement(205,player);
+        settlement.addSettlement(405,player);
+        settlement.addSettlement(1000,player);
+
+        Assert.assertEquals(settlement.getListOfActiveSettlementIDs().size(), settlement.getSettlementMap().size());
+
+    }
 
 }
