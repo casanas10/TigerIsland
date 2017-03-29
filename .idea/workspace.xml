@@ -28,8 +28,8 @@
       <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="208" column="24" lean-forward="false" selection-start-line="208" selection-start-column="24" selection-end-line="208" selection-end-column="24" />
+            <state relative-caret-position="342">
+              <caret line="287" column="62" lean-forward="false" selection-start-line="287" selection-start-column="62" selection-end-line="287" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#340#369#0" expanded="true" />
@@ -44,8 +44,8 @@
       <file leaf-file-name="SettlementTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/SettlementTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="281" column="8" lean-forward="false" selection-start-line="281" selection-start-column="8" selection-end-line="281" selection-end-column="8" />
+            <state relative-caret-position="417">
+              <caret line="347" column="8" lean-forward="false" selection-start-line="347" selection-start-column="8" selection-end-line="347" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -54,8 +54,8 @@
       <file leaf-file-name="BuilderTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/BuilderTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="28" column="65" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="28" selection-end-column="65" />
+            <state relative-caret-position="210">
+              <caret line="41" column="8" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="44" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -299,7 +299,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SettlementTest.checkIfSettlementContainsATotoroAlreadyTest">
+  <component name="RunManager" selected="JUnit.SettlementTest.checkIfSettlementContainsATigerAlreadyTest">
     <configuration default="false" name="SettlementTest.isSizeIsLessThanFiveCantPlaceATotoro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="TigerIsland" />
@@ -308,27 +308,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SettlementTest" />
       <option name="METHOD_NAME" value="isSizeIsLessThanFiveCantPlaceATotoro" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="SettlementTest.ifSizeFiveOrMorePlaceATotoro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="TigerIsland" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SettlementTest" />
-      <option name="METHOD_NAME" value="ifSizeFiveOrMorePlaceATotoro" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -363,27 +342,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="SettlementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="TigerIsland" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SettlementTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -397,6 +355,48 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="TigerIsland" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SettlementTest.ableToPlaceTiger" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="TigerIsland" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SettlementTest" />
+      <option name="METHOD_NAME" value="ableToPlaceTiger" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="SettlementTest.checkIfSettlementContainsATigerAlreadyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="TigerIsland" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SettlementTest" />
+      <option name="METHOD_NAME" value="checkIfSettlementContainsATigerAlreadyTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -647,18 +647,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="JUnit.JUnit Test" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.SettlementTest.isSizeIsLessThanFiveCantPlaceATotoro" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.SettlementTest.ifSizeFiveOrMorePlaceATotoro" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.SettlementTest" />
-      <item index="5" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.SettlementTest.ableToPlaceTiger" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.SettlementTest.checkIfSettlementContainsATigerAlreadyTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.SettlementTest.isSizeIsLessThanFiveCantPlaceATotoro" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.SettlementTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.SettlementTest.ifSizeFiveOrMorePlaceATotoro" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.SettlementTest.checkIfSettlementContainsATigerAlreadyTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SettlementTest.ableToPlaceTiger" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.SettlementTest.isSizeIsLessThanFiveCantPlaceATotoro" />
       </list>
     </recent_temporary>
   </component>
@@ -806,38 +806,45 @@
       <option name="project" value="LOCAL" />
       <updated>1490818545458</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="update settlement if totoro already on the gameboard">
+      <created>1490819037201</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1490819037201</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JUnit_Test - 2017.03.29 at 16h 02m 43s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="SettlementTest_ableToPlaceTiger - 2017.03.29 at 16h 34m 18s.xml">
+      <configuration name="SettlementTest.ableToPlaceTiger" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.03.29 at 16h 09m 43s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="SettlementTest_ableToPlaceTiger - 2017.03.29 at 16h 34m 30s.xml">
+      <configuration name="SettlementTest.ableToPlaceTiger" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.03.29 at 16h 21m 44s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="SettlementTest_ableToPlaceTiger - 2017.03.29 at 16h 35m 17s.xml">
+      <configuration name="SettlementTest.ableToPlaceTiger" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 02m 13s.xml">
-      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
+    <history-entry file="SettlementTest_ableToPlaceTiger - 2017.03.29 at 16h 36m 58s.xml">
+      <configuration name="SettlementTest.ableToPlaceTiger" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 10m 01s.xml">
-      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
+    <history-entry file="SettlementTest_ableToPlaceTiger - 2017.03.29 at 16h 37m 36s.xml">
+      <configuration name="SettlementTest.ableToPlaceTiger" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 10m 19s.xml">
-      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
+    <history-entry file="SettlementTest_ableToPlaceTiger - 2017.03.29 at 16h 40m 16s.xml">
+      <configuration name="SettlementTest.ableToPlaceTiger" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 12m 07s.xml">
-      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 12m 18s.xml">
-      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
+    <history-entry file="SettlementTest_checkIfSettlementContainsATigerAlreadyTest - 2017.03.29 at 16h 40m 29s.xml">
+      <configuration name="SettlementTest.checkIfSettlementContainsATigerAlreadyTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 22m 10s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 23m 08s.xml">
+      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 29m 41s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -925,7 +932,8 @@
     <MESSAGE value="Fixed all Merging Errors" />
     <MESSAGE value="update settlement after nuke" />
     <MESSAGE value="Fixing if there is a totoro already in the settlement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing if there is a totoro already in the settlement" />
+    <MESSAGE value="update settlement if totoro already on the gameboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="update settlement if totoro already on the gameboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1302,18 +1310,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/BuilderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="28" column="65" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="28" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="208" column="24" lean-forward="false" selection-start-line="208" selection-start-column="24" selection-end-line="208" selection-end-column="24" />
+        <state relative-caret-position="342">
+          <caret line="287" column="62" lean-forward="false" selection-start-line="287" selection-start-column="62" selection-end-line="287" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#340#369#0" expanded="true" />
@@ -1324,10 +1324,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/BuilderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="41" column="8" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="44" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/SettlementTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="281" column="8" lean-forward="false" selection-start-line="281" selection-start-column="8" selection-end-line="281" selection-end-column="8" />
+        <state relative-caret-position="417">
+          <caret line="347" column="8" lean-forward="false" selection-start-line="347" selection-start-column="8" selection-end-line="347" selection-end-column="8" />
           <folding />
         </state>
       </provider>

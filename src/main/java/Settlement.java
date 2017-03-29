@@ -228,14 +228,6 @@ public class Settlement {
 
                 for (int j = 0; j < hexes.size(); j++){
 
-//                    System.out.println(hexes.get(j));
-//
-//                    System.out.println(islandMap.getHex(hexes.get(j)).getPieceOnHex());
-
-                    //System.out.println(hexGrid.getHexValue(hexes.get(j)).getPieceOnHex());
-
-                    //hexes.get(j)).getPieceOnHex();
-
                     if (hexGrid.getHexValue(hexes.get(j)).getPieceOnHex() == "Totoro"){
 
                         System.out.println("Cannot place totoro because there is already one in this settlement");
@@ -275,7 +267,42 @@ public class Settlement {
         return false;
     }
 
-    public boolean doesSettlementContainTigerAlready() {
+    public boolean doesSettlementContainTigerAlready(int hexID, Player player) {
+
+        ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
+
+        ArrayList<Integer> hexes;
+
+        for (int i = 0; i < adjacentHexes.size(); i++) {
+
+            int currentSettlement = getSettlementID(adjacentHexes.get(i));
+
+            if(currentSettlement != -1) {
+
+                hexes = settlementMap.get(currentSettlement);
+
+                for (int j = 0; j < hexes.size(); j++){
+
+                    if (hexGrid.getHexValue(hexes.get(j)).getPieceOnHex() == "Tiger"){
+
+                        System.out.println("Cannot place tiger because there is already one in this settlement");
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public boolean addTigerToSettlement(int hexID, Player player) {
+
+        if (!isNewSettlement(hexID, player) && !doesSettlementContainTigerAlready(hexID,player)){
+
+            addSettlement(hexID, player);
+
+            return true;
+        }
 
         return false;
     }
