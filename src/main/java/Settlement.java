@@ -200,12 +200,16 @@ public class Settlement {
     }
 
 
-    public void addTotoroToSettlement(int hexID, Player player) {
+    public boolean addTotoroToSettlement(int hexID, Player player) {
 
         if (isSettlementSizeFiveOrMore(hexID) && !doesSettlementContainATotoroAlready(hexID,player)){
 
             addSettlement(hexID, player);
+
+            return true;
         }
+
+        return false;
     }
 
     private boolean doesSettlementContainATotoroAlready(int hexID, Player player) {

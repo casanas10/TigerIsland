@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/IslandMap.java" afterPath="$PROJECT_DIR$/src/main/java/IslandMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Settlement.java" afterPath="$PROJECT_DIR$/src/main/java/Settlement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/SettlementTest.java" afterPath="$PROJECT_DIR$/test/SettlementTest.java" />
     </list>
@@ -29,8 +28,8 @@
       <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="234" column="44" lean-forward="false" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="44" />
+            <state relative-caret-position="135">
+              <caret line="208" column="24" lean-forward="false" selection-start-line="208" selection-start-column="24" selection-end-line="208" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#340#369#0" expanded="true" />
@@ -45,8 +44,8 @@
       <file leaf-file-name="SettlementTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/SettlementTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="288" column="8" lean-forward="false" selection-start-line="288" selection-start-column="8" selection-end-line="289" selection-end-column="57" />
+            <state relative-caret-position="195">
+              <caret line="281" column="8" lean-forward="false" selection-start-line="281" selection-start-column="8" selection-end-line="281" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -800,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490816212707</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixing if there is a totoro already in the settlement">
+      <created>1490818545458</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1490818545458</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -810,14 +816,8 @@
     <history-entry file="JUnit_Test - 2017.03.29 at 16h 09m 43s.xml">
       <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 00m 07s.xml">
-      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 00m 28s.xml">
-      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 01m 40s.xml">
-      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
+    <history-entry file="JUnit_Test - 2017.03.29 at 16h 21m 44s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 02m 13s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
@@ -832,6 +832,12 @@
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 12m 18s.xml">
+      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 22m 10s.xml">
+      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 23m 08s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1306,8 +1312,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="234" column="44" lean-forward="false" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="44" />
+        <state relative-caret-position="135">
+          <caret line="208" column="24" lean-forward="false" selection-start-line="208" selection-start-column="24" selection-end-line="208" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#340#369#0" expanded="true" />
@@ -1320,8 +1326,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/SettlementTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="288" column="8" lean-forward="false" selection-start-line="288" selection-start-column="8" selection-end-line="289" selection-end-column="57" />
+        <state relative-caret-position="195">
+          <caret line="281" column="8" lean-forward="false" selection-start-line="281" selection-start-column="8" selection-end-line="281" selection-end-column="8" />
           <folding />
         </state>
       </provider>
