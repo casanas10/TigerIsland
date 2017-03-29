@@ -115,5 +115,8 @@ public class IslandMap {
         return settlement.getSettlementsMap();
     }
 
+    public Settlement getSettlementObj(){
+        return settlement;
+    }
 
 }

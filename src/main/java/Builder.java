@@ -8,6 +8,8 @@ public class Builder {
             case 1: return(buildANewSettlement(player, islandMap, hexID));
 
             case 2: ExtendSettlement extend = new ExtendSettlement(hexID, islandMap);
+                    extend.findHexesToExtendOn();
+                    extend.printExtendOptions();
                     break;
             case 3: return(buildATotoroSanctuary(player, islandMap, hexID));
 
@@ -20,6 +22,7 @@ public class Builder {
 
     public boolean buildANewSettlement(Player player, IslandMap islandMap, int hexID){
         Hex currentHex = islandMap.getHex(hexID);
+        Settlement settlement = islandMap.getSettlementObj();
         GamePiece piece;
         if(player.getRemainingMeeples() != 0 && verifyValidHexForSettlement(currentHex)){
 

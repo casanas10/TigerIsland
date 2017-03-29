@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  * Created by cyonkee on 3/24/17.
  */
 public class ExtendSettlement {
     private int settlementSourceHexID;
+    private String hexColor;
     private boolean isSameTerrain = false;
     private boolean isValidTile = false;
     private CoordinateSystem coordinates = new CoordinateSystem();
@@ -37,6 +39,7 @@ public class ExtendSettlement {
     private void findExtensions(int hexID){
         Hex hex;
         hex = islandMap.getHex(hexID);
+        hexColor = hex.getPlayerColorOnHex();
         String terrain = hex.getTerrain();
 
         if(terrain == "Lake"){
@@ -233,4 +236,33 @@ public class ExtendSettlement {
         isValidTile = false;
     }
 
+    public void printExtendOptions(){
+        int i=0;
+        System.out.println("Lakes to extend on: ");
+        while(i<lakesToExtendOn.size()){
+            System.out.print(lakesToExtendOn.get(i) + " ");
+            i++;
+        }
+
+        i=0;
+        System.out.println("\nGrasslands to extend on: ");
+        while(i<grasslandsToExtendOn.size()){
+            System.out.print(grasslandsToExtendOn.get(i) + " ");
+            i++;
+        }
+
+        i=0;
+        System.out.println("\nRockys to extend on: ");
+        while(i<rockysToExtendOn.size()){
+            System.out.print(rockysToExtendOn.get(i) + " ");
+            i++;
+        }
+
+        i=0;
+        System.out.println("\nJungles to extend on: ");
+        while(i<junglesToExtendOn.size()){
+            System.out.print(junglesToExtendOn.get(i) + " ");
+            i++;
+        }
+    }
 }
