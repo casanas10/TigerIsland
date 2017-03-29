@@ -51,6 +51,7 @@ public class BuilderTest {
         Hex currentHex = islandMap.getHex(806);
         currentHex.incrementLevel();
         currentHex.incrementLevel();
+        builder.build(player,islandMap,1,807);
         builder.build(player,islandMap,4,806);
 
         Assert.assertEquals("Tiger",currentHex.getPieceOnHex());
@@ -187,9 +188,10 @@ public class BuilderTest {
         Hex currentHex = islandMap.getHex(806);
         currentHex.incrementLevel();
         currentHex.incrementLevel();
+        builder.build(player,islandMap,1,807);
         builder.build(player,islandMap,4,806);
 
-        Assert.assertEquals(75,player.getCurrentScore());
+        Assert.assertEquals(76,player.getCurrentScore());
     }
 
 }
