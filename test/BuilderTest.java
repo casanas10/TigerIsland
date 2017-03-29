@@ -31,8 +31,17 @@ public class BuilderTest {
 
     @Test
     public void buildTotoroSanctuarySuccessfully() throws Exception {
-        Hex currentHex = islandMap.getHex(806);
+        islandMap.addTileToMap(607, 60);
+        islandMap.addTileToMap(609, 0);
+        islandMap.addTileToMap(610, 60);
+        builder.build(player,islandMap,1,807);
+        builder.build(player,islandMap,1,808);
+        builder.build(player,islandMap,1,809);
+        builder.build(player,islandMap,1,810);
+        builder.build(player,islandMap,1,811);
         builder.build(player,islandMap,3,806);
+
+        Hex currentHex = islandMap.getHex(806);
 
         Assert.assertEquals("Totoro",currentHex.getPieceOnHex());
     }
@@ -45,34 +54,6 @@ public class BuilderTest {
         builder.build(player,islandMap,4,806);
 
         Assert.assertEquals("Tiger",currentHex.getPieceOnHex());
-    }
-
-    @Test
-    public void buildANewSettlement() throws Exception {
-        builder.build(player,islandMap,1,806);
-
-        Hex currentHex = islandMap.getHex(806);
-
-        Assert.assertEquals("Meeple", currentHex.getPieceOnHex());
-    }
-
-    @Test
-    public void buildATotoroSanctuary() throws Exception {
-        builder.build(player,islandMap,3,806);
-
-        Hex currentHex = islandMap.getHex(806);
-
-        Assert.assertEquals("Totoro", currentHex.getPieceOnHex());
-    }
-
-    @Test
-    public void buildATigerPlayground() throws Exception {
-        Hex currentHex = islandMap.getHex(806);
-        currentHex.incrementLevel();
-        currentHex.incrementLevel();
-        builder.build(player,islandMap,4,806);
-
-        Assert.assertEquals("Tiger", currentHex.getPieceOnHex());
     }
 
     @Test
@@ -188,9 +169,17 @@ public class BuilderTest {
 
     @Test
     public void updateScoreForAddingATotoro(){
+        islandMap.addTileToMap(607, 60);
+        islandMap.addTileToMap(609, 0);
+        islandMap.addTileToMap(610, 60);
+        builder.build(player,islandMap,1,807);
+        builder.build(player,islandMap,1,808);
+        builder.build(player,islandMap,1,809);
+        builder.build(player,islandMap,1,810);
+        builder.build(player,islandMap,1,811);
         builder.build(player,islandMap,3,806);
 
-        Assert.assertEquals(200,player.getCurrentScore());
+        Assert.assertEquals(205,player.getCurrentScore());
     }
 
     @Test
