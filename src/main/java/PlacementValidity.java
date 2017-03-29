@@ -42,67 +42,115 @@ public class PlacementValidity {
     }
 
 
-    public ArrayList<Integer> searchTheSixAdjacentHexes(HexGrid hexGrid, Hex hex) {
+    public ArrayList<Integer> searchTheSixAdjacentHexes(Hex hex) {
 
         ArrayList<Integer> adjacentHexes = new ArrayList<Integer>(); //arraylist that holds the 6 hexes IDs
 
-        adjacentHexes.add(findNE(hexGrid, hex));
-        adjacentHexes.add(findNW(hexGrid, hex));
-        adjacentHexes.add(findW(hexGrid, hex));
-        adjacentHexes.add(findSW(hexGrid, hex));
-        adjacentHexes.add(findSE(hexGrid, hex));
-        adjacentHexes.add(findE(hexGrid, hex));
+        if (hex.getHexID() % 200 != 0){
+            adjacentHexes.add(findNE(hex));
+            adjacentHexes.add(findNW(hex));
+            adjacentHexes.add(findW(hex));
+            adjacentHexes.add(findSW(hex));
+            adjacentHexes.add(findSE(hex));
+            adjacentHexes.add(findE(hex));
+        }
 
         return adjacentHexes;
     }
 
-    private int findNE(HexGrid hexGrid, Hex hex) {
+    private int findNE(Hex hex) {
 
-        int newX = hex.getX();
-        int newY = hex.getY() - 1;
+        int newX;
+        int newY;
 
+        if ((hex.getHexID()/200) % 2 == 0){
+
+            newX = hex.getX();
+            newY = hex.getY() - 1;
+        } else {
+            newX = hex.getX() + 1;
+            newY = hex.getY() - 1;
+        }
         return searchCoordinates.getHexID(newX, newY);  //gets the NorthEast Hex ID
     }
 
-    private int findNW(HexGrid hexGrid, Hex hex) {
+    private int findNW(Hex hex) {
 
-        int newX = hex.getX() - 1;
-        int newY = hex.getY() - 1;
+        int newX;
+        int newY;
 
+        if ((hex.getHexID()/200) % 2 == 0) {
+            newX = hex.getX() - 1;
+            newY = hex.getY() - 1;
+        } else {
+            newX = hex.getX();
+            newY = hex.getY() - 1;
+        }
         return searchCoordinates.getHexID(newX, newY);  //gets the NorthWest Hex ID
     }
 
-    private int findW(HexGrid hexGrid, Hex hex) {
+    private int findW(Hex hex) {
 
-        int newX = hex.getX() - 1;
-        int newY = hex.getY();
+        int newX;
+        int newY;
 
+        if ((hex.getHexID()/200) % 2 == 0){
+            newX = hex.getX() - 1;
+            newY = hex.getY();
+        } else {
+            newX = hex.getX() - 1;
+            newY = hex.getY();
+        }
         return searchCoordinates.getHexID(newX, newY);  //gets the West Hex ID
     }
 
-    private int findSW(HexGrid hexGrid, Hex hex) {
+    private int findSW(Hex hex) {
 
-        int newX = hex.getX() - 1;
-        int newY = hex.getY() + 1;
+        int newX;
+        int newY;
 
+        if ((hex.getHexID()/200) % 2 == 0){
+            newX = hex.getX() - 1;
+            newY = hex.getY() + 1;
+        } else {
+            newX = hex.getX();
+            newY = hex.getY() + 1;
+        }
         return searchCoordinates.getHexID(newX, newY);  //gets the SouthWest Hex ID
     }
 
-    private int findSE(HexGrid hexGrid, Hex hex) {
+    private int findSE(Hex hex) {
 
-        int newX = hex.getX();
-        int newY = hex.getY() + 1;
+        int newX;
+        int newY;
 
+        if ((hex.getHexID()/200) % 2 == 0){
+            newX = hex.getX();
+            newY = hex.getY() + 1;
+        } else {
+            newX = hex.getX() + 1;
+            newY = hex.getY() + 1;
+        }
         return searchCoordinates.getHexID(newX, newY);  //gets the SouthEast Hex ID
     }
 
-    private int findE(HexGrid hexGrid, Hex hex) {
+    private int findE(Hex hex) {
 
-        int newX = hex.getX() + 1;
-        int newY = hex.getY();
+        int newX;
+        int newY;
+
+        if ((hex.getHexID()/200) % 2 == 0){
+            newX = hex.getX() + 1;
+            newY = hex.getY();
+        } else {
+            newX = hex.getX() + 1;
+            newY = hex.getY();
+        }
 
         return searchCoordinates.getHexID(newX, newY);  //gets the East Hex ID
     }
+
+
 
 
     public boolean SearchAdjacentTiles(HexGrid hexGrid, int[] tileHexIDsArray){
