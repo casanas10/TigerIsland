@@ -20,6 +20,7 @@ public class Builder {
 
     public boolean buildANewSettlement(Player player, IslandMap islandMap, int hexID){
         Hex currentHex = islandMap.getHex(hexID);
+        Settlement settlement = islandMap.getSettlementObj();
         GamePiece piece;
         if(player.getRemainingMeeples() != 0 && verifyValidHexForSettlement(currentHex)){
 
@@ -31,6 +32,8 @@ public class Builder {
             }
 
             currentHex.addGamePieceToHex(piece);                  // Place the piece on the current hex
+            settlement.addSettlement(hexID, player);
+            settlement.printAllSettlements();
             updateScore(player, piece, currentHex.getLevel());    // Update player score with 1 point
             return true;
         }

@@ -10,6 +10,7 @@ public class IslandMap {
     private int tileCount;
     private TileGenerator myGen;
     Nuking nuker;
+    Settlement settlement;
 
 
     public IslandMap(){
@@ -19,6 +20,7 @@ public class IslandMap {
         hexGrid.generateHexGrid();
         tileCount = 0;
         nuker = new Nuking();
+        settlement = new Settlement(hexGrid);
     }
 
 
@@ -112,10 +114,10 @@ public class IslandMap {
     public void printTilesOnMap(){
         Iterator<Map.Entry<Integer, int[]>> iterator = gameBoardMap.entrySet().iterator();
         while(iterator.hasNext()){
-            Map.Entry<Integer, int[]> entry = iterator.next();
-            System.out.print("Tile " + entry.getKey() + ": ");
+            Map.Entry<Integer, int[]> mapValue = iterator.next();
+            System.out.print("Tile " + mapValue.getKey() + ": ");
             for(int i=0;i<3;i++){
-                System.out.print(entry.getValue()[i] + " ");
+                System.out.print(mapValue.getValue()[i] + " ");
             }
             System.out.println();
         }
@@ -128,6 +130,10 @@ public class IslandMap {
 
 
     public int getTileCount(){return tileCount;}
+
+    public Settlement getSettlementObj(){
+        return settlement;
+    }
 
 
 }
