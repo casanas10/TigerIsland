@@ -16,15 +16,13 @@ public class Settlement {
     private ArrayList<Integer> hexIDContainer;
 
     private HashMap<Integer, ArrayList<Integer>> settlementMap = new HashMap<Integer, ArrayList<Integer>>();
-
+    private ArrayList<Integer> listOfActiveSettlementIDs = new ArrayList<>();
     private PlacementValidity validatePlacement = new PlacementValidity();
-
-    CoordinateSystem coor = new CoordinateSystem();
-
+    private CoordinateSystem coor = new CoordinateSystem();
     private HexGrid hexGrid;
 
     private SettlementSizeChecker settlementSizeChecker;
-
+    private PlacementValidity validity = new PlacementValidity();
     private int settleID = 0;
 
     Settlement(HexGrid hexGrid) {
@@ -32,9 +30,58 @@ public class Settlement {
         this.settlementSizeChecker = new SettlementSizeChecker(hexGrid);
     }
 
-    public void updateSettlementAfterNuke(RotateTile tile, Player player){
+    public ArrayList<Integer> getListOfActiveSettlementIDs() {
+        return listOfActiveSettlementIDs;
+    }
+
+    public HashMap<Integer, ArrayList<Integer>> getSettlementMap() {
+        return settlementMap;
+    }
+
+    public void updateSettlementAfterNuke(ArrayList<Integer> hexes, Player player){
+
+        hexGrid.getHexValue(hexes.get(0)).resetPlayerColorOnHex(); //reset player color
+        hexGrid.getHexValue(hexes.get(0)).setSettlementID(-1);  //and settlement id
+
+        hexGrid.getHexValue(hexes.get(1)).resetPlayerColorOnHex();
+        hexGrid.getHexValue(hexes.get(1)).setSettlementID(-1);
+
+        hexGrid.getHexValue(hexes.get(2)).resetPlayerColorOnHex();
+        hexGrid.getHexValue(hexes.get(2)).setSettlementID(-1);
+
+        int hexID = 0;
 
 
+        for (int index = 0; index < hexes.size(); index++ ){
+
+            ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexes.get(index)));
+
+            ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
+
+            for (int i = 0; i < adjacentHexes.size(); i++){
+
+                if (hexGrid.getHexValue(adjacentHexes.get(i)).getSettlementID() != - 1){
+                    hexID = adjacentHexes.get(i);
+
+                    int settID = getSettlementID(hexID);
+                    settlementMap.remove(settID);
+                    listOfActiveSettlementIDs.remove(Integer.valueOf(settID));//NEW
+
+                    NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
+
+                    for (int j = 0; j < NewHexIDs.size(); j++){
+                        System.out.println(NewHexIDs.get(j));
+                        setSettlementID(NewHexIDs.get(j),settID);
+                    }
+
+                    settlementMap.put(settleID,NewHexIDs);
+                    listOfActiveSettlementIDs.add(settleID);//NEW
+                    settleID++;
+
+                }
+
+            }
+        }
     }
 
     public void addSettlement(int hexID, Player player){
@@ -57,9 +104,7 @@ public class Settlement {
 
     public void addPieceToAnExistingSettlement(int hexID, Player player) {
 
-        PlacementValidity validity = new PlacementValidity();
-
-        ArrayList<Integer> hexes = validity.searchTheSixAdjacentHexes(hexGrid,hexGrid.getHexValue(hexID));
+        ArrayList<Integer> hexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
 
         int settID = 0;
 
@@ -82,11 +127,18 @@ public class Settlement {
         for(int i = 0; i<setIDPlaceHolder.size(); i++){
 
             settlementMap.remove(setIDPlaceHolder.get(i));
+            listOfActiveSettlementIDs.remove(setIDPlaceHolder.get(i));
         }
 
         NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
 
+
+        for (int i = 0; i < NewHexIDs.size(); i++){
+            setSettlementID(NewHexIDs.get(i),settID);
+        }
+
         settlementMap.put(settID,NewHexIDs);
+        listOfActiveSettlementIDs.add(settID);
         settleID++;
 
     }
@@ -100,6 +152,7 @@ public class Settlement {
 
         setSettlementID(hexID, settleID);
         settlementMap.put(settleID, hexIDContainer);
+        listOfActiveSettlementIDs.add(settleID);
         settleID++;
     }
 
