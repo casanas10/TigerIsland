@@ -1,7 +1,6 @@
 /**
  * Created by alecasanas on 3/25/17.
  */
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,16 +13,15 @@ import java.util.Map;
 public class Settlement {
 
     private ArrayList<Integer> hexIDContainer;
-
     private HashMap<Integer, ArrayList<Integer>> settlementMap = new HashMap<Integer, ArrayList<Integer>>();
     private ArrayList<Integer> listOfActiveSettlementIDs = new ArrayList<>();
     private PlacementValidity validatePlacement = new PlacementValidity();
     private CoordinateSystem coor = new CoordinateSystem();
     private HexGrid hexGrid;
-
     private SettlementSizeChecker settlementSizeChecker;
     private PlacementValidity validity = new PlacementValidity();
     private int settleID = 0;
+
 
     Settlement(HexGrid hexGrid) {
         this.hexGrid = hexGrid;
@@ -125,7 +123,6 @@ public class Settlement {
 
 
         for(int i = 0; i<setIDPlaceHolder.size(); i++){
-
             settlementMap.remove(setIDPlaceHolder.get(i));
             listOfActiveSettlementIDs.remove(setIDPlaceHolder.get(i));
         }
@@ -206,5 +203,80 @@ public class Settlement {
 
     public HashMap<Integer, ArrayList<Integer>> getSettlementsMap(){
         return settlementMap;
+    }
+
+    public void addTotoroToSettlement(int hexID, Player player) {
+
+        if (isSettlementSizeFiveOrMore(hexID) && !doesSettlementContainATotoroAlready(hexID,player)){
+
+            addSettlement(hexID, player);
+        }
+    }
+
+    private boolean doesSettlementContainATotoroAlready(int hexID, Player player) {
+
+        ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
+
+        SettlementSizeChecker settlementSizeChecker = new SettlementSizeChecker(hexGrid);
+
+        ArrayList<Integer> hexes;
+
+        for (int i = 0; i < adjacentHexes.size(); i++) {
+
+            int currentSettlement = getSettlementID(adjacentHexes.get(i));
+
+            if(currentSettlement != -1) {
+
+                hexes = settlementMap.get(currentSettlement);
+
+                for (int j = 0; j < hexes.size(); j++){
+
+                    System.out.println(hexes.get(j));
+
+                    System.out.println(hexGrid.getHexValue(hexes.get(j)).getPieceOnHex());
+
+                    //hexes.get(j)).getPieceOnHex();
+
+//                    if (hexGrid.getHexValue(hexes.get(j)).getPieceOnHex() == "Totoro"){
+//
+//                        System.out.println("yes");
+//                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public void getSettlementSizeAroundHex(int hexID, Player player){
+
+
+    }
+
+    public boolean isSettlementSizeFiveOrMore(int hexID){
+
+        ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
+
+        for (int i = 0; i < adjacentHexes.size(); i++){
+
+            int currentSettlement = getSettlementID(adjacentHexes.get(i));
+
+            if(currentSettlement != -1) {
+
+                int settlementSize = settlementMap.get(currentSettlement).size();
+
+                if (settlementSize >= 5){
+                    return true;
+                }
+            }
+
+        }
+
+        return false;
+    }
+
+    public boolean doesSettlementContainTigerAlready() {
+
+        return false;
     }
 }
