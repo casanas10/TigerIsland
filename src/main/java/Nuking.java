@@ -17,6 +17,39 @@ public class Nuking {
             return false;
         }
 
+//
+//        public boolean canYouNukeSettlement(HexGrid hexGrid, int[] HexIDSArray, int hexID) {
+//
+//
+//            if(isVolcanoOverVolcano(hexGrid, hexID) == true && areBelowHexesOnSameLevel(hexGrid,HexIDSArray) == true &&
+//                    doesNukeSpanTwoTiles(hexGrid, HexIDSArray)== true){
+//                return true;
+//
+//            }
+//            else return false;
+//
+//        }
+
+//
+//        public boolean isSettlementSizeOne(HexGrid hexGrid, int hexID){
+//            Settlement settlement = new Settlement(hexGrid);
+//            int settlementID;
+//
+//            settlementID = hexGrid.getHexValue(hexID).getSettlementID();
+//
+//            if(settlementID == -1){
+//                return false;
+//            }
+//
+//            if(settlement.getSettlementMap().get(settlementID).size() == 1){
+//                return true;
+//            }
+//
+//            return false;
+//        }
+
+
+
         public boolean doesNukeSpanTwoTiles(HexGrid hexGrid, int[] HexIDsArray){
 
             int tileID1;
