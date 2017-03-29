@@ -45,8 +45,9 @@ public class Builder {
 
     public boolean buildATotoroSanctuary(Player player, IslandMap islandMap, int hexID){
         Hex currentHex = islandMap.getHex(hexID);
+        Settlement settlement = islandMap.getSettlementObj();
         GamePiece piece;
-        if(verifyValidHexForTotoro(currentHex)){
+        if(settlement.addTotoroToSettlement(hexID, player) && verifyValidHexForTotoro(currentHex)){
             piece = player.placeGamePiece("Totoro");        // Get the new Totoro piece
 
             if(piece == null){
