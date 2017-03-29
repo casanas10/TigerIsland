@@ -1,5 +1,6 @@
 import cucumber.api.java.cs.A;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -8,6 +9,17 @@ import java.util.ArrayList;
  * Created by alecasanas on 3/25/17.
  */
 public class SettlementTest {
+
+    IslandMap islandMap;
+    Player player;
+    Builder builder;
+
+    @Before
+    public void setUp() throws Exception {
+        islandMap = new IslandMap();
+        player = new Player("Black",0);
+        builder = new Builder();
+    }
 
     @Test
     public void isNewSettlementTest() {
@@ -95,13 +107,11 @@ public class SettlementTest {
 
         Settlement settlement = new Settlement(hexGrid);
 
-        settlement.addSettlement(202,player);
+        settlement.addSettlement(202, player);
         settlement.addSettlement(403, player);
         settlement.addSettlement(603, player);
         settlement.addSettlement(604, player);
         settlement.addSettlement(605, player);
-
-
 
         ArrayList<Integer> expectedHexes = new ArrayList<Integer>() {{
             add(603);
@@ -111,12 +121,175 @@ public class SettlementTest {
 
         settlement.updateSettlementAfterNuke(expectedHexes, player);
 
-        settlement.printAllSettlements();
-
         //settlement.printAllSettlements();
 
-        //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,409));
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(5, 403));
     }
 
+    @Test
+    public void ifSizeFiveOrMorePlaceATotoro() {
+
+        Player player = new Player("Black", 0);
+        HexGrid hexGrid = new HexGrid();
+
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = new Settlement(hexGrid);
+
+        settlement.addSettlement(406, player);
+        settlement.addSettlement(606, player);
+        settlement.addSettlement(807, player);
+        settlement.addSettlement(808, player);
+        settlement.addSettlement(809, player);
+
+        settlement.addSettlement(408,player);
+        settlement.addSettlement(409,player);
+
+        settlement.addTotoroToSettlement(1007,player);
+
+        //settlement.printAllSettlements();
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(0,1007));
+
+    }
+
+    @Test
+    public void isSizeIsLessThanFiveCantPlaceATotoro() {
+
+        HexGrid hexGrid = new HexGrid();
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = new Settlement(hexGrid);
+
+        islandMap.addTileToMap(806, 120);
+        islandMap.addTileToMap(206, 0);
+        islandMap.addTileToMap(1008, 180);
+        islandMap.addTileToMap(809, 60);
+        islandMap.addTileToMap(208, 0);
+        islandMap.addTileToMap(209, 60);
+
+        builder.build(player,islandMap,1,406);
+        settlement.addSettlement(406, player);
+
+        builder.build(player,islandMap,1,606);
+        settlement.addSettlement(606, player);
+
+        settlement.addSettlement(807, player);
+        builder.build(player,islandMap,1,807);
+
+        settlement.addSettlement(808, player);
+        builder.build(player,islandMap,1,808);
+
+        settlement.addSettlement(809, player);
+        builder.build(player,islandMap,1,809);
+
+        settlement.addSettlement(408,player);
+        builder.build(player,islandMap,1,408);
+
+        settlement.addSettlement(409,player);
+        builder.build(player,islandMap,1,409);
+
+        settlement.addTotoroToSettlement(410,player);
+
+        settlement.printAllSettlements();
+
+        Assert.assertFalse(settlement.isPiecePartOfASettlement(0,410));
+
+    }
+
+    @Test
+    public void ableToPlaceTotoroSinceSizeOfSettlementIsGreaterOrEqualTo5() {
+
+        HexGrid hexGrid = new HexGrid();
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = new Settlement(hexGrid);
+
+        islandMap.addTileToMap(806, 120);
+        islandMap.addTileToMap(206, 0);
+        islandMap.addTileToMap(1008, 180);
+        islandMap.addTileToMap(1207, 120);
+        islandMap.addTileToMap(208, 0);
+        islandMap.addTileToMap(209, 60);
+
+        builder.build(player,islandMap,1,406);
+        settlement.addSettlement(406, player);
+
+        builder.build(player,islandMap,1,606);
+        settlement.addSettlement(606, player);
+
+        settlement.addSettlement(807, player);
+        builder.build(player,islandMap,1,807);
+
+        settlement.addSettlement(808, player);
+        builder.build(player,islandMap,1,808);
+
+        settlement.addSettlement(809, player);
+        builder.build(player,islandMap,1,809);
+
+        settlement.addSettlement(408,player);
+        builder.build(player,islandMap,1,408);
+
+        settlement.addSettlement(409,player);
+        builder.build(player,islandMap,1,409);
+
+        builder.build(player,islandMap,3,1007);
+        settlement.addTotoroToSettlement(1007,player);
+
+        settlement.printAllSettlements();
+
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(0,1007));
+
+    }
+
+    @Test
+    public void checkIfSettlementContainsATotoroAlreadyTest() {
+
+        HexGrid hexGrid = new HexGrid();
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = new Settlement(hexGrid);
+
+        islandMap.addTileToMap(806, 120);
+        islandMap.addTileToMap(206, 0);
+        islandMap.addTileToMap(1008, 180);
+        islandMap.addTileToMap(1207, 120);
+        islandMap.addTileToMap(208, 0);
+        islandMap.addTileToMap(209, 60);
+
+        builder.build(player,islandMap,1,406);
+        settlement.addSettlement(406, player);
+
+        builder.build(player,islandMap,1,606);
+        settlement.addSettlement(606, player);
+
+        settlement.addSettlement(807, player);
+        builder.build(player,islandMap,1,807);
+
+        settlement.addSettlement(808, player);
+        builder.build(player,islandMap,1,808);
+
+        settlement.addSettlement(809, player);
+        builder.build(player,islandMap,1,809);
+
+        settlement.addSettlement(408,player);
+        builder.build(player,islandMap,1,408);
+
+        settlement.addSettlement(409,player);
+        builder.build(player,islandMap,1,409);
+
+        builder.build(player,islandMap,3,1007);
+        settlement.addTotoroToSettlement(1007,player);
+
+        builder.build(player,islandMap,3,407);
+        settlement.addTotoroToSettlement(407,player);
+
+        settlement.printAllSettlements();
+
+        Hex currentHex = islandMap.getHex(1007);
+        System.out.println(currentHex.getPieceOnHex());
+
+        //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,1007));
+
+    }
 
 }
