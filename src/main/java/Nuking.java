@@ -17,36 +17,36 @@ public class Nuking {
             return false;
         }
 
-//
-//        public boolean canYouNukeSettlement(HexGrid hexGrid, int[] HexIDSArray, int hexID) {
-//
-//
-//            if(isVolcanoOverVolcano(hexGrid, hexID) == true && areBelowHexesOnSameLevel(hexGrid,HexIDSArray) == true &&
-//                    doesNukeSpanTwoTiles(hexGrid, HexIDSArray)== true){
-//                return true;
-//
-//            }
-//            else return false;
-//
-//        }
 
-//
-//        public boolean isSettlementSizeOne(HexGrid hexGrid, int hexID){
-//            Settlement settlement = new Settlement(hexGrid);
-//            int settlementID;
-//
-//            settlementID = hexGrid.getHexValue(hexID).getSettlementID();
-//
-//            if(settlementID == -1){
-//                return false;
-//            }
-//
-//            if(settlement.getSettlementMap().get(settlementID).size() == 1){
-//                return true;
-//            }
-//
-//            return false;
-//        }
+        public boolean canYouNukeSettlement(IslandMap islandMap, int[] HexIDSArray, int hexID) {
+            HexGrid hexGrid = islandMap.getHexGrid();
+
+            if(isVolcanoOverVolcano(hexGrid, hexID) && areBelowHexesOnSameLevel(hexGrid,HexIDSArray) &&
+                    doesNukeSpanTwoTiles(hexGrid, HexIDSArray) && !isSettlementSizeOne(islandMap, HexIDSArray)){
+                return true;
+
+            }
+            else return false;
+
+        }
+
+
+        public boolean isSettlementSizeOne(IslandMap islandMap, int[] hexID){
+            Settlement settlement = islandMap.getSettlementObj();
+            HexGrid hexGrid = islandMap.getHexGrid();
+
+            for(int i = 0; i < hexID.length; i++) {
+                int settlementID = hexGrid.getHexValue(hexID[i]).getSettlementID();
+
+                if (settlementID == -1)
+                    continue;
+                else if (settlement.getSettlementMap().get(settlementID).size() == 1)
+                    return true;
+
+            }
+
+            return false;
+        }
 
 
 
