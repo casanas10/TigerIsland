@@ -240,11 +240,6 @@ public class Settlement {
         return false;
     }
 
-    public void getSettlementSizeAroundHex(int hexID, Player player){
-
-
-    }
-
     public boolean isSettlementSizeFiveOrMore(int hexID){
 
         ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
@@ -297,7 +292,9 @@ public class Settlement {
 
     public boolean addTigerToSettlement(int hexID, Player player) {
 
-        if (!isNewSettlement(hexID, player) && !doesSettlementContainTigerAlready(hexID,player)){
+        isNewSettlement(hexID,player);
+
+        if (isTigerNextToSettlement(hexID) && !doesSettlementContainTigerAlready(hexID,player)){
 
             addSettlement(hexID, player);
 
@@ -306,4 +303,23 @@ public class Settlement {
 
         return false;
     }
+
+    public boolean isTigerNextToSettlement(int hexID){
+
+        ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
+
+        for (int i = 0; i < adjacentHexes.size(); i++){
+
+            int currentSettlement = getSettlementID(adjacentHexes.get(i));
+
+            if(currentSettlement != -1) {
+
+                return true;
+            }
+
+        }
+
+        return false;
+    }
+
 }
