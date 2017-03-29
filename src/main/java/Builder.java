@@ -22,7 +22,7 @@ public class Builder {
         Hex currentHex = islandMap.getHex(hexID);
         Settlement settlement = islandMap.getSettlementObj();
         GamePiece piece;
-        if(player.getRemainingMeeples() != 0 && verifyValidHexForSettlement(currentHex)){
+        if(verifyValidHexForSettlement(currentHex)){
 
             piece = player.placeGamePiece("Meeple");    // Get the new Meeple piece
 
@@ -46,7 +46,7 @@ public class Builder {
     public boolean buildATotoroSanctuary(Player player, IslandMap islandMap, int hexID){
         Hex currentHex = islandMap.getHex(hexID);
         GamePiece piece;
-        if(player.getRemainingTotoros() != 0 && verifyValidHexForTotoro(currentHex)){
+        if(verifyValidHexForTotoro(currentHex)){
             piece = player.placeGamePiece("Totoro");        // Get the new Totoro piece
 
             if(piece == null){
@@ -68,7 +68,7 @@ public class Builder {
     public boolean buildATigerPlayground(Player player, IslandMap islandMap, int hexID){
         Hex currentHex = islandMap.getHex(hexID);
         GamePiece piece;
-        if(player.getRemainingTigers() != 0 && verifyValidHexForTiger(currentHex)){
+        if(verifyValidHexForTiger(currentHex)){
             piece = player.placeGamePiece("Tiger");         // Get the new Tiger piece
 
             if(piece == null){
