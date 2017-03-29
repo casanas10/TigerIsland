@@ -158,7 +158,7 @@ public class SettlementTest {
         HexGrid hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
 
-        Settlement settlement = new Settlement(hexGrid);
+        Settlement settlement = new Settlement(islandMap.getHexGrid());
 
         islandMap.addTileToMap(806, 120);
         islandMap.addTileToMap(206, 0);
@@ -202,7 +202,7 @@ public class SettlementTest {
         HexGrid hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
 
-        Settlement settlement = new Settlement(hexGrid);
+        Settlement settlement = new Settlement(islandMap.getHexGrid());
 
         islandMap.addTileToMap(806, 120);
         islandMap.addTileToMap(206, 0);
@@ -247,7 +247,7 @@ public class SettlementTest {
         HexGrid hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
 
-        Settlement settlement = new Settlement(hexGrid);
+        Settlement settlement = new Settlement(islandMap.getHexGrid());
 
         islandMap.addTileToMap(806, 120);
         islandMap.addTileToMap(206, 0);
@@ -280,15 +280,17 @@ public class SettlementTest {
         builder.build(player,islandMap,3,1007);
         settlement.addTotoroToSettlement(1007,player);
 
+
         builder.build(player,islandMap,3,407);
         settlement.addTotoroToSettlement(407,player);
 
         settlement.printAllSettlements();
 
-        Hex currentHex = islandMap.getHex(1007);
-        System.out.println(currentHex.getPieceOnHex());
+//        Hex currentHex = islandMap.getHex(1007);
+//        System.out.println(currentHex.getPieceOnHex());
 
-        //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,1007));
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(0,1007));
+        Assert.assertFalse(settlement.isPiecePartOfASettlement(0,407));
 
     }
 

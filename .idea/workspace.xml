@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="update settlement after nuke">
+    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/IslandMap.java" afterPath="$PROJECT_DIR$/src/main/java/IslandMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Settlement.java" afterPath="$PROJECT_DIR$/src/main/java/Settlement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/SettlementTest.java" afterPath="$PROJECT_DIR$/test/SettlementTest.java" />
     </list>
@@ -25,21 +26,27 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="221" column="20" lean-forward="false" selection-start-line="221" selection-start-column="20" selection-end-line="221" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="390">
+              <caret line="234" column="44" lean-forward="false" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#340#369#0" expanded="true" />
+                <element signature="e#1920#1929#0" expanded="true" />
+                <element signature="e#3386#3395#0" expanded="true" />
+                <element signature="e#3459#3468#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettlementTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SettlementTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/SettlementTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="283" column="51" lean-forward="true" selection-start-line="283" selection-start-column="51" selection-end-line="283" selection-end-column="51" />
+            <state relative-caret-position="312">
+              <caret line="288" column="8" lean-forward="false" selection-start-line="288" selection-start-column="8" selection-end-line="289" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -48,7 +55,7 @@
       <file leaf-file-name="BuilderTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/BuilderTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
+            <state relative-caret-position="15">
               <caret line="28" column="65" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="28" selection-end-column="65" />
               <folding />
             </state>
@@ -78,8 +85,8 @@
       <file leaf-file-name="IslandMap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/IslandMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="417">
+              <caret line="139" column="23" lean-forward="false" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -88,8 +95,8 @@
       <file leaf-file-name="Hex.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Hex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="95" column="27" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+            <state relative-caret-position="1560">
+              <caret line="104" column="27" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -155,18 +162,18 @@
         <option value="$PROJECT_DIR$/src/main/java/Hex.java" />
         <option value="$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java" />
         <option value="$PROJECT_DIR$/test/SettlementSizeCheckerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/IslandMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/PlacementValidity.java" />
         <option value="$PROJECT_DIR$/test/PlacementValidityTest.java" />
-        <option value="$PROJECT_DIR$/test/SettlementTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/IslandMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
+        <option value="$PROJECT_DIR$/test/SettlementTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="46" />
+    <option name="x" value="55" />
     <option name="y" value="23" />
-    <option name="width" value="1394" />
+    <option name="width" value="1385" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -186,7 +193,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -273,6 +279,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -786,43 +793,50 @@
       <option name="project" value="LOCAL" />
       <updated>1490653138156</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixing if there is a totoro already in the settlement">
+      <created>1490816212707</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1490816212707</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.28 at 20h 18m 52s.xml">
+    <history-entry file="JUnit_Test - 2017.03.29 at 16h 02m 43s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.03.29 at 16h 09m 43s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 00m 07s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.28 at 20h 20m 26s.xml">
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 00m 28s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.28 at 20h 20m 44s.xml">
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 01m 40s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.28 at 20h 21m 53s.xml">
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 02m 13s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 15h 28m 39s.xml">
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 10m 01s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 15h 31m 23s.xml">
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 10m 19s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 15h 31m 30s.xml">
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 12m 07s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 15h 33m 52s.xml">
-      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 15h 34m 23s.xml">
-      <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 15h 36m 18s.xml">
+    <history-entry file="SettlementTest_checkIfSettlementContainsATotoroAlreadyTest - 2017.03.29 at 16h 12m 18s.xml">
       <configuration name="SettlementTest.checkIfSettlementContainsATotoroAlreadyTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="23" width="1394" height="877" extended-state="6" />
+    <frame x="55" y="23" width="1385" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -834,19 +848,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.505625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.494375" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26598465" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.494375" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17862266" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17833935" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -904,7 +918,8 @@
     <MESSAGE value="Added scoring for adding a new settlement(Meeple), adding a Totoro and adding a Tiger. 1 point, 200 points, or 75 points are added to the players score accordingly" />
     <MESSAGE value="Fixed all Merging Errors" />
     <MESSAGE value="update settlement after nuke" />
-    <option name="LAST_COMMIT_MESSAGE" value="update settlement after nuke" />
+    <MESSAGE value="Fixing if there is a totoro already in the settlement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing if there is a totoro already in the settlement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1257,22 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/IslandMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/BuilderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="28" column="65" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="28" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/RotateTile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1283,24 +1282,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Hex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="95" column="27" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+        <state relative-caret-position="1560">
+          <caret line="104" column="27" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/SettlementTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/IslandMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="283" column="51" lean-forward="true" selection-start-line="283" selection-start-column="51" selection-end-line="283" selection-end-column="51" />
+        <state relative-caret-position="417">
+          <caret line="139" column="23" lean-forward="false" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/BuilderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="28" column="65" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="28" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="221" column="20" lean-forward="false" selection-start-line="221" selection-start-column="20" selection-end-line="221" selection-end-column="20" />
+        <state relative-caret-position="390">
+          <caret line="234" column="44" lean-forward="false" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#340#369#0" expanded="true" />
+            <element signature="e#1920#1929#0" expanded="true" />
+            <element signature="e#3386#3395#0" expanded="true" />
+            <element signature="e#3459#3468#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/SettlementTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="288" column="8" lean-forward="false" selection-start-line="288" selection-start-column="8" selection-end-line="289" selection-end-column="57" />
           <folding />
         </state>
       </provider>

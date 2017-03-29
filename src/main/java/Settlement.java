@@ -22,10 +22,10 @@ public class Settlement {
     private PlacementValidity validity = new PlacementValidity();
     private int settleID = 0;
 
-
     Settlement(HexGrid hexGrid) {
         this.hexGrid = hexGrid;
         this.settlementSizeChecker = new SettlementSizeChecker(hexGrid);
+
     }
 
     public ArrayList<Integer> getListOfActiveSettlementIDs() {
@@ -212,8 +212,6 @@ public class Settlement {
 
         ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
 
-        SettlementSizeChecker settlementSizeChecker = new SettlementSizeChecker(hexGrid);
-
         ArrayList<Integer> hexes;
 
         for (int i = 0; i < adjacentHexes.size(); i++) {
@@ -226,16 +224,19 @@ public class Settlement {
 
                 for (int j = 0; j < hexes.size(); j++){
 
-                    System.out.println(hexes.get(j));
+//                    System.out.println(hexes.get(j));
+//
+//                    System.out.println(islandMap.getHex(hexes.get(j)).getPieceOnHex());
 
-                    System.out.println(hexGrid.getHexValue(hexes.get(j)).getPieceOnHex());
+                    //System.out.println(hexGrid.getHexValue(hexes.get(j)).getPieceOnHex());
 
                     //hexes.get(j)).getPieceOnHex();
 
-//                    if (hexGrid.getHexValue(hexes.get(j)).getPieceOnHex() == "Totoro"){
-//
-//                        System.out.println("yes");
-//                    }
+                    if (hexGrid.getHexValue(hexes.get(j)).getPieceOnHex() == "Totoro"){
+
+                        System.out.println("Cannot place totoro because there is already one in this settlement");
+                        return true;
+                    }
                 }
             }
         }
