@@ -9,6 +9,8 @@ public class IslandMap {
     private HexGrid hexGrid;
     private int tileCount;
     private TileGenerator myGen;
+    Nuking nuker;
+    Settlement settlement;
 
 
     public IslandMap(){
@@ -17,6 +19,8 @@ public class IslandMap {
         hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
         tileCount = 0;
+        nuker = new Nuking();
+        settlement = new Settlement(hexGrid);
     }
 
 
@@ -36,6 +40,19 @@ public class IslandMap {
             return true;
         }
 
+        // CHECK FOR NUKE
+        if(nuker.isVolcanoOverVolcano(hexGrid, hexID) && nuker.doesNukeSpanTwoTiles(hexGrid, tileHexIDsArray)
+                && nuker.areBelowHexesOnSameLevel(hexGrid, tileHexIDsArray)){
+
+            nuker.performNuke(hexGrid, tileHexIDsArray, tileTerrainsArray, tileCount);
+
+            Tile tile = new Tile(tileCount,tileHexIDsArray);
+            gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+            tileCount++;
+            System.out.println("Nuke Successful!");
+            return true;
+        }
+
         boolean hexesCanBePlaced = false;
         boolean adjacentTilesValid = false;
         PlacementValidity placementValidity = new PlacementValidity();
@@ -48,6 +65,7 @@ public class IslandMap {
             hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
             hexGrid.increaseLevelsByOne(tileHexIDsArray);
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+            hexGrid.setHexTileIDs(tileHexIDsArray, tileCount);
             tileCount++;
             System.out.println("Tile Successfully Placed!");
             return true;
@@ -88,6 +106,7 @@ public class IslandMap {
         hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
         hexGrid.increaseLevelsByOne(tileHexIDsArray);
         gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+        hexGrid.setHexTileIDs(tileHexIDsArray, tileCount);
         tileCount++;
         System.out.println("Tile Successfully Placed!");
     }
@@ -95,10 +114,10 @@ public class IslandMap {
     public void printTilesOnMap(){
         Iterator<Map.Entry<Integer, int[]>> iterator = gameBoardMap.entrySet().iterator();
         while(iterator.hasNext()){
-            Map.Entry<Integer, int[]> entry = iterator.next();
-            System.out.print("Tile " + entry.getKey() + ": ");
+            Map.Entry<Integer, int[]> mapValue = iterator.next();
+            System.out.print("Tile " + mapValue.getKey() + ": ");
             for(int i=0;i<3;i++){
-                System.out.print(entry.getValue()[i] + " ");
+                System.out.print(mapValue.getValue()[i] + " ");
             }
             System.out.println();
         }
@@ -107,6 +126,13 @@ public class IslandMap {
 
     public Hex getHex(int hexID){
         return hexGrid.getHexValue(hexID);
+    }
+
+
+    public int getTileCount(){return tileCount;}
+
+    public Settlement getSettlementObj(){
+        return settlement;
     }
 
 
