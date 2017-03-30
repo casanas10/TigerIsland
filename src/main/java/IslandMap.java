@@ -42,8 +42,7 @@ public class IslandMap {
         }
 
         // CHECK FOR NUKE
-        if(nuker.isVolcanoOverVolcano(hexGrid, hexID) && nuker.doesNukeSpanTwoTiles(hexGrid, tileHexIDsArray)
-                && nuker.areBelowHexesOnSameLevel(hexGrid, tileHexIDsArray)){
+        if(nuker.canYouNukeSettlement(this, tileHexIDsArray, hexID)){
 
             nuker.performNuke(hexGrid, tileHexIDsArray, tileTerrainsArray, tileCount);
 

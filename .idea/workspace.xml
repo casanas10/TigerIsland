@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
+    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="You can no longer nuke a Tiger nor completely destroy a settlement">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Nuking.java" afterPath="$PROJECT_DIR$/src/main/java/Nuking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/NukingTest.java" afterPath="$PROJECT_DIR$/test/NukingTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/IslandMap.java" afterPath="$PROJECT_DIR$/src/main/java/IslandMap.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,16 +24,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SettlementTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/SettlementTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7524">
-              <caret line="347" column="8" lean-forward="false" selection-start-line="347" selection-start-column="8" selection-end-line="347" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BuilderTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/BuilderTest.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -45,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NukingTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NukingTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/NukingTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="648">
@@ -55,12 +44,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Nuking.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Nuking.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Nuking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="286">
+              <caret line="37" column="37" lean-forward="false" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+              <folding>
+                <element signature="method#doLowerHexesHaveATotoro#0;class#Nuking#0" expanded="false" />
+                <element signature="method#isSettlementSizeOne#0;class#Nuking#0" expanded="false" />
+                <element signature="method#doesNukeSpanTwoTiles#0;class#Nuking#0" expanded="false" />
+                <element signature="method#isVolcanoOverVolcano#0;class#Nuking#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,8 +62,18 @@
       <file leaf-file-name="Builder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="33" column="18" lean-forward="false" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+            <state relative-caret-position="189">
+              <caret line="92" column="59" lean-forward="false" selection-start-line="92" selection-start-column="59" selection-end-line="92" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -105,10 +109,11 @@
       <file leaf-file-name="IslandMap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/IslandMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+            <state relative-caret-position="330">
+              <caret line="48" column="60" lean-forward="true" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
               <folding>
-                <element signature="e#4721#4722#0" expanded="true" />
+                <element signature="e#4573#4574#0" expanded="true" />
+                <element signature="e#4603#4604#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,6 +166,9 @@
       <find>IslandMap</find>
       <find>setSett</find>
       <find>sys</find>
+      <find>volcano to</find>
+      <find>Nuke Successful</find>
+      <find>Nuke s</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java</dir>
@@ -205,12 +213,12 @@
         <option value="$PROJECT_DIR$/test/SettlementSizeCheckerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/PlacementValidity.java" />
         <option value="$PROJECT_DIR$/test/PlacementValidityTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/IslandMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
         <option value="$PROJECT_DIR$/test/SettlementTest.java" />
         <option value="$PROJECT_DIR$/test/BuilderTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Nuking.java" />
         <option value="$PROJECT_DIR$/test/NukingTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/IslandMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Nuking.java" />
       </list>
     </option>
   </component>
@@ -261,25 +269,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TigerIsland" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TigerIsland" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -681,8 +671,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.NukingTest.nukeFailsIfYouTryToCompletelyDestroyASettlement" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.NukingTest.nukeFailsIfYouTryToCompletelyDestroyASettlement" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.NukingTest.nukeFailsIfYouTryToNukeATotoro" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.NukingTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.BuilderTest" />
@@ -691,6 +681,9 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -861,7 +854,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490836745111</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="You can no longer nuke a Tiger nor completely destroy a settlement">
+      <created>1490838209088</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1490838209088</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -877,23 +877,23 @@
     <history-entry file="JUnit_Test - 2017.03.29 at 21h 42m 59s.xml">
       <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="JUnit_Test - 2017.03.29 at 21h 48m 10s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.03.29 at 21h 49m 36s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.03.29 at 22h 10m 13s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.03.29 at 22h 12m 52s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="NukingTest_nukeFailsIfYouTryToCompletelyDestroyASettlement - 2017.03.29 at 21h 40m 09s.xml">
       <configuration name="NukingTest.nukeFailsIfYouTryToCompletelyDestroyASettlement" configurationId="JUnit" />
     </history-entry>
     <history-entry file="NukingTest_nukeFailsIfYouTryToCompletelyDestroyASettlement - 2017.03.29 at 21h 42m 52s.xml">
       <configuration name="NukingTest.nukeFailsIfYouTryToCompletelyDestroyASettlement" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NukingTest_nukeFailsIfYouTryToNukeATotoro - 2017.03.29 at 21h 12m 51s.xml">
-      <configuration name="NukingTest.nukeFailsIfYouTryToNukeATotoro" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NukingTest_nukeFailsIfYouTryToNukeATotoro - 2017.03.29 at 21h 13m 52s.xml">
-      <configuration name="NukingTest.nukeFailsIfYouTryToNukeATotoro" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NukingTest_nukeFailsIfYouTryToNukeATotoro - 2017.03.29 at 21h 16m 37s.xml">
-      <configuration name="NukingTest.nukeFailsIfYouTryToNukeATotoro" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NukingTest_nukeFailsIfYouTryToNukeATotoro - 2017.03.29 at 21h 18m 18s.xml">
-      <configuration name="NukingTest.nukeFailsIfYouTryToNukeATotoro" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -984,7 +984,8 @@
     <MESSAGE value="update settlement if tiget already exist" />
     <MESSAGE value="Updated builder test to successfully add a tiger with all proper restrictions" />
     <MESSAGE value="You can no longer nuke a Totoro" />
-    <option name="LAST_COMMIT_MESSAGE" value="You can no longer nuke a Totoro" />
+    <MESSAGE value="You can no longer nuke a Tiger nor completely destroy a settlement" />
+    <option name="LAST_COMMIT_MESSAGE" value="You can no longer nuke a Tiger nor completely destroy a settlement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1212,13 +1213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="107" column="48" lean-forward="false" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CoordinateSystem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1326,14 +1320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="33" column="18" lean-forward="false" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/BuilderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1672">
@@ -1350,29 +1336,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/NukingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="92" column="59" lean-forward="false" selection-start-line="92" selection-start-column="59" selection-end-line="92" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/IslandMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="48" column="60" lean-forward="true" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
           <folding>
-            <element signature="e#4721#4722#0" expanded="true" />
+            <element signature="e#4573#4574#0" expanded="true" />
+            <element signature="e#4603#4604#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Nuking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/NukingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="286">
+          <caret line="37" column="37" lean-forward="false" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+          <folding>
+            <element signature="method#doLowerHexesHaveATotoro#0;class#Nuking#0" expanded="false" />
+            <element signature="method#isSettlementSizeOne#0;class#Nuking#0" expanded="false" />
+            <element signature="method#doesNukeSpanTwoTiles#0;class#Nuking#0" expanded="false" />
+            <element signature="method#isVolcanoOverVolcano#0;class#Nuking#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
