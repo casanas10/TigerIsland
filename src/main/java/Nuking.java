@@ -22,12 +22,21 @@ public class Nuking {
             HexGrid hexGrid = islandMap.getHexGrid();
 
             if(isVolcanoOverVolcano(hexGrid, hexID) && areBelowHexesOnSameLevel(hexGrid,HexIDSArray) &&
-                    doesNukeSpanTwoTiles(hexGrid, HexIDSArray) && !isSettlementSizeOne(islandMap, HexIDSArray)){
+                    doesNukeSpanTwoTiles(hexGrid, HexIDSArray) && !isSettlementSizeOne(islandMap, HexIDSArray) &&
+                    !doLowerHexesHaveATotoro(hexGrid, HexIDSArray)){
                 return true;
 
             }
             else return false;
 
+        }
+
+        public boolean doLowerHexesHaveATotoro(HexGrid hexGrid, int[] hexIDsArray){
+            for (int hexID : hexIDsArray) {
+                if (hexGrid.getHexValue(hexID).getPieceOnHex() == "Totoro")
+                    return true;
+            }
+            return false;
         }
 
 

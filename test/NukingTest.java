@@ -11,8 +11,8 @@ import java.util.Set;
  */
 public class NukingTest {
     static IslandMap islandMap = new IslandMap();
-    Player player = new Player("White",0);
-    Builder builder = new Builder();
+    static Player player = new Player("White",0);
+    static Builder builder = new Builder();
     Nuking nuking = new Nuking();
     HexGrid hexGrid = islandMap.getHexGrid();
     Settlement settlement = islandMap.getSettlementObj();
@@ -22,7 +22,21 @@ public class NukingTest {
         islandMap.addTileToMap(606, 0);
         islandMap.addTileToMap(607, 60);
         islandMap.addTileToMap(809,0);
-        //islandMap.addTileToMap()
+        builder.build(player, islandMap,1, 807);
+
+        islandMap.addTileToMap(609,60);
+        islandMap.addTileToMap(611,0);
+        islandMap.addTileToMap(612,60);
+        islandMap.addTileToMap(614,0);
+        islandMap.addTileToMap(615,60);
+        builder.build(player,islandMap,1,810);
+        builder.build(player,islandMap,1,811);
+        builder.build(player,islandMap,1,812);
+        builder.build(player,islandMap,1,813);
+        builder.build(player,islandMap,1,814);
+        //build a Totoro sanctuary
+        builder.build(player,islandMap,3,815);
+
     }
 
     @Test
@@ -56,9 +70,14 @@ public class NukingTest {
     @Test
     public void nukeFailsIfYouTryToNukeASettlementOfSizeOne() throws Exception{
         //Testing that a settlement of size 1 cannot be nuked
-        builder.build(player, islandMap,1, 807);
         int tile5[] = {607, 807, 808};
         Assert.assertEquals(false, nuking.canYouNukeSettlement(islandMap, tile5, tile5[0]));
+    }
+
+    @Test
+    public void nukeFailsIfYouTryToNukeATotoro() throws Exception{
+        int tile6[] = {615,815,816};
+        Assert.assertEquals(false, nuking.canYouNukeSettlement(islandMap, tile6, tile6[0]));
     }
 
 }
