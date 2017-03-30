@@ -29,6 +29,9 @@ public class NukingTest {
         islandMap.addTileToMap(612,60);
         islandMap.addTileToMap(614,0);
         islandMap.addTileToMap(615,60);
+
+        islandMap.addTileToMap(207,0);
+
         builder.build(player,islandMap,1,810);
         builder.build(player,islandMap,1,811);
         builder.build(player,islandMap,1,812);
@@ -37,6 +40,9 @@ public class NukingTest {
         //build a Totoro sanctuary
         builder.build(player,islandMap,3,815);
 
+        //build a size 2 settlement
+        builder.build(player,islandMap,1,407);
+        builder.build(player,islandMap,1,408);
     }
 
     @Test
@@ -80,4 +86,9 @@ public class NukingTest {
         Assert.assertEquals(false, nuking.canYouNukeSettlement(islandMap, tile6, tile6[0]));
     }
 
+    @Test
+    public void nukeFailsIfYouTryToCompletelyDestroyASettlement() throws Exception{
+        int tile7[] = {607, 407, 408};
+        Assert.assertEquals(false,nuking.canYouNukeSettlement(islandMap,tile7,tile7[0]));
+    }
 }

@@ -23,7 +23,8 @@ public class Nuking {
 
             if(isVolcanoOverVolcano(hexGrid, hexID) && areBelowHexesOnSameLevel(hexGrid,HexIDSArray) &&
                     doesNukeSpanTwoTiles(hexGrid, HexIDSArray) && !isSettlementSizeOne(islandMap, HexIDSArray) &&
-                    !doLowerHexesHaveATotoro(hexGrid, HexIDSArray)){
+                    !doLowerHexesHaveATotoro(hexGrid, HexIDSArray) && !doLowerHexesHaveATiger(hexGrid, HexIDSArray) &&
+                    !willNukingCompletelyDestroyASettlement(islandMap,HexIDSArray)){
                 return true;
 
             }
@@ -31,7 +32,38 @@ public class Nuking {
 
         }
 
-        public boolean doLowerHexesHaveATotoro(HexGrid hexGrid, int[] hexIDsArray){
+    private boolean willNukingCompletelyDestroyASettlement(IslandMap islandMap, int[] hexIDSArray) {
+        Settlement settlement = islandMap.getSettlementObj();
+        HexGrid hexGrid = islandMap.getHexGrid();
+        int previousSettlementID = -1;
+        int currentSettlementID;
+
+        for (int hexID : hexIDSArray) {
+            currentSettlementID = hexGrid.getHexValue(hexID).getSettlementID();
+
+            if (currentSettlementID == -1)
+                continue;
+            else if (settlement.getSettlementMap().get(currentSettlementID).size() == 2) {
+                if(currentSettlementID == previousSettlementID)
+                    return true;
+                else
+                    previousSettlementID = currentSettlementID;
+            }
+        }
+
+        return false;
+    }
+
+    //currently do not have a unit test for tiger in NukingTest
+    private boolean doLowerHexesHaveATiger(HexGrid hexGrid, int[] hexIDsArray) {
+        for (int hexID : hexIDsArray) {
+            if (hexGrid.getHexValue(hexID).getPieceOnHex() == "Tiger")
+                return true;
+        }
+        return false;
+    }
+
+    public boolean doLowerHexesHaveATotoro(HexGrid hexGrid, int[] hexIDsArray){
             for (int hexID : hexIDsArray) {
                 if (hexGrid.getHexValue(hexID).getPieceOnHex() == "Totoro")
                     return true;
