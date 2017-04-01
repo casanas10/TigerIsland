@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/ExtendTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Builder.java" afterPath="$PROJECT_DIR$/src/main/java/Builder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" afterPath="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/HexGrid.java" afterPath="$PROJECT_DIR$/src/main/java/HexGrid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Player.java" afterPath="$PROJECT_DIR$/src/main/java/Player.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -817,7 +812,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490826644335</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="At the end of the turn the settlements need to be combined somehow.">
+      <created>1491058214771</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1491058214771</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -945,7 +947,8 @@
     <MESSAGE value="Fixed all Merging Errors" />
     <MESSAGE value="update settlement after nuke" />
     <MESSAGE value="Extending just needs to update settlements. At the end of the turn the settlements need to be combined somehow." />
-    <option name="LAST_COMMIT_MESSAGE" value="Extending just needs to update settlements. At the end of the turn the settlements need to be combined somehow." />
+    <MESSAGE value="At the end of the turn the settlements need to be combined somehow." />
+    <option name="LAST_COMMIT_MESSAGE" value="At the end of the turn the settlements need to be combined somehow." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
