@@ -79,4 +79,24 @@ public class ExtendTest {
         extend.extendOnTerrain("Lake");
         Assert.assertEquals(14,player1.getCurrentScore());
     }
+
+    @Test
+    public void pieceDecrementTest(){
+        islandMap.getHex(806).incrementLevel();
+        islandMap.getHex(1005).incrementLevel();
+        islandMap.getHex(1005).incrementLevel();
+        extend = new ExtendSettlement(807,islandMap,player1);
+        extend.extendOnTerrain("Lake");
+        Assert.assertEquals(14,player1.getRemainingMeeples());
+    }
+
+    @Test
+    public void notEnoughMeeplesTest(){
+        islandMap.getHex(806).incrementLevel();
+        for(int i=0; i<20; i++) {
+            islandMap.getHex(1005).incrementLevel();
+        }
+        extend = new ExtendSettlement(807,islandMap,player1);
+        Assert.assertFalse(extend.extendOnTerrain("Lake"));
+    }
 }

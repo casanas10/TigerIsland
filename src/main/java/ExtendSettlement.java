@@ -33,6 +33,7 @@ public class ExtendSettlement {
         hexColor = hex.getPlayerColorOnHex();
         settlementID = hex.getSettlementID();
         HashMap<Integer, ArrayList<Integer>> settlementsMap = islandMap.getSettlementsMap();
+
         ArrayList<Integer> HexIDsInSettlement = settlementsMap.get(settlementID);
 
         int i = 0;
@@ -324,7 +325,7 @@ public class ExtendSettlement {
             return false;
         }
         if(terrain == "Lake"){
-            if((lakesToExtendOn.isEmpty()) && (lakesToExtendOn.size() <= player.getRemainingMeeples())){
+            if((lakesToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
                 return false;
             }
             else{
@@ -337,7 +338,7 @@ public class ExtendSettlement {
             }
         }
         if(terrain == "Grassland"){
-            if((grasslandsToExtendOn.isEmpty()) && (grasslandsToExtendOn.size() <= player.getRemainingMeeples())){
+            if((grasslandsToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
                 return false;
             }
             else{
@@ -350,7 +351,7 @@ public class ExtendSettlement {
             }
         }
         if(terrain == "Rocky"){
-            if((rockysToExtendOn.isEmpty()) && (rockysToExtendOn.size() <= player.getRemainingMeeples())){
+            if((rockysToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
                 return false;
             }
             else{
@@ -363,7 +364,7 @@ public class ExtendSettlement {
             }
         }
         if(terrain == "Jungle"){
-            if((junglesToExtendOn.isEmpty()) && (junglesToExtendOn.size() <= player.getRemainingMeeples())){
+            if((junglesToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
                 return false;
             }
             else{
@@ -376,6 +377,42 @@ public class ExtendSettlement {
             }
         }
         return false;
+    }
+
+    private int meeplesRequired(String terrain) {
+        Hex hex;
+        int meeplesRequired = 0;
+        int i=0;
+        if(terrain == "Lake"){
+            i=0;
+            while(i<lakesToExtendOn.size()) {
+                meeplesRequired += islandMap.getHex(lakesToExtendOn.get(i)).getLevel();
+                i++;
+            }
+        }
+        if(terrain == "Grassland"){
+            i=0;
+            while(i<grasslandsToExtendOn.size()){
+                meeplesRequired += islandMap.getHex(grasslandsToExtendOn.get(i)).getLevel();
+                i++;
+            }
+        }
+        if(terrain == "Rocky"){
+            i=0;
+            while(i<rockysToExtendOn.size()){
+                meeplesRequired += islandMap.getHex(rockysToExtendOn.get(i)).getLevel();
+                i++;
+            }
+        }
+        if(terrain == "Jungle"){
+            i=0;
+            while(i<junglesToExtendOn.size()){
+                meeplesRequired += islandMap.getHex(junglesToExtendOn.get(i)).getLevel();
+                i++;
+            }
+        }
+
+        return meeplesRequired;
     }
 
     private void updateHex(int hexID) {
