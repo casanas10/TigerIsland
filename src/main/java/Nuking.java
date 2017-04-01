@@ -17,6 +17,80 @@ public class Nuking {
             return false;
         }
 
+
+        public boolean canYouNukeSettlement(IslandMap islandMap, int[] HexIDSArray, int hexID) {
+            HexGrid hexGrid = islandMap.getHexGrid();
+
+            if(isVolcanoOverVolcano(hexGrid, hexID) && areBelowHexesOnSameLevel(hexGrid,HexIDSArray) &&
+                    doesNukeSpanTwoTiles(hexGrid, HexIDSArray) && !isSettlementSizeOne(islandMap, HexIDSArray) &&
+                    !doLowerHexesHaveATotoro(hexGrid, HexIDSArray) && !doLowerHexesHaveATiger(hexGrid, HexIDSArray) &&
+                    !willNukingCompletelyDestroyASettlement(islandMap,HexIDSArray)){
+                return true;
+
+            }
+            else return false;
+
+        }
+
+    private boolean willNukingCompletelyDestroyASettlement(IslandMap islandMap, int[] hexIDSArray) {
+        Settlement settlement = islandMap.getSettlementObj();
+        HexGrid hexGrid = islandMap.getHexGrid();
+        int previousSettlementID = -1;
+        int currentSettlementID;
+
+        for (int hexID : hexIDSArray) {
+            currentSettlementID = hexGrid.getHexValue(hexID).getSettlementID();
+
+            if (currentSettlementID == -1)
+                continue;
+            else if (settlement.getSettlementMap().get(currentSettlementID).size() == 2) {
+                if(currentSettlementID == previousSettlementID)
+                    return true;
+                else
+                    previousSettlementID = currentSettlementID;
+            }
+        }
+
+        return false;
+    }
+
+    //currently do not have a unit test for tiger in NukingTest
+    private boolean doLowerHexesHaveATiger(HexGrid hexGrid, int[] hexIDsArray) {
+        for (int hexID : hexIDsArray) {
+            if (hexGrid.getHexValue(hexID).getPieceOnHex() == "Tiger")
+                return true;
+        }
+        return false;
+    }
+
+    public boolean doLowerHexesHaveATotoro(HexGrid hexGrid, int[] hexIDsArray){
+            for (int hexID : hexIDsArray) {
+                if (hexGrid.getHexValue(hexID).getPieceOnHex() == "Totoro")
+                    return true;
+            }
+            return false;
+        }
+
+
+        public boolean isSettlementSizeOne(IslandMap islandMap, int[] hexID){
+            Settlement settlement = islandMap.getSettlementObj();
+            HexGrid hexGrid = islandMap.getHexGrid();
+
+            for(int i = 0; i < hexID.length; i++) {
+                int settlementID = hexGrid.getHexValue(hexID[i]).getSettlementID();
+
+                if (settlementID == -1)
+                    continue;
+                else if (settlement.getSettlementMap().get(settlementID).size() == 1)
+                    return true;
+
+            }
+
+            return false;
+        }
+
+
+
         public boolean doesNukeSpanTwoTiles(HexGrid hexGrid, int[] HexIDsArray){
 
             int tileID1;

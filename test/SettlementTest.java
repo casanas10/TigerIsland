@@ -158,7 +158,7 @@ public class SettlementTest {
         HexGrid hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
 
-        Settlement settlement = new Settlement(hexGrid);
+        Settlement settlement = new Settlement(islandMap.getHexGrid());
 
         islandMap.addTileToMap(806, 120);
         islandMap.addTileToMap(206, 0);
@@ -202,7 +202,7 @@ public class SettlementTest {
         HexGrid hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
 
-        Settlement settlement = new Settlement(hexGrid);
+        Settlement settlement = new Settlement(islandMap.getHexGrid());
 
         islandMap.addTileToMap(806, 120);
         islandMap.addTileToMap(206, 0);
@@ -247,7 +247,7 @@ public class SettlementTest {
         HexGrid hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
 
-        Settlement settlement = new Settlement(hexGrid);
+        Settlement settlement = new Settlement(islandMap.getHexGrid());
 
         islandMap.addTileToMap(806, 120);
         islandMap.addTileToMap(206, 0);
@@ -285,10 +285,69 @@ public class SettlementTest {
 
         settlement.printAllSettlements();
 
-        Hex currentHex = islandMap.getHex(1007);
-        System.out.println(currentHex.getPieceOnHex());
+//        Hex currentHex = islandMap.getHex(1007);
+//        System.out.println(currentHex.getPieceOnHex());
 
-        //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,1007));
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(0,1007));
+        Assert.assertFalse(settlement.isPiecePartOfASettlement(0,407));
+
+    }
+
+    @Test
+    public void ableToPlaceTigerIfNoTigerPresentInTheCurrentSettlement() {
+
+        HexGrid hexGrid = new HexGrid();
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = new Settlement(islandMap.getHexGrid());
+
+        islandMap.addTileToMap(806, 120);
+
+        builder.build(player,islandMap,1,606);
+        settlement.addSettlement(606, player);
+
+        Hex currentHex = islandMap.getHex(807);
+        currentHex.incrementLevel();
+        currentHex.incrementLevel();
+        builder.build(player,islandMap,4,807);
+        settlement.addTigerToSettlement(807, player);
+
+        settlement.printAllSettlements();
+
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(0,807));
+
+    }
+
+
+    @Test
+    public void checkIfSettlementContainsATigerAlreadyTest() {
+
+        HexGrid hexGrid = new HexGrid();
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = new Settlement(islandMap.getHexGrid());
+
+        islandMap.addTileToMap(806, 120);
+        islandMap.addTileToMap(607,180);
+
+        builder.build(player,islandMap,1,606);
+        settlement.addSettlement(606, player);
+
+        Hex currentHex = islandMap.getHex(807);
+        currentHex.incrementLevel();
+        currentHex.incrementLevel();
+        builder.build(player,islandMap,4,807);
+        settlement.addTigerToSettlement(807, player);
+
+        currentHex = islandMap.getHex(407);
+        currentHex.incrementLevel();
+        currentHex.incrementLevel();
+        builder.build(player,islandMap,4,407);
+        settlement.addTigerToSettlement(407, player);
+
+        settlement.printAllSettlements();
+
+        Assert.assertFalse(settlement.isPiecePartOfASettlement(0,407));
 
     }
 

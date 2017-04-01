@@ -63,15 +63,24 @@ public class PlayerPieceContainer {
     public GamePiece placeGamePiece(String pieceName){
         switch(pieceName){
 
-            case "Meeple": Meeple meeple = meeples.get(meeples.size() - 1);
+            case "Meeple": if(getNumberOfMeeples() == 0){
+                                break;
+                           }
+                           Meeple meeple = meeples.get(meeples.size() - 1);
                            meeples.remove(meeples.size()-1);
                            return meeple;
 
-            case "Totoro": Totoro totoro = totoros.get(totoros.size() - 1);
+            case "Totoro": if(getNumberOfTotoros() == 0){
+                                break;
+                           }
+                           Totoro totoro = totoros.get(totoros.size() - 1);
                            totoros.remove(totoros.size()-1);
                            return totoro;
 
-            case "Tiger":  Tiger tiger = tigers.get(tigers.size() - 1);
+            case "Tiger":  if(getNumberOfMeeples() == 0){
+                                break;
+                           }
+                           Tiger tiger = tigers.get(tigers.size() - 1);
                            tigers.remove(tigers.size()-1);
                            return tiger;
 
