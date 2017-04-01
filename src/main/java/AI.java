@@ -19,15 +19,17 @@ public class AI {
 
     HashMap<Integer, int[]> allPossibleTiles = new HashMap<>();
 
-    public AI(Game game){
+    public AI(Game game, IslandMap islandMap){
         this.game = game;
-        this.islandMap = new IslandMap();
+        this.islandMap = islandMap;
     }
 
-
+    //given a tile it gets all the possible tile placement positions
     public HashMap<Integer, int[]> getAllPossibleTilePlacementPosition(int[] tileArr) {
 
         int[] orientation = {0,60,120,180,240,300};
+
+        int index = 0;
 
         for (int i = 0; i < tileArr.length; i++){
 
@@ -35,26 +37,31 @@ public class AI {
 
             for (int j = 0; j < adjacentHexes.size(); j++){
 
-                System.out.println(adjacentHexes.get(j));
+                ArrayList<Integer> adjacentHexesAgain = validity.searchTheSixAdjacentHexes(islandMap.getHex(adjacentHexes.get(j)));
 
-                for (int k = 0; k < orientation.length; k++){
+                for (int k =0; k < adjacentHexesAgain.size(); k++){
 
-                    tile = new RotateTile(adjacentHexes.get(j), orientation[k]);
+                    for (int l = 0; l < orientation.length; l++){
 
-                    allPossibleTiles.put(k, tile.checkPair());
+                        tile = new RotateTile(adjacentHexesAgain.get(k), orientation[l]);
+
+                        if(validity.checkIfHexesCanBePlaced(islandMap.getHexGrid(), tile.checkPair()) && islandMap.isValidTilePlacement(tile)){
+
+                            allPossibleTiles.put(index, tile.checkPair());
+                            index++;
+                        }
+                    }
 
                 }
-
-//                if(validity.SearchAdjacentTiles(islandMap.getHexGrid(),tileArr) && validity.checkIfHexesCanBePlaced(islandMap.getHexGrid(), tileArr)){
-//
-////                    System.out.println(adjacentHexes.get(j));
-//                }
             }
         }
 
         return allPossibleTiles;
     }
 
+    public void findOpponentsSettlementSizeThreeToFive() {
+        islandMap.getSettlementObj().printAllSettlements();
+    }
 
     public void printAllPossibleTiles(){
         Iterator<Map.Entry<Integer, int[]>> iterator = allPossibleTiles.entrySet().iterator();
@@ -66,6 +73,5 @@ public class AI {
             }
             System.out.println();
         }
-
     }
 }

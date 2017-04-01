@@ -18,36 +18,44 @@ public class AITesting {
 
     private RotateTile tile;
 
+    Builder builder;
+
     @Before
     public void setUp() throws Exception {
         islandMap = new IslandMap();
-        islandMap.addTileToMap(606, 0);
+        islandMap.addTileToMap(807, 0);
         player = new Player("Black", 0);
 
         Game game = new Game();
-        ai = new AI(game);
+        ai = new AI(game, islandMap);
 
+        builder = new Builder();
     }
 
     @Test
     public void getAllPossibleTilePosition() {
 
-        Hex currentHex = islandMap.getHex(606);
+        Hex currentHex = islandMap.getHex(807);
 
-        tile = new RotateTile(606, 0);
+        tile = new RotateTile(807, 0);
         int[] tileArr = tile.checkPair();
 
         HashMap<Integer, int[]> tileMap = new HashMap<>();
 
-        ArrayList<Integer> expectedHexes = new ArrayList<Integer>() {{
-            add(407);
-            add(607);
-            add(408);
-        }};
-
-        tileMap = ai.getAllPossibleTilePlacementPosition(tileArr);
-
+        ai.getAllPossibleTilePlacementPosition(tileArr);
 
         ai.printAllPossibleTiles();
+    }
+
+    @Test
+    public void findOpponentsSettlementOfSizeThreeToFive(){
+
+        Player player = new Player("Black", 0);
+
+        islandMap.settlement.addSettlement(402,player);
+
+        islandMap.settlement.printAllSettlements();
+
+        ai.findOpponentsSettlementSizeThreeToFive();
     }
 }

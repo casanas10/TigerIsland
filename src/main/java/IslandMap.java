@@ -9,6 +9,7 @@ public class IslandMap {
     private HexGrid hexGrid;
     private int tileCount;
     private TileGenerator myGen;
+    Settlement settlement;
 
 
     public IslandMap(){
@@ -59,19 +60,6 @@ public class IslandMap {
         }
     }
 
-    public void printMap(){
-        Set set = gameBoardMap.entrySet();
-        Iterator iterator = set.iterator();
-
-        while (iterator.hasNext()){
-            Map.Entry mentry = (Map.Entry)iterator.next();
-
-            Hex hexObj = (Hex)mentry.getValue();
-            System.out.print("key: "+ mentry.getKey() + " & Value: ");
-            hexObj.printHexCoordinates();
-        }
-    }
-
     public boolean containsHexKey(Tile tile){
         if (gameBoardMap.containsKey(tile.getTileID())){
             return true;
@@ -112,5 +100,32 @@ public class IslandMap {
 
     public HexGrid getHexGrid(){
         return this.hexGrid;
+    }
+
+    public boolean isValidTilePlacement(RotateTile tile) {
+
+        int tileHexIDsArray[];
+
+        tileHexIDsArray = tile.checkPair();
+
+        boolean hexesCanBePlaced = false;
+        boolean adjacentTilesValid = false;
+        PlacementValidity placementValidity = new PlacementValidity();
+        //I want the function below to take hexID array instead and also terrain array
+        hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray);
+        adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
+
+        if(hexesCanBePlaced && adjacentTilesValid){
+
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    public Settlement getSettlementObj(){
+        return settlement;
     }
 }
