@@ -56,4 +56,6 @@ public class Player {
     public GamePiece placeGamePiece(String pieceName){
         return playerPieceContainer.placeGamePiece(pieceName);
     }
+
+    public GamePiece placeMeepleForExtension(){ return playerPieceContainer.placeGamePiece("Meeple"); }
 }

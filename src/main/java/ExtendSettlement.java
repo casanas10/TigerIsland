@@ -8,55 +8,62 @@ import java.util.Scanner;
 public class ExtendSettlement {
     private int settlementSourceHexID;
     private String hexColor;
+    private int settlementID;
     private boolean isSameTerrain = false;
     private boolean isValidTile = false;
     private CoordinateSystem coordinates = new CoordinateSystem();
     private int maxArrayLength = 200;
     private IslandMap islandMap;
+    private Player player;
     private ArrayList<Integer> lakesToExtendOn = new  ArrayList<Integer>();
     private ArrayList<Integer> grasslandsToExtendOn = new  ArrayList<Integer>();
     private ArrayList<Integer> rockysToExtendOn = new  ArrayList<Integer>();
     private ArrayList<Integer> junglesToExtendOn = new  ArrayList<Integer>();
 
-    public ExtendSettlement(int settlementSourceHexID, IslandMap islandMap){
+    public ExtendSettlement(int settlementSourceHexID, IslandMap islandMap, Player player){
         this.settlementSourceHexID = settlementSourceHexID;
         this.islandMap = islandMap;
+        this.player = player;
+        findHexesToExtendOn();
     }
 
-    public void findHexesToExtendOn(){
-        HashMap<Integer,ArrayList<Integer>> settlementsMap = islandMap.getSettlementsMap();
-        ArrayList<Integer> adjacentHexIDsInSettlement = settlementsMap.get(settlementSourceHexID);
+    private void findHexesToExtendOn() {
+        Hex hex;
+        hex = islandMap.getHex(settlementSourceHexID);
+        hexColor = hex.getPlayerColorOnHex();
+        settlementID = hex.getSettlementID();
+        HashMap<Integer, ArrayList<Integer>> settlementsMap = islandMap.getSettlementsMap();
+        ArrayList<Integer> HexIDsInSettlement = settlementsMap.get(settlementID);
 
-        findExtensions(settlementSourceHexID);
-
-        int i=0;
-        while(i<adjacentHexIDsInSettlement.size()){
-            findExtensions(adjacentHexIDsInSettlement.get(i));
+        int i = 0;
+        while (i < HexIDsInSettlement.size()) {
+            findExtensions(HexIDsInSettlement.get(i));
             i++;
         }
+
+        printExtendOptions();
     }
 
     private void findExtensions(int hexID){
         Hex hex;
         hex = islandMap.getHex(hexID);
-        hexColor = hex.getPlayerColorOnHex();
         String terrain = hex.getTerrain();
 
         if(terrain == "Lake"){
-            extendToTerrain(hexID,terrain);
+            goToTerrain(hexID,terrain);
         }
         if(terrain == "Grassland"){
-            extendToTerrain(hexID,terrain);
+            goToTerrain(hexID,terrain);
         }
         if(terrain == "Rocky"){
-            extendToTerrain(hexID,terrain);
+            goToTerrain(hexID,terrain);
         }
         if(terrain == "Jungle"){
-            extendToTerrain(hexID,terrain);
+            goToTerrain(hexID,terrain);
         }
     }
 
-    private void extendToTerrain(int hexID, String terrain){
+    private void goToTerrain(int hexID, String terrain){
         checkUpperRightHexID(hexID, terrain);
         checkRightHexID(hexID,terrain);
         checkBottomRightHexID(hexID,terrain);
@@ -68,23 +75,23 @@ public class ExtendSettlement {
     private void checkUpperRightHexID(int hexID, String terrain) {
         if(hexIsInEvenRow(hexID)) {
             isSameTerrain = checkIfSameTerrain(hexID - maxArrayLength, terrain);
-            isValidTile = checkIfValidTile(hexID);
+            isValidTile = checkIfValidTile(hexID - maxArrayLength);
 
             if(isSameTerrain && isValidTile) {
-                addToTerrainContainer(hexID, terrain);
+                addToTerrainContainer(hexID - maxArrayLength, terrain);
                 resetBooleans();
-                extendToTerrain(hexID - maxArrayLength, terrain);
+                goToTerrain(hexID - maxArrayLength, terrain);
             }
             else{ resetBooleans(); }
         }
         else {
             isSameTerrain = checkIfSameTerrain(hexID - maxArrayLength + 1, terrain);
-            isValidTile = checkIfValidTile(hexID);
+            isValidTile = checkIfValidTile(hexID - maxArrayLength + 1);
 
             if(isSameTerrain && isValidTile) {
-                addToTerrainContainer(hexID, terrain);
+                addToTerrainContainer(hexID - maxArrayLength + 1, terrain);
                 resetBooleans();
-                extendToTerrain(hexID - maxArrayLength + 1, terrain);
+                goToTerrain(hexID - maxArrayLength + 1, terrain);
             }
             else{ resetBooleans(); }
         }
@@ -92,11 +99,11 @@ public class ExtendSettlement {
 
     private void checkRightHexID(int hexID, String terrain) {
         isSameTerrain = checkIfSameTerrain(hexID + 1, terrain);
-        isValidTile = checkIfValidTile(hexID);
+        isValidTile = checkIfValidTile(hexID + 1);
         if(isSameTerrain && isValidTile) {
-            addToTerrainContainer(hexID, terrain);
+            addToTerrainContainer(hexID + 1, terrain);
             resetBooleans();
-            extendToTerrain(hexID + 1, terrain);
+            goToTerrain(hexID + 1, terrain);
         }
         else{ resetBooleans(); }
     }
@@ -104,23 +111,23 @@ public class ExtendSettlement {
     private void checkBottomRightHexID(int hexID, String terrain) {
         if(hexIsInEvenRow(hexID)) {
             isSameTerrain = checkIfSameTerrain(hexID + maxArrayLength, terrain);
-            isValidTile = checkIfValidTile(hexID);
+            isValidTile = checkIfValidTile(hexID + maxArrayLength);
 
             if(isSameTerrain && isValidTile) {
-                addToTerrainContainer(hexID, terrain);
+                addToTerrainContainer(hexID + maxArrayLength, terrain);
                 resetBooleans();
-                extendToTerrain(hexID + maxArrayLength, terrain);
+                goToTerrain(hexID + maxArrayLength, terrain);
             }
             else{ resetBooleans(); }
         }
         else {
             isSameTerrain = checkIfSameTerrain(hexID + maxArrayLength + 1, terrain);
-            isValidTile = checkIfValidTile(hexID);
+            isValidTile = checkIfValidTile(hexID + maxArrayLength + 1);
 
             if(isSameTerrain && isValidTile) {
-                addToTerrainContainer(hexID, terrain);
+                addToTerrainContainer(hexID + maxArrayLength + 1, terrain);
                 resetBooleans();
-                extendToTerrain(hexID + maxArrayLength + 1, terrain);
+                goToTerrain(hexID + maxArrayLength + 1, terrain);
             }
             else{ resetBooleans(); }
         }
@@ -129,23 +136,23 @@ public class ExtendSettlement {
     private void checkBottomLeftHexID(int hexID, String terrain) {
         if(hexIsInEvenRow(hexID)) {
             isSameTerrain = checkIfSameTerrain(hexID + maxArrayLength - 1, terrain);
-            isValidTile = checkIfValidTile(hexID);
+            isValidTile = checkIfValidTile(hexID + maxArrayLength - 1);
 
             if(isSameTerrain && isValidTile) {
-                addToTerrainContainer(hexID, terrain);
+                addToTerrainContainer(hexID + maxArrayLength - 1, terrain);
                 resetBooleans();
-                extendToTerrain(hexID + maxArrayLength - 1, terrain);
+                goToTerrain(hexID + maxArrayLength - 1, terrain);
             }
             else{ resetBooleans(); }
         }
         else {
             isSameTerrain = checkIfSameTerrain(hexID + maxArrayLength, terrain);
-            isValidTile = checkIfValidTile(hexID);
+            isValidTile = checkIfValidTile(hexID + maxArrayLength);
 
             if(isSameTerrain && isValidTile) {
-                addToTerrainContainer(hexID, terrain);
+                addToTerrainContainer(hexID + maxArrayLength, terrain);
                 resetBooleans();
-                extendToTerrain(hexID + maxArrayLength, terrain);
+                goToTerrain(hexID + maxArrayLength, terrain);
             }
             else{ resetBooleans(); }
         }
@@ -153,11 +160,11 @@ public class ExtendSettlement {
 
     private void checkLeftHexID(int hexID, String terrain) {
         isSameTerrain = checkIfSameTerrain(hexID - 1, terrain);
-        isValidTile = checkIfValidTile(hexID);
+        isValidTile = checkIfValidTile(hexID - 1);
         if(isSameTerrain && isValidTile) {
-            addToTerrainContainer(hexID, terrain);
+            addToTerrainContainer(hexID - 1, terrain);
             resetBooleans();
-            extendToTerrain(hexID - 1, terrain);
+            goToTerrain(hexID - 1, terrain);
         }
         else{ resetBooleans(); }
     }
@@ -165,23 +172,23 @@ public class ExtendSettlement {
     private void checkUpperLeftHexID(int hexID, String terrain) {
         if(hexIsInEvenRow(hexID)) {
             isSameTerrain = checkIfSameTerrain(hexID - maxArrayLength - 1, terrain);
-            isValidTile = checkIfValidTile(hexID);
+            isValidTile = checkIfValidTile(hexID - maxArrayLength - 1);
 
             if(isSameTerrain && isValidTile) {
-                addToTerrainContainer(hexID, terrain);
+                addToTerrainContainer(hexID - maxArrayLength - 1, terrain);
                 resetBooleans();
-                extendToTerrain(hexID - maxArrayLength - 1, terrain);
+                goToTerrain(hexID - maxArrayLength - 1, terrain);
             }
             else{ resetBooleans(); }
         }
         else {
             isSameTerrain = checkIfSameTerrain(hexID - maxArrayLength, terrain);
-            isValidTile = checkIfValidTile(hexID);
+            isValidTile = checkIfValidTile(hexID - maxArrayLength);
 
             if(isSameTerrain && isValidTile) {
-                addToTerrainContainer(hexID, terrain);
+                addToTerrainContainer(hexID - maxArrayLength, terrain);
                 resetBooleans();
-                extendToTerrain(hexID - maxArrayLength, terrain);
+                goToTerrain(hexID - maxArrayLength, terrain);
             }
             else{ resetBooleans(); }
         }
@@ -208,7 +215,7 @@ public class ExtendSettlement {
     private boolean checkIfValidTile(int hexID) {
         Hex hex;
         hex = islandMap.getHex(hexID);
-        if(hex.getTileID() == -1){
+        if((hex.getTileID() != -1) && (hex.checkIfHexIsNotSettled()) && (hex.getTerrain() != "Volcano")){
             return true;
         }
         else{
@@ -263,6 +270,98 @@ public class ExtendSettlement {
         while(i<junglesToExtendOn.size()){
             System.out.print(junglesToExtendOn.get(i) + " ");
             i++;
+        }
+    }
+
+    public boolean extendOnTerrain(String terrain){
+        if(terrain == "invalid terrain"){
+            return false;
+        }
+        if(terrain == "Lake"){
+            if((lakesToExtendOn.isEmpty()) && (lakesToExtendOn.size() <= player.getRemainingMeeples())){
+                return false;
+            }
+            else{
+                int i=0;
+                while(i<lakesToExtendOn.size()){
+                    updateHex(lakesToExtendOn.get(i));
+                }
+                return true;
+            }
+        }
+        if(terrain == "Grassland"){
+            if((grasslandsToExtendOn.isEmpty()) && (grasslandsToExtendOn.size() <= player.getRemainingMeeples())){
+                return false;
+            }
+            else{
+                int i=0;
+                while(i<grasslandsToExtendOn.size()){
+                    updateHex(grasslandsToExtendOn.get(i));
+                }
+                return true;
+            }
+        }
+        if(terrain == "Rocky"){
+            if((rockysToExtendOn.isEmpty()) && (rockysToExtendOn.size() <= player.getRemainingMeeples())){
+                return false;
+            }
+            else{
+                int i=0;
+                while(i<rockysToExtendOn.size()){
+                    updateHex(rockysToExtendOn.get(i));
+                }
+                return true;
+            }
+        }
+        if(terrain == "Jungle"){
+            if((junglesToExtendOn.isEmpty()) && (junglesToExtendOn.size() <= player.getRemainingMeeples())){
+                return false;
+            }
+            else{
+                int i=0;
+                while(i<junglesToExtendOn.size()){
+                    updateHex(junglesToExtendOn.get(i));
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void updateHex(int hexID) {
+        Hex hex;
+        GamePiece piece;
+        hex = islandMap.getHex(hexID);
+        int level = hex.getLevel();
+
+        //Add hexIDs to settlement in settlements map and then check if now touching other settlements.
+        Settlement settlement = islandMap.getSettlementObj();
+        settlement.addSettlement(hexID,player);
+
+        for(int i=0; i<level; i++){
+            piece = player.placeMeepleForExtension();
+            updateScore(player,piece,level);
+        }
+    }
+
+    public void updateScore(Player player, GamePiece piece, int level){
+        player.updateScore(piece.calculateScore(level));
+        System.out.println(piece.calculateScore(level) + " point(s) added to " + player.getPlayerColor() + "'s score.");
+        System.out.println(player.getPlayerColor() + " player's total score: " + player.getCurrentScore());
+
+    }
+
+    public String getTerrainToExtendOn(){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter terrain name to extend to: \n");
+        String terrain = s.nextLine();
+
+        if((terrain == "Lake") || (terrain == "Grassland") ||
+                (terrain == "Rocky") || (terrain == "Jungle")){
+            return terrain;
+        }
+        else{
+            return "invalid terrain";
         }
     }
 }
