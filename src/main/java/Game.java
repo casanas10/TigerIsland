@@ -8,6 +8,7 @@ public class Game {
     private Player black;
     private Player white;
     private IslandMap islandMap;
+    Builder builder;
     private boolean gameOver;
     private boolean activePlayerBlack;
     private boolean activePlayerWhite;
@@ -20,6 +21,7 @@ public class Game {
         this.islandMap = new IslandMap();
         gameOver = false;
         numberOfTurns = 0;
+        builder = new Builder();
     }
 
     public Player getBlackPlayer() {
@@ -61,8 +63,6 @@ public class Game {
 
         Collections.shuffle(playerList);
 
-        System.out.println(playerList.get(0));
-
         return playerList.get(0);
     }
 
@@ -77,20 +77,41 @@ public class Game {
         }
     }
 
+    public void printCurrentPlayersTurn(){
+        if(activePlayerWhite){
+            System.out.println("White Players Turn");
+        }
+        else{
+            System.out.println("Black Players Turn");
+        }
+    }
+
     public void gameRunning(){
         setActiveStartingPlayer();
         int hexID = -1;
         int tileOrientation = -1;
         boolean tileSuccessfullyPlaced = false;
+        boolean buildSuccessful = false;
+        int buildOption;
         int quit;
 
         while(!gameOver){
             tileSuccessfullyPlaced = false;
+
+            printCurrentPlayersTurn();
+
             while(!tileSuccessfullyPlaced) {
 
                 if(numberOfTurns == 0){
+                    CoordinateSystem coors = new CoordinateSystem();
                     // First tile will actually be placed in the center, this is for testing purposes
-                    tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+                    //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+                    int[] tileHexIDsArray = {coors.getHexID(99,99), coors.getHexID(99,98),coors.getHexID(100,98),
+                            coors.getHexID(99,100), coors.getHexID(100, 100)};
+                    String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grasslands"};
+                    islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+
+                    islandMap.printTilesOnMap();
                     break;
                 }
 
@@ -106,14 +127,30 @@ public class Game {
                 islandMap.printTilesOnMap();
             }
 
+            buildSuccessful = false;
+
+            while(!buildSuccessful){
+
+                System.out.println("1.) Build a new settlement\n" + "2.) Expand\n" + "3.) Build a totoro sanctuary\n"
+                                    + "4.) Build a tiger playground\n");
+                System.out.print("Select choice: ");
+                buildOption = input.nextInt();
+                System.out.print("\nSelect hex: ");
+                hexID = input.nextInt();
+
+                if(activePlayerWhite) {
+                    buildSuccessful = builder.build(white, islandMap, buildOption, hexID);
+                }
+                else {
+                    buildSuccessful = builder.build(black, islandMap, buildOption, hexID);
+                }
+            }
+
+
             numberOfTurns++;
 
-            System.out.print("Would you like to quit(1 or 0)? ");
-            quit = input.nextInt();
-
-            if(quit == 1){
-                gameOver = true;
-            }
+            setActivePlayerWhite(!activePlayerWhite);
+            setActivePlayerBlack(!activePlayerBlack);
 
         }
     }

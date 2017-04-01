@@ -43,20 +43,26 @@ public class HexGrid {
 
     public void setTerrains(int hexIDs[], String hexTerrains[]){
         Hex hex;
-        for(int i=0; i<3; i++){
+        for(int i=0; i<hexIDs.length; i++){
             hex = getHexValue(hexIDs[i]);
             hex.setTerrain(hexTerrains[i]);
         }
     }
 
-    public void setLevels(int hexIDs[]){
+    public void increaseLevelsByOne(int hexIDs[]){
         Hex hex;
-        for(int i=0; i<3; i++){
+        for(int i=0; i<hexIDs.length; i++){
             hex = getHexValue(hexIDs[i]);
-            int currentLevel = hex.getLevel();
-            hex.setLevel(currentLevel++);
+            hex.incrementLevel();
         }
     }
 
+    public void setHexTileIDs(int hexIDs[], int tileCount){
+        Hex hex;
+        for(int i=0; i<hexIDs.length; i++){
+            hex = getHexValue(hexIDs[i]);
+            hex.setTileID(tileCount);
+        }
+    }
 
 }

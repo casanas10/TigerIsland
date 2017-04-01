@@ -9,6 +9,9 @@ public class IslandMap {
     private HexGrid hexGrid;
     private int tileCount;
     private TileGenerator myGen;
+    Nuking nuker;
+    Settlement settlement;
+
 
     public IslandMap(){
         gameBoardMap = new HashMap<Integer, int[]>();
@@ -16,6 +19,8 @@ public class IslandMap {
         hexGrid = new HexGrid();
         hexGrid.generateHexGrid();
         tileCount = 0;
+        nuker = new Nuking();
+        settlement = new Settlement(hexGrid);
     }
 
 
@@ -25,15 +30,25 @@ public class IslandMap {
         RotateTile rotateTile = new RotateTile(hexID, orientation);
         tileHexIDsArray = rotateTile.checkPair();
 
-        System.out.println(Arrays.toString(tileHexIDsArray));
-
         String tileTerrainsArray[] = new String[3];
         tileTerrainsArray = myGen.getNewTile();
 
         // Place first tile in the middle of the map automatically
         if(getNumberOfTiles() == 47){
-            placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+            placeFirstTile(tileHexIDsArray, tileTerrainsArray);   //changed
             System.out.println("First tile successfully placed!");
+            return true;
+        }
+
+        // CHECK FOR NUKE
+        if(nuker.canYouNukeSettlement(this, tileHexIDsArray, hexID)){
+
+            nuker.performNuke(hexGrid, tileHexIDsArray, tileTerrainsArray, tileCount);
+
+            Tile tile = new Tile(tileCount,tileHexIDsArray);
+            gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+            tileCount++;
+            System.out.println("Nuke Successful!");
             return true;
         }
 
@@ -44,14 +59,12 @@ public class IslandMap {
         hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray, tileTerrainsArray);
         adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
 
-        System.out.println(hexesCanBePlaced);
-        System.out.println(adjacentTilesValid);
-
         if(hexesCanBePlaced && adjacentTilesValid){
             Tile tile = new Tile(tileCount,tileHexIDsArray);
             hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
-            hexGrid.setLevels(tileHexIDsArray);
+            hexGrid.increaseLevelsByOne(tileHexIDsArray);
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+            hexGrid.setHexTileIDs(tileHexIDsArray, tileCount);
             tileCount++;
             System.out.println("Tile Successfully Placed!");
             return true;
@@ -88,9 +101,14 @@ public class IslandMap {
     }
 
     public void placeFirstTile(int[] tileHexIDsArray, String[] tileTerrainsArray){
+        CoordinateSystem coors = new CoordinateSystem();
+
+
         Tile tile = new Tile(tileCount,tileHexIDsArray);
         hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
+        hexGrid.increaseLevelsByOne(tileHexIDsArray);
         gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+        hexGrid.setHexTileIDs(tileHexIDsArray, tileCount);
         tileCount++;
         System.out.println("Tile Successfully Placed!");
     }
@@ -98,18 +116,37 @@ public class IslandMap {
     public void printTilesOnMap(){
         Iterator<Map.Entry<Integer, int[]>> iterator = gameBoardMap.entrySet().iterator();
         while(iterator.hasNext()){
-            Map.Entry<Integer, int[]> entry = iterator.next();
-            System.out.print("Tile " + entry.getKey() + ": ");
-            for(int i=0;i<3;i++){
-                System.out.print(entry.getValue()[i] + " ");
+            Map.Entry<Integer, int[]> mapValue = iterator.next();
+            System.out.print("Tile " + mapValue.getKey() + ": ");
+            for(int i=0;i<mapValue.getValue().length;i++){
+                System.out.print(mapValue.getValue()[i] + " ");
             }
             System.out.println();
+
+            //Prints tile's terrains
+            for(int i=0; i<mapValue.getValue().length; i++)
+                System.out.print(hexGrid.getHexValue(mapValue.getValue()[i]).getTerrain() + " ");
+            System.out.println();
         }
+
     }
 
-    public int[] getHexIDsForTile(int tileID){
-        return gameBoardMap.get(tileID);
+    public Hex getHex(int hexID){
+        return hexGrid.getHexValue(hexID);
     }
 
+    public HashMap<Integer, ArrayList<Integer>> getSettlementsMap(){
+        return settlement.getSettlementsMap();
+    }
+
+    public Settlement getSettlementObj(){
+        return settlement;
+    }
+
+    public int getTileCount(){return tileCount;}
+
+    public HexGrid getHexGrid() {
+        return hexGrid;
+    }
 
 }
