@@ -19,15 +19,45 @@ public class AI {
 
     HashMap<Integer, int[]> allPossibleTiles = new HashMap<>();
 
+    ArrayList<Integer> ActiveSettlements = new ArrayList<>();
+
+    SettlementSizeChecker settlementSizeChecker;
+
+    Settlement settlements;
+
+    public Settlement settMap;
+
+
     public AI(Game game){
         this.game = game;
         this.islandMap = new IslandMap();
     }
+/*
+    public ArrayList<Integer> SettlementSmallerThanFive(HexGrid hexGrid, Player player){
+        ArrayList<Integer> settlementIDs = new ArrayList<>();
+        for(int i = 0; i<ActiveSettlements.size(); i++){
+            if(settMap.getSettlementSize(ActiveSettlements.get(i)) < 5){
+                settlementIDs = settMap.getSettlementIDs(ActiveSettlements.get(i));
+                if(hexGrid.getHexValue(ActiveSettlements.get(i)).getPlayerColorOnHex() == player.getPlayerColor()){
+                    settlementIDs = settMap.getSettlementIDs(ActiveSettlements.get(i));
+                    return settlementIDs;
+                }
+            }
+        }
+        return settlementIDs;
+    }
+*/
+    /*
+    public void expandSettlement(HexGrid hexGrid, Player player){
+        updateActiveSettlements(hexGrid);
+        ArrayList<Integer> settlementSmallerThanFive = SettlementSmallerThanFive(hexGrid, player);
 
+    }
+    */
 
     public HashMap<Integer, int[]> getAllPossibleTilePlacementPosition(int[] tileArr) {
 
-        int[] orientation = {0,60,120,180,240,300};
+        int[] orientation = {1,2,3,4,5,6};
 
         for (int i = 0; i < tileArr.length; i++){
 
@@ -54,6 +84,8 @@ public class AI {
 
         return allPossibleTiles;
     }
+
+
 
 
     public void printAllPossibleTiles(){

@@ -16,7 +16,7 @@ public class BuilderTest {
     @Before
     public void setUp() throws Exception {
         islandMap = new IslandMap();
-        islandMap.addTileToMap(606, 0);
+        islandMap.addTileToMap(606, 4);
         player = new Player("Black",0);
         builder = new Builder();
     }

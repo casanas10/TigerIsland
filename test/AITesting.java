@@ -21,7 +21,7 @@ public class AITesting {
     @Before
     public void setUp() throws Exception {
         islandMap = new IslandMap();
-        islandMap.addTileToMap(606, 0);
+        islandMap.addTileToMap(606, 4);
         player = new Player("Black", 0);
 
         Game game = new Game();
@@ -34,7 +34,8 @@ public class AITesting {
 
         Hex currentHex = islandMap.getHex(606);
 
-        tile = new RotateTile(606, 0);
+        tile = new RotateTile(606, 4);
+
         int[] tileArr = tile.checkPair();
 
         HashMap<Integer, int[]> tileMap = new HashMap<>();
