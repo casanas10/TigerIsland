@@ -75,7 +75,7 @@ public class ExtendSettlement {
     private void checkUpperRightHexID(int hexID, String terrain) {
         if(hexIsInEvenRow(hexID)) {
             isSameTerrain = checkIfSameTerrain(hexID - maxArrayLength, terrain);
-            isValidTile = checkIfValidTile(hexID - maxArrayLength);
+            isValidTile = checkIfValidTile(hexID - maxArrayLength, terrain);
 
             if(isSameTerrain && isValidTile) {
                 addToTerrainContainer(hexID - maxArrayLength, terrain);
@@ -86,7 +86,7 @@ public class ExtendSettlement {
         }
         else {
             isSameTerrain = checkIfSameTerrain(hexID - maxArrayLength + 1, terrain);
-            isValidTile = checkIfValidTile(hexID - maxArrayLength + 1);
+            isValidTile = checkIfValidTile(hexID - maxArrayLength + 1, terrain);
 
             if(isSameTerrain && isValidTile) {
                 addToTerrainContainer(hexID - maxArrayLength + 1, terrain);
@@ -99,7 +99,7 @@ public class ExtendSettlement {
 
     private void checkRightHexID(int hexID, String terrain) {
         isSameTerrain = checkIfSameTerrain(hexID + 1, terrain);
-        isValidTile = checkIfValidTile(hexID + 1);
+        isValidTile = checkIfValidTile(hexID + 1, terrain);
         if(isSameTerrain && isValidTile) {
             addToTerrainContainer(hexID + 1, terrain);
             resetBooleans();
@@ -111,7 +111,7 @@ public class ExtendSettlement {
     private void checkBottomRightHexID(int hexID, String terrain) {
         if(hexIsInEvenRow(hexID)) {
             isSameTerrain = checkIfSameTerrain(hexID + maxArrayLength, terrain);
-            isValidTile = checkIfValidTile(hexID + maxArrayLength);
+            isValidTile = checkIfValidTile(hexID + maxArrayLength, terrain);
 
             if(isSameTerrain && isValidTile) {
                 addToTerrainContainer(hexID + maxArrayLength, terrain);
@@ -122,7 +122,7 @@ public class ExtendSettlement {
         }
         else {
             isSameTerrain = checkIfSameTerrain(hexID + maxArrayLength + 1, terrain);
-            isValidTile = checkIfValidTile(hexID + maxArrayLength + 1);
+            isValidTile = checkIfValidTile(hexID + maxArrayLength + 1, terrain);
 
             if(isSameTerrain && isValidTile) {
                 addToTerrainContainer(hexID + maxArrayLength + 1, terrain);
@@ -136,7 +136,7 @@ public class ExtendSettlement {
     private void checkBottomLeftHexID(int hexID, String terrain) {
         if(hexIsInEvenRow(hexID)) {
             isSameTerrain = checkIfSameTerrain(hexID + maxArrayLength - 1, terrain);
-            isValidTile = checkIfValidTile(hexID + maxArrayLength - 1);
+            isValidTile = checkIfValidTile(hexID + maxArrayLength - 1, terrain);
 
             if(isSameTerrain && isValidTile) {
                 addToTerrainContainer(hexID + maxArrayLength - 1, terrain);
@@ -147,7 +147,7 @@ public class ExtendSettlement {
         }
         else {
             isSameTerrain = checkIfSameTerrain(hexID + maxArrayLength, terrain);
-            isValidTile = checkIfValidTile(hexID + maxArrayLength);
+            isValidTile = checkIfValidTile(hexID + maxArrayLength, terrain);
 
             if(isSameTerrain && isValidTile) {
                 addToTerrainContainer(hexID + maxArrayLength, terrain);
@@ -160,7 +160,7 @@ public class ExtendSettlement {
 
     private void checkLeftHexID(int hexID, String terrain) {
         isSameTerrain = checkIfSameTerrain(hexID - 1, terrain);
-        isValidTile = checkIfValidTile(hexID - 1);
+        isValidTile = checkIfValidTile(hexID - 1, terrain);
         if(isSameTerrain && isValidTile) {
             addToTerrainContainer(hexID - 1, terrain);
             resetBooleans();
@@ -172,7 +172,7 @@ public class ExtendSettlement {
     private void checkUpperLeftHexID(int hexID, String terrain) {
         if(hexIsInEvenRow(hexID)) {
             isSameTerrain = checkIfSameTerrain(hexID - maxArrayLength - 1, terrain);
-            isValidTile = checkIfValidTile(hexID - maxArrayLength - 1);
+            isValidTile = checkIfValidTile(hexID - maxArrayLength - 1, terrain);
 
             if(isSameTerrain && isValidTile) {
                 addToTerrainContainer(hexID - maxArrayLength - 1, terrain);
@@ -183,7 +183,7 @@ public class ExtendSettlement {
         }
         else {
             isSameTerrain = checkIfSameTerrain(hexID - maxArrayLength, terrain);
-            isValidTile = checkIfValidTile(hexID - maxArrayLength);
+            isValidTile = checkIfValidTile(hexID - maxArrayLength, terrain);
 
             if(isSameTerrain && isValidTile) {
                 addToTerrainContainer(hexID - maxArrayLength, terrain);
@@ -212,15 +212,61 @@ public class ExtendSettlement {
         }
     }
 
-    private boolean checkIfValidTile(int hexID) {
+    private boolean checkIfValidTile(int hexID, String terrain) {
         Hex hex;
         hex = islandMap.getHex(hexID);
-        if((hex.getTileID() != -1) && (hex.checkIfHexIsNotSettled()) && (hex.getTerrain() != "Volcano")){
+        if((hex.getTileID() != -1) && (hex.checkIfHexIsNotSettled()) &&
+                (hex.getTerrain() != "Volcano") && hasNotBeenVisited(hexID,terrain)){
             return true;
         }
         else{
             return false;
         }
+    }
+
+    private boolean hasNotBeenVisited(int hexID, String terrain) {
+        int i=0;
+        if(terrain == "Lake"){
+            i=0;
+            while(i<lakesToExtendOn.size()){
+                if(lakesToExtendOn.get(i) == hexID){
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
+        if(terrain == "Grassland"){
+            i=0;
+            while(i<grasslandsToExtendOn.size()){
+                if(grasslandsToExtendOn.get(i) == hexID){
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
+        if(terrain == "Rocky"){
+            i=0;
+            while(i<rockysToExtendOn.size()){
+                if(rockysToExtendOn.get(i) == hexID){
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
+        if(terrain == "Jungle"){
+            i = 0;
+            while (i < junglesToExtendOn.size()) {
+                if (junglesToExtendOn.get(i) == hexID) {
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
+        else{ return false; }
     }
 
     private void addToTerrainContainer(int hexID, String terrain) {
@@ -285,6 +331,7 @@ public class ExtendSettlement {
                 int i=0;
                 while(i<lakesToExtendOn.size()){
                     updateHex(lakesToExtendOn.get(i));
+                    i++;
                 }
                 return true;
             }
@@ -297,6 +344,7 @@ public class ExtendSettlement {
                 int i=0;
                 while(i<grasslandsToExtendOn.size()){
                     updateHex(grasslandsToExtendOn.get(i));
+                    i++;
                 }
                 return true;
             }
@@ -309,6 +357,7 @@ public class ExtendSettlement {
                 int i=0;
                 while(i<rockysToExtendOn.size()){
                     updateHex(rockysToExtendOn.get(i));
+                    i++;
                 }
                 return true;
             }
@@ -321,6 +370,7 @@ public class ExtendSettlement {
                 int i=0;
                 while(i<junglesToExtendOn.size()){
                     updateHex(junglesToExtendOn.get(i));
+                    i++;
                 }
                 return true;
             }
@@ -363,5 +413,13 @@ public class ExtendSettlement {
         else{
             return "invalid terrain";
         }
+    }
+
+    public ArrayList<Integer> getLakesToExtendOn(){ return lakesToExtendOn; }
+    public ArrayList<Integer> getGrasslandsToExtendOn(){ return grasslandsToExtendOn; }
+    public ArrayList<Integer> getJunglesToExtendOn(){ return junglesToExtendOn; }
+    public ArrayList<Integer> getRockysToExtendOn(){ return rockysToExtendOn; }
+    public int getSettlementID(){
+        return settlementID;
     }
 }
