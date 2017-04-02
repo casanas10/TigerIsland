@@ -57,7 +57,7 @@ public class AI {
 
     public HashMap<Integer, int[]> getAllPossibleTilePlacementPosition(int[] tileArr) {
 
-        int[] orientation = {1,2,3,4,5,6};
+        int[] orientation = {0, 60, 120, 180, 240, 300};
 
         for (int i = 0; i < tileArr.length; i++){
 
