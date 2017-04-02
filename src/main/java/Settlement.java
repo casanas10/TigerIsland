@@ -277,7 +277,7 @@ public class Settlement {
 
             if(currentSettlement != -1) {
 
-                if (doesSettlementContainTigerAlready(currentSettlement, player)){
+                if (doesNotContainTigerAlready(currentSettlement, player)){
                     return true;
                 }
             }
@@ -287,22 +287,18 @@ public class Settlement {
         return false;
     }
 
-    public boolean doesSettlementContainTigerAlready(int settlementID, Player player) {
+    public boolean doesNotContainTigerAlready(int settlementID, Player player) {
 
         ArrayList<Integer> pickAHex = settlementMap.get(settlementID);
 
-        ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
+        for (int i = 0; i < pickAHex.size(); i++){
 
-        NewHexIDs = settlementSizeChecker.checkSettlementSize(pickAHex.get(0), player);
-
-        for (int i = 0; i < NewHexIDs.size(); i++){
-
-            if (hexGrid.getHexValue(NewHexIDs.get(i)).getPieceOnHex() == "Tiger"){
-                return true;
+            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex() == "Tiger"){
+                return false;
             }
         }
 
-        return false;
+        return true;
 
     }
 
