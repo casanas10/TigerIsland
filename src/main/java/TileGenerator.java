@@ -34,6 +34,7 @@ public class TileGenerator {
         }
     }
 
+
     public void printTiles(){
         for (Map.Entry<Integer, String[]> mapEntry : terrainMap.entrySet()) {
             System.out.println(mapEntry.getKey() + ".) " + mapEntry.getValue()[0] + " " +
