@@ -13,7 +13,6 @@ public class IslandMap {
     Settlement settlement;
 
 
-
     public IslandMap(){
         gameBoardMap = new HashMap<Integer, int[]>();
         myGen = new TileGenerator();
@@ -136,12 +135,15 @@ public class IslandMap {
         return hexGrid.getHexValue(hexID);
     }
 
-
-    public int getTileCount(){return tileCount;}
+    public HashMap<Integer, ArrayList<Integer>> getSettlementsMap(){
+        return settlement.getSettlementsMap();
+    }
 
     public Settlement getSettlementObj(){
         return settlement;
     }
+
+    public int getTileCount(){return tileCount;}
 
     public HexGrid getHexGrid() {
         return hexGrid;

@@ -68,7 +68,7 @@ public class Settlement {
                     NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
 
                     for (int j = 0; j < NewHexIDs.size(); j++){
-
+                        System.out.println(NewHexIDs.get(j));
                         setSettlementID(NewHexIDs.get(j),settID);
                     }
 
@@ -111,6 +111,8 @@ public class Settlement {
         ArrayList<Integer> setIDPlaceHolder = new ArrayList<Integer>();
 
         for(int i = 0; i < hexes.size(); i++){
+
+            NewHexIDs = new ArrayList<Integer>();
 
             if(hexGrid.getHexValue(hexes.get(i)).getSettlementID() != - 1){
 
@@ -198,6 +200,9 @@ public class Settlement {
 
     }
 
+    public HashMap<Integer, ArrayList<Integer>> getSettlementsMap(){
+        return settlementMap;
+    }
 
     public boolean addTotoroToSettlement(int hexID, Player player) {
 

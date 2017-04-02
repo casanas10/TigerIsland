@@ -7,8 +7,8 @@ public class Builder {
         switch(buildOption) {
             case 1: return(buildANewSettlement(player, islandMap, hexID));
 
-            case 2: // Expand
-                    break;
+            case 2: return(extend(hexID,islandMap,player));
+
             case 3: return(buildATotoroSanctuary(player, islandMap, hexID));
 
             case 4: return(buildATigerPlayground(player, islandMap, hexID));
@@ -39,6 +39,16 @@ public class Builder {
         else{
             System.out.println("Invalid hex to place a new settlement");
             return false;
+        }
+    }
+
+    public boolean extend(int hexID, IslandMap islandMap, Player player){
+        if(islandMap.getHex(hexID).getSettlementID() == -1){
+            return false;
+        }
+        else {
+            ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
+            return extend.extendOnTerrain(extend.getTerrainToExtendOn());
         }
     }
 
