@@ -20,16 +20,40 @@ public class AI {
         this.islandMap = islandMap;
     }
 
+    public void play() {
+
+        placeTile();
+        build();
+    }
+
+    private void placeTile() {
+
+        ArrayList<Integer> setOfSettlements = findOpponentsSettlementSizeThreeToFive();
+
+        if (setOfSettlements.size() <= 1) {
+            System.out.println("didn't found settlement of size 3 ++");
+        } else {
+            for (int i = 1; i < setOfSettlements.size(); i++){
+                ArrayList<Integer> hexIDs = islandMap.getSettlementObj().getSettlementsMap().get(setOfSettlements.get(i));
+                getAllPossibleTilePlacementPosition(hexIDs);
+            }
+        }
+    }
+
+    private void build(){
+
+    }
+
     //given a tile it gets all the possible tile placement positions
-    public HashMap<Integer, int[]> getAllPossibleTilePlacementPosition(int[] tileArr) {
+    public HashMap<Integer, int[]> getAllPossibleTilePlacementPosition(ArrayList<Integer> tileArr) {
 
         int[] orientation = {0,60,120,180,240,300};
 
         int index = 0;
 
-        for (int i = 0; i < tileArr.length; i++){
+        for (int i = 0; i < tileArr.size(); i++){
 
-            ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(tileArr[i]));
+            ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(tileArr.get(i)));
 
             for (int j = 0; j < adjacentHexes.size(); j++){
 
