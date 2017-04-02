@@ -103,8 +103,14 @@ public class Game {
             while(!tileSuccessfullyPlaced) {
 
                 if(numberOfTurns == 0){
+                    CoordinateSystem coors = new CoordinateSystem();
                     // First tile will actually be placed in the center, this is for testing purposes
-                    tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+                    //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+                    int[] tileHexIDsArray = {coors.getHexID(99,99), coors.getHexID(99,98),coors.getHexID(100,98),
+                            coors.getHexID(99,100), coors.getHexID(100, 100)};
+                    String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grasslands"};
+                    islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+
                     islandMap.printTilesOnMap();
                     break;
                 }

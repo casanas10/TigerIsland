@@ -36,14 +36,13 @@ public class IslandMap {
 
         // Place first tile in the middle of the map automatically
         if(getNumberOfTiles() == 47){
-            placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+            placeFirstTile(tileHexIDsArray, tileTerrainsArray);   //changed
             System.out.println("First tile successfully placed!");
             return true;
         }
 
         // CHECK FOR NUKE
-        if(nuker.isVolcanoOverVolcano(hexGrid, hexID) && nuker.doesNukeSpanTwoTiles(hexGrid, tileHexIDsArray)
-                && nuker.areBelowHexesOnSameLevel(hexGrid, tileHexIDsArray)){
+        if(nuker.canYouNukeSettlement(this, tileHexIDsArray, hexID)){
 
             nuker.performNuke(hexGrid, tileHexIDsArray, tileTerrainsArray, tileCount);
 
@@ -103,6 +102,9 @@ public class IslandMap {
     }
 
     public void placeFirstTile(int[] tileHexIDsArray, String[] tileTerrainsArray){
+        CoordinateSystem coors = new CoordinateSystem();
+
+
         Tile tile = new Tile(tileCount,tileHexIDsArray);
         hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
         hexGrid.increaseLevelsByOne(tileHexIDsArray);
@@ -117,9 +119,14 @@ public class IslandMap {
         while(iterator.hasNext()){
             Map.Entry<Integer, int[]> mapValue = iterator.next();
             System.out.print("Tile " + mapValue.getKey() + ": ");
-            for(int i=0;i<3;i++){
+            for(int i=0;i<mapValue.getValue().length;i++){
                 System.out.print(mapValue.getValue()[i] + " ");
             }
+            System.out.println();
+
+            //Prints tile's terrains
+            for(int i=0; i<mapValue.getValue().length; i++)
+                System.out.print(hexGrid.getHexValue(mapValue.getValue()[i]).getTerrain() + " ");
             System.out.println();
         }
 

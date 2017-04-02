@@ -138,7 +138,6 @@ public class Settlement {
 
     }
 
-
     public void foundNewSettlement(int hexID, Player player) {
 
         hexIDContainer = new ArrayList<Integer>();
