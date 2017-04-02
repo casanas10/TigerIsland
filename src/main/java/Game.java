@@ -147,6 +147,10 @@ public class Game {
             }
 
 
+            EndOfTurn endTurn = new EndOfTurn();
+            String winner = endTurn.isGameDone(white,black,islandMap.getTileCount());
+
+
             numberOfTurns++;
 
             setActivePlayerWhite(!activePlayerWhite);
