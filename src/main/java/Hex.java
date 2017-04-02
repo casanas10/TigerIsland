@@ -5,6 +5,7 @@ import java.util.*;
  */
 public class Hex {
     private int hexID;
+    private int tileID;
     private int x;
     private int y;
     private String terrain;
@@ -12,8 +13,6 @@ public class Hex {
     private HashMap<String, Integer> gamePiecesMap;
     private String playerColorOnHex;
     private int settlementID;
-    private int tileID;
-
 
     Hex (int hexID, int x, int y){
         this.hexID = hexID;
@@ -24,7 +23,7 @@ public class Hex {
         gamePiecesMap = new HashMap<>();
         playerColorOnHex = "";
         this.settlementID = -1;
-        this.tileID = -1;
+        tileID = -1;
     }
 
     public int getHexID() {
@@ -55,10 +54,6 @@ public class Hex {
 
     public void setTerrain(String terrain){ this.terrain = terrain; }
 
-    public void setTileID(int tileID){this.tileID = tileID;}
-
-    public int getTileID(){return tileID;}
-
     public void printHexCoordinates() {
         System.out.print("x:" + x + " y:" + y);
     }
@@ -88,10 +83,8 @@ public class Hex {
         return "No game piece on hex";
     }
 
-    // Completely clears players piece and color from the hex
     public void removeGamePiecesFromMap(){
         gamePiecesMap.clear();
-        resetPlayerColorOnHex();
     }
 
     public void incrementLevel(){
@@ -115,4 +108,8 @@ public class Hex {
     public void setSettlementID(int settlementID) {
         this.settlementID = settlementID;
     }
+
+    public int getTileID(){ return tileID; }
+
+    public void setTileID(int tileCount){ tileID = tileCount; }
 }
