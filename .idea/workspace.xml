@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="update settlement if tiget already exist">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/NukingStep.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/nuking.feature" />
+    <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="Adding nuking acceptance tests">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/test-report/report.js" afterPath="$PROJECT_DIR$/reports/test-report/report.js" />
     </list>
@@ -70,21 +68,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="player.feature" pinned="false" current-in-tab="true">
+      <file leaf-file-name="player.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/resources/player.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nuking.feature" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nuking.feature" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/resources/nuking.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+            <state relative-caret-position="504">
+              <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -95,7 +93,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
               <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-              <folding />
+              <folding>
+                <element signature="e#4985#4986#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -974,19 +974,17 @@
       <option name="project" value="LOCAL" />
       <updated>1490820065266</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Adding nuking acceptance tests">
+      <created>1491159517230</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1491159517230</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CucumberRunner - 2017.04.02 at 14h 51m 21s.xml">
-      <configuration name="CucumberRunner" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CucumberRunner - 2017.04.02 at 14h 51m 49s.xml">
-      <configuration name="CucumberRunner" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CucumberRunner - 2017.04.02 at 14h 52m 35s.xml">
-      <configuration name="CucumberRunner" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CucumberRunner - 2017.04.02 at 14h 55m 10s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
@@ -999,19 +997,28 @@
     <history-entry file="CucumberRunner - 2017.04.02 at 14h 58m 14s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.02 at 14h 49m 10s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="CucumberRunner - 2017.04.02 at 15h 01m 22s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CucumberRunner - 2017.04.02 at 15h 14m 55s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
     <history-entry file="JUnit_Test - 2017.04.02 at 14h 58m 19s.xml">
       <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NukingTest_nukeFailsIfYouTryToCompletelyDestroyASettlement - 2017.04.02 at 14h 52m 49s.xml">
-      <configuration name="NukingTest.nukeFailsIfYouTryToCompletelyDestroyASettlement" configurationId="JUnit" />
+    <history-entry file="JUnit_Test - 2017.04.02 at 15h 04m 56s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.04.02 at 15h 14m 48s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.04.02 at 15h 15m 34s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1095,7 +1102,8 @@
     <MESSAGE value="Fixing if there is a totoro already in the settlement" />
     <MESSAGE value="update settlement if totoro already on the gameboard" />
     <MESSAGE value="update settlement if tiget already exist" />
-    <option name="LAST_COMMIT_MESSAGE" value="update settlement if tiget already exist" />
+    <MESSAGE value="Adding nuking acceptance tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding nuking acceptance tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1297,11 +1305,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1738">
           <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding>
-            <element signature="e#1319#1320#0" expanded="false" />
-            <element signature="e#1352#1353#0" expanded="false" />
-            <element signature="e#2248#2249#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1310,8 +1314,8 @@
         <state relative-caret-position="803">
           <caret line="56" column="62" lean-forward="false" selection-start-line="56" selection-start-column="62" selection-end-line="56" selection-end-column="62" />
           <folding>
-            <element signature="e#1460#1461#0" expanded="true" />
-            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1460#1461#0" expanded="false" />
+            <element signature="e#1529#1530#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1484,19 +1488,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/nuking.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/IslandMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding />
+          <folding>
+            <element signature="e#4985#4986#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1530,8 +1528,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/player.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/nuking.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
           <folding />
         </state>
       </provider>
