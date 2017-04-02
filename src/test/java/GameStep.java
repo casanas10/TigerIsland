@@ -10,6 +10,7 @@ import org.junit.Assert;
 public class GameStep {
 
     private Game game;
+    private int numberOfPlayers;
     
     @Given("^Nothing has yet happened$")
     public void nothingHasYetHappened() throws Throwable {
@@ -29,6 +30,13 @@ public class GameStep {
 
     @And("^(\\d+) players are successfully created, each holding specific player attributes$")
     public void playersAreSuccessfullyCreatedEachHoldingSpecificPlayerAttributes(int players) throws Throwable {
-        Assert.assertEquals(players, Player.numberOfPlayers);
+        if(game.getBlackPlayer() != null){
+            numberOfPlayers++;
+        }
+
+        if(game.getWhitePlayer() != null){
+            numberOfPlayers++;
+        }
+        Assert.assertEquals(2, numberOfPlayers);
     }
 }

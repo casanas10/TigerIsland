@@ -1,34 +1,17 @@
 /**
  * Created by cyonkee on 3/14/17.
  */
-public class Totoro {
-    private String status;
-    private String color;
-    private int score;
-
-    public Totoro(String color) {
+public class Totoro extends GamePiece {
+    public Totoro(String color){
+        requiredLevel = 1;
+        requiredSettlementSize = 5;
+        score = 200;
         this.color = color;
-        status = "Not played";
+        name = "Totoro";
     }
 
-    public void setStatus(String status){
-        this.status = status;
-    }
-    public String getStatus(){
-        return status;
-    }
-
-    public void setColor(String color){
-        this.color = color;
-    }
-    public String getColor(){
-        return color;
-    }
-
-    public void setScore(int score){
-        this.score = score;
-    }
-    public int getScore(){
+    @Override
+    public int calculateScore(int level){
         return score;
     }
 }

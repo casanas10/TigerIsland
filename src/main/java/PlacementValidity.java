@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by NatalieGoldstein on 3/21/17.
  */
@@ -38,6 +40,117 @@ public class PlacementValidity {
             return false;
         }
     }
+
+
+    public ArrayList<Integer> searchTheSixAdjacentHexes(Hex hex) {
+
+        ArrayList<Integer> adjacentHexes = new ArrayList<Integer>(); //arraylist that holds the 6 hexes IDs
+
+        if (hex.getHexID() % 200 != 0){
+            adjacentHexes.add(findNE(hex));
+            adjacentHexes.add(findNW(hex));
+            adjacentHexes.add(findW(hex));
+            adjacentHexes.add(findSW(hex));
+            adjacentHexes.add(findSE(hex));
+            adjacentHexes.add(findE(hex));
+        }
+
+        return adjacentHexes;
+    }
+
+    private int findNE(Hex hex) {
+
+        int newX;
+        int newY;
+
+        if ((hex.getHexID()/200) % 2 == 0){
+
+            newX = hex.getX();
+            newY = hex.getY() - 1;
+        } else {
+            newX = hex.getX() + 1;
+            newY = hex.getY() - 1;
+        }
+        return searchCoordinates.getHexID(newX, newY);  //gets the NorthEast Hex ID
+    }
+
+    private int findNW(Hex hex) {
+
+        int newX;
+        int newY;
+
+        if ((hex.getHexID()/200) % 2 == 0) {
+            newX = hex.getX() - 1;
+            newY = hex.getY() - 1;
+        } else {
+            newX = hex.getX();
+            newY = hex.getY() - 1;
+        }
+        return searchCoordinates.getHexID(newX, newY);  //gets the NorthWest Hex ID
+    }
+
+    private int findW(Hex hex) {
+
+        int newX;
+        int newY;
+
+        if ((hex.getHexID()/200) % 2 == 0){
+            newX = hex.getX() - 1;
+            newY = hex.getY();
+        } else {
+            newX = hex.getX() - 1;
+            newY = hex.getY();
+        }
+        return searchCoordinates.getHexID(newX, newY);  //gets the West Hex ID
+    }
+
+    private int findSW(Hex hex) {
+
+        int newX;
+        int newY;
+
+        if ((hex.getHexID()/200) % 2 == 0){
+            newX = hex.getX() - 1;
+            newY = hex.getY() + 1;
+        } else {
+            newX = hex.getX();
+            newY = hex.getY() + 1;
+        }
+        return searchCoordinates.getHexID(newX, newY);  //gets the SouthWest Hex ID
+    }
+
+    private int findSE(Hex hex) {
+
+        int newX;
+        int newY;
+
+        if ((hex.getHexID()/200) % 2 == 0){
+            newX = hex.getX();
+            newY = hex.getY() + 1;
+        } else {
+            newX = hex.getX() + 1;
+            newY = hex.getY() + 1;
+        }
+        return searchCoordinates.getHexID(newX, newY);  //gets the SouthEast Hex ID
+    }
+
+    private int findE(Hex hex) {
+
+        int newX;
+        int newY;
+
+        if ((hex.getHexID()/200) % 2 == 0){
+            newX = hex.getX() + 1;
+            newY = hex.getY();
+        } else {
+            newX = hex.getX() + 1;
+            newY = hex.getY();
+        }
+
+        return searchCoordinates.getHexID(newX, newY);  //gets the East Hex ID
+    }
+
+
 
 
     public boolean SearchAdjacentTiles(HexGrid hexGrid, int[] tileHexIDsArray){
