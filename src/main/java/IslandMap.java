@@ -34,7 +34,7 @@ public class IslandMap {
         tileTerrainsArray = myGen.getNewTile();
 
         // Place first tile in the middle of the map automatically
-        if(getNumberOfTiles() == 47){
+        if(getNumberOfTiles() == 47 && tileCount == 0){
             placeFirstTile(tileHexIDsArray, tileTerrainsArray);   //changed
             System.out.println("First tile successfully placed!");
             return true;
@@ -102,7 +102,6 @@ public class IslandMap {
 
     public void placeFirstTile(int[] tileHexIDsArray, String[] tileTerrainsArray){
         CoordinateSystem coors = new CoordinateSystem();
-
 
         Tile tile = new Tile(tileCount,tileHexIDsArray);
         hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);
