@@ -13,11 +13,13 @@ public class Main {
             }
         });
 
-        MyRunnable R1 = new MyRunnable("Thread for Game 1");
-        R1.start();
-
-        MyRunnable R2 = new MyRunnable("Thread for Game 2");
-        R2.start();
+        Client client = new Client();
+        client.OpenClient();
+//        MyRunnable R1 = new MyRunnable("Thread for Game 1");
+//        R1.start();
+//
+//        MyRunnable R2 = new MyRunnable("Thread for Game 2");
+//        R2.start();
 
 //    Game game = new Game();
 //        game.gameRunning();
