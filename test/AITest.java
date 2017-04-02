@@ -1,6 +1,7 @@
 /**
  * Created by alecasanas on 4/2/17.
  */
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,15 +20,17 @@ public class AITest {
 
     private RotateTile tile;
 
+    Builder builder;
+
     @Before
     public void setUp() throws Exception {
         islandMap = new IslandMap();
-        islandMap.addTileToMap(807, 4);
+        islandMap.addTileToMap(807, 0);
         player = new Player("Black", 0);
 
         Game game = new Game();
         ai = new AI(game, islandMap);
-
+        builder = new Builder();
     }
 
     @Test
@@ -38,5 +41,30 @@ public class AITest {
 
         ai.getAllPossibleTilePlacementPosition(tileArr);
         ai.printAllPossibleTiles();
+    }
+
+    @Test
+    public void findSettlementsSize3To5() {
+
+        Settlement settlement = islandMap.getSettlementObj();
+
+        islandMap.addTileToMap(807, 0);
+        islandMap.addTileToMap(809, 0);
+        islandMap.addTileToMap(811, 0);
+        islandMap.addTileToMap(813, 0);
+
+        builder.build(player,islandMap,1,1006);
+        builder.build(player,islandMap,1,1007);
+        builder.build(player,islandMap,1,1008);
+
+
+        builder.build(player,islandMap,1,1010);
+        builder.build(player,islandMap,1,1011);
+
+        islandMap.getSettlementObj().printAllSettlements();
+
+        int actualSettlement = ai.findOpponentsSettlementSizeThreeToFive().get(1);
+
+        Assert.assertEquals(0,actualSettlement);
     }
 }

@@ -2,10 +2,7 @@
  * Created by alecasanas on 4/2/17.
  */
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class AI {
 
@@ -58,8 +55,24 @@ public class AI {
         return allPossibleTiles;
     }
 
-    public void findOpponentsSettlementSizeThreeToFive() {
-        islandMap.getSettlementObj().printAllSettlements();
+    public ArrayList<Integer> findOpponentsSettlementSizeThreeToFive() {
+
+        HashMap<Integer, ArrayList<Integer>> settlements = islandMap.getSettlementsMap();
+
+        ArrayList<Integer> settleKey = new ArrayList<Integer>() {{
+            add(-1);
+        }};
+
+        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlements.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
+
+            if (entry.getValue().size() >= 3){
+                settleKey.add(entry.getKey());
+            }
+        }
+
+        return settleKey;
     }
 
     public void printAllPossibleTiles(){

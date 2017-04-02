@@ -21,14 +21,6 @@ public class IslandMapTest {
 
     }
 
-//    @Test
-//    public void addingInvalidTileToMap(){
-//
-//        IslandMap islandMap = new IslandMap();
-//
-//        Assert.assertNull(islandMap.addTileToMap(40000,0));
-//    }
-
     @Test
     public void addingTileToAnAdjecentTile(){
 
