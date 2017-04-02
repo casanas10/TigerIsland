@@ -229,33 +229,13 @@ public class Settlement {
 
                 int settlementSize = settlementMap.get(currentSettlement).size();
 
-                if (settlementSize >= 5 && doesNotSettlementHavaATotoro(currentSettlement, player)){
+                if (settlementSize >= 5 && doesNotHaveATotoro(currentSettlement, player)){
                     return true;
                 }
             }
         }
 
         return false;
-    }
-
-
-    public boolean doesNotSettlementHavaATotoro(int settlementID, Player player) {
-
-        ArrayList<Integer> pickAHex = settlementMap.get(settlementID);
-
-        ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
-
-        NewHexIDs = settlementSizeChecker.checkSettlementSize(pickAHex.get(0), player);
-
-        for (int i = 0; i < NewHexIDs.size(); i++){
-
-            if (hexGrid.getHexValue(NewHexIDs.get(i)).getPieceOnHex() != "Totoro"){
-                return true;
-            }
-        }
-
-        return false;
-
     }
 
     public boolean addTigerToSettlement(int hexID, Player player) {
@@ -303,6 +283,19 @@ public class Settlement {
             }
         }
 
+        return true;
+    }
+
+    public boolean doesNotHaveATotoro(int settlementID, Player player) {
+
+        ArrayList<Integer> pickAHex = settlementMap.get(settlementID);
+
+        for (int i = 0; i < pickAHex.size(); i++){
+
+            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex() == "Totoro"){
+                return false;
+            }
+        }
         return true;
 
     }

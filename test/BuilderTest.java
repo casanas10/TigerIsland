@@ -226,10 +226,13 @@ public class BuilderTest {
         islandMap.addTileToMap(609, 0);
         islandMap.addTileToMap(610, 60);
         islandMap.addTileToMap(612, 0);
+
         builder.build(player,islandMap,1,807);
         builder.build(player,islandMap,1,808);
         builder.build(player,islandMap,1,809);
         builder.build(player,islandMap,1,810);
+        builder.build(player,islandMap,1,811);
+
         builder.build(player,islandMap,3,806);
         builder.build(player,islandMap,3,812);
 
