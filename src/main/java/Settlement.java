@@ -202,7 +202,7 @@ public class Settlement {
 
     public boolean addTotoroToSettlement(int hexID, Player player) {
 
-        if (isSettlementSizeFiveOrMore(hexID) && !doesSettlementContainATotoroAlready(hexID,player)){
+        if (isSettlementSizeFiveOrMore(hexID, player)){
 
             addSettlement(hexID, player);
 
@@ -212,35 +212,8 @@ public class Settlement {
         return false;
     }
 
-    private boolean doesSettlementContainATotoroAlready(int hexID, Player player) {
 
-        ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
-
-        ArrayList<Integer> hexes;
-
-        for (int i = 0; i < adjacentHexes.size(); i++) {
-
-            int currentSettlement = getSettlementID(adjacentHexes.get(i));
-
-            if(currentSettlement != -1) {
-
-                hexes = settlementMap.get(currentSettlement);
-
-                for (int j = 0; j < hexes.size(); j++){
-
-                    if (hexGrid.getHexValue(hexes.get(j)).getPieceOnHex() == "Totoro"){
-
-                        System.out.println("Cannot place totoro because there is already one in this settlement");
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
-
-    public boolean isSettlementSizeFiveOrMore(int hexID){
+    public boolean isSettlementSizeFiveOrMore(int hexID, Player player){
 
         ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
 
@@ -252,49 +225,40 @@ public class Settlement {
 
                 int settlementSize = settlementMap.get(currentSettlement).size();
 
-                if (settlementSize >= 5){
+                if (settlementSize >= 5 && doesNotSettlementHavaATotoro(currentSettlement, player)){
                     return true;
                 }
             }
-
         }
 
         return false;
     }
 
-    public boolean doesSettlementContainTigerAlready(int hexID, Player player) {
 
-        ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
+    public boolean doesNotSettlementHavaATotoro(int settlementID, Player player) {
 
-        ArrayList<Integer> hexes;
+        ArrayList<Integer> pickAHex = settlementMap.get(settlementID);
 
-        for (int i = 0; i < adjacentHexes.size(); i++) {
+        ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
 
-            int currentSettlement = getSettlementID(adjacentHexes.get(i));
+        NewHexIDs = settlementSizeChecker.checkSettlementSize(pickAHex.get(0), player);
 
-            if(currentSettlement != -1) {
+        for (int i = 0; i < NewHexIDs.size(); i++){
 
-                hexes = settlementMap.get(currentSettlement);
-
-                for (int j = 0; j < hexes.size(); j++){
-
-                    if (hexGrid.getHexValue(hexes.get(j)).getPieceOnHex() == "Tiger"){
-
-                        System.out.println("Cannot place tiger because there is already one in this settlement");
-                        return true;
-                    }
-                }
+            if (hexGrid.getHexValue(NewHexIDs.get(i)).getPieceOnHex() != "Totoro"){
+                return true;
             }
         }
 
         return false;
+
     }
 
     public boolean addTigerToSettlement(int hexID, Player player) {
 
         isNewSettlement(hexID,player);
 
-        if (isTigerNextToSettlement(hexID) && !doesSettlementContainTigerAlready(hexID,player)){
+        if (isTigerNextToSettlement(hexID, player)){
 
             addSettlement(hexID, player);
 
@@ -304,7 +268,7 @@ public class Settlement {
         return false;
     }
 
-    public boolean isTigerNextToSettlement(int hexID){
+    public boolean isTigerNextToSettlement(int hexID, Player player){
 
         ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
 
@@ -314,12 +278,33 @@ public class Settlement {
 
             if(currentSettlement != -1) {
 
-                return true;
+                if (doesSettlementContainTigerAlready(currentSettlement, player)){
+                    return true;
+                }
             }
 
         }
 
         return false;
+    }
+
+    public boolean doesSettlementContainTigerAlready(int settlementID, Player player) {
+
+        ArrayList<Integer> pickAHex = settlementMap.get(settlementID);
+
+        ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
+
+        NewHexIDs = settlementSizeChecker.checkSettlementSize(pickAHex.get(0), player);
+
+        for (int i = 0; i < NewHexIDs.size(); i++){
+
+            if (hexGrid.getHexValue(NewHexIDs.get(i)).getPieceOnHex() == "Tiger"){
+                return true;
+            }
+        }
+
+        return false;
+
     }
 
 }

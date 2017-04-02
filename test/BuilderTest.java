@@ -47,6 +47,23 @@ public class BuilderTest {
     }
 
     @Test
+    public void buildTigerPlaygroundSucceedsWhenBetweenTwoSettlements() {
+        islandMap.addTileToMap(607, 60);
+        islandMap.addTileToMap(609, 0);
+        Hex currentHex = islandMap.getHex(806);
+        currentHex.incrementLevel();
+        currentHex.incrementLevel();
+        builder.build(player,islandMap,1,807);
+        builder.build(player,islandMap,4,806);
+        currentHex = islandMap.getHex(808);
+        currentHex.incrementLevel();
+        currentHex.incrementLevel();
+        builder.build(player,islandMap,1,809);
+        builder.build(player,islandMap,4,808);
+        Assert.assertEquals("Tiger",currentHex.getPieceOnHex());
+    }
+
+    @Test
     public void buildTigerPlaygroundSuccessfully() throws Exception {
         Hex currentHex = islandMap.getHex(806);
         currentHex.incrementLevel();

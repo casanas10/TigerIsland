@@ -212,32 +212,22 @@ public class SettlementTest {
         islandMap.addTileToMap(209, 60);
 
         builder.build(player,islandMap,1,406);
-        settlement.addSettlement(406, player);
-
         builder.build(player,islandMap,1,606);
-        settlement.addSettlement(606, player);
-
-        settlement.addSettlement(807, player);
         builder.build(player,islandMap,1,807);
-
-        settlement.addSettlement(808, player);
         builder.build(player,islandMap,1,808);
-
-        settlement.addSettlement(809, player);
         builder.build(player,islandMap,1,809);
-
-        settlement.addSettlement(408,player);
         builder.build(player,islandMap,1,408);
-
-        settlement.addSettlement(409,player);
         builder.build(player,islandMap,1,409);
-
-        builder.build(player,islandMap,3,1007);
-        settlement.addTotoroToSettlement(1007,player);
 
         settlement.printAllSettlements();
 
-        Assert.assertTrue(settlement.isPiecePartOfASettlement(0,1007));
+        //System.out.println(settlement.isSettlementSizeFiveOrMore(606, player));
+        builder.build(player,islandMap,3,1007);
+       // System.out.println(settlement.isSettlementSizeFiveOrMore(409, player));
+
+
+        settlement.printAllSettlements();
+        //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,1007));
 
     }
 
@@ -255,6 +245,8 @@ public class SettlementTest {
         islandMap.addTileToMap(1207, 120);
         islandMap.addTileToMap(208, 0);
         islandMap.addTileToMap(209, 60);
+        islandMap.addTileToMap(211, 0);
+        islandMap.addTileToMap(213, 0);
 
         builder.build(player,islandMap,1,406);
         settlement.addSettlement(406, player);
@@ -277,19 +269,28 @@ public class SettlementTest {
         settlement.addSettlement(409,player);
         builder.build(player,islandMap,1,409);
 
-        builder.build(player,islandMap,3,1007);
-        settlement.addTotoroToSettlement(1007,player);
+        settlement.addSettlement(410,player);
+        builder.build(player,islandMap,1,410);
 
-        builder.build(player,islandMap,3,407);
+        settlement.addSettlement(411,player);
+        builder.build(player,islandMap,1,411);
+
+        settlement.addSettlement(412,player);
+        builder.build(player,islandMap,1,412);
+
+        settlement.addTotoroToSettlement(1007,player);
+        builder.build(player,islandMap,3,1007);
+
         settlement.addTotoroToSettlement(407,player);
+        builder.build(player,islandMap,3,407);
 
         settlement.printAllSettlements();
 
 //        Hex currentHex = islandMap.getHex(1007);
 //        System.out.println(currentHex.getPieceOnHex());
 
-        Assert.assertTrue(settlement.isPiecePartOfASettlement(0,1007));
-        Assert.assertFalse(settlement.isPiecePartOfASettlement(0,407));
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(5,1007));
+        Assert.assertTrue(settlement.isPiecePartOfASettlement(5,407));
 
     }
 
@@ -337,13 +338,11 @@ public class SettlementTest {
         currentHex.incrementLevel();
         currentHex.incrementLevel();
         builder.build(player,islandMap,4,807);
-        settlement.addTigerToSettlement(807, player);
 
         currentHex = islandMap.getHex(407);
         currentHex.incrementLevel();
         currentHex.incrementLevel();
         builder.build(player,islandMap,4,407);
-        settlement.addTigerToSettlement(407, player);
 
         settlement.printAllSettlements();
 

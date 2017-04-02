@@ -33,7 +33,6 @@ public class Builder {
 
             currentHex.addGamePieceToHex(piece);                  // Place the piece on the current hex
             settlement.addSettlement(hexID, player);
-            settlement.printAllSettlements();
             updateScore(player, piece, currentHex.getLevel());    // Update player score with 1 point
             return true;
         }
@@ -47,7 +46,7 @@ public class Builder {
         Hex currentHex = islandMap.getHex(hexID);
         Settlement settlement = islandMap.getSettlementObj();
         GamePiece piece;
-        if(settlement.addTotoroToSettlement(hexID, player) && verifyValidHexForTotoro(currentHex)){
+        if(verifyValidHexForTotoro(currentHex)){
             piece = player.placeGamePiece("Totoro");        // Get the new Totoro piece
 
             if(piece == null){
@@ -56,8 +55,10 @@ public class Builder {
             }
 
             currentHex.addGamePieceToHex(piece);                      // Add the Totoro to the map
+            settlement.addTotoroToSettlement(hexID,player);
             updateScore(player, piece, currentHex.getLevel());        // Update the players score with 200 points
 
+            settlement.printAllSettlements();
             return true;
         }
         else{
@@ -70,7 +71,7 @@ public class Builder {
         Hex currentHex = islandMap.getHex(hexID);
         Settlement settlement = islandMap.getSettlementObj();
         GamePiece piece;
-        if(settlement.addTigerToSettlement(hexID, player) && verifyValidHexForTiger(currentHex)){
+        if(verifyValidHexForTiger(currentHex)){
             piece = player.placeGamePiece("Tiger");         // Get the new Tiger piece
 
             if(piece == null){
@@ -79,6 +80,7 @@ public class Builder {
             }
 
             currentHex.addGamePieceToHex(piece);                      // Add the Tiger to the map
+            settlement.addTigerToSettlement(hexID, player);
             updateScore(player, piece, currentHex.getLevel());        // Update the player score with 75 points
             return true;
         }
