@@ -76,17 +76,21 @@ public class IslandMap {
         }
     }
 
-    public void printMap(){
-        Set set = gameBoardMap.entrySet();
-        Iterator iterator = set.iterator();
+    public ArrayList<Integer> getEveryTileLevel(){
+        Iterator<Map.Entry<Integer, int[]>> iterator = gameBoardMap.entrySet().iterator();
 
-        while (iterator.hasNext()){
-            Map.Entry mentry = (Map.Entry)iterator.next();
+        ArrayList<Integer> levels = new ArrayList<Integer>() {{
+            add(-1);
+        }};
 
-            Hex hexObj = (Hex)mentry.getValue();
-            System.out.print("key: "+ mentry.getKey() + " & Value: ");
-            hexObj.printHexCoordinates();
+        while(iterator.hasNext()) {
+            Map.Entry<Integer, int[]> mapValue = iterator.next();
+            //level of tile
+            levels.add(hexGrid.getHexValue(mapValue.getValue()[0]).getLevel());
+            //System.out.print(hexGrid.getHexValue(mapValue.getValue()[0]).getLevel() + "lvl ");
         }
+
+        return levels;
     }
 
     public boolean containsHexKey(Tile tile){
@@ -124,11 +128,15 @@ public class IslandMap {
             System.out.println();
 
             //Prints tile's terrains
-            for(int i=0; i<mapValue.getValue().length; i++)
+            for(int i=0; i<mapValue.getValue().length; i++){
                 System.out.print(hexGrid.getHexValue(mapValue.getValue()[i]).getTerrain() + " ");
+            }
+
+            //level of tile
+            System.out.print(hexGrid.getHexValue(mapValue.getValue()[0]).getLevel() + "lvl ");
+
             System.out.println();
         }
-
     }
 
     public Hex getHex(int hexID){
@@ -164,8 +172,6 @@ public class IslandMap {
             int hexID = entry.getValue().get(0);
 
             if (getHex(hexID).getPlayerColorOnHex() == player.getPlayerColor()){
-
-                System.out.println(entry.getKey());
                 playerSettlement.add(entry.getKey());
             }
         }

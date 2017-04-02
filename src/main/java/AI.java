@@ -22,14 +22,24 @@ public class AI {
 
     public void play(Player player) {
 
-        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(player);
+        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(player);  //gets player settlements
 
-//        if (){
-//
-//        } else if (settlements.size() >=  5){
-//
-//            System.out.println("build Totoro");
-//        }
+        if (true){
+
+            //tile level
+            ArrayList<Integer> tileLevel = islandMap.getEveryTileLevel();
+
+            for (int i = 1; i < tileLevel.size(); i++){
+
+                if (tileLevel.get(i) >= 3){
+                    System.out.println("Build Tiger");
+                }
+            }
+
+        } else if (settlements.size() >=  5){
+
+            System.out.println("build Totoro");
+        }
 
     }
 
