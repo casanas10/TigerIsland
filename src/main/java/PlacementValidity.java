@@ -22,7 +22,7 @@ public class PlacementValidity {
 
 
 
-    public boolean checkIfHexesCanBePlaced(HexGrid hexGrid, int[] tileHexIDsArray, String[] tileTerrainsArray) {
+    public boolean checkIfHexesCanBePlaced(HexGrid hexGrid, int[] tileHexIDsArray) {
         int counter = 0;
 
         for (int i = 0; i < tileHexIDsArray.length; i++) {

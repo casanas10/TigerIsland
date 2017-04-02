@@ -56,7 +56,7 @@ public class IslandMap {
         boolean adjacentTilesValid = false;
         PlacementValidity placementValidity = new PlacementValidity();
         //I want the function below to take hexID array instead and also terrain array
-        hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray, tileTerrainsArray);
+        hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray);
         adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
 
         if(hexesCanBePlaced && adjacentTilesValid){
@@ -147,6 +147,53 @@ public class IslandMap {
 
     public HexGrid getHexGrid() {
         return hexGrid;
+    }
+
+    public ArrayList<Integer> getPlayerSettlement(Player player) {
+
+        HashMap<Integer, ArrayList<Integer>> settlements = getSettlementsMap();
+
+        ArrayList<Integer> playerSettlement = new ArrayList<Integer>() {{
+            add(-1);
+        }};
+
+        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlements.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
+
+            int hexID = entry.getValue().get(0);
+
+            if (getHex(hexID).getPlayerColorOnHex() == player.getPlayerColor()){
+
+                System.out.println(entry.getKey());
+                playerSettlement.add(entry.getKey());
+            }
+        }
+
+        return playerSettlement;
+    }
+
+    public boolean isValidTilePlacement(RotateTile tile) {
+
+        int tileHexIDsArray[];
+
+        tileHexIDsArray = tile.checkPair();
+
+        boolean hexesCanBePlaced = false;
+        boolean adjacentTilesValid = false;
+        PlacementValidity placementValidity = new PlacementValidity();
+
+        hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray);
+        adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
+
+        if(hexesCanBePlaced && adjacentTilesValid){
+
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
 }
