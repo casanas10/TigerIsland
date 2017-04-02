@@ -35,9 +35,6 @@ public class CoordinateConverterTest {
         int[] actualXYZ = convert.oursToServer(99,99);
         int[] expectedXYZ = {0, 0, 0};
         Assert.assertArrayEquals(expectedXYZ, actualXYZ);
-
-        for(int coordinate : actualXYZ)
-            System.out.print(coordinate + " ");
     }
 
     @Test
