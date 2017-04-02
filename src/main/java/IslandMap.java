@@ -108,4 +108,28 @@ public class IslandMap {
     }
 
 
+    public ArrayList<Integer> getPlayerSettlement(Player player) {
+
+        HashMap<Integer, ArrayList<Integer>> settlements = getSettlementsMap();
+
+        ArrayList<Integer> playerSettlement = new ArrayList<Integer>() {{
+            add(-1);
+        }};
+
+        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlements.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
+
+            int hexID = entry.getValue().get(0);
+
+            if (getHex(hexID).getPlayerColorOnHex() == player.getPlayerColor()){
+
+                System.out.println(entry.getKey());
+                playerSettlement.add(entry.getKey());
+            }
+        }
+
+        return playerSettlement;
+    }
+
 }
