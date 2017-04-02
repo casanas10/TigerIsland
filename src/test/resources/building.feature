@@ -31,10 +31,6 @@
       Then Placing the Totoro fails and a warning message is shown
 
       Given A player chooses to place a Totoro
-      When The player places that Totoro on a hex in a settlement with a Totoro already in it
-      Then Placing the Totoro fails and a warning message is shown
-
-      Given A player chooses to place a Totoro
       When The player places that Totoro on a volcano hex
       Then Placing the Totoro fails and a warning message is shown
 
