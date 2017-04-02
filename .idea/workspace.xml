@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/IslandMap.java" afterPath="$PROJECT_DIR$/src/main/java/IslandMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/PlacementValidity.java" afterPath="$PROJECT_DIR$/src/main/java/PlacementValidity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/test-report/report.js" afterPath="$PROJECT_DIR$/reports/test-report/report.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1110">
+            <state relative-caret-position="545">
               <caret line="74" column="121" lean-forward="false" selection-start-line="74" selection-start-column="121" selection-end-line="74" selection-end-column="121" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -59,10 +58,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CucumberRunner.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/CucumberRunner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AITest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/AITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
+            <state relative-caret-position="1020">
               <caret line="75" column="9" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -95,7 +104,7 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
+            <state relative-caret-position="660">
               <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding />
             </state>
@@ -184,10 +193,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="61" />
+    <option name="x" value="17" />
     <option name="y" value="23" />
-    <option name="width" value="1379" />
-    <option name="height" value="877" />
+    <option name="width" value="1267" />
+    <option name="height" value="722" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -205,7 +214,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -264,7 +272,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -293,6 +305,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -313,49 +326,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JUnit Test">
-    <configuration default="false" name="AITest.PlacingScenarioWhenFindASettlementofSize3OrGreater" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="TigerIsland" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AITest" />
-      <option name="METHOD_NAME" value="PlacingScenarioWhenFindASettlementofSize3OrGreater" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AITest.getAllPossibleTilePosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="TigerIsland" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AITest" />
-      <option name="METHOD_NAME" value="getAllPossibleTilePosition" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.CucumberRunner">
     <configuration default="false" name="AITest.LookingForYourSettlementSize5OrMore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="TigerIsland" />
@@ -411,6 +382,49 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="TigerIsland" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="java in TigerIsland" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="TigerIsland" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="directory" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="CucumberRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="TigerIsland" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CucumberRunner" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -660,19 +674,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="JUnit.JUnit Test" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.AITest.PlacingScenarioWhenFindASettlementofSize3OrGreater" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.AITest.getAllPossibleTilePosition" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.LookingForYourSettlementSize5OrMore" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.SettlementTest.TotoroAlreadyInSettlement" />
-      <item index="5" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.AITest.LookingForYourSettlementSize5OrMore" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.SettlementTest.TotoroAlreadyInSettlement" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.java in TigerIsland" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.CucumberRunner" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SettlementTest.TotoroAlreadyInSettlement" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AITest.LookingForYourSettlementSize5OrMore" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.PlacingScenarioWhenFindASettlementofSize3OrGreater" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.getAllPossibleTilePosition" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CucumberRunner" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.java in TigerIsland" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SettlementTest.TotoroAlreadyInSettlement" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.LookingForYourSettlementSize5OrMore" />
       </list>
     </recent_temporary>
   </component>
@@ -862,18 +876,22 @@
       <option name="project" value="LOCAL" />
       <updated>1491165711879</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Merge branches 'Settlements' and 'master' of https://github.com/casanas10/TigerIsland into Settlements&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;">
+      <created>1491166137705</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1491166137705</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JUnit_Test - 2017.04.02 at 16h 36m 44s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="CucumberRunner - 2017.04.02 at 16h 47m 47s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.02 at 16h 41m 16s.xml">
+    <history-entry file="JUnit_Test - 2017.04.02 at 16h 47m 05s.xml">
       <configuration name="JUnit Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SettlementTest_TotoroAlreadyInSettlement - 2017.04.02 at 16h 23m 57s.xml">
-      <configuration name="SettlementTest.TotoroAlreadyInSettlement" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SettlementTest_TotoroAlreadyInSettlement - 2017.04.02 at 16h 24m 58s.xml">
       <configuration name="SettlementTest.TotoroAlreadyInSettlement" configurationId="JUnit" />
@@ -896,10 +914,13 @@
     <history-entry file="SettlementTest_TotoroAlreadyInSettlement - 2017.04.02 at 16h 36m 24s.xml">
       <configuration name="SettlementTest.TotoroAlreadyInSettlement" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="java_in_TigerIsland - 2017.04.02 at 16h 47m 22s.xml">
+      <configuration name="java in TigerIsland" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="23" width="1379" height="877" extended-state="6" />
-    <editor active="true" />
+    <frame x="17" y="23" width="1267" height="722" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -911,12 +932,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.505625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.494375" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29795396" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2966507" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17693982" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17679559" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -987,7 +1008,8 @@
     <MESSAGE value="finding settlements for size 3 - 5 works" />
     <MESSAGE value="finding settlements for size 3 - 5 works and looking for possible placements works" />
     <MESSAGE value="Updated Settements and AI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Settements and AI" />
+    <MESSAGE value="Merge branches 'Settlements' and 'master' of https://github.com/casanas10/TigerIsland into Settlements&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branches 'Settlements' and 'master' of https://github.com/casanas10/TigerIsland into Settlements&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1000,13 +1022,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/HexGridTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/GameStep.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1262,7 +1277,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1284,7 +1298,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
+        <state relative-caret-position="660">
           <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding />
         </state>
@@ -1300,7 +1314,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/AITest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
+        <state relative-caret-position="1020">
           <caret line="75" column="9" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1343,13 +1357,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
+        <state relative-caret-position="545">
           <caret line="74" column="121" lean-forward="false" selection-start-line="74" selection-start-column="121" selection-end-line="74" selection-end-column="121" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="method#findOpponentsSettlementSizeThreeToFive#0;class#AI#0" expanded="false" />
             <element signature="method#printAllPossibleTiles#0;class#AI#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/CucumberRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
