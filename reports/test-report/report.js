@@ -13,7 +13,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 24875868,
+  "duration": 24927459,
   "status": "passed"
 });
 formatter.scenario({
@@ -48,21 +48,21 @@ formatter.match({
   "location": "GameStep.nothingHasYetHappened()"
 });
 formatter.result({
-  "duration": 260745682,
+  "duration": 128107272,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.theGameInitiates()"
 });
 formatter.result({
-  "duration": 21679308,
+  "duration": 6558485,
   "status": "passed"
 });
 formatter.match({
   "location": "GameStep.aNewGameIsSuccessfullyCreated()"
 });
 formatter.result({
-  "duration": 4725778,
+  "duration": 2197709,
   "status": "passed"
 });
 formatter.match({
@@ -75,7 +75,297 @@ formatter.match({
   "location": "GameStep.playersAreSuccessfullyCreatedEachHoldingSpecificPlayerAttributes(int)"
 });
 formatter.result({
-  "duration": 6388845,
+  "duration": 3126143,
+  "status": "passed"
+});
+formatter.uri("nuking.feature");
+formatter.feature({
+  "line": 3,
+  "name": "Nuking",
+  "description": "",
+  "id": "nuking",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@smokeTest"
+    }
+  ]
+});
+formatter.before({
+  "duration": 3967336,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 5,
+  "name": "A player gets a tile, tries to nuke the board, and it fails",
+  "description": "",
+  "id": "nuking;a-player-gets-a-tile,-tries-to-nuke-the-board,-and-it-fails",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 7,
+  "name": "There are tiles on the board and it is the players turn to place a tile",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 8,
+  "name": "The tile is placed on another tile and the volcanoes do not match up",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 9,
+  "name": "The nuking fails",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 11,
+  "name": "There are tiles on the board and it is the players turn to place a tile",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 12,
+  "name": "The tile is placed on a single tile",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 13,
+  "name": "The nuking fails",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 15,
+  "name": "There are tiles on the board and it is the players turn to place a tile",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 16,
+  "name": "The tile is placed on tiles of various levels",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 17,
+  "name": "The nuking fails",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 19,
+  "name": "There are tiles on the board and it is the players turn to place a tile",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 20,
+  "name": "The tile is placed on a hex containing a Totoro",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 21,
+  "name": "The nuking fails",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 23,
+  "name": "There are tiles on the board and it is the players turn to place a tile",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 24,
+  "name": "The tile is placed on a hex with a size one settlement",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 25,
+  "name": "The nuking fails",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 27,
+  "name": "There are tiles on the board and it is the players turn to place a tile",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 28,
+  "name": "The nuking tile completely wipes out a settlement",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 29,
+  "name": "The nuking fails",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "NukingStep.thereAreTilesOnTheBoardAndItIsThePlayersTurnToPlaceATile()"
+});
+formatter.result({
+  "duration": 5976450,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theTileIsPlacedOnAnotherTileAndTheVolcanoesDoNotMatchUp()"
+});
+formatter.result({
+  "duration": 82964,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theNukingFails()"
+});
+formatter.result({
+  "duration": 39772,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.thereAreTilesOnTheBoardAndItIsThePlayersTurnToPlaceATile()"
+});
+formatter.result({
+  "duration": 680396,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theTileIsPlacedOnASingleTile()"
+});
+formatter.result({
+  "duration": 90235,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theNukingFails()"
+});
+formatter.result({
+  "duration": 17106,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.thereAreTilesOnTheBoardAndItIsThePlayersTurnToPlaceATile()"
+});
+formatter.result({
+  "duration": 434923,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theTileIsPlacedOnTilesOfVariousLevels()"
+});
+formatter.result({
+  "duration": 108624,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theNukingFails()"
+});
+formatter.result({
+  "duration": 20527,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.thereAreTilesOnTheBoardAndItIsThePlayersTurnToPlaceATile()"
+});
+formatter.result({
+  "duration": 387881,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theTileIsPlacedOnAHexContainingATotoro()"
+});
+formatter.result({
+  "duration": 98360,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theNukingFails()"
+});
+formatter.result({
+  "duration": 18817,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.thereAreTilesOnTheBoardAndItIsThePlayersTurnToPlaceATile()"
+});
+formatter.result({
+  "duration": 367782,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theTileIsPlacedOnAHexWithASizeOneSettlement()"
+});
+formatter.result({
+  "duration": 67569,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theNukingFails()"
+});
+formatter.result({
+  "duration": 19245,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.thereAreTilesOnTheBoardAndItIsThePlayersTurnToPlaceATile()"
+});
+formatter.result({
+  "duration": 456733,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theNukingTileCompletelyWipesOutASettlement()"
+});
+formatter.result({
+  "duration": 81254,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theNukingFails()"
+});
+formatter.result({
+  "duration": 16251,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 5878945,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 31,
+  "name": "A player gets a new tile, decides to nuke the board, and it is successful",
+  "description": "",
+  "id": "nuking;a-player-gets-a-new-tile,-decides-to-nuke-the-board,-and-it-is-successful",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 33,
+  "name": "There are tiles on the board and it is the players turn to place a tile",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 34,
+  "name": "The tile is placed and all of the nuking conditions are satisfied",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 35,
+  "name": "The nuking is successful",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "NukingStep.thereAreTilesOnTheBoardAndItIsThePlayersTurnToPlaceATile()"
+});
+formatter.result({
+  "duration": 6434893,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theTileIsPlacedAndAllOfTheNukingConditionsAreSatisfied()"
+});
+formatter.result({
+  "duration": 110334,
+  "status": "passed"
+});
+formatter.match({
+  "location": "NukingStep.theNukingIsSuccessful()"
+});
+formatter.result({
+  "duration": 26087,
   "status": "passed"
 });
 formatter.uri("pieces.feature");
@@ -93,7 +383,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 20145815,
+  "duration": 1942827,
   "status": "passed"
 });
 formatter.scenario({
@@ -138,14 +428,14 @@ formatter.match({
   "location": "MeeplesStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 5868843,
+  "duration": 1569058,
   "status": "passed"
 });
 formatter.match({
   "location": "MeeplesStep.theGameBegins()"
 });
 formatter.result({
-  "duration": 153521,
+  "duration": 26514,
   "status": "passed"
 });
 formatter.match({
@@ -158,7 +448,7 @@ formatter.match({
   "location": "MeeplesStep.meeplesAreSuccessfullyCreatedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 323719,
+  "duration": 110334,
   "status": "passed"
 });
 formatter.match({
@@ -171,7 +461,7 @@ formatter.match({
   "location": "MeeplesStep.totorosAreSuccessfullyCratedWithTheCorrectProperties(int)"
 });
 formatter.result({
-  "duration": 262567,
+  "duration": 91518,
   "status": "passed"
 });
 formatter.match({
@@ -188,7 +478,7 @@ formatter.match({
   "location": "MeeplesStep.theWhitePlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 5623381,
+  "duration": 1252168,
   "status": "passed"
 });
 formatter.match({
@@ -205,7 +495,7 @@ formatter.match({
   "location": "MeeplesStep.theBlackPlayerHasTotoros(int,String)"
 });
 formatter.result({
-  "duration": 372042,
+  "duration": 166357,
   "status": "passed"
 });
 formatter.uri("placement.feature");
@@ -223,7 +513,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 9049580,
+  "duration": 1529714,
   "status": "passed"
 });
 formatter.scenario({
@@ -253,25 +543,25 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
-  "duration": 62434,
+  "duration": 18389,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceATile()"
 });
 formatter.result({
-  "duration": 94507,
+  "duration": 12829,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theTileIsSuccessfullyPlacedInTheMap()"
 });
 formatter.result({
-  "duration": 4367849,
+  "duration": 57306,
   "status": "passed"
 });
 formatter.before({
-  "duration": 25610971,
+  "duration": 1458724,
   "status": "passed"
 });
 formatter.scenario({
@@ -301,25 +591,25 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
-  "duration": 55165,
+  "duration": 28653,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceATileNextToAnotherTile()"
 });
 formatter.result({
-  "duration": 302764,
+  "duration": 124019,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theTileIsAddedToTheMap()"
 });
 formatter.result({
-  "duration": 530266,
+  "duration": 88952,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4393934,
+  "duration": 4415516,
   "status": "passed"
 });
 formatter.scenario({
@@ -349,25 +639,25 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
-  "duration": 53454,
+  "duration": 20100,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceATileDirectlyOnTopOfAnotherTile()"
 });
 formatter.result({
-  "duration": 286514,
+  "duration": 94512,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.thePlacementFails()"
 });
 formatter.result({
-  "duration": 312172,
+  "duration": 72274,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5567360,
+  "duration": 4060137,
   "status": "passed"
 });
 formatter.scenario({
@@ -397,21 +687,21 @@ formatter.match({
   "location": "PlacementTileStep.aTileIsAlreadyPlaceInTheBoard()"
 });
 formatter.result({
-  "duration": 61579,
+  "duration": 46186,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.youPlaceTheTileUnnconnectedToAnotherTile()"
 });
 formatter.result({
-  "duration": 336119,
+  "duration": 55595,
   "status": "passed"
 });
 formatter.match({
   "location": "PlacementTileStep.theUnnconnectedPlacementFails()"
 });
 formatter.result({
-  "duration": 314738,
+  "duration": 55167,
   "status": "passed"
 });
 formatter.uri("player.feature");
@@ -429,7 +719,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 7326217,
+  "duration": 3851870,
   "status": "passed"
 });
 formatter.scenario({
@@ -464,14 +754,14 @@ formatter.match({
   "location": "PlayerStep.aNewGameIsCreated()"
 });
 formatter.result({
-  "duration": 2058200,
+  "duration": 137276,
   "status": "passed"
 });
 formatter.match({
   "location": "PlayerStep.theGameStarts()"
 });
 formatter.result({
-  "duration": 150954,
+  "duration": 35068,
   "status": "passed"
 });
 formatter.match({
@@ -484,7 +774,7 @@ formatter.match({
   "location": "PlayerStep.playerCreation(int)"
 });
 formatter.result({
-  "duration": 375034,
+  "duration": 78688,
   "status": "passed"
 });
 formatter.match({
@@ -497,7 +787,7 @@ formatter.match({
   "location": "PlayerStep.thePlayerIsAssignedAColor(String)"
 });
 formatter.result({
-  "duration": 189441,
+  "duration": 39772,
   "status": "passed"
 });
 });
