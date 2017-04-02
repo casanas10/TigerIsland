@@ -137,7 +137,7 @@ public class BuildStep {
         Assert.assertEquals(false,buildSuccessful);
     }
 
-    /*
+
     @When("^The player places that Totoro on a hex in a settlement with a Totoro already in it$")
     public void thePlayerPlacesThatTotoroOnAHexInASettlementWithATotoroAlreadyInIt() throws Throwable {
         setUp();
@@ -159,12 +159,8 @@ public class BuildStep {
 
         Assert.assertEquals(false, buildSuccessful);
 
-        Given A player chooses to place a Totoro
-        When The player places that Totoro on a hex in a settlement with a Totoro already in it
-        Then Placing the Totoro fails and a warning message is shown
-
     }
-    */
+
 
     @When("^The player places that Totoro on a volcano hex$")
     public void thePlayerPlacesThatTotoroOnAVolcanoHex() throws Throwable {

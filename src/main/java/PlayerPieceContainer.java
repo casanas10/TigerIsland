@@ -41,6 +41,20 @@ public class PlayerPieceContainer {
         return color;
     }
 
+
+    public void removeMeeples(){
+            meeples.remove(meeples.size()-1);
+    }
+
+    public void removeTotoros(){
+        totoros.remove(totoros.size()-1);
+    }
+
+    public void removeTigers(){
+        tigers.remove(tigers.size()-1);
+    }
+
+
     // Create the players pieces
     public void create20Meeples() {
         for (int i = 0; i < 20; i++) {

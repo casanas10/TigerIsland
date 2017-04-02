@@ -206,6 +206,7 @@ public class BuilderTest {
 
     @Test
     public void placingTotoroFailsForNotBeingNextToASettlementOfSizeFiveOrMore() {
+        boolean buildSuccessful;
         islandMap.addTileToMap(607, 60);
         islandMap.addTileToMap(609, 0);
         islandMap.addTileToMap(610, 60);
@@ -213,11 +214,13 @@ public class BuilderTest {
         builder.build(player,islandMap,1,808);
         builder.build(player,islandMap,1,809);
         builder.build(player,islandMap,1,810);
-        builder.build(player,islandMap,3,806);
+        builder.build(player,islandMap,3,811);
+       buildSuccessful =  builder.build(player,islandMap,3,806);
 
         Hex currentHex = islandMap.getHex(806);
 
         Assert.assertEquals("No game piece on hex", currentHex.getPieceOnHex());
+        Assert.assertEquals(false, buildSuccessful);
     }
 
     @Test
@@ -226,10 +229,13 @@ public class BuilderTest {
         islandMap.addTileToMap(609, 0);
         islandMap.addTileToMap(610, 60);
         islandMap.addTileToMap(612, 0);
+
         builder.build(player,islandMap,1,807);
         builder.build(player,islandMap,1,808);
         builder.build(player,islandMap,1,809);
         builder.build(player,islandMap,1,810);
+        builder.build(player,islandMap,1,811);
+
         builder.build(player,islandMap,3,806);
         builder.build(player,islandMap,3,812);
 
