@@ -18,7 +18,7 @@ public class AuthenticationProtocol {
             if(fromServer.substring(0,4).equals("WAIT")) {
                 if (fromServer.substring(0, 33).equals("WAIT FOR THE TOURNAMENT TO BEGIN ")) {
                     pid = fromServer.substring(33);
-                    System.out.println(pid);
+                    System.out.println("PID: " + pid);
                     break;
                 }
             }

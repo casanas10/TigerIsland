@@ -21,7 +21,7 @@ public class ChallengeProtocol {
 
         //Server: NEW CHALLENGE <cid> YOU WILL PLAY <rounds> MATCH
         if(fromServer.substring(0,3).equals("NEW")){
-            String fromServerArr[] = fromServer.split(fromServer);
+            String fromServerArr[] = fromServer.split(" ");
             rounds = Integer.parseInt(fromServerArr[6]);
         }
         System.out.println("Server: " + fromServer);
