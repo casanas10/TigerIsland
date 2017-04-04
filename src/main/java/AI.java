@@ -32,21 +32,45 @@ public class AI {
         this.game = game;
         this.islandMap = new IslandMap();
     }
-/*
-    public ArrayList<Integer> SettlementSmallerThanFive(HexGrid hexGrid, Player player){
-        ArrayList<Integer> settlementIDs = new ArrayList<>();
+
+
+    public ArrayList<Integer> SettlementSmallerThanFive(Settlement settlements, IslandMap islandMap, Player player){
+
+        ArrayList<Integer> settlementHexIDs = new ArrayList<>();
+        ActiveSettlements = settlements.getListOfActiveSettlementIDs();
+
+
+
+        System.out.println("Active Settlements are " + ActiveSettlements);
+
         for(int i = 0; i<ActiveSettlements.size(); i++){
-            if(settMap.getSettlementSize(ActiveSettlements.get(i)) < 5){
-                settlementIDs = settMap.getSettlementIDs(ActiveSettlements.get(i));
-                if(hexGrid.getHexValue(ActiveSettlements.get(i)).getPlayerColorOnHex() == player.getPlayerColor()){
-                    settlementIDs = settMap.getSettlementIDs(ActiveSettlements.get(i));
-                    return settlementIDs;
+
+            if(settlements.getSettlementSize(ActiveSettlements.get(i)) < 5){
+
+                settlementHexIDs = settlements.getSettlementHexIDs(ActiveSettlements.get(i));
+                String playerColorOnHex = islandMap.getHex(settlementHexIDs.get(0)).getPlayerColorOnHex();
+                String playerPlayingColor = player.getPlayerColor();
+                System.out.println(playerColorOnHex + " vs " + playerPlayingColor);
+                System.out.println(playerColorOnHex == playerPlayingColor);
+
+                if(islandMap.getHex(settlementHexIDs.get(0)).getPlayerColorOnHex() == player.getPlayerColor()){
+                    settlementHexIDs = settlements.getSettlementHexIDs(ActiveSettlements.get(i));
+                    return settlementHexIDs;
                 }
             }
+            settlementHexIDs = new ArrayList<>();
         }
-        return settlementIDs;
+        return settlementHexIDs;
     }
-*/
+
+    public Boolean canATotoroBePlaced(Settlement settlements, int settlementID, Player player ){
+        if(settlements.getSettlementSize(settlementID) >= 5){
+            return settlements.doesNotHaveATotoro(settlementID, player);
+        }
+        return false;
+    }
+
+
     /*
     public void expandSettlement(HexGrid hexGrid, Player player){
         updateActiveSettlements(hexGrid);
@@ -85,9 +109,6 @@ public class AI {
         return allPossibleTiles;
     }
 
-
-
-
     public void printAllPossibleTiles(){
         Iterator<Map.Entry<Integer, int[]>> iterator = allPossibleTiles.entrySet().iterator();
         while(iterator.hasNext()){
@@ -98,6 +119,9 @@ public class AI {
             }
             System.out.println();
         }
+    }
+
+    public void placeTotoro(int settlementID){
 
     }
 }
