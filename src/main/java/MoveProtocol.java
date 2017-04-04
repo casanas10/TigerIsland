@@ -35,8 +35,8 @@ public class MoveProtocol {
     }
 
     private void getTile(String tile, String gid) {
-        tile = tile.replaceAll("[+]"," +");
-        String givenTerrains[] = tile.split(" +");
+        tile = tile.replaceAll("[+]"," ");
+        String givenTerrains[] = tile.split(" ");
         String terrainsArray[] = {"Volcano",givenTerrains[0],givenTerrains[1]};
 
         if(gid == MatchProtocol.gid1){
