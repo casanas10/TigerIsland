@@ -10,6 +10,6 @@ public class TournamentProtocol {
         authentication.authenticate(out,in);
 
         ChallengeProtocol challenge = new ChallengeProtocol();
-        challenge.playChallenge(out,in);
+        challenge.playChallenges(out,in);
     }
 }

@@ -5,7 +5,7 @@ import java.awt.*;
  * Created by alecasanas on 3/14/17.
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -15,6 +15,7 @@ public class Main {
 
         Client client = new Client();
         client.OpenClient();
+
 //        MyRunnable R1 = new MyRunnable("Thread for Game 1");
 //        R1.start();
 //
