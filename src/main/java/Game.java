@@ -159,5 +159,8 @@ public class Game {
         }
     }
 
+    public IslandMap getIslandMap() {
+        return islandMap;
+    }
 
 }

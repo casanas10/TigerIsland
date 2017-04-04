@@ -9,11 +9,14 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new GameFrame();
+                Game game = new Game();
+                new GameFrame(game);
             }
         });
 
         Game game = new Game();
         game.gameRunning();
+
+
     }
 }
