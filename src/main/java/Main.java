@@ -14,7 +14,7 @@ public class Main {
             }
         });
 
-        Game game = new Game();
-        game.gameRunning();
+//        Game game = new Game();
+//        game.gameRunning();
     }
 }
