@@ -46,9 +46,9 @@ public class ExtendSettlement {
     }
 
     private void findExtensions(int hexID){
-        //Hex hex;
-        //hex = islandMap.getHex(hexID);
-        //String terrain = hex.getTerrain();
+        Hex hex;
+        hex = islandMap.getHex(hexID);
+        String terrain = hex.getTerrain();
 
         if(terrain == "Lake"){
             goToTerrain(hexID,terrain);
