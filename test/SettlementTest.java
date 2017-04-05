@@ -131,6 +131,45 @@ public class SettlementTest {
     }
 
     @Test
+    public void updateSettlementAfterNukeTest2() {
+
+        //PLACE STARTING TILE
+        CoordinateSystem coors = new CoordinateSystem();
+        // First tile will actually be placed in the center, this is for testing purposes
+        //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+        int[] tileHexIDsArray = {coors.getHexID(14,15), coors.getHexID(14,14),coors.getHexID(15,14),
+                coors.getHexID(14,16), coors.getHexID(15, 16)};
+        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
+        islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+
+        islandMap.addTileToMap(3016,0);
+        islandMap.getHex(3216).setTerrain("Jungle");
+        islandMap.getHex(3217).setTerrain("Rocky");
+        builder.build(player, islandMap, 1, 2815);
+        islandMap.printTilesOnMap();
+        islandMap.getSettlementObj().printAllSettlements();
+
+        islandMap.addTileToMap(2616,0);
+        islandMap.getHex(2816).setTerrain("Lake");
+        islandMap.getHex(2817).setTerrain("Lake");
+        builder.extend(2815,islandMap,player,"Lake");
+        islandMap.printTilesOnMap();
+        islandMap.getSettlementObj().printAllSettlements();
+
+        //Nuke
+        islandMap.addTileToMap(3016, 180, islandMap.getNewTile(), player);
+        islandMap.getHex(2816).setTerrain("Lake");
+        islandMap.getHex(2817).setTerrain("Jungle");
+
+        islandMap.printTilesOnMap();
+        islandMap.getSettlementObj().printAllSettlements();
+
+        Hex currentHex = islandMap.getHex(410);
+        //Assert.assertEquals("No game piece on hex", currentHex.getPieceOnHex());
+
+    }
+
+    @Test
     public void isSizeIsLessThanFiveCantPlaceATotoro() {
 
         islandMap.addTileToMap(806, 120);
