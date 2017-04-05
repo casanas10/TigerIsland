@@ -44,14 +44,15 @@ public class ExtendTest {
 
         int lake1 = lakesToExtendOn.get(0);
         int lake2 = lakesToExtendOn.get(1);
+        int rocky1 = rockysToExtendOn.get(0);
+        int jungle1 = junglesToExtendOn.get(0);
 
         Assert.assertEquals(806,lake1);
         Assert.assertEquals(1005,lake2);
 
-        ArrayList<Integer> emptyList = new ArrayList<Integer>();
         Assert.assertTrue(grasslandsToExtendOn.isEmpty());
-        Assert.assertTrue(junglesToExtendOn.isEmpty());
-        Assert.assertTrue(rockysToExtendOn.isEmpty());
+        Assert.assertEquals(1006,rocky1);
+        Assert.assertEquals(1007,jungle1);
     }
 
     @Test

@@ -102,11 +102,11 @@ public class MoveProtocol {
                     Integer.parseInt(fromServerArr[15]),Integer.parseInt(fromServerArr[16]));
         }
         else if(fromServerArr[11] == "EXPAND"){
-            MoveData moveData = new MoveData(terrainsArray,Integer.parseInt(fromServerArr[7]),
-                    Integer.parseInt(fromServerArr[8]), Integer.parseInt(fromServerArr[9]),
-                    Integer.parseInt(fromServerArr[10]), 2, Integer.parseInt(fromServerArr[14]),
-                    Integer.parseInt(fromServerArr[15]),Integer.parseInt(fromServerArr[16]),
-                    fromServerArr[]);
+//            MoveData moveData = new MoveData(terrainsArray,Integer.parseInt(fromServerArr[7]),
+//                    Integer.parseInt(fromServerArr[8]), Integer.parseInt(fromServerArr[9]),
+//                    Integer.parseInt(fromServerArr[10]), 2, Integer.parseInt(fromServerArr[14]),
+//                    Integer.parseInt(fromServerArr[15]),Integer.parseInt(fromServerArr[16]),
+//                    fromServerArr[]);
         }
 
     }
