@@ -66,6 +66,11 @@ public class AI {
                 Else Remember where the other player placed their tile and check where we can place it -
                 place volcanos close to each other (place volcano next to volcano of main tile)
                 Else remember were self placed the first tile and place place tile there. (place volcano next to volcano of main tile)
+
+                For Tomorrow:
+                Make the AI play against us
+                Look at timing
+                Look at how to fill the message for the server
     * */
 
     public AI(Game game){
@@ -243,53 +248,33 @@ public class AI {
 
     public int[] placeOurFirstTile(){
         int[] toServer = new int[4];
-        int ourX;
-        int ourY;
-        int[] serverCoordinates = new int[3];
-        int serverOrientation = 0;
+        RotateTile rotateTile = new RotateTile(0,0);
 
         //Check right side
         if(islandMap.addTileToMap(19900,60)){
             //return x, y, z and orientation
-            ourX = coordinateSystem.getXCoordinate(19900);
-            ourY = coordinateSystem.getYCoordinate(19900);
-            serverCoordinates = coordinateConverter.oursToServer(ourX, ourY);
-            serverOrientation = rotationConverter.oursToServer(60);
+            toServer = toSendToServer(19900, 60);
             volcanosOnMap.add(19900);
-            RotateTile rotateTile = new RotateTile(19900, 60);
-            int[] Tile = rotateTile.checkPair();
-            for(int i = 0; i<3; i++) {
-                activeHexIDs.add(Tile[i]);
-            }
+            rotateTile = new RotateTile(19900, 60);
         }
+        //Check left side
         else if(islandMap.addTileToMap(19898,240)){
             //return x, y, z and orientation
-            ourX = coordinateSystem.getXCoordinate(19898);
-            ourY = coordinateSystem.getYCoordinate(19898);
-            serverCoordinates = coordinateConverter.oursToServer(ourX, ourY);
-            serverOrientation = rotationConverter.oursToServer(240);
+            toSendToServer(19898, 240);
             volcanosOnMap.add(19898);
-            RotateTile rotateTile = new RotateTile(19898, 240);
-            int[] Tile = rotateTile.checkPair();
-            for(int i = 0; i<3; i++) {
-                activeHexIDs.add(Tile[i]);
-            }
+            rotateTile = new RotateTile(19898, 240);
+        }
+
+        int[] Tile = rotateTile.checkPair();
+        for(int i = 0; i<3; i++) {
+            activeHexIDs.add(Tile[i]);
         }
 
         updateMaxAndMin();
-
-        for(int i = 0; i < serverCoordinates.length; i++) {
-            toServer[i] = serverCoordinates[i];
-        }
-
-        toServer[3] = serverOrientation;
-
         return toServer;
-
     }
 
     public int[] placeTile(IslandMap islandMap, int volcanoHexID, int orientation){
-        int[] toServer = new int[4];
         islandMap.addTileToMap(volcanoHexID, orientation);
         RotateTile rotateTile = new RotateTile(volcanoHexID, orientation);
         int[] Tile = rotateTile.checkPair();
@@ -299,6 +284,11 @@ public class AI {
 
         volcanosOnMap.add(volcanoHexID);
 
+        return toSendToServer(volcanoHexID, orientation);
+    }
+
+    public int[] toSendToServer(int volcanoHexID, int orientation){
+        int[] toServer = new int[4];
         int ourX = coordinateSystem.getXCoordinate(volcanoHexID);
         int ourY = coordinateSystem.getYCoordinate(volcanoHexID);
         int[] serverCoordinates = coordinateConverter.oursToServer(ourX, ourY);

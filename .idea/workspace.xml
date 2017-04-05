@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/CoordinateConverter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/EndOfTurn.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/RotationConverter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/AIPlayingTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/MoveData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/AI.java" afterPath="$PROJECT_DIR$/src/main/java/AI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Game.java" afterPath="$PROJECT_DIR$/src/main/java/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/RotateTile.java" afterPath="$PROJECT_DIR$/src/main/java/RotateTile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/AITesting.java" afterPath="$PROJECT_DIR$/test/AITesting.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/RotateTileTest.java" afterPath="$PROJECT_DIR$/test/RotateTileTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,14 +31,36 @@
       <file leaf-file-name="AITesting.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/AITesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+            <state relative-caret-position="351">
+              <caret line="181" column="29" lean-forward="false" selection-start-line="181" selection-start-column="29" selection-end-line="181" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getAllPossibleTilePosition#0;class#AITesting#0" expanded="false" />
                 <element signature="method#largestSettlementLessThanFiveTest#0;class#AITesting#0" expanded="false" />
                 <element signature="method#lessThanFiveSettlementHexIDs#0;class#AITesting#0" expanded="false" />
                 <element signature="method#lookAroundAHexForAnEmptySettlementTest#0;class#AITesting#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AI.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-529">
+              <caret line="258" column="9" lean-forward="true" selection-start-line="258" selection-start-column="9" selection-end-line="258" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#canYouNuke#0;class#AI#0" expanded="false" />
+                <element signature="method#SettlementSmallerThanFive#0;class#AI#0" expanded="false" />
+                <element signature="method#findTheLargestSettlementLessThanFive#0;class#AI#0" expanded="false" />
+                <element signature="method#canATotoroBePlaced#0;class#AI#0" expanded="false" />
+                <element signature="method#nuking#0;class#AI#0" expanded="false" />
+                <element signature="method#lookAroundAHexForAnEmptySettlement#0;class#AI#0" expanded="false" />
+                <element signature="method#updateMaxAndMin#0;class#AI#0" expanded="false" />
+                <element signature="method#findLocationToPlaceTile#0;class#AI#0" expanded="false" />
+                <element signature="method#getAllPossibleTilePlacementPosition#0;class#AI#0" expanded="false" />
+                <element signature="method#printAllPossibleTiles#0;class#AI#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -68,30 +82,6 @@
             <state relative-caret-position="880">
               <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="184" column="18" lean-forward="false" selection-start-line="184" selection-start-column="18" selection-end-line="184" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#canYouNuke#0;class#AI#0" expanded="false" />
-                <element signature="method#SettlementSmallerThanFive#0;class#AI#0" expanded="false" />
-                <element signature="method#findTheLargestSettlementLessThanFive#0;class#AI#0" expanded="false" />
-                <element signature="method#canATotoroBePlaced#0;class#AI#0" expanded="false" />
-                <element signature="method#nuking#0;class#AI#0" expanded="false" />
-                <element signature="method#lookAroundAHexForAnEmptySettlement#0;class#AI#0" expanded="false" />
-                <element signature="method#updateMaxAndMin#0;class#AI#0" expanded="false" />
-                <element signature="method#placeOurFirstTile#0;class#AI#0" expanded="false" />
-                <element signature="method#placeTile#0;class#AI#0" expanded="false" />
-                <element signature="method#findLocationToPlaceTile#0;class#AI#0" expanded="false" />
-                <element signature="method#getAllPossibleTilePlacementPosition#0;class#AI#0" expanded="false" />
-                <element signature="method#printAllPossibleTiles#0;class#AI#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -227,7 +217,6 @@
       <find>build</find>
       <find>g</find>
       <find>pla</find>
-      <find>place</find>
       <find>islandMap</find>
       <find>hexGrid</find>
       <find>add</find>
@@ -237,8 +226,11 @@
       <find>builder</find>
       <find>pe</find>
       <find>terrain</find>
-      <find>canyou</find>
       <find>toto</find>
+      <find>place</find>
+      <find>canyou</find>
+      <find>placetile</find>
+      <find>Our</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java</dir>
@@ -293,11 +285,11 @@
         <option value="$PROJECT_DIR$/src/main/java/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/EndOfTurn.java" />
         <option value="$PROJECT_DIR$/test/AIPlayingTest.java" />
-        <option value="$PROJECT_DIR$/test/AITesting.java" />
         <option value="$PROJECT_DIR$/src/main/java/RotateTile.java" />
         <option value="$PROJECT_DIR$/test/RotateTileTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/AI.java" />
         <option value="$PROJECT_DIR$/test/MoveData.java" />
+        <option value="$PROJECT_DIR$/test/AITesting.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AI.java" />
       </list>
     </option>
   </component>
@@ -944,38 +936,45 @@
       <option name="project" value="LOCAL" />
       <updated>1491265156838</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add nuking and placing a totoro in ai.&#10;Updated rotateTile&#10;Added MoveData">
+      <created>1491355752502</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1491355752502</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AITesting_canATotoroBePlacedTest - 2017.04.04 at 20h 37m 22s.xml">
-      <configuration name="AITesting.canATotoroBePlacedTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AITesting_canATotoroBePlacedTest - 2017.04.04 at 20h 37m 55s.xml">
-      <configuration name="AITesting.canATotoroBePlacedTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AITesting_canYouNukeTest - 2017.04.04 at 21h 09m 01s.xml">
       <configuration name="AITesting.canYouNukeTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="AITesting_canYouNukeTest - 2017.04.04 at 21h 21m 56s.xml">
       <configuration name="AITesting.canYouNukeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.04 at 20h 39m 04s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="AITesting_canYouNukeTest - 2017.04.05 at 10h 25m 46s.xml">
+      <configuration name="AITesting.canYouNukeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.04 at 20h 39m 57s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="AITesting_canYouNukeTest - 2017.04.05 at 10h 30m 01s.xml">
+      <configuration name="AITesting.canYouNukeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.04 at 20h 42m 57s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="AITesting_canYouNukeTest - 2017.04.05 at 10h 30m 40s.xml">
+      <configuration name="AITesting.canYouNukeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.04 at 20h 47m 06s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="AITesting_canYouNukeTest - 2017.04.05 at 10h 33m 50s.xml">
+      <configuration name="AITesting.canYouNukeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AITesting_canYouNukeTest - 2017.04.05 at 10h 44m 39s.xml">
+      <configuration name="AITesting.canYouNukeTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="JUnit_Test - 2017.04.04 at 21h 22m 10s.xml">
       <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="JUnit_Test - 2017.04.04 at 21h 25m 22s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.04.05 at 10h 44m 46s.xml">
       <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -993,12 +992,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.505625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.494375" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25882354" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25882354" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13909775" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13909775" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25349087" sideWeight="0.49529412" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1030,7 +1029,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31882352" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32738096" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32705882" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1064,14 +1063,15 @@
     <MESSAGE value="update settlement after nuke" />
     <MESSAGE value="Change rotateTile to work with new input [1 ...  6]. Also changes test - all tests pass&#10;Changes AI and AI Test for the new input - all tests pass.&#10;Changes the Builder test for the new input - some tests fail.&#10;Chainged the islandMap for new input - all tests pass." />
     <MESSAGE value="Added lessThanFiveSettlementSize function in AI&#10;Added canATotoroBePlacedFunction&#10;Updated Builder, BuilderTest..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added lessThanFiveSettlementSize function in AI&#10;Added canATotoroBePlacedFunction&#10;Updated Builder, BuilderTest..." />
+    <MESSAGE value="Add nuking and placing a totoro in ai.&#10;Updated rotateTile&#10;Added MoveData" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add nuking and placing a totoro in ai.&#10;Updated rotateTile&#10;Added MoveData" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AI.java</url>
-          <line>172</line>
+          <line>177</line>
           <properties />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
@@ -1083,13 +1083,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AI.java</url>
-          <line>95</line>
+          <line>100</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AI.java</url>
-          <line>76</line>
+          <line>81</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
@@ -1569,8 +1569,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/AITesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+        <state relative-caret-position="351">
+          <caret line="181" column="29" lean-forward="false" selection-start-line="181" selection-start-column="29" selection-end-line="181" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getAllPossibleTilePosition#0;class#AITesting#0" expanded="false" />
@@ -1583,8 +1583,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="184" column="18" lean-forward="false" selection-start-line="184" selection-start-column="18" selection-end-line="184" selection-end-column="18" />
+        <state relative-caret-position="-529">
+          <caret line="258" column="9" lean-forward="true" selection-start-line="258" selection-start-column="9" selection-end-line="258" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#canYouNuke#0;class#AI#0" expanded="false" />
@@ -1594,8 +1594,6 @@
             <element signature="method#nuking#0;class#AI#0" expanded="false" />
             <element signature="method#lookAroundAHexForAnEmptySettlement#0;class#AI#0" expanded="false" />
             <element signature="method#updateMaxAndMin#0;class#AI#0" expanded="false" />
-            <element signature="method#placeOurFirstTile#0;class#AI#0" expanded="false" />
-            <element signature="method#placeTile#0;class#AI#0" expanded="false" />
             <element signature="method#findLocationToPlaceTile#0;class#AI#0" expanded="false" />
             <element signature="method#getAllPossibleTilePlacementPosition#0;class#AI#0" expanded="false" />
             <element signature="method#printAllPossibleTiles#0;class#AI#0" expanded="false" />

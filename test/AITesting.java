@@ -169,10 +169,17 @@ public class AITesting {
         Builder builder = new Builder();
 
         //islandMap.addTileToMap(607, 60);
-
-        ai.placeTile(islandMap, 19899, 0);
-        ai.placeTile(islandMap, 19900, 60);
-
+        int[] toServer = new int[4];
+        toServer = ai.placeTile(islandMap, 19899, 0);
+        for(int i = 0; i<4; i++){
+            System.out.print(toServer[i] + " ");
+        }
+        System.out.println();
+        toServer = ai.placeTile(islandMap, 19900, 60);
+        for(int i = 0; i<4; i++){
+            System.out.print(toServer[i] + " ");
+        }
+        System.out.println();
         Assert.assertEquals(true, ai.canYouNuke(islandMap));
 
     }
