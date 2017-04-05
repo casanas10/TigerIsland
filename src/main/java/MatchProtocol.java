@@ -29,7 +29,7 @@ public class MatchProtocol {
 
             for(int i=0; i<48; i++) {
                 MoveProtocol move = new MoveProtocol();
-                move.makeMove(out, in, R1, R2);
+                move.makeMove(out, in, R1, R2, i + 1);
             }
         }
     }
