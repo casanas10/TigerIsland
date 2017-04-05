@@ -92,7 +92,12 @@ public class Hex {
     }
 
     public boolean checkIfHexIsNotSettled(){
-        return gamePiecesMap.isEmpty();
+
+        if (settlementID == -1 && gamePiecesMap.isEmpty() ){
+            return true;
+        }
+
+        return false;
     }
 
     public void addGamePieceToHex(GamePiece piece){

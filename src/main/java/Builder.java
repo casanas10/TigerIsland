@@ -18,6 +18,21 @@ public class Builder {
         return true;
     }
 
+    public boolean build(Player player, IslandMap islandMap, int buildOption, int hexID, String terrain){
+        switch(buildOption) {
+            case 1: return(buildANewSettlement(player, islandMap, hexID));
+
+            case 2: return(extend(hexID,islandMap,player, terrain));
+
+            case 3: return(buildATotoroSanctuary(player, islandMap, hexID));
+
+            case 4: return(buildATigerPlayground(player, islandMap, hexID));
+
+        }
+
+        return true;
+    }
+
     public boolean buildANewSettlement(Player player, IslandMap islandMap, int hexID){
         Hex currentHex = islandMap.getHex(hexID);
         Settlement settlement = islandMap.getSettlementObj();
@@ -47,8 +62,21 @@ public class Builder {
             return false;
         }
         else {
+
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
             return extend.extendOnTerrain(extend.getTerrainToExtendOn());
+        }
+
+    }
+
+    public boolean extend(int hexID, IslandMap islandMap, Player player, String terrain){
+        if(islandMap.getHex(hexID).getSettlementID() == -1){
+            return false;
+        }
+        else {
+
+            ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
+            return extend.extendOnTerrain(terrain);
         }
     }
 
@@ -68,7 +96,6 @@ public class Builder {
             settlement.addTotoroToSettlement(hexID,player);
             updateScore(player, piece, currentHex.getLevel());        // Update the players score with 200 points
 
-            settlement.printAllSettlements();
             return true;
         }
         else{
@@ -92,7 +119,6 @@ public class Builder {
             currentHex.addGamePieceToHex(piece);                      // Add the Tiger to the map
             settlement.addTigerToSettlement(hexID, player);
             updateScore(player, piece, currentHex.getLevel());        // Update the player score with 75 points
-            settlement.printAllSettlements();
             return true;
         }
         else{
