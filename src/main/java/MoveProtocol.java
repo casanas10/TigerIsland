@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 public class MoveProtocol {
     private String currentGID;
 
-    public void makeMove(PrintWriter out, BufferedReader in, MyRunnable r1, MyRunnable r2) throws Exception {
+    public void makeMove(PrintWriter out, BufferedReader in, MyRunnable R1, MyRunnable R2) throws Exception {
         BufferedReader stdIn =
                 new BufferedReader(new InputStreamReader(System.in));
         String fromServer;
@@ -41,11 +41,13 @@ public class MoveProtocol {
 
         if(currentGID == MatchProtocol.gid1){
             //AI1 gets terrains
-            MoveData moveData = AI1.makeMove(terrainsArray);
+            //MoveData moveData = AI1.makeMove(terrainsArray);
         }
         if(currentGID == MatchProtocol.gid2){
             //AI2 gets terrains
-            MoveData moveData = AI2.makeMove(terrainsArray);
+            //MoveData moveData = AI2.makeMove(terrainsArray);
         }
     }
+
+    
 }
