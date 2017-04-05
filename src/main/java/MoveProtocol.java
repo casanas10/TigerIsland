@@ -1,4 +1,7 @@
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
@@ -8,11 +11,12 @@ import java.io.PrintWriter;
 public class MoveProtocol {
     private String currentGID;
 
-    public void makeMove(PrintWriter out, BufferedReader in, MyRunnable r1, MyRunnable r2, int moveNumber) throws Exception {
+    public void makeMove(PrintWriter out, BufferedReader in, MyRunnable r1, MyRunnable r2,
+                         int moveNumber, String opponentPID) throws Exception {
         BufferedReader stdIn =
                 new BufferedReader(new InputStreamReader(System.in));
         String fromServer;
-        String fromUser;
+        //String fromUser;
         MoveData moveData;
         String moveString;
 
@@ -24,19 +28,91 @@ public class MoveProtocol {
                 MatchProtocol.gid1 = fromServerArr[5];
                 moveData = getTile(fromServerArr[12],MatchProtocol.gid1);
                 moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
+                out.println(moveString);
+                checkMessages(out, in, opponentPID);
             }
             else if((MatchProtocol.gid2 == null) && (fromServerArr[5] != MatchProtocol.gid1)){
                 MatchProtocol.gid2 = fromServerArr[5];
                 moveData = getTile(fromServerArr[12],MatchProtocol.gid2);
                 moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
+                out.println(moveString);
+                checkMessages(out,in,opponentPID);
             }
             else{
                 currentGID = fromServerArr[5];
                 moveData = getTile(fromServerArr[12],currentGID);
                 moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
+                out.println(moveString);
+                checkMessages(out,in,opponentPID);
             }
             System.out.println("Server: " + fromServer);
         }
+    }
+
+    private void checkMessages(PrintWriter out, BufferedReader in, String opponentPID) throws Exception{
+        if(MatchProtocol.gid1 != "dead" && MatchProtocol.gid2 != "dead"){
+            getTwoMessages(in, opponentPID);
+        }
+        else{
+            getOneMessage(in,opponentPID);
+        }
+    }
+
+    private void getTwoMessages(BufferedReader in, String opponentPID) throws IOException {
+        String fromServer;
+        String serverGID;
+        String serverPID;
+
+        //get two messages
+        int i=0;
+        while(i<2) {
+            fromServer = in.readLine();
+            if (fromServer.substring(0, 4).equals("GAME")) {
+                String fromServerArr[] = fromServer.split(" ");
+                serverGID = fromServerArr[1];
+                serverPID = fromServerArr[5];
+
+                if(serverGID == MatchProtocol.gid1 && serverPID == opponentPID){
+                    //send opponent's move to AI1
+                    parseMessage(fromServerArr);
+                }
+                else if(serverGID == MatchProtocol.gid2 && serverPID == opponentPID){
+                    //send opponent's move to AI2
+                    parseMessage(fromServerArr);
+                }
+                else{
+                    //check if server says we lost; check which game if so.
+                    parseMessage(fromServerArr);
+                }
+            }
+            i++;
+        }
+    }
+
+    private void parseMessage(String[] fromServerArr) {
+        String tile = fromServerArr[5];
+        tile = tile.replaceAll("[+]"," ");
+        String givenTerrains[] = tile.split(" ");
+        String terrainsArray[] = {"Volcano",givenTerrains[0],givenTerrains[1]};
+
+        if(fromServerArr[11] == "FOUND") {
+            MoveData moveData = new MoveData(terrainsArray, fromServerArr[7], fromServerArr[8],
+                    fromServerArr[9], fromServerArr[10],1,
+                    fromServerArr[14],fromServerArr[15],fromServerArr[16]);
+        }
+        else if(fromServerArr[11] == "EXPAND"){
+            MoveData moveData = new MoveData(terrainsArray, fromServerArr[7], fromServerArr[8],
+                    fromServerArr[9], fromServerArr[10],1,
+                    fromServerArr[14],fromServerArr[15],fromServerArr[16]);
+        }
+
+    }
+
+    private void getOneMessage(BufferedReader in, String opponentPID) {
+        String fromServer;
+        String serverGID;
+        String serverPID;
+
     }
 
     private MoveData getTile(String tile, String currentGID) {
