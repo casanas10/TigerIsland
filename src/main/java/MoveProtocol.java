@@ -41,9 +41,11 @@ public class MoveProtocol {
 
         if(currentGID == MatchProtocol.gid1){
             //AI1 gets terrains
+            MoveData moveData = AI1.makeMove(terrainsArray);
         }
         if(currentGID == MatchProtocol.gid2){
             //AI2 gets terrains
+            MoveData moveData = AI2.makeMove(terrainsArray);
         }
     }
 }
