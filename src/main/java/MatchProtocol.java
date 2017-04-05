@@ -22,15 +22,21 @@ public class MatchProtocol {
 
             System.out.println("Server: " + fromServer);
 
-            MyRunnable R1 = new MyRunnable("Thread for Game 1");
+            MyRunnable R1 = new MyRunnable("Thread for AI 1");
             R1.start();
-            MyRunnable R2 = new MyRunnable("Thread for Game 2");
+            MyRunnable R2 = new MyRunnable("Thread for AI 2");
             R2.start();
 
             for(int i=0; i<48; i++) {
                 MoveProtocol move = new MoveProtocol();
                 move.makeMove(out, in, R1, R2, i + 1, opponentPID);
             }
+        }
+
+        //Server: GAME <gid> OVER PLAYER <pid> <score> PLAYER <pid> <score>
+        fromServer = in.readLine();
+        if(fromServer.substring(0,4).equals("GAME")){
+            System.out.println("Server: " + fromServer);
         }
     }
 }

@@ -14,8 +14,7 @@ public class MyRunnable implements Runnable {
     public void run() {
         System.out.println("Running " +  threadName );
         try {
-//            Game game = new Game();
-//            game.gameRunning();
+//            AI ai = new AI();
             Thread.sleep(50);
         }catch (InterruptedException e) {
             System.out.println("Thread " +  threadName + " interrupted.");
