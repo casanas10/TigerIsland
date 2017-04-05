@@ -49,7 +49,6 @@ public class Settlement {
 
         int hexID = 0;
 
-
         for (int index = 0; index < hexes.size(); index++ ){
 
             ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexes.get(index)));
@@ -58,24 +57,23 @@ public class Settlement {
 
             for (int i = 0; i < adjacentHexes.size(); i++){
 
-                if (hexGrid.getHexValue(adjacentHexes.get(i)).getSettlementID() != - 1){
+                if (hexGrid.getHexValue(adjacentHexes.get(i)).getSettlementID() != - 1 ){
+
                     hexID = adjacentHexes.get(i);
 
                     int settID = getSettlementID(hexID);
                     settlementMap.remove(settID);
-                    listOfActiveSettlementIDs.remove(Integer.valueOf(settID));//NEW
 
                     NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
 
-                    for (int j = 0; j < NewHexIDs.size(); j++){
-                        System.out.println(NewHexIDs.get(j));
-                        setSettlementID(NewHexIDs.get(j),settID);
+                    if (!isPieceAlreadyOnASettlement(NewHexIDs.get(NewHexIDs.size() - 1))){
+                        for (int j = 0; j < NewHexIDs.size(); j++){
+                            setSettlementID(NewHexIDs.get(j),settID);
+                        }
+
+                        settlementMap.put(settleID,NewHexIDs);
+                        settleID++;
                     }
-
-                    settlementMap.put(settleID,NewHexIDs);
-                    listOfActiveSettlementIDs.add(settleID);//NEW
-                    settleID++;
-
                 }
 
             }
@@ -88,16 +86,17 @@ public class Settlement {
 
         hex.setPlayerColorOnHex(player.getPlayerColor());
 
-        if (isNewSettlement(hexID,player)){
+        if (!isPieceAlreadyOnASettlement(hexID)) {
 
-            foundNewSettlement(hexID, player);
+            if (isNewSettlement(hexID, player)) {
 
-        } else {
+                foundNewSettlement(hexID, player);
 
-            addPieceToAnExistingSettlement(hexID, player);
+            } else {
+
+                addPieceToAnExistingSettlement(hexID, player);
+            }
         }
-
-
     }
 
     public void addPieceToAnExistingSettlement(int hexID, Player player) {
@@ -129,7 +128,6 @@ public class Settlement {
 
         NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
 
-
         for (int i = 0; i < NewHexIDs.size(); i++){
             setSettlementID(NewHexIDs.get(i),settID);
         }
@@ -147,6 +145,7 @@ public class Settlement {
         hexIDContainer.add(hexID);
 
         setSettlementID(hexID, settleID);
+
         settlementMap.put(settleID, hexIDContainer);
         listOfActiveSettlementIDs.add(settleID);
         settleID++;
@@ -160,6 +159,26 @@ public class Settlement {
             if (HexIDs.contains(hexID)){
                 return true;
             }
+        }
+
+        return false;
+    }
+
+    public boolean isPieceAlreadyOnASettlement(int hexID) {
+
+        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlementMap.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
+
+            ArrayList<Integer> listHexes = entry.getValue();
+
+            for (int i = 0; i < listHexes.size(); i++){
+
+                if (listHexes.get(i) == hexID){
+                    return true;
+                }
+            }
+
         }
 
         return false;
