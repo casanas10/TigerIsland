@@ -18,13 +18,16 @@ public class ChallengeProtocol {
             Thread.sleep(50);
             //maybe add system exit
         }
+        System.out.println("Passed the while loop");
 
         //Server: NEW CHALLENGE <cid> YOU WILL PLAY <rounds> MATCH
-        if(fromServer.substring(0,3).equals("NEW")){
-            String fromServerArr[] = fromServer.split(" ");
-            rounds = Integer.parseInt(fromServerArr[6]);
+        if(fromServer != null) {
+            if (fromServer.substring(0, 3).equals("NEW")) {
+                String fromServerArr[] = fromServer.split(" ");
+                rounds = Integer.parseInt(fromServerArr[6]);
+            }
+            System.out.println("Server: " + fromServer);
         }
-        System.out.println("Server: " + fromServer);
 
         //play rounds for this challenge
         for(int i=0; i<rounds; i++){

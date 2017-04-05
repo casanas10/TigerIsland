@@ -90,6 +90,31 @@ public class MoveProtocol {
         }
     }
 
+    private void getOneMessage(BufferedReader in, String opponentPID) throws Exception{
+        String fromServer;
+        String serverGID;
+        String serverPID;
+        MoveData moveData;
+
+        fromServer = in.readLine();
+        if (fromServer.substring(0, 4).equals("GAME")) {
+            String fromServerArr[] = fromServer.split(" ");
+            serverGID = fromServerArr[1];
+            serverPID = fromServerArr[5];
+
+            if (serverGID == MatchProtocol.gid1 && serverPID == opponentPID) {
+                //send opponent's move to AI1
+                moveData = parseMessage(fromServerArr);
+            } else if (serverGID == MatchProtocol.gid2 && serverPID == opponentPID) {
+                //send opponent's move to AI2
+                moveData = parseMessage(fromServerArr);
+            } else {
+                //check if server says we lost; check which game if so.
+                moveData = parseMessage(fromServerArr);
+            }
+        }
+    }
+
     private MoveData parseMessage(String[] fromServerArr) {
         String tile = fromServerArr[5];
         tile = tile.replaceAll("[+]"," ");
@@ -146,13 +171,6 @@ public class MoveProtocol {
         }
 
         return moveData;
-
-    }
-
-    private void getOneMessage(BufferedReader in, String opponentPID) {
-        String fromServer;
-        String serverGID;
-        String serverPID;
 
     }
 
