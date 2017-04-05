@@ -38,5 +38,8 @@ public class MatchProtocol {
         if(fromServer.substring(0,4).equals("GAME")){
             System.out.println("Server: " + fromServer);
         }
+        
+        gid1 = null;
+        gid2 = null;
     }
 }
