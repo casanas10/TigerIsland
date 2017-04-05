@@ -96,14 +96,17 @@ public class MoveProtocol {
         String terrainsArray[] = {"Volcano",givenTerrains[0],givenTerrains[1]};
 
         if(fromServerArr[11] == "FOUND") {
-            MoveData moveData = new MoveData(terrainsArray, fromServerArr[7], fromServerArr[8],
-                    fromServerArr[9], fromServerArr[10],1,
-                    fromServerArr[14],fromServerArr[15],fromServerArr[16]);
+            MoveData moveData = new MoveData(terrainsArray,Integer.parseInt(fromServerArr[7]),
+                    Integer.parseInt(fromServerArr[8]), Integer.parseInt(fromServerArr[9]),
+                    Integer.parseInt(fromServerArr[10]), 1, Integer.parseInt(fromServerArr[14]),
+                    Integer.parseInt(fromServerArr[15]),Integer.parseInt(fromServerArr[16]));
         }
         else if(fromServerArr[11] == "EXPAND"){
-            MoveData moveData = new MoveData(terrainsArray, fromServerArr[7], fromServerArr[8],
-                    fromServerArr[9], fromServerArr[10],1,
-                    fromServerArr[14],fromServerArr[15],fromServerArr[16]);
+            MoveData moveData = new MoveData(terrainsArray,Integer.parseInt(fromServerArr[7]),
+                    Integer.parseInt(fromServerArr[8]), Integer.parseInt(fromServerArr[9]),
+                    Integer.parseInt(fromServerArr[10]), 2, Integer.parseInt(fromServerArr[14]),
+                    Integer.parseInt(fromServerArr[15]),Integer.parseInt(fromServerArr[16]),
+                    fromServerArr[]);
         }
 
     }
