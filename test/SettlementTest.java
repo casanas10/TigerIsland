@@ -119,9 +119,10 @@ public class SettlementTest {
             add(804);
         }};
 
+        settlement.printAllSettlements();
         settlement.updateSettlementAfterNuke(expectedHexes, player);
 
-        //settlement.printAllSettlements();
+        settlement.printAllSettlements();
 
         Assert.assertTrue(settlement.isPiecePartOfASettlement(5, 403));
     }

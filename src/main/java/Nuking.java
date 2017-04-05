@@ -1,5 +1,8 @@
 import com.sun.org.apache.xpath.internal.SourceTree;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 /**
  * Created by NatalieGoldstein on 3/28/17.
  */
@@ -127,7 +130,28 @@ public class Nuking {
                 hexGrid.getHexValue(hexIDS[i]).incrementLevel();
                 hexGrid.getHexValue(hexIDS[i]).setTerrain(hexTerrains[i]);
                 hexGrid.getHexValue(hexIDS[i]).removeGamePiecesFromMap();
+                hexGrid.getHexValue(hexIDS[i]).setSettlementID(-1);
                 hexGrid.getHexValue(hexIDS[i]).setTileID(nextTile);
             }
-    }
+
+        }
+
+//    public void performNuke(HexGrid hexGrid, int[] hexIDS, String[] hexTerrains, int nextTile, Settlement settlement, Player player){
+//
+//        for(int i=0; i<hexIDS.length; i++){
+//            hexGrid.getHexValue(hexIDS[i]).incrementLevel();
+//            hexGrid.getHexValue(hexIDS[i]).setTerrain(hexTerrains[i]);
+//            hexGrid.getHexValue(hexIDS[i]).removeGamePiecesFromMap();
+//            hexGrid.getHexValue(hexIDS[i]).setSettlementID(-1);
+//            hexGrid.getHexValue(hexIDS[i]).setTileID(nextTile);
+//        }
+//
+//        ArrayList<Integer> hexes = null;
+//        for (int i = 0; i < hexIDS.length; i++){
+//            hexes.add(hexIDS[i]);
+//            System.out.println(hexIDS[i]);
+//        }
+//
+//        settlement.updateSettlementAfterNuke(hexes, player);
+//    }
 }

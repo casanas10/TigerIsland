@@ -30,11 +30,16 @@ public class IslandMap {
     }
 
 
-    public boolean addTileToMap(int hexID, int orientation, String[] newTile){
+    public boolean addTileToMap(int hexID, int orientation, String[] newTile, Player player){
 
         int tileHexIDsArray[] = new int[3];
         RotateTile rotateTile = new RotateTile(hexID, orientation);
         tileHexIDsArray = rotateTile.checkPair();
+
+        ArrayList<Integer> hexesList = new ArrayList<Integer>();
+        for (int i = 0; i < tileHexIDsArray.length; i++) {
+            hexesList.add(tileHexIDsArray[i]);
+        }
 
         // Place first tile in the middle of the map automatically
         if(getNumberOfTiles() == 47 && tileCount == 0){
@@ -47,6 +52,8 @@ public class IslandMap {
         if(nuker.canYouNukeSettlement(this, tileHexIDsArray, hexID)){
 
             nuker.performNuke(hexGrid, tileHexIDsArray, newTile, tileCount);
+
+            settlement.updateSettlementAfterNuke(hexesList, player);
 
             Tile tile = new Tile(tileCount,tileHexIDsArray);
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());

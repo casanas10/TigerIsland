@@ -60,7 +60,7 @@ public class Frame extends JFrame {
             for (int i = 0; i < firstTileArr.length; i++){
 
                 Hex hex = game.getIslandMap().getHexGrid().getHexValue(firstTileArr[i]);
-                paintHexOnGrid(hex.getX(), hex.getY(), islandMap.getHex(firstTileArr[i]).getTerrain());
+                paintHexOnGrid(hex.getX(), hex.getY(), islandMap.getHex(firstTileArr[i]).getTerrain(), islandMap.getHex(firstTileArr[i]).getLevel());
             }
         }
 
@@ -122,7 +122,7 @@ public class Frame extends JFrame {
                         hexID = Integer.parseInt(hexField.getText());
                         orientation = Integer.parseInt(orientationField.getText());
 
-                        tileSuccessfullyPlaced = islandMap.addTileToMap(hexID, orientation, newTile);
+                        tileSuccessfullyPlaced = islandMap.addTileToMap(hexID, orientation, newTile, getActivePlayer());
                     }
 
 
@@ -138,9 +138,9 @@ public class Frame extends JFrame {
                         Hex hex2 = islandMap.getHexGrid().getHexValue(hexes[1]);
                         Hex hex3 = islandMap.getHexGrid().getHexValue(hexes[2]);
 
-                        paintHexOnGrid(hex1.getX(), hex1.getY(), islandMap.getHexGrid().getHexValue(hexes[0]).getTerrain());
-                        paintHexOnGrid(hex2.getX(), hex2.getY(), islandMap.getHexGrid().getHexValue(hexes[1]).getTerrain());
-                        paintHexOnGrid(hex3.getX(), hex3.getY(), islandMap.getHexGrid().getHexValue(hexes[2]).getTerrain());
+                        paintHexOnGrid(hex1.getX(), hex1.getY(), islandMap.getHexGrid().getHexValue(hexes[0]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
+                        paintHexOnGrid(hex2.getX(), hex2.getY(), islandMap.getHexGrid().getHexValue(hexes[1]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
+                        paintHexOnGrid(hex3.getX(), hex3.getY(), islandMap.getHexGrid().getHexValue(hexes[2]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
 
                         JTextField hexField2 = new JTextField(5);
                         JTextField buildOptionField = new JTextField(5);
@@ -157,7 +157,6 @@ public class Frame extends JFrame {
                         if (buildResult == JOptionPane.OK_OPTION) {
                             hexID = Integer.parseInt(hexField2.getText());
                             buildOption = Integer.parseInt(buildOptionField.getText());
-
                         }
 
                         if (buildOption == 2){
@@ -256,11 +255,11 @@ public class Frame extends JFrame {
                     if (isOdd) {
 
                         g.drawPolygon(hex.getHexagon(i + 15, j));
-                        g.drawString(String.valueOf(hexGridToPixelConversion(i, j)), i + 15 - 10, j + 5);
+                        g.drawString(String.valueOf(hexGridToPixelConversion(i, j)), i + 15 - 12, j + 5);
 
                     } else {
                         g.drawPolygon(hex.getHexagon(i, j));
-                        g.drawString(String.valueOf(hexGridToPixelConversion(i, j)), i - 10, j + 5);
+                        g.drawString(String.valueOf(hexGridToPixelConversion(i, j)), i - 12, j + 5);
                     }
                 }
                 isOdd();
@@ -282,9 +281,20 @@ public class Frame extends JFrame {
         return String.valueOf(id);
     }
 
-    public void paintHexOnGrid(int x, int y, String terrain) {
+    public void paintHexOnGrid(int x, int y, String terrain, int level) {
         Graphics2D g2 = (Graphics2D) image.getGraphics();
-        g2.setStroke(new BasicStroke(3));
+
+
+        if (level == 1) {
+            g2.setStroke(new BasicStroke(2));
+        } else if (level == 2){
+            g2.setStroke(new BasicStroke(4));
+        } else if (level == 4){
+            g2.setStroke(new BasicStroke(6));
+        } else {
+            g2.setStroke(new BasicStroke(2));
+        }
+
 
         switch (terrain) {
             case "Volcano":
