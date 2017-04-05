@@ -109,7 +109,6 @@ public class Builder {
     }
 
     public boolean verifyValidHexForTotoro(Hex currentHex){
-        // Need to check for a settlement of size 5
         if(currentHex.getLevel() >= 1 && currentHex.checkIfHexIsNotSettled()
                 && !currentHex.getTerrain().equals("Volcano")){
             return true;
@@ -120,7 +119,6 @@ public class Builder {
     }
 
     public boolean verifyValidHexForTiger(Hex currentHex){
-        // Need to add check for a settlement
         if(currentHex.getLevel() >= 3 && currentHex.checkIfHexIsNotSettled()
                 && !currentHex.getTerrain().equals("Volcano")){
             return true;

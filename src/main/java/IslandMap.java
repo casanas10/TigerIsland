@@ -55,7 +55,7 @@ public class IslandMap {
         boolean hexesCanBePlaced = false;
         boolean adjacentTilesValid = false;
         PlacementValidity placementValidity = new PlacementValidity();
-        //I want the function below to take hexID array instead and also terrain array
+
         hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray, tileTerrainsArray);
         adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
 
