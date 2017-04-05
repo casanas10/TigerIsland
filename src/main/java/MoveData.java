@@ -11,13 +11,15 @@ public class MoveData {
     private int buildOptionY;
     private int buildOptionZ;
     private String extendTerrain;
+    private String[] terrainsArray;
 
     public MoveData(){
 
     }
 
-    public MoveData(int tilePlacementX, int tilePlacementY, int tilePlacementZ, int orientation, int buildOption,
+    public MoveData(String[] terrainsArray, int tilePlacementX, int tilePlacementY, int tilePlacementZ, int orientation, int buildOption,
                     int buildOptionX, int buildOptionY, int buildOptionZ){
+        this.terrainsArray = terrainsArray;
         this.tilePlacementX = tilePlacementX;
         this.tilePlacementY = tilePlacementY;
         this.tilePlacementZ = tilePlacementZ;
@@ -29,8 +31,9 @@ public class MoveData {
         extendTerrain = "";
     }
 
-    public MoveData(int tilePlacementX, int tilePlacementY, int tilePlacementZ, int orientation, int buildOption,
+    public MoveData(String[] terrainsArray, int tilePlacementX, int tilePlacementY, int tilePlacementZ, int orientation, int buildOption,
                     int buildOptionX, int buildOptionY, int buildOptionZ, String extendTerrain){
+        this.terrainsArray = terrainsArray;
         this.tilePlacementX = tilePlacementX;
         this.tilePlacementY = tilePlacementY;
         this.tilePlacementZ = tilePlacementZ;
@@ -113,5 +116,14 @@ public class MoveData {
     public void setExtendTerrain(String extendTerrain) {
         this.extendTerrain = extendTerrain;
     }
+
+    public String[] getTerrainsArray() {
+        return terrainsArray;
+    }
+
+    public void setTerrainsArray(String[] terrainsArray) {
+        this.terrainsArray = terrainsArray;
+    }
+
 
 }
