@@ -19,8 +19,8 @@ public class RotateTileTest {
         tile = new RotateTile(402, 0);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(601, TileArr[1]);
-        Assert.assertEquals(602, TileArr[2]);
+        Assert.assertEquals(601, TileArr[2]);
+        Assert.assertEquals(602, TileArr[1]);
     }
 
     @Test
@@ -28,8 +28,8 @@ public class RotateTileTest {
         tile = new RotateTile(402, 60);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(602, TileArr[1]);
-        Assert.assertEquals(403, TileArr[2]);
+        Assert.assertEquals(602, TileArr[2]);
+        Assert.assertEquals(403, TileArr[1]);
     }
 
     @Test
@@ -37,8 +37,8 @@ public class RotateTileTest {
         tile = new RotateTile(402, 120);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(403, TileArr[1]);
-        Assert.assertEquals(202, TileArr[2]);
+        Assert.assertEquals(403, TileArr[2]);
+        Assert.assertEquals(202, TileArr[1]);
     }
 
     @Test
@@ -46,8 +46,8 @@ public class RotateTileTest {
         tile = new RotateTile(402, 180);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(202, TileArr[1]);
-        Assert.assertEquals(201, TileArr[2]);
+        Assert.assertEquals(202, TileArr[2]);
+        Assert.assertEquals(201, TileArr[1]);
     }
 
     @Test
@@ -55,8 +55,8 @@ public class RotateTileTest {
         tile = new RotateTile(402, 240);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(201, TileArr[1]);
-        Assert.assertEquals(401, TileArr[2]);
+        Assert.assertEquals(201, TileArr[2]);
+        Assert.assertEquals(401, TileArr[1]);
     }
 
     @Test
@@ -64,8 +64,8 @@ public class RotateTileTest {
         tile = new RotateTile(402, 300);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(401, TileArr[1]);
-        Assert.assertEquals(601, TileArr[2]);
+        Assert.assertEquals(401, TileArr[2]);
+        Assert.assertEquals(601, TileArr[1]);
     }
 
     @Test
@@ -73,8 +73,8 @@ public class RotateTileTest {
         tile = new RotateTile(602, 0);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(602, TileArr[0]);
-        Assert.assertEquals(802, TileArr[1]);
-        Assert.assertEquals(803, TileArr[2]);
+        Assert.assertEquals(802, TileArr[2]);
+        Assert.assertEquals(803, TileArr[1]);
     }
 
     @Test
@@ -82,8 +82,8 @@ public class RotateTileTest {
         tile = new RotateTile(602, 60);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(602, TileArr[0]);
-        Assert.assertEquals(803, TileArr[1]);
-        Assert.assertEquals(603, TileArr[2]);
+        Assert.assertEquals(803, TileArr[2]);
+        Assert.assertEquals(603, TileArr[1]);
     }
 
     @Test
@@ -91,8 +91,8 @@ public class RotateTileTest {
         tile = new RotateTile(602, 120);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(602, TileArr[0]);
-        Assert.assertEquals(603, TileArr[1]);
-        Assert.assertEquals(403, TileArr[2]);
+        Assert.assertEquals(603, TileArr[2]);
+        Assert.assertEquals(403, TileArr[1]);
     }
 
     @Test
@@ -100,8 +100,8 @@ public class RotateTileTest {
         tile = new RotateTile(602, 180);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(602, TileArr[0]);
-        Assert.assertEquals(403, TileArr[1]);
-        Assert.assertEquals(402, TileArr[2]);
+        Assert.assertEquals(403, TileArr[2]);
+        Assert.assertEquals(402, TileArr[1]);
     }
 
     @Test
@@ -109,8 +109,8 @@ public class RotateTileTest {
         tile = new RotateTile(602, 240);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(602, TileArr[0]);
-        Assert.assertEquals(402, TileArr[1]);
-        Assert.assertEquals(601, TileArr[2]);
+        Assert.assertEquals(402, TileArr[2]);
+        Assert.assertEquals(601, TileArr[1]);
     }
 
     @Test
@@ -118,8 +118,8 @@ public class RotateTileTest {
         tile = new RotateTile(602, 300);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(602, TileArr[0]);
-        Assert.assertEquals(601, TileArr[1]);
-        Assert.assertEquals(802, TileArr[2]);
+        Assert.assertEquals(601, TileArr[2]);
+        Assert.assertEquals(802, TileArr[1]);
     }
 
 }

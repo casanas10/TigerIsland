@@ -21,7 +21,7 @@ public class AITesting {
     @Before
     public void setUp() throws Exception {
         islandMap = new IslandMap();
-        islandMap.addTileToMap(606, 0);
+
         player = new Player("Black", 0);
 
         Game game = new Game();
@@ -53,6 +53,31 @@ public class AITesting {
     }
 
     @Test
+    public void largestSettlementLessThanFiveTest(){
+        Player bPlayer = new Player("Black", 0);
+        HexGrid hexGrid = new HexGrid();
+
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = islandMap.getSettlementObj();
+
+        Builder builder = new Builder();
+
+        builder.build(player, islandMap, 1, 806); //807 from 606
+
+        islandMap.addTileToMap(608, 0);
+        builder.build(bPlayer, islandMap, 1, 807);
+        //builder.build(bPlayer, islandMap, 1, 808);
+        builder.build(bPlayer, islandMap, 1, 809);
+
+        ArrayList<Integer> playerSettlement = islandMap.getPlayerSettlement(bPlayer);
+
+        ArrayList<Integer> settlementHexIDs = ai.findTheLargestSettlementLessThanFive(settlement, islandMap, player);
+
+        System.out.println(settlementHexIDs);
+    }
+
+    @Test
     public void lessThanFiveSettlementHexIDs(){
         Player bPlayer = new Player("Black", 0);
         HexGrid hexGrid = new HexGrid();
@@ -78,7 +103,35 @@ public class AITesting {
     }
 
     @Test
+    public void lookAroundAHexForAnEmptySettlementTest(){
+
+        Player bPlayer = new Player("Black", 0);
+        HexGrid hexGrid = new HexGrid();
+
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = islandMap.getSettlementObj();
+
+        Builder builder = new Builder();
+
+        builder.build(player, islandMap, 1, 806); //807 from 606
+
+        islandMap.addTileToMap(608, 0);
+        builder.build(bPlayer, islandMap, 1, 807);
+        //builder.build(bPlayer, islandMap, 1, 808);
+        //builder.build(bPlayer, islandMap, 1, 809);
+
+        ArrayList<Integer> playerSettlement = islandMap.getPlayerSettlement(bPlayer);
+
+        ArrayList<Integer> availableHexIDs = ai.lookAroundAHexForAnEmptySettlement(islandMap, 807);
+
+        System.out.println(availableHexIDs);
+    }
+
+    @Test
     public void canATotoroBePlacedTest(){
+        islandMap.addTileToMap(606, 0);
+
         Player bPlayer = new Player("Black", 0);
         HexGrid hexGrid = new HexGrid();
 
@@ -98,6 +151,30 @@ public class AITesting {
         islandMap.addTileToMap(610, 0);
         builder.build(bPlayer, islandMap, 1, 810);
 
-        System.out.println(ai.canATotoroBePlaced(settlement, settlement.getSettlementID(807), bPlayer));
+        islandMap.addTileToMap(612, 0);
+        System.out.println(ai.canATotoroBePlaced(islandMap, settlement.getSettlementID(807), bPlayer));
+
     }
+
+
+    @Test
+    public void canYouNukeTest(){
+        Player bPlayer = new Player("Black", 0);
+        HexGrid hexGrid = new HexGrid();
+
+        hexGrid.generateHexGrid();
+
+        Settlement settlement = islandMap.getSettlementObj();
+
+        Builder builder = new Builder();
+
+        //islandMap.addTileToMap(607, 60);
+
+        ai.placeTile(islandMap, 19899, 0);
+        ai.placeTile(islandMap, 19900, 60);
+
+        Assert.assertEquals(true, ai.canYouNuke(islandMap));
+
+    }
+
 }

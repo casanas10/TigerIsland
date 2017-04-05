@@ -69,11 +69,11 @@ public class Game {
     public void setActiveStartingPlayer(){
         switch(getRandomStartingPlayer()){
             case "black":   setActivePlayerBlack(true);
-                            setActivePlayerWhite(false);
-                            break;
+                setActivePlayerWhite(false);
+                break;
             case "white":   setActivePlayerBlack(false);
-                            setActivePlayerWhite(true);
-                            break;
+                setActivePlayerWhite(true);
+                break;
         }
     }
 
@@ -103,8 +103,14 @@ public class Game {
             while(!tileSuccessfullyPlaced) {
 
                 if(numberOfTurns == 0){
+                    CoordinateSystem coors = new CoordinateSystem();
                     // First tile will actually be placed in the center, this is for testing purposes
-                    tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+                    //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+                    int[] tileHexIDsArray = {coors.getHexID(99,99), coors.getHexID(99,98),coors.getHexID(100,98),
+                            coors.getHexID(99,100), coors.getHexID(100, 100)};
+                    String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grasslands"};
+                    islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+
                     islandMap.printTilesOnMap();
                     break;
                 }
@@ -126,7 +132,7 @@ public class Game {
             while(!buildSuccessful){
 
                 System.out.println("1.) Build a new settlement\n" + "2.) Expand\n" + "3.) Build a totoro sanctuary\n"
-                                    + "4.) Build a tiger playground\n");
+                        + "4.) Build a tiger playground\n");
                 System.out.print("Select choice: ");
                 buildOption = input.nextInt();
                 System.out.print("\nSelect hex: ");
@@ -141,14 +147,11 @@ public class Game {
             }
 
 
+            EndOfTurn endTurn = new EndOfTurn();
+            String winner = endTurn.isGameDone(white,black,islandMap.getTileCount());
+
+
             numberOfTurns++;
-
-            System.out.print("Would you like to quit(1 or 0)? ");
-            quit = input.nextInt();
-
-            if(quit == 1){
-                gameOver = true;
-            }
 
             setActivePlayerWhite(!activePlayerWhite);
             setActivePlayerBlack(!activePlayerBlack);
@@ -157,4 +160,7 @@ public class Game {
     }
 
 
+    public IslandMap getIslandMap() {
+        return islandMap;
+    }
 }
