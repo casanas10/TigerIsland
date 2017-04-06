@@ -59,7 +59,8 @@ public class AI {
                 Else remember were self placed the first tile and place place tile there. (place volcano next to volcano of main tile)
 
                 For Tomorrow:
-                Make the AI play against us
+                Look at:
+                    placing meeple before nuking, if not possible: place tile in level 1
                 Look at timing
                 Look at how to fill the message for the server
     * */
@@ -111,7 +112,22 @@ public class AI {
         }
         else{
             //place Tile
-            if (!canYouNuke(islandMap)) {
+            if(canYouNuke(islandMap)){
+                if(islandMap.getHex(activeHexIDs.get(activeHexIDs.size()-1)).getLevel() >= 3 ) {
+                    ArrayList<Integer> tiger = new ArrayList<>();
+                    tiger = lookAroundAHexForAnEmptySettlement(islandMap, activeHexIDs.get(activeHexIDs.size() - 1));
+                    if (!tiger.isEmpty()) {
+                        builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 1));
+                        return;
+                    }
+                    tiger = lookAroundAHexForAnEmptySettlement(islandMap, activeHexIDs.get(activeHexIDs.size() - 2));
+                    if (!tiger.isEmpty()) {
+                        builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 2));
+                        return;
+                    }
+                }
+            }
+            else {
                 findLocationToPlaceTile(islandMap);
             }
 
@@ -120,7 +136,7 @@ public class AI {
             if(!canATotoroBePlaced(islandMap, player)){
                 if(!findTheLargestSettlementLessThanFive(islandMap, player)){
                     if(player.getPieces().getNumberOfMeeples() != 0)
-                        placeMeepleAnywhere(islandMap, player);
+                        System.out.println(placeMeepleAnywhere(islandMap, player));
 
                     else{
                         System.out.println("Out of Meeple!");
@@ -225,10 +241,8 @@ public class AI {
     }
 
     public Boolean canATotoroBePlaced(IslandMap islandMap, Player player ){
+
         Settlement settlements = islandMap.getSettlementObj();
-        int maxSettlementHexID = 0;
-        int minSettlementHexID = 4000;
-        int[] maxMin = new int[2];
         ArrayList<Integer> settlementHexIDs = new ArrayList<>();
         ArrayList<Integer> ActiveSettlementIDs = settlements.getListOfActiveSettlementIDs();
 
