@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.axes.HasPositionalPredChecker;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,42 +8,35 @@ import java.util.Map;
  */
 public class AI {
 
-    private Game game = new Game();
-    private IslandMap islandMap;
-
+    private HashMap<Integer, int[]> allPossibleTiles = new HashMap<>();
     private PlacementValidity validity = new PlacementValidity();
 
-    private RotateTile tile;
-
-    private HashMap<Integer, int[]> allPossibleTiles = new HashMap<>();
-
-    private ArrayList<Integer> ActiveSettlements = new ArrayList<>();
+    private Game game = new Game();
+    private IslandMap islandMap;
+    private Player player = new Player("White", 0);
 
     private CoordinateSystem coordinateSystem = new CoordinateSystem();
+    private RotateTile tile;
 
     private CoordinateConverter coordinateConverter = new CoordinateConverter();
-
     private RotationConverter rotationConverter = new RotationConverter();
-
-    private SettlementSizeChecker settlementSizeChecker;
-
-    private Settlement settlements;
-
-    private ArrayList<Integer> volcanosOnMap = new ArrayList<>();
-
-    private Settlement settMap;
 
     private Nuking nuker = new Nuking();
 
     private Builder builder = new Builder();
 
+    private Settlement settMap;
+    private ArrayList<Integer> ActiveSettlements = new ArrayList<>();
     private ArrayList<Integer> activeHexIDs = new ArrayList<>();
-    private int maxHexID = 0;
-    private int minHexID = 40000;
+    private SettlementSizeChecker settlementSizeChecker;
 
     private int[] possibleOrientation = {0, 60, 120, 180, 240, 300};
-
-
+    private MoveData moveData = new MoveData();
+    private int maxHexID = 0;
+    private int minHexID = 40000;
+    private ArrayList<Integer> volcanosOnMap = new ArrayList<>();
+    private Boolean maxMinTurn = true;
+    private Boolean isFirstTilePlaced = false;
 
     /*
     * Strategy for building:
@@ -78,6 +69,99 @@ public class AI {
         this.islandMap = new IslandMap();
     }
 
+    public MoveData sendTilePlacementToServer(int[] toServer){
+        moveData.setTilePlacementX(toServer[0]);
+        moveData.setTilePlacementY(toServer[1]);
+        moveData.setTilePlacementZ(toServer[2]);
+        moveData.setOrientation(toServer[3]);
+        return moveData;
+    }
+
+    public MoveData sendBuildToServer(int[] toServer){
+        moveData.setBuildOption(toServer[0]);
+        moveData.setBuildOptionX(toServer[1]);
+        moveData.setBuildOptionY(toServer[2]);
+        moveData.setBuildOptionZ(toServer[3]);
+        return moveData;
+    }
+
+    public void receiveTilePlacementFromServer(){
+        int serverX = moveData.getTilePlacementX();
+        int serverY = moveData.getTilePlacementY();
+        int serverZ = moveData.getTilePlacementZ();
+        int serverOrientation = moveData.getOrientation();
+        int[] ourX = coordinateConverter.serverToOurs(serverX, serverY, serverZ);
+        int ourOrientation = rotationConverter.serverToOurs(serverOrientation);
+    }
+
+    public void receiveBuildFromServer(){
+        int buildOption = moveData.getBuildOption();
+        int serverBuildOptionX = moveData.getBuildOptionX();
+        int serverBuildOptionY = moveData.getBuildOptionY();
+        int serverBuildOptionZ = moveData.getBuildOptionZ();
+        int[] hexCoordinates = coordinateConverter.serverToOurs(serverBuildOptionX, serverBuildOptionY, serverBuildOptionZ);
+    }
+
+    public void playingAI(){
+        //First move
+        //Place first Tile
+
+        if(!isFirstTilePlaced) {
+            makeFirstMove(islandMap);
+        }
+        else{
+            //place Tile
+            if (!canYouNuke(islandMap)) {
+                findLocationToPlaceTile(islandMap);
+            }
+
+            //build
+
+            if(!canATotoroBePlaced(islandMap, player)){
+                if(!findTheLargestSettlementLessThanFive(islandMap, player)){
+                    if(player.getPieces().getNumberOfMeeples() != 0)
+                        placeMeepleAnywhere(islandMap, player);
+
+                    else{
+                        System.out.println("Out of Meeple!");
+                        return;
+                    }
+                }
+                //Look for tile in talest level
+                //If level >= 3 place tiger
+                //else look if a totoro can be placed
+                //else place a meeple in your largest settlement <5
+
+            }
+        }
+    }
+
+    public Boolean placeMeepleAnywhere(IslandMap islandMap, Player player){
+        for(int i = activeHexIDs.size()-1; i>0; i--){
+            if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
+                if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex() == "") {
+                    if (islandMap.getHex(activeHexIDs.get(i)).getTerrain() != "Volcano") {
+                        placeMeeple(islandMap, player, activeHexIDs.get(i));
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public void build(){
+        int lastHexPlaced = activeHexIDs.get(activeHexIDs.size()-1);
+        int lastPlacedHexLevel = islandMap.getHex(lastHexPlaced).getLevel();
+        if(lastPlacedHexLevel >= 3){
+            //place tiger
+        }
+        else{
+            //int largestSettlementSizeLessThanFive = findTheLargestSettlementLessThanFive(settMap, islandMap, player)
+            //if(canATotoroBePlaced(islandMap, ))
+        }
+    }
+
     public boolean canYouNuke(IslandMap islandMap){
         int[] Tile = new int[3];
         String[] tileTerrains = new String[3];
@@ -106,38 +190,8 @@ public class AI {
         return false;
     }
 
-
-    public ArrayList<Integer> SettlementSmallerThanFive(Settlement settlements, IslandMap islandMap, Player player){
-
-        ArrayList<Integer> settlementHexIDs = new ArrayList<>();
-        ActiveSettlements = settlements.getListOfActiveSettlementIDs();
-
-
-
-        System.out.println("Active Settlements are " + ActiveSettlements);
-
-        for(int i = 0; i<ActiveSettlements.size(); i++){
-
-            if(settlements.getSettlementSize(ActiveSettlements.get(i)) < 5){
-
-                settlementHexIDs = settlements.getSettlementHexIDs(ActiveSettlements.get(i));
-                String playerColorOnHex = islandMap.getHex(settlementHexIDs.get(0)).getPlayerColorOnHex();
-                String playerPlayingColor = player.getPlayerColor();
-                System.out.println(playerColorOnHex + " vs " + playerPlayingColor);
-                System.out.println(playerColorOnHex == playerPlayingColor);
-
-                if(islandMap.getHex(settlementHexIDs.get(0)).getPlayerColorOnHex() == player.getPlayerColor()){
-                    settlementHexIDs = settlements.getSettlementHexIDs(ActiveSettlements.get(i));
-                    return settlementHexIDs;
-                }
-            }
-            settlementHexIDs = new ArrayList<>();
-        }
-        return settlementHexIDs;
-    }
-
-    public ArrayList<Integer> findTheLargestSettlementLessThanFive(Settlement settlements, IslandMap islandMap, Player player){
-
+    public Boolean findTheLargestSettlementLessThanFive(IslandMap islandMap, Player player){
+        Settlement settlements = islandMap.getSettlementObj();
         ArrayList<Integer> settlementHexIDs = new ArrayList<>();
         ActiveSettlements = settlements.getListOfActiveSettlementIDs();
         ArrayList<Integer> settlementHexIDsTemp = new ArrayList<>();
@@ -155,25 +209,37 @@ public class AI {
                 }
             }
         }
-        return settlementHexIDs;
+
+        ArrayList<Integer> availableHexIDs = new ArrayList<>();
+        for(int i = 0; i < settlementHexIDs.size(); i++){
+            availableHexIDs = lookAroundAHexForAnEmptySettlement(islandMap, settlementHexIDs.get(i));
+            if(!availableHexIDs.isEmpty()){
+                //place Meeple (extend)
+                //builder.build(player, islandMap,1, availableHexIDs.get(0));
+                return builder.extendForAI(settlementHexIDs.get(i), islandMap, player, islandMap.getHex(availableHexIDs.get(0)).getTerrain());
+                //return true;
+            }
+        }
+
+        return false;
     }
 
-    public Boolean canATotoroBePlaced(IslandMap islandMap, int settlementID, Player player ){
+    public Boolean canATotoroBePlaced(IslandMap islandMap, Player player ){
         Settlement settlements = islandMap.getSettlementObj();
         int maxSettlementHexID = 0;
         int minSettlementHexID = 4000;
         int[] maxMin = new int[2];
         ArrayList<Integer> settlementHexIDs = new ArrayList<>();
+        ArrayList<Integer> ActiveSettlementIDs = settlements.getListOfActiveSettlementIDs();
 
-        if(settlements.getSettlementSize(settlementID) >= 5){
-
-            if(settlements.doesNotHaveATotoro(settlementID, player)) {
-                settlementHexIDs = settlements.getSettlementHexIDs(settlementID);
-
+        for(int settlementID : ActiveSettlementIDs) {
+            if (settlements.getSettlementSize(settlementID) >= 5) {
+                if (settlements.doesNotHaveATotoro(settlementID, player)) {
+                    settlementHexIDs = settlements.getSettlementHexIDs(settlementID);
+                }
             }
         }
-        maxMin[0] = maxSettlementHexID;
-        maxMin[1] = minSettlementHexID;
+
         ArrayList<Integer> availableHexIDs = new ArrayList<>();
         for(int i = 0; i < settlementHexIDs.size(); i++){
             availableHexIDs = lookAroundAHexForAnEmptySettlement(islandMap, settlementHexIDs.get(i));
@@ -246,7 +312,7 @@ public class AI {
         }
     }
 
-    public int[] placeOurFirstTile(){
+    public int[] makeFirstMove(IslandMap islandMap){
         int[] toServer = new int[4];
         RotateTile rotateTile = new RotateTile(0,0);
 
@@ -256,6 +322,7 @@ public class AI {
             toServer = toSendToServer(19900, 60);
             volcanosOnMap.add(19900);
             rotateTile = new RotateTile(19900, 60);
+            placeMeeple(islandMap, player, 19901);
         }
         //Check left side
         else if(islandMap.addTileToMap(19898,240)){
@@ -263,8 +330,9 @@ public class AI {
             toSendToServer(19898, 240);
             volcanosOnMap.add(19898);
             rotateTile = new RotateTile(19898, 240);
+            placeMeeple(islandMap, player, 19897);
         }
-
+        isFirstTilePlaced = true;
         int[] Tile = rotateTile.checkPair();
         for(int i = 0; i<3; i++) {
             activeHexIDs.add(Tile[i]);
@@ -281,6 +349,8 @@ public class AI {
         for(int i = 0; i<3; i++) {
             activeHexIDs.add(Tile[i]);
         }
+
+        updateMaxAndMin();
 
         volcanosOnMap.add(volcanoHexID);
 
@@ -305,8 +375,19 @@ public class AI {
     public int[] findLocationToPlaceTile(IslandMap islandMap){
 
         //worst case scenario
-        return placeTile(islandMap, maxHexID + 1, 0);
-        //or you could do placeTile.(islandMap, minHexID - 1, 180);
+        if(maxMinTurn) {
+            maxMinTurn = !maxMinTurn;
+            return placeTile(islandMap, maxHexID + 1, 0);
+        }
+
+        else{
+            maxMinTurn = !maxMinTurn;
+            return placeTile(islandMap, minHexID - 1, 180);
+        }
+    }
+
+    public Boolean placeMeeple(IslandMap islandMap, Player player, int hexID){
+        return builder.build(player, islandMap, 1, hexID);
     }
     /*
     public void expandSettlement(HexGrid hexGrid, Player player){

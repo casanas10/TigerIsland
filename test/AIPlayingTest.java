@@ -11,11 +11,20 @@ public class AIPlayingTest {
     public void placeFirstTileTest(){
         //game.gameRunning();
         System.out.println(1);
-        int[] toServer = ai.placeOurFirstTile();
+        int[] toServer = ai.makeFirstMove(game.getIslandMap());
 
 
         for(int value : toServer)
             System.out.print(value + " ");
+
+    }
+
+    @Test
+    public void testGamePlaying(){
+
+        while(true){
+            ai.playingAI();
+        }
 
     }
 }

@@ -72,35 +72,9 @@ public class AITesting {
 
         ArrayList<Integer> playerSettlement = islandMap.getPlayerSettlement(bPlayer);
 
-        ArrayList<Integer> settlementHexIDs = ai.findTheLargestSettlementLessThanFive(settlement, islandMap, player);
-
-        System.out.println(settlementHexIDs);
+        ai.findTheLargestSettlementLessThanFive(islandMap, player);
     }
 
-    @Test
-    public void lessThanFiveSettlementHexIDs(){
-        Player bPlayer = new Player("Black", 0);
-        HexGrid hexGrid = new HexGrid();
-
-        hexGrid.generateHexGrid();
-
-        Settlement settlement = islandMap.getSettlementObj();
-
-        Builder builder = new Builder();
-
-        builder.build(player, islandMap, 1, 806); //807 from 606
-
-        islandMap.addTileToMap(608, 0);
-        builder.build(bPlayer, islandMap, 1, 807);
-        builder.build(bPlayer, islandMap, 1, 808);
-        builder.build(bPlayer, islandMap, 1, 809);
-
-        ArrayList<Integer> playerSettlement = islandMap.getPlayerSettlement(bPlayer);
-
-        ArrayList<Integer> settlementHexIDs = ai.SettlementSmallerThanFive(settlement, islandMap, player);
-
-        System.out.println(settlementHexIDs);
-    }
 
     @Test
     public void lookAroundAHexForAnEmptySettlementTest(){
@@ -152,7 +126,7 @@ public class AITesting {
         builder.build(bPlayer, islandMap, 1, 810);
 
         islandMap.addTileToMap(612, 0);
-        System.out.println(ai.canATotoroBePlaced(islandMap, settlement.getSettlementID(807), bPlayer));
+        System.out.println(ai.canATotoroBePlaced(islandMap,bPlayer));
 
     }
 

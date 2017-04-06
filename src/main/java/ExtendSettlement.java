@@ -46,22 +46,10 @@ public class ExtendSettlement {
     }
 
     private void findExtensions(int hexID){
-        Hex hex;
-        hex = islandMap.getHex(hexID);
-        String terrain = hex.getTerrain();
-
-        if(terrain == "Lake"){
-            goToTerrain(hexID,terrain);
-        }
-        if(terrain == "Grassland"){
-            goToTerrain(hexID,terrain);
-        }
-        if(terrain == "Rocky"){
-            goToTerrain(hexID,terrain);
-        }
-        if(terrain == "Jungle"){
-            goToTerrain(hexID,terrain);
-        }
+        goToTerrain(hexID,"Lake");
+        goToTerrain(hexID,"Grassland");
+        goToTerrain(hexID,"Rocky");
+        goToTerrain(hexID,"Jungle");
     }
 
     private void goToTerrain(int hexID, String terrain){
