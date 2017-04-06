@@ -4,6 +4,8 @@
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/AI.java" afterPath="$PROJECT_DIR$/src/main/java/AI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Builder.java" afterPath="$PROJECT_DIR$/src/main/java/Builder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Settlement.java" afterPath="$PROJECT_DIR$/src/main/java/Settlement.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -16,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/TigerIsland$AIPlayingTest_testGamePlaying.coverage" NAME="AIPlayingTest.testGamePlaying Coverage Results" MODIFIED="1491439406768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TigerIsland$AIPlayingTest_testGamePlaying.coverage" NAME="AIPlayingTest.testGamePlaying Coverage Results" MODIFIED="1491452211270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TigerIsland$Main.coverage" NAME="Main Coverage Results" MODIFIED="1490397715166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -28,11 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ExtendSettlement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ExtendSettlement.java">
+      <file leaf-file-name="AIPlayingTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/AIPlayingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="449" column="1" lean-forward="false" selection-start-line="449" selection-start-column="1" selection-end-line="449" selection-end-column="1" />
+            <state relative-caret-position="550">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2090">
+              <caret line="111" column="81" lean-forward="false" selection-start-line="108" selection-start-column="19" selection-end-line="111" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -41,18 +53,23 @@
       <file leaf-file-name="Hex.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Hex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="880">
               <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-              <folding />
+              <folding>
+                <element signature="e#1207#1208#0" expanded="true" />
+                <element signature="e#1240#1241#0" expanded="true" />
+                <element signature="e#1453#1454#0" expanded="true" />
+                <element signature="e#1492#1493#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AIPlayingTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/AIPlayingTest.java">
+      <file leaf-file-name="Builder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="1188">
+              <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -61,29 +78,22 @@
       <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="216" column="32" lean-forward="false" selection-start-line="216" selection-start-column="26" selection-end-line="216" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReflectiveCallable.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Builder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="6226">
+              <caret line="300" column="1" lean-forward="false" selection-start-line="300" selection-start-column="1" selection-end-line="300" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#8123#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1022#1023#0" expanded="true" />
+                <element signature="e#1083#1084#0" expanded="true" />
+                <element signature="e#1154#1155#0" expanded="true" />
+                <element signature="e#1208#1209#0" expanded="true" />
+                <element signature="e#1273#1274#0" expanded="true" />
+                <element signature="e#1321#1322#0" expanded="true" />
+                <element signature="e#1391#1392#0" expanded="true" />
+                <element signature="e#1427#1428#0" expanded="true" />
+                <element signature="e#5653#5654#0" expanded="true" />
+                <element signature="e#5689#5690#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,12 +101,27 @@
       <file leaf-file-name="IslandMap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/IslandMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+            <state relative-caret-position="792">
+              <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="22" />
               <folding>
+                <element signature="e#4693#4694#0" expanded="true" />
                 <element signature="e#4742#4743#0" expanded="true" />
                 <element signature="e#4908#4909#0" expanded="true" />
                 <element signature="e#4941#4942#0" expanded="true" />
+                <element signature="e#5026#5027#0" expanded="true" />
+                <element signature="e#5056#5057#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HexGrid.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HexGrid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="814">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding>
+                <element signature="e#1077#1078#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,18 +130,14 @@
       <file leaf-file-name="AI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="62" column="88" lean-forward="false" selection-start-line="62" selection-start-column="88" selection-end-line="62" selection-end-column="88" />
+            <state relative-caret-position="330">
+              <caret line="84" column="69" lean-forward="false" selection-start-line="84" selection-start-column="69" selection-end-line="84" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#receiveBuildFromServer#0;class#AI#0" expanded="false" />
-                <element signature="method#placeMeepleAnywhere#0;class#AI#0" expanded="false" />
                 <element signature="method#build#0;class#AI#0" expanded="false" />
-                <element signature="method#findTheLargestSettlementLessThanFive#0;class#AI#0" expanded="false" />
-                <element signature="method#nuking#0;class#AI#0" expanded="false" />
-                <element signature="method#updateMaxAndMin#0;class#AI#0" expanded="false" />
-                <element signature="method#makeFirstMove#0;class#AI#0" expanded="false" />
-                <element signature="method#placeTile#0;class#AI#0" expanded="false" />
+                <element signature="method#canYouNuke#0;class#AI#0" expanded="false" />
+                <element signature="method#canATotoroBePlaced#0;class#AI#0" expanded="false" />
                 <element signature="method#toSendToServer#0;class#AI#0" expanded="false" />
                 <element signature="method#findLocationToPlaceTile#0;class#AI#0" expanded="false" />
                 <element signature="method#getAllPossibleTilePlacementPosition#0;class#AI#0" expanded="false" />
@@ -126,32 +147,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Nuking.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Nuking.java">
+      <file leaf-file-name="ReflectiveCallable.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+            <state relative-caret-position="308">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlacementValidity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/PlacementValidity.java">
+      <file leaf-file-name="ParentRunner.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-              <folding>
-                <element signature="method#checkIfHexesCanBePlaced#0;class#PlacementValidity#0" expanded="false" />
-                <element signature="method#searchTheSixAdjacentHexes#0;class#PlacementValidity#0" expanded="false" />
-                <element signature="method#findNE#0;class#PlacementValidity#0" expanded="false" />
-                <element signature="method#findNW#0;class#PlacementValidity#0" expanded="false" />
-                <element signature="method#findW#0;class#PlacementValidity#0" expanded="false" />
-                <element signature="method#findSW#0;class#PlacementValidity#0" expanded="false" />
-                <element signature="method#findSE#0;class#PlacementValidity#0" expanded="false" />
-                <element signature="method#findE#0;class#PlacementValidity#0" expanded="false" />
-                <element signature="method#SearchAdjacentTiles#0;class#PlacementValidity#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="3278">
+              <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -168,15 +179,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>terrain</find>
-      <find>toto</find>
-      <find>place</find>
-      <find>canyou</find>
-      <find>Our</find>
-      <find>placeOurFirstTile</find>
-      <find>findLoca</find>
-      <find>placeFirs</find>
-      <find>placeOur</find>
       <find>max</find>
       <find>placeTile</find>
       <find>placeour</find>
@@ -185,19 +187,28 @@
       <find>loo</find>
       <find>terrainto</find>
       <find>extend</find>
-      <find>looka</find>
       <find>activehexids</find>
       <find>activehexids.add</find>
-      <find>placetile</find>
       <find>firstm</find>
       <find>placemee</find>
       <find>placetil</find>
       <find>placemeeplea</find>
-      <find>tiger</find>
-      <find>totoro</find>
       <find>lookaro</find>
       <find>canYou</find>
       <find>nuke</find>
+      <find>canyou</find>
+      <find>totoro</find>
+      <find>ti</find>
+      <find>nuking</find>
+      <find>lookaround</find>
+      <find>nu</find>
+      <find>looka</find>
+      <find>gameru</find>
+      <find>placeFirst</find>
+      <find>addse</find>
+      <find>tiger</find>
+      <find>exte</find>
+      <find>placetile</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java</dir>
@@ -243,7 +254,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Hex.java" />
         <option value="$PROJECT_DIR$/src/main/java/IslandMap.java" />
         <option value="$PROJECT_DIR$/test/ExtendTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
         <option value="$PROJECT_DIR$/test/BuilderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/CoordinateConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/RotationConverter.java" />
@@ -256,6 +266,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Game.java" />
         <option value="$PROJECT_DIR$/test/AITesting.java" />
         <option value="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
         <option value="$PROJECT_DIR$/src/main/java/Builder.java" />
         <option value="$PROJECT_DIR$/src/main/java/AI.java" />
       </list>
@@ -285,6 +296,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -375,8 +388,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -925,38 +936,45 @@
       <option name="project" value="LOCAL" />
       <updated>1491438398561</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Refactored AI by adding toSendToServer which calculates the coordinated and orientation in int[4] form.">
+      <created>1491440776691</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1491440776692</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.05 at 20h 21m 52s.xml">
+    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.06 at 17h 22m 34s.xml">
       <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.05 at 20h 43m 30s.xml">
+    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.06 at 17h 27m 31s.xml">
       <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.05 at 20h 43m 58s.xml">
+    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.06 at 17h 36m 51s.xml">
       <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.05 at 20h 46m 46s.xml">
+    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.06 at 17h 38m 22s.xml">
       <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.05 at 20h 52m 55s.xml">
+    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.06 at 17h 42m 16s.xml">
       <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.05 at 20h 53m 01s.xml">
+    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.06 at 17h 44m 41s.xml">
       <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.05 at 20h 59m 09s.xml">
+    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.06 at 17h 46m 17s.xml">
       <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.05 at 20h 59m 15s.xml">
+    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.06 at 17h 50m 05s.xml">
       <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.05 at 20h 59m 21s.xml">
+    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.06 at 17h 53m 41s.xml">
       <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.05 at 20h 59m 59s.xml">
+    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.06 at 17h 53m 48s.xml">
       <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -967,31 +985,31 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32705882" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.505625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.494375" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3164706" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.91764706" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13909775" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14124598" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25349087" sideWeight="0.49529412" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5047059" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78705883" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24235295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32705882" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08888889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1009,18 +1027,18 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25349087" sideWeight="0.49529412" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31882352" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24705882" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32705882" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32705882" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.494375" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5035294" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13909775" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.9152941" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28777778" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08888889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5047059" order="6" side_tool="true" content_ui="tabs" />
@@ -1062,10 +1080,10 @@
           <url>file://$PROJECT_DIR$/test/AIPlayingTest.java</url>
           <line>25</line>
           <properties />
-          <option name="timeStamp" value="27" />
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="35" />
+      <option name="time" value="39" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1074,6 +1092,8 @@
         <watch expression="islandMap.getSettlementObj().getListOfActiveSettlementIDs()" language="JAVA" />
         <watch expression="islandMap.getHex(availableHexIDs.get(0)).getTerrain()" language="JAVA" />
         <watch expression="availableHexIDs.get(0)" language="JAVA" />
+        <watch expression="maxHexID" language="JAVA" />
+        <watch expression="minHexID" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -1082,27 +1102,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/GameTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/PlacementTileStep.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="62" column="53" lean-forward="false" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/placement.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/GameStep.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1114,7 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1129,7 +1127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1137,10 +1134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding>
-            <element signature="e#476#477#0" expanded="false" />
-            <element signature="e#526#527#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1148,7 +1141,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
           <caret line="77" column="9" lean-forward="false" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,7 +1148,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1193,7 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="21" column="70" lean-forward="false" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1201,7 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
           <caret line="103" column="8" lean-forward="true" selection-start-line="103" selection-start-column="8" selection-end-line="107" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1210,16 +1199,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding>
-            <element signature="e#310#311#0" expanded="false" />
-            <element signature="e#349#350#0" expanded="false" />
-            <element signature="e#385#386#0" expanded="false" />
-            <element signature="e#419#420#0" expanded="false" />
-            <element signature="e#469#470#0" expanded="false" />
-            <element signature="e#511#512#0" expanded="false" />
-            <element signature="e#546#547#0" expanded="false" />
-            <element signature="e#578#579#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1249,9 +1228,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#2249#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1259,7 +1235,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
           <caret line="40" column="36" lean-forward="false" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,12 +1242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#1730#1739#0" expanded="false" />
-            <element signature="e#2287#2296#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1280,7 +1249,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
           <caret line="19" column="53" lean-forward="false" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1288,9 +1256,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6409">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1298,7 +1263,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1306,7 +1270,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1314,18 +1277,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="581">
           <caret line="76" column="5" lean-forward="false" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="56" column="62" lean-forward="false" selection-start-line="56" selection-start-column="62" selection-end-line="56" selection-end-column="62" />
-          <folding>
-            <element signature="e#1460#1461#0" expanded="false" />
-            <element signature="e#1529#1530#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1333,27 +1284,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="553">
           <caret line="37" column="1" lean-forward="false" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HexGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#267#281#0" expanded="false" />
-            <element signature="e#1077#1078#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RotateTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1361,7 +1291,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
           <caret line="120" column="23" lean-forward="false" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1369,44 +1298,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2552">
           <caret line="116" column="1" lean-forward="false" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
-          <folding>
-            <element signature="e#1583#1584#0" expanded="false" />
-            <element signature="e#1620#1621#0" expanded="false" />
-            <element signature="e#1677#1678#0" expanded="false" />
-            <element signature="e#1729#1730#0" expanded="false" />
-            <element signature="e#1767#1768#0" expanded="false" />
-            <element signature="e#1804#1805#0" expanded="false" />
-            <element signature="e#1861#1862#0" expanded="false" />
-            <element signature="e#1913#1914#0" expanded="false" />
-            <element signature="e#1951#1952#0" expanded="false" />
-            <element signature="e#1988#1989#0" expanded="false" />
-            <element signature="e#2045#2046#0" expanded="false" />
-            <element signature="e#2097#2098#0" expanded="false" />
-            <element signature="e#2132#2133#0" expanded="false" />
-            <element signature="e#2166#2167#0" expanded="false" />
-            <element signature="e#2217#2218#0" expanded="false" />
-            <element signature="e#2263#2264#0" expanded="false" />
-            <element signature="e#2298#2299#0" expanded="false" />
-            <element signature="e#2332#2333#0" expanded="false" />
-            <element signature="e#2383#2384#0" expanded="false" />
-            <element signature="e#2429#2430#0" expanded="false" />
-            <element signature="e#2465#2466#0" expanded="false" />
-            <element signature="e#2500#2501#0" expanded="false" />
-            <element signature="e#2553#2554#0" expanded="false" />
-            <element signature="e#2601#2602#0" expanded="false" />
-            <element signature="e#2637#2638#0" expanded="false" />
-            <element signature="e#2672#2673#0" expanded="false" />
-            <element signature="e#2725#2726#0" expanded="false" />
-            <element signature="e#2773#2774#0" expanded="false" />
-            <element signature="e#2809#2810#0" expanded="false" />
-            <element signature="e#2844#2845#0" expanded="false" />
-            <element signature="e#2897#2898#0" expanded="false" />
-            <element signature="e#2945#2946#0" expanded="false" />
-            <element signature="e#2985#2986#0" expanded="false" />
-            <element signature="e#3021#3022#0" expanded="false" />
-            <element signature="e#3079#3080#0" expanded="false" />
-            <element signature="e#3129#3130#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1414,7 +1305,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1422,7 +1312,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="880">
           <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1430,57 +1319,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="112" column="56" lean-forward="true" selection-start-line="112" selection-start-column="56" selection-end-line="112" selection-end-column="56" />
-          <folding>
-            <element signature="e#1583#1584#0" expanded="false" />
-            <element signature="e#1620#1621#0" expanded="false" />
-            <element signature="e#1677#1678#0" expanded="false" />
-            <element signature="e#1729#1730#0" expanded="false" />
-            <element signature="e#1767#1768#0" expanded="false" />
-            <element signature="e#1804#1805#0" expanded="false" />
-            <element signature="e#1861#1862#0" expanded="false" />
-            <element signature="e#1913#1914#0" expanded="false" />
-            <element signature="e#1951#1952#0" expanded="false" />
-            <element signature="e#1988#1989#0" expanded="false" />
-            <element signature="e#2045#2046#0" expanded="false" />
-            <element signature="e#2097#2098#0" expanded="false" />
-            <element signature="e#2132#2133#0" expanded="false" />
-            <element signature="e#2166#2167#0" expanded="false" />
-            <element signature="e#2217#2218#0" expanded="false" />
-            <element signature="e#2263#2264#0" expanded="false" />
-            <element signature="e#2298#2299#0" expanded="false" />
-            <element signature="e#2332#2333#0" expanded="false" />
-            <element signature="e#2383#2384#0" expanded="false" />
-            <element signature="e#2429#2430#0" expanded="false" />
-            <element signature="e#2465#2466#0" expanded="false" />
-            <element signature="e#2500#2501#0" expanded="false" />
-            <element signature="e#2553#2554#0" expanded="false" />
-            <element signature="e#2601#2602#0" expanded="false" />
-            <element signature="e#2637#2638#0" expanded="false" />
-            <element signature="e#2672#2673#0" expanded="false" />
-            <element signature="e#2725#2726#0" expanded="false" />
-            <element signature="e#2773#2774#0" expanded="false" />
-            <element signature="e#2809#2810#0" expanded="false" />
-            <element signature="e#2844#2845#0" expanded="false" />
-            <element signature="e#2897#2898#0" expanded="false" />
-            <element signature="e#2945#2946#0" expanded="false" />
-            <element signature="e#2985#2986#0" expanded="false" />
-            <element signature="e#3021#3022#0" expanded="false" />
-            <element signature="e#3129#3130#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="141" column="88" lean-forward="false" selection-start-line="141" selection-start-column="88" selection-end-line="141" selection-end-column="88" />
-          <folding>
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#1455#1463#0" expanded="true" />
-            <element signature="e#4850#4851#0" expanded="true" />
-            <element signature="e#4882#4883#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1496,106 +1334,164 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/IslandMap.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ExtendSettlement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        <state relative-caret-position="422">
+          <caret line="449" column="1" lean-forward="false" selection-start-line="449" selection-start-column="1" selection-end-line="449" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runner/JUnitCore.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PlacementValidity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="319" column="0" lean-forward="false" selection-start-line="319" selection-start-column="0" selection-end-line="319" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Nuking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2706">
+          <caret line="129" column="48" lean-forward="false" selection-start-line="129" selection-start-column="46" selection-end-line="129" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/RotateTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HexGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#4742#4743#0" expanded="true" />
-            <element signature="e#4908#4909#0" expanded="true" />
-            <element signature="e#4941#4942#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Hex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="880">
           <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ExtendSettlement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="449" column="1" lean-forward="false" selection-start-line="449" selection-start-column="1" selection-end-line="449" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1207#1208#0" expanded="true" />
+            <element signature="e#1240#1241#0" expanded="true" />
+            <element signature="e#1453#1454#0" expanded="true" />
+            <element signature="e#1492#1493#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
+        <state relative-caret-position="308">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PlacementValidity.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        <state relative-caret-position="3278">
+          <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2090">
+          <caret line="111" column="81" lean-forward="false" selection-start-line="108" selection-start-column="19" selection-end-line="111" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/IslandMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="22" />
           <folding>
-            <element signature="method#checkIfHexesCanBePlaced#0;class#PlacementValidity#0" expanded="false" />
-            <element signature="method#searchTheSixAdjacentHexes#0;class#PlacementValidity#0" expanded="false" />
-            <element signature="method#findNE#0;class#PlacementValidity#0" expanded="false" />
-            <element signature="method#findNW#0;class#PlacementValidity#0" expanded="false" />
-            <element signature="method#findW#0;class#PlacementValidity#0" expanded="false" />
-            <element signature="method#findSW#0;class#PlacementValidity#0" expanded="false" />
-            <element signature="method#findSE#0;class#PlacementValidity#0" expanded="false" />
-            <element signature="method#findE#0;class#PlacementValidity#0" expanded="false" />
-            <element signature="method#SearchAdjacentTiles#0;class#PlacementValidity#0" expanded="false" />
+            <element signature="e#4693#4694#0" expanded="true" />
+            <element signature="e#4742#4743#0" expanded="true" />
+            <element signature="e#4908#4909#0" expanded="true" />
+            <element signature="e#4941#4942#0" expanded="true" />
+            <element signature="e#5026#5027#0" expanded="true" />
+            <element signature="e#5056#5057#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="216" column="32" lean-forward="false" selection-start-line="216" selection-start-column="26" selection-end-line="216" selection-end-column="32" />
+        <state relative-caret-position="6226">
+          <caret line="300" column="1" lean-forward="false" selection-start-line="300" selection-start-column="1" selection-end-line="300" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#8123#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1022#1023#0" expanded="true" />
+            <element signature="e#1083#1084#0" expanded="true" />
+            <element signature="e#1154#1155#0" expanded="true" />
+            <element signature="e#1208#1209#0" expanded="true" />
+            <element signature="e#1273#1274#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#5653#5654#0" expanded="true" />
+            <element signature="e#5689#5690#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/AIPlayingTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
+        <state relative-caret-position="550">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Nuking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="62" column="88" lean-forward="false" selection-start-line="62" selection-start-column="88" selection-end-line="62" selection-end-column="88" />
+        <state relative-caret-position="330">
+          <caret line="84" column="69" lean-forward="false" selection-start-line="84" selection-start-column="69" selection-end-line="84" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#receiveBuildFromServer#0;class#AI#0" expanded="false" />
-            <element signature="method#placeMeepleAnywhere#0;class#AI#0" expanded="false" />
             <element signature="method#build#0;class#AI#0" expanded="false" />
-            <element signature="method#findTheLargestSettlementLessThanFive#0;class#AI#0" expanded="false" />
-            <element signature="method#nuking#0;class#AI#0" expanded="false" />
-            <element signature="method#updateMaxAndMin#0;class#AI#0" expanded="false" />
-            <element signature="method#makeFirstMove#0;class#AI#0" expanded="false" />
-            <element signature="method#placeTile#0;class#AI#0" expanded="false" />
+            <element signature="method#canYouNuke#0;class#AI#0" expanded="false" />
+            <element signature="method#canATotoroBePlaced#0;class#AI#0" expanded="false" />
             <element signature="method#toSendToServer#0;class#AI#0" expanded="false" />
             <element signature="method#findLocationToPlaceTile#0;class#AI#0" expanded="false" />
             <element signature="method#getAllPossibleTilePlacementPosition#0;class#AI#0" expanded="false" />

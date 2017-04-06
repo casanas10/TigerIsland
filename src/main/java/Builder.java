@@ -34,6 +34,8 @@ public class Builder {
             currentHex.addGamePieceToHex(piece);                  // Place the piece on the current hex
             settlement.addSettlement(hexID, player);
             updateScore(player, piece, currentHex.getLevel());    // Update player score with 1 point
+
+            settlement.printAllSettlements();
             return true;
         }
         else{
@@ -48,7 +50,9 @@ public class Builder {
         }
         else {
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
-            return extend.extendOnTerrain(terrain);
+            boolean extensionSuccessful = extend.extendOnTerrain(terrain);
+            islandMap.getSettlementObj().printAllSettlements();
+            return extensionSuccessful;
         }
     }
 
