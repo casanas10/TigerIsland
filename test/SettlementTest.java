@@ -61,20 +61,14 @@ public class SettlementTest {
 
         Settlement settlement = new Settlement(hexGrid);
 
-        settlement.addSettlement(402,player);
-        settlement.addSettlement(602,player);
+        settlement.addSettlement(3014,player);
+        settlement.addSettlement(2815,player);
+        settlement.addSettlement(3012,player);
+        settlement.addSettlement(3013,player);
 
-        settlement.addSettlement(604,player);
+        settlement.printAllSettlements();
 
-        settlement.addSettlement(603,player);
-
-        settlement.addSettlement(850,player);
-        settlement.addSettlement(205,player);
-        settlement.addSettlement(405,player);
-
-        //settlement.printAllSettlements();
-
-        Assert.assertTrue(settlement.isPiecePartOfASettlement(2,405));
+        //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,3014));
     }
 
     @Test
@@ -146,25 +140,57 @@ public class SettlementTest {
         islandMap.getHex(3216).setTerrain("Jungle");
         islandMap.getHex(3217).setTerrain("Rocky");
         builder.build(player, islandMap, 1, 2815);
-        islandMap.printTilesOnMap();
+
         islandMap.getSettlementObj().printAllSettlements();
 
         islandMap.addTileToMap(2616,0);
         islandMap.getHex(2816).setTerrain("Lake");
         islandMap.getHex(2817).setTerrain("Lake");
         builder.extend(2815,islandMap,player,"Lake");
-        islandMap.printTilesOnMap();
+
+        islandMap.getSettlementObj().printAllSettlements();
+
+        islandMap.addTileToMap(2813, 0, islandMap.getNewTile(), player);
+        islandMap.getHex(3012).setTerrain("Jungle");
+        islandMap.getHex(3013).setTerrain("Jungle");
+        builder.build(player, islandMap, 1, 2814);
+        Hex currentHex = islandMap.getHex(2814);
+        System.out.println(currentHex.getTerrain());
+
+        islandMap.getSettlementObj().printAllSettlements();
+        builder.extend(2815,islandMap,player,"Jungle");
+
+        islandMap.getSettlementObj().printAllSettlements();
+
+
+        islandMap.addTileToMap(2418, 0, islandMap.getNewTile(), player);
+        islandMap.getHex(2617).setTerrain("Lake");
+        islandMap.getHex(2618).setTerrain("Rocky");
+        builder.build(player, islandMap, 1, 2617);
+
         islandMap.getSettlementObj().printAllSettlements();
 
         //Nuke
         islandMap.addTileToMap(3016, 180, islandMap.getNewTile(), player);
         islandMap.getHex(2816).setTerrain("Lake");
-        islandMap.getHex(2817).setTerrain("Jungle");
+        islandMap.getHex(2817).setTerrain("Rocky");
 
-        islandMap.printTilesOnMap();
+//        builder.extend(2617,islandMap,player,"Rocky");
+
+        Hex hex = islandMap.getHex(2617);
+        System.out.println(hex.getSettlementID());
+
+
         islandMap.getSettlementObj().printAllSettlements();
 
-        Hex currentHex = islandMap.getHex(410);
+        //Nuke
+//        islandMap.addTileToMap(3014, 240, islandMap.getNewTile(), player);
+//        islandMap.getHex(2814).setTerrain("Rocky");
+//        islandMap.getHex(3013).setTerrain("Grassland");
+//
+//        islandMap.getSettlementObj().printAllSettlements();
+
+        //Hex currentHex = islandMap.getHex(410);
         //Assert.assertEquals("No game piece on hex", currentHex.getPieceOnHex());
 
     }

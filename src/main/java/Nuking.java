@@ -132,6 +132,7 @@ public class Nuking {
                 hexGrid.getHexValue(hexIDS[i]).removeGamePiecesFromMap();
                 hexGrid.getHexValue(hexIDS[i]).setSettlementID(-1);
                 hexGrid.getHexValue(hexIDS[i]).setTileID(nextTile);
+                hexGrid.getHexValue(hexIDS[i]).resetPlayerColorOnHex();
             }
 
         }
