@@ -71,47 +71,6 @@ public class Settlement {
 
     }
 
-//    public void updateSettlementAfterNuke(ArrayList<Integer> hexes, Player player){
-//
-//        int hexID = 0;
-//
-//        for (int index = 0; index < hexes.size(); index++ ){
-//
-//            ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexes.get(index)));
-//
-//            ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
-//
-//            for (int i = 0; i < adjacentHexes.size(); i++){
-//
-//                if (hexGrid.getHexValue(adjacentHexes.get(i)).getSettlementID() != - 1 ){
-//
-//                    hexID = adjacentHexes.get(i);
-//
-//                    if (isPieceAlreadyOnASettlement(hexID)){
-//                        int settID = getSettlementID(hexID);
-//                        settlementMap.remove(settID);
-//
-//                        NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
-//
-//                        for (int j = 0; j < NewHexIDs.size(); j++){
-//                            setSettlementID(NewHexIDs.get(j),settID);
-//                        }
-//
-//                        settlementMap.put(settleID,NewHexIDs);
-//
-//                    } else {
-//
-//                        NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
-//                        settlementMap.put(settleID, NewHexIDs);
-//
-//                    }
-//                    settleID++;
-//                }
-//
-//            }
-//        }
-//    }
-
     public void addSettlement(int hexID, Player player){
 
         Hex hex = hexGrid.getHexValue(hexID);
@@ -130,69 +89,7 @@ public class Settlement {
             }
         }
 
-        //removeDuplicateSettlements();
     }
-
-    private void removeDuplicateSettlements() {
-
-        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlementMap.entrySet().iterator();
-        while(iterator.hasNext()){
-            Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
-
-            ArrayList<Integer> hexes = entry.getValue();
-
-            for (int i = 0; i < hexes.size(); i++){
-
-                System.out.println(hexes.get(i));
-
-            }
-        }
-
-    }
-
-
-//    public void addPieceToAnExistingSettlement(int hexID, Player player) {
-//
-//        ArrayList<Integer> hexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexID));
-//
-//        ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
-//
-//        for(int i = 0; i < hexes.size(); i++){
-//
-//            if(hexGrid.getHexValue(hexes.get(i)).getSettlementID() != - 1){
-//
-//                //System.out.println(hexes.get(i));
-//
-//                int settID = getSettlementID(hexes.get(i));
-//
-//                settlementMap.remove(settID);
-//
-//                NewHexIDs.add(hexes.get(i));
-//
-//            }
-//        }
-//
-//////            if(hexGrid.getHexValue(hexes.get(i)).getSettlementID() != - 1){
-//////
-//////                settID = getSettlementID(hexes.get(i));
-//////                setIDPlaceHolder.add(settID);
-//////            }
-////        }
-////
-//
-//        for (int i = 0; i < NewHexIDs.size(); i++) {
-//
-//
-//                ArrayList<Integer> hexesArr = settlementSizeChecker.checkSettlementSize(NewHexIDs.get(i), player);
-//
-//                setSettlementID(NewHexIDs.get(i), settleID);
-//
-//                settlementMap.put(settleID, hexesArr);
-//
-//                settleID++;
-//
-//        }
-//    }
 
     public void addPieceToAnExistingSettlement(int hexID, Player player) {
 
@@ -252,26 +149,6 @@ public class Settlement {
             if (HexIDs.contains(hexID)){
                 return true;
             }
-        }
-
-        return false;
-    }
-
-    public boolean isPieceAlreadyOnASettlement(int hexID) {
-
-        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlementMap.entrySet().iterator();
-        while(iterator.hasNext()){
-            Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
-
-            ArrayList<Integer> listHexes = entry.getValue();
-
-            for (int i = 0; i < listHexes.size(); i++){
-
-                if (listHexes.get(i) == hexID){
-                    return true;
-                }
-            }
-
         }
 
         return false;

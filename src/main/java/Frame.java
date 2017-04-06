@@ -29,6 +29,7 @@ public class Frame extends JFrame {
     private IslandMap islandMap = new IslandMap();
     Builder builder = new Builder();
 
+    private AI ai = new AI(game, islandMap);
 
     boolean tileSuccessfullyPlaced = false;
 
@@ -40,8 +41,8 @@ public class Frame extends JFrame {
 
     private void playGame() {
 
-        Player ai = black;
-        Player server = white;
+        Player aiPlayer = black;
+        Player serverPlayer = white;
 
         //PLACE STARTING TILE
         CoordinateSystem coors = new CoordinateSystem();
@@ -87,7 +88,10 @@ public class Frame extends JFrame {
             public void mouseClicked(MouseEvent e) {
 
                 if (aiTurn){
+
                     System.out.println("AI TURN");
+
+
                 } else {
 
                     int hexID = -1;
@@ -101,7 +105,6 @@ public class Frame extends JFrame {
                     for (int i =0; i < newTile.length; i++){
                         terrainsStr += newTile[i] + " ";
                     }
-
 
                     JTextField hexField = new JTextField(5);
                     JTextField orientationField = new JTextField(5);
@@ -123,7 +126,6 @@ public class Frame extends JFrame {
                         tileSuccessfullyPlaced = islandMap.addTileToMap(hexID, orientation, newTile, getActivePlayer());
                     }
 
-
                     if (tileSuccessfullyPlaced){
 
                         RotateTile tile = new RotateTile(hexID,orientation);
@@ -139,6 +141,10 @@ public class Frame extends JFrame {
                         paintHexOnGrid(hex1.getX(), hex1.getY(), islandMap.getHexGrid().getHexValue(hexes[0]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
                         paintHexOnGrid(hex2.getX(), hex2.getY(), islandMap.getHexGrid().getHexValue(hexes[1]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
                         paintHexOnGrid(hex3.getX(), hex3.getY(), islandMap.getHexGrid().getHexValue(hexes[2]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
+
+//                        removePieceFromHex(hex1.getX(), hex1.getY());
+//                        removePieceFromHex(hex2.getX(), hex2.getY());
+//                        removePieceFromHex(hex3.getX(), hex3.getY());
 
                         JTextField hexField2 = new JTextField(5);
                         JTextField buildOptionField = new JTextField(5);
@@ -287,7 +293,7 @@ public class Frame extends JFrame {
             g2.setStroke(new BasicStroke(2));
         } else if (level == 2){
             g2.setStroke(new BasicStroke(4));
-        } else if (level == 4){
+        } else if (level == 3){
             g2.setStroke(new BasicStroke(6));
         } else {
             g2.setStroke(new BasicStroke(2));
@@ -330,10 +336,31 @@ public class Frame extends JFrame {
         view.repaint();
     }
 
+    public void removePieceFromHex(int x, int y){
+        Graphics g = image.getGraphics();
+
+        if (y%2 == 0){
+
+            x = x * 30 + 30 - 8;
+            y = y * 25 + 25 - 8;
+
+        } else {
+            x = x * 30 + 30 + 15 - 8;
+            y = y * 25 + 25 - 8;
+        }
+
+        g.setColor(Color.orange);
+
+
+        g.fillOval(x, y, 4, 4);
+        g.drawOval(x, y, 4, 4);
+
+        g.dispose();
+        view.repaint();
+    }
 
     public void addNewElement(int x,int y, int buildOption) {
         Graphics g = image.getGraphics();
-
 
         if (y%2 == 0){
 
@@ -352,7 +379,6 @@ public class Frame extends JFrame {
         } else if (buildOption == 4){
             drawTiger(x,y,g);
         }
-
 
         g.dispose();
         view.repaint();
