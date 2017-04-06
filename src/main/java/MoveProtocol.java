@@ -49,6 +49,62 @@ public class MoveProtocol {
         }
     }
 
+    private MoveData getTile(String tile, String currentGID) {
+        tile = tile.replaceAll("[+]"," ");
+        String givenTerrains[] = tile.split(" ");
+        String terrainsArray[] = {"Volcano",givenTerrains[0],givenTerrains[1]};
+
+        if(currentGID == MatchProtocol.gid1){
+            //AI1 gets terrains
+            //MoveData moveData = AI1.makeMove(terrainsArray);
+        }
+        else{
+            //AI2 gets terrains
+            //MoveData moveData = AI2.makeMove(terrainsArray);
+        }
+
+        return null;
+    }
+
+    private String constructMoveString(MoveData moveData, int moveNumber, String tile){
+        String moveString = "";
+
+        switch(moveData.getBuildOption()){
+            case 1: moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
+                    + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
+                    + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
+                    + " FOUND SETTLEMENT AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
+                    Integer.toString(moveData.getBuildOptionY()) + " " + Integer.toString(moveData.getBuildOptionZ());
+                break;
+            case 2: moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
+                    + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
+                    + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
+                    + " EXPAND SETTLEMENT AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
+                    Integer.toString(moveData.getBuildOptionY()) + " " + Integer.toString(moveData.getBuildOptionZ())
+                    + " " + moveData.getExtendTerrain();
+                break;
+            case 3: moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
+                    + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
+                    + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
+                    + " BUILD TOTORO SANCTUARY AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
+                    Integer.toString(moveData.getBuildOptionY()) + " " + Integer.toString(moveData.getBuildOptionZ());
+                break;
+            case 4: moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
+                    + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
+                    + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
+                    + " BUILD TIGER PLAYGROUND AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
+                    Integer.toString(moveData.getBuildOptionY()) + " " + Integer.toString(moveData.getBuildOptionZ());
+                break;
+            case 5: moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
+                    + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
+                    + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
+                    + " UNABLE TO BUILD";
+                break;
+        }
+
+        return moveString;
+    }
+
     private void checkMessages(PrintWriter out, BufferedReader in, String opponentPID) throws Exception{
         if(MatchProtocol.gid1 != "dead" && MatchProtocol.gid2 != "dead"){
             getTwoMessages(in, opponentPID);
@@ -76,10 +132,12 @@ public class MoveProtocol {
                 if(serverGID == MatchProtocol.gid1 && serverPID == opponentPID){
                     //send opponent's move to AI1
                     moveData = parseMessage(fromServerArr);
+                    //AI1.updateOpponentMove(moveData);
                 }
                 else if(serverGID == MatchProtocol.gid2 && serverPID == opponentPID){
                     //send opponent's move to AI2
                     moveData = parseMessage(fromServerArr);
+                    //AI2.updateOpponentMove(moveData);
                 }
                 else{
                     //check if server says we lost; check which game if so.
@@ -105,9 +163,13 @@ public class MoveProtocol {
             if (serverGID == MatchProtocol.gid1 && serverPID == opponentPID) {
                 //send opponent's move to AI1
                 moveData = parseMessage(fromServerArr);
+                //AI1.updateOpponentMove(moveData);
+
             } else if (serverGID == MatchProtocol.gid2 && serverPID == opponentPID) {
                 //send opponent's move to AI2
                 moveData = parseMessage(fromServerArr);
+                //AI2.updateOpponentMove(moveData);
+
             } else {
                 //check if server says we lost; check which game if so.
                 moveData = parseMessage(fromServerArr);
@@ -174,59 +236,5 @@ public class MoveProtocol {
 
     }
 
-    private MoveData getTile(String tile, String currentGID) {
-        tile = tile.replaceAll("[+]"," ");
-        String givenTerrains[] = tile.split(" ");
-        String terrainsArray[] = {"Volcano",givenTerrains[0],givenTerrains[1]};
 
-        if(currentGID == MatchProtocol.gid1){
-            //AI1 gets terrains
-           // MoveData moveData = AI1.makeMove(terrainsArray);
-        }
-        else{
-            //AI2 gets terrains
-            //MoveData moveData = AI2.makeMove(terrainsArray);
-        }
-
-        return null;
-    }
-
-    private String constructMoveString(MoveData moveData, int moveNumber, String tile){
-        String moveString = "";
-
-        switch(moveData.getBuildOption()){
-            case 1: moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
-                    + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
-                    + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
-                    + " FOUND SETTLEMENT AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
-                    Integer.toString(moveData.getBuildOptionY()) + " " + Integer.toString(moveData.getBuildOptionZ());
-                    break;
-            case 2: moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
-                    + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
-                    + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
-                    + " EXPAND SETTLEMENT AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
-                    Integer.toString(moveData.getBuildOptionY()) + " " + Integer.toString(moveData.getBuildOptionZ())
-                    + " " + moveData.getExtendTerrain();
-                    break;
-            case 3: moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
-                    + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
-                    + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
-                    + " BUILD TOTORO SANCTUARY AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
-                    Integer.toString(moveData.getBuildOptionY()) + " " + Integer.toString(moveData.getBuildOptionZ());
-                    break;
-            case 4: moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
-                    + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
-                    + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
-                    + " BUILD TIGER PLAYGROUND AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
-                    Integer.toString(moveData.getBuildOptionY()) + " " + Integer.toString(moveData.getBuildOptionZ());
-                    break;
-            case 5: moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
-                    + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
-                    + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
-                    + " UNABLE TO BUILD";
-                    break;
-        }
-
-        return moveString;
-    }
 }
