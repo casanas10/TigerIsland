@@ -15,111 +15,112 @@ public class RotateTileTest {
     }
 
     @Test
-    public void rotateTileTestOrientation1OriginEven()throws Exception{
-        tile = new RotateTile(402, 1);
+    public void rotateTileTest0DegreesOriginEven()throws Exception{
+        tile = new RotateTile(402, 0);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(201, TileArr[1]);
-        Assert.assertEquals(202, TileArr[2]);
-    }
-
-    @Test
-    public void rotateTileTestOrientation2OriginEven()throws Exception{
-        tile = new RotateTile(402, 2);
-        int[] TileArr = tile.checkPair();
-        Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(202, TileArr[1]);
-        Assert.assertEquals(403, TileArr[2]);
-    }
-
-    @Test
-    public void rotateTileTestOrientation3OriginEven()throws Exception{
-        tile = new RotateTile(402, 3);
-        int[] TileArr = tile.checkPair();
-        Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(403, TileArr[1]);
-        Assert.assertEquals(602, TileArr[2]);
-    }
-
-    @Test
-    public void rotateTileTestOrientation4riginEven()throws Exception{
-        tile = new RotateTile(402, 4);
-        int[] TileArr = tile.checkPair();
-        Assert.assertEquals(402, TileArr[0]);
+        Assert.assertEquals(601, TileArr[2]);
         Assert.assertEquals(602, TileArr[1]);
-        Assert.assertEquals(601, TileArr[2]);
     }
 
     @Test
-    public void rotateTileTestOrientation5OriginEven()throws Exception{
-        tile = new RotateTile(402, 5);
+    public void rotateTileTest60DegreesOriginEven()throws Exception{
+        tile = new RotateTile(402, 60);
         int[] TileArr = tile.checkPair();
         Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(601, TileArr[1]);
-        Assert.assertEquals(401, TileArr[2]);
-    }
-
-    @Test
-    public void rotateTileTestOrientation6OriginEven()throws Exception{
-        tile = new RotateTile(402, 6);
-        int[] TileArr = tile.checkPair();
-        Assert.assertEquals(402, TileArr[0]);
-        Assert.assertEquals(401, TileArr[1]);
-        Assert.assertEquals(201, TileArr[2]);
-    }
-
-    @Test
-    public void rotateTileTestOrientation1OriginOdd()throws Exception{
-        tile = new RotateTile(602, 1);
-        int[] TileArr = tile.checkPair();
-        Assert.assertEquals(602, TileArr[0]);
-        Assert.assertEquals(402, TileArr[1]);
-        Assert.assertEquals(403, TileArr[2]);
-    }
-
-    @Test
-    public void rotateTileTestOrientation2OriginOdd()throws Exception{
-        tile = new RotateTile(602, 2);
-        int[] TileArr = tile.checkPair();
-        Assert.assertEquals(602, TileArr[0]);
+        Assert.assertEquals(602, TileArr[2]);
         Assert.assertEquals(403, TileArr[1]);
-        Assert.assertEquals(603, TileArr[2]);
     }
 
     @Test
-    public void rotateTileTestOrientation3OriginOdd()throws Exception{
-        tile = new RotateTile(602, 3);
+    public void rotateTileTest120DegreesOriginEven()throws Exception{
+        tile = new RotateTile(402, 120);
         int[] TileArr = tile.checkPair();
-        Assert.assertEquals(602, TileArr[0]);
-        Assert.assertEquals(603, TileArr[1]);
-        Assert.assertEquals(804, TileArr[2]);
+        Assert.assertEquals(402, TileArr[0]);
+        Assert.assertEquals(403, TileArr[2]);
+        Assert.assertEquals(202, TileArr[1]);
     }
 
     @Test
-    public void rotateTileTestOrientation4OriginOdd()throws Exception{
-        tile = new RotateTile(602, 4);
+    public void rotateTileTest180DegreesOriginEven()throws Exception{
+        tile = new RotateTile(402, 180);
         int[] TileArr = tile.checkPair();
-        Assert.assertEquals(602, TileArr[0]);
-        Assert.assertEquals(804, TileArr[1]);
-        Assert.assertEquals(803, TileArr[2]);
+        Assert.assertEquals(402, TileArr[0]);
+        Assert.assertEquals(202, TileArr[2]);
+        Assert.assertEquals(201, TileArr[1]);
     }
 
     @Test
-    public void rotateTileTestOrientation5OriginOdd()throws Exception{
-        tile = new RotateTile(602, 5);
+    public void rotateTileTest240DegreesOriginEven()throws Exception{
+        tile = new RotateTile(402, 240);
         int[] TileArr = tile.checkPair();
-        Assert.assertEquals(602, TileArr[0]);
-        Assert.assertEquals(803, TileArr[1]);
-        Assert.assertEquals(601, TileArr[2]);
+        Assert.assertEquals(402, TileArr[0]);
+        Assert.assertEquals(201, TileArr[2]);
+        Assert.assertEquals(401, TileArr[1]);
     }
 
     @Test
-    public void rotateTileTestOrientation6OriginOdd()throws Exception{
-        tile = new RotateTile(602, 6);
+    public void rotateTileTest300DegreesOriginEven()throws Exception{
+        tile = new RotateTile(402, 300);
         int[] TileArr = tile.checkPair();
-        Assert.assertEquals(602, TileArr[0]);
+        Assert.assertEquals(402, TileArr[0]);
+        Assert.assertEquals(401, TileArr[2]);
         Assert.assertEquals(601, TileArr[1]);
+    }
+
+    @Test
+    public void rotateTileTest0DegreesOriginOdd()throws Exception{
+        tile = new RotateTile(602, 0);
+        int[] TileArr = tile.checkPair();
+        Assert.assertEquals(602, TileArr[0]);
+        Assert.assertEquals(802, TileArr[2]);
+        Assert.assertEquals(803, TileArr[1]);
+    }
+
+    @Test
+    public void rotateTileTest60DegreesOriginOdd()throws Exception{
+        tile = new RotateTile(602, 60);
+        int[] TileArr = tile.checkPair();
+        Assert.assertEquals(602, TileArr[0]);
+        Assert.assertEquals(803, TileArr[2]);
+        Assert.assertEquals(603, TileArr[1]);
+    }
+
+    @Test
+    public void rotateTileTest120DegreesOriginOdd()throws Exception{
+        tile = new RotateTile(602, 120);
+        int[] TileArr = tile.checkPair();
+        Assert.assertEquals(602, TileArr[0]);
+        Assert.assertEquals(603, TileArr[2]);
+        Assert.assertEquals(403, TileArr[1]);
+    }
+
+    @Test
+    public void rotateTileTest180DegreesOriginOdd()throws Exception{
+        tile = new RotateTile(602, 180);
+        int[] TileArr = tile.checkPair();
+        Assert.assertEquals(602, TileArr[0]);
+        Assert.assertEquals(403, TileArr[2]);
+        Assert.assertEquals(402, TileArr[1]);
+    }
+
+    @Test
+    public void rotateTileTest240DegreesOriginOdd()throws Exception{
+        tile = new RotateTile(602, 240);
+        int[] TileArr = tile.checkPair();
+        Assert.assertEquals(602, TileArr[0]);
         Assert.assertEquals(402, TileArr[2]);
+        Assert.assertEquals(601, TileArr[1]);
+    }
+
+    @Test
+    public void rotateTileTest300DegreesOriginOdd()throws Exception{
+        tile = new RotateTile(602, 300);
+        int[] TileArr = tile.checkPair();
+        Assert.assertEquals(602, TileArr[0]);
+        Assert.assertEquals(601, TileArr[2]);
+        Assert.assertEquals(802, TileArr[1]);
     }
 
 }
+
