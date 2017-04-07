@@ -50,8 +50,8 @@ public class RotateTile {
         }
 
         Tile[0] = HexID;
-        Tile[1] = this.HexID + Hex1Offset[Orientation/60];
-        Tile[2] = this.HexID + Hex2Offset[Orientation/60];
+        Tile[2] = this.HexID + Hex1Offset[Orientation/60];
+        Tile[1] = this.HexID + Hex2Offset[Orientation/60];
 
         return Tile;
 

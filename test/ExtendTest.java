@@ -49,9 +49,9 @@ public class ExtendTest {
         Assert.assertEquals(1005,lake2);
 
         ArrayList<Integer> emptyList = new ArrayList<Integer>();
-//        Assert.assertTrue(grasslandsToExtendOn.isEmpty());
-//        Assert.assertTrue(junglesToExtendOn.isEmpty());
-//        Assert.assertTrue(rockysToExtendOn.isEmpty());
+        Assert.assertTrue(grasslandsToExtendOn.isEmpty());
+        Assert.assertTrue(junglesToExtendOn.isEmpty());
+        Assert.assertTrue(rockysToExtendOn.isEmpty());
     }
 
     @Test
