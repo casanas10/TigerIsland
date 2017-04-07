@@ -57,6 +57,16 @@ public class Builder {
         }
     }
 
+    public boolean extendForAI(int hexID, IslandMap islandMap, Player player, String terrain){
+        if(islandMap.getHex(hexID).getSettlementID() == -1){
+            return false;
+        }
+        else {
+            ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
+            return extend.extendOnTerrain(terrain);
+        }
+    }
+
     public boolean extend(int hexID, IslandMap islandMap, Player player){
         if(islandMap.getHex(hexID).getSettlementID() == -1){
             return false;

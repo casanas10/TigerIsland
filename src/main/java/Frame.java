@@ -24,12 +24,12 @@ public class Frame extends JFrame {
     Hexagon hex = new Hexagon();
 
     //Game Logic
-    private Player black = new Player("black", 0);
-    private Player white = new Player("white", 0);
+    private Player aiPlayer = new Player("black", 0);
+    private Player serverPlayer = new Player("white", 0);
     private IslandMap islandMap = new IslandMap();
     Builder builder = new Builder();
 
-    private AI ai = new AI(game, islandMap);
+    private AI ai = new AI(game);
 
     boolean tileSuccessfullyPlaced = false;
 
@@ -40,9 +40,6 @@ public class Frame extends JFrame {
     }
 
     private void playGame() {
-
-        Player aiPlayer = black;
-        Player serverPlayer = white;
 
         //PLACE STARTING TILE
         CoordinateSystem coors = new CoordinateSystem();
@@ -90,6 +87,8 @@ public class Frame extends JFrame {
                 if (aiTurn){
 
                     System.out.println("AI TURN");
+                    ai.playingAI(islandMap);
+
 
 
                 } else {
@@ -165,7 +164,7 @@ public class Frame extends JFrame {
 
                         if (buildOption == 2){
 
-                            ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, white);
+                            ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, getActivePlayer());
 
                             JTextField extendField = new JTextField(5);
 
@@ -224,10 +223,10 @@ public class Frame extends JFrame {
     public Player getActivePlayer () {
 
         if (aiTurn){
-            return black;
+            return aiPlayer;
         }
 
-        return white;
+        return serverPlayer;
     }
 
     private void addScrollPanel(Container window) {
@@ -385,7 +384,7 @@ public class Frame extends JFrame {
     }
 
     private void drawTiger(int x, int y, Graphics g) {
-        if (getActivePlayer() == black){
+        if (getActivePlayer() == serverPlayer){
             g.setColor(Color.black);
         } else {
             g.setColor(Color.white);
@@ -396,7 +395,7 @@ public class Frame extends JFrame {
 
     private void drawTotoro(int x, int y, Graphics g) {
 
-        if (getActivePlayer() == black){
+        if (getActivePlayer() == serverPlayer){
             g.setColor(Color.black);
         } else {
             g.setColor(Color.white);
@@ -405,7 +404,7 @@ public class Frame extends JFrame {
     }
 
     public void drawMeeple(int x, int y, Graphics g) {
-        if (getActivePlayer() == black){
+        if (getActivePlayer() == serverPlayer){
             g.setColor(Color.black);
         } else {
             g.setColor(Color.white);

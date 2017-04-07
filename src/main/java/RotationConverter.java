@@ -38,8 +38,5 @@ public class RotationConverter {
         return -1;
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> AI
+

@@ -5,6 +5,7 @@ import org.junit.Test;
  */
 public class AIPlayingTest {
     private Game game = new Game();
+    IslandMap islandMap = game.getIslandMap();
     private AI ai = new AI(game);
 
     @Test
@@ -23,7 +24,7 @@ public class AIPlayingTest {
     public void testGamePlaying(){
 
         while(true){
-            ai.playingAI();
+            ai.playingAI(islandMap);
         }
 
     }

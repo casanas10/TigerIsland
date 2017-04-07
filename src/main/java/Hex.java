@@ -5,6 +5,7 @@ import java.util.*;
  */
 public class Hex {
     private int hexID;
+    private int tileID;
     private int x;
     private int y;
     private String terrain;
@@ -22,6 +23,7 @@ public class Hex {
         gamePiecesMap = new HashMap<>();
         playerColorOnHex = "";
         this.settlementID = -1;
+        tileID = -1;
     }
 
     public int getHexID() {
@@ -106,4 +108,8 @@ public class Hex {
     public void setSettlementID(int settlementID) {
         this.settlementID = settlementID;
     }
+
+    public int getTileID(){ return tileID; }
+
+    public void setTileID(int tileCount){ tileID = tileCount; }
 }

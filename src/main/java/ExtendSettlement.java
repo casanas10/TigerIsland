@@ -46,18 +46,11 @@ public class ExtendSettlement {
     }
 
     private void findExtensions(int hexID){
-<<<<<<< HEAD
 
         goToTerrain(hexID, "Lake");
         goToTerrain(hexID, "Grassland");
         goToTerrain(hexID, "Rocky");
         goToTerrain(hexID, "Jungle");
-=======
-        goToTerrain(hexID,"Lake");
-        goToTerrain(hexID,"Grassland");
-        goToTerrain(hexID,"Rocky");
-        goToTerrain(hexID,"Jungle");
->>>>>>> AI
     }
 
     private void goToTerrain(int hexID, String terrain){
@@ -448,7 +441,6 @@ public class ExtendSettlement {
         }
     }
 
-<<<<<<< HEAD
     public ArrayList<Integer> getTerrainList(String terrain) {
 
         ArrayList<Integer> terrainsList = null;
@@ -474,18 +466,9 @@ public class ExtendSettlement {
         return terrainsList;
     }
 
-=======
->>>>>>> AI
     public ArrayList<Integer> getLakesToExtendOn(){ return lakesToExtendOn; }
     public ArrayList<Integer> getGrasslandsToExtendOn(){ return grasslandsToExtendOn; }
     public ArrayList<Integer> getJunglesToExtendOn(){ return junglesToExtendOn; }
     public ArrayList<Integer> getRockysToExtendOn(){ return rockysToExtendOn; }
-<<<<<<< HEAD
 
 }
-=======
-    public int getSettlementID(){
-        return settlementID;
-    }
-}
->>>>>>> AI
