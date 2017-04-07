@@ -35,8 +35,14 @@ public class ChallengeProtocol {
             round.playRound(out,in);
         }
 
+        readAttempts = 0;
+        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
+            readAttempts++;
+            Thread.sleep(50);
+            //maybe add system exit
+        }
+
         //Check for end of challenges or continuation
-        fromServer = in.readLine();
         if(fromServer == "WAIT FOR THE NEXT CHALLENGE TO BEGIN"){
             System.out.println("Server: " + fromServer);
             playChallenge(out,in);
@@ -44,6 +50,12 @@ public class ChallengeProtocol {
         else if(fromServer == "END OF CHALLENGES"){
             System.out.println("Server: " + fromServer);
 
+            readAttempts = 0;
+            while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
+                readAttempts++;
+                Thread.sleep(50);
+                //maybe add system exit
+            }
             //Server: THANK YOU FOR PLAYING! GOODBYE
             fromServer = in.readLine();
             System.out.println("Server: " + fromServer);

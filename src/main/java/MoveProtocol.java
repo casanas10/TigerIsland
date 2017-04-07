@@ -20,8 +20,13 @@ public class MoveProtocol {
         MoveData moveData;
         String moveString;
 
+        int readAttempts = 0;
+        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
+            readAttempts++;
+            Thread.sleep(50);
+            //maybe add system exit
+        }
         //MAKE YOUR MOVE IN GAME <gid> WITHIN <time_move> SECOND(S): MOVE <#> PLACE <tile>
-        fromServer = in.readLine();
         if(fromServer.substring(0,4).equals("MAKE")) {
             String fromServerArr[] = fromServer.split(" ");
             if(MatchProtocol.gid1 == null){
@@ -59,7 +64,7 @@ public class MoveProtocol {
         }
     }
 
-    private void getTwoMessages(BufferedReader in, String opponentPID, AI AI1, AI AI2) throws IOException {
+    private void getTwoMessages(BufferedReader in, String opponentPID, AI AI1, AI AI2) throws Exception {
         String fromServer;
         String serverGID;
         String serverPID;
@@ -68,7 +73,13 @@ public class MoveProtocol {
         //get two messages
         int i=0;
         while(i<2) {
-            fromServer = in.readLine();
+            int readAttempts = 0;
+            while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
+                readAttempts++;
+                Thread.sleep(50);
+                //maybe add system exit
+            }
+
             if (fromServer.substring(0, 4).equals("GAME")) {
                 String fromServerArr[] = fromServer.split(" ");
                 serverGID = fromServerArr[1];
@@ -99,7 +110,13 @@ public class MoveProtocol {
         String serverPID;
         MoveData moveData;
 
-        fromServer = in.readLine();
+        int readAttempts = 0;
+        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
+            readAttempts++;
+            Thread.sleep(50);
+            //maybe add system exit
+        }
+
         if (fromServer.substring(0, 4).equals("GAME")) {
             String fromServerArr[] = fromServer.split(" ");
             serverGID = fromServerArr[1];
@@ -190,12 +207,12 @@ public class MoveProtocol {
         if(currentGID == MatchProtocol.gid1){
             //AI1 gets terrains
             AI1.makeMove(terrainsArray);
-            return AI.getMoveData(moveData);
+            return AI.getMoveData();
         }
         else{
             //AI2 gets terrains
             AI2.makeMove(terrainsArray);
-            return AI.getMoveData(moveData);
+            return AI.getMoveData();
         }
 
         return null;
