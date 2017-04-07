@@ -18,6 +18,17 @@ public class CoordinateConverter {
         return XYZ;
     }
 
+    public int[] serverToOurs (int x, int y, int z){
+        int[] XY = new int[2];
+        int ourY = z + offset;
+        int ourX = x + (ourY - offset + evenRow(ourY))/2 + offset;
+
+        XY[0] = ourX;
+        XY[1] = ourY;
+
+        return XY;
+    }
+
     private int evenRow(int y){
         if(y%2 == 0)
             return 1;

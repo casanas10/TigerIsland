@@ -18,6 +18,21 @@ public class Builder {
         return true;
     }
 
+    public boolean build(Player player, IslandMap islandMap, int buildOption, int hexID, String terrain){
+        switch(buildOption) {
+            case 1: return(buildANewSettlement(player, islandMap, hexID));
+
+            case 2: return(extend(hexID,islandMap,player, terrain));
+
+            case 3: return(buildATotoroSanctuary(player, islandMap, hexID));
+
+            case 4: return(buildATigerPlayground(player, islandMap, hexID));
+
+        }
+
+        return true;
+    }
+
     public boolean buildANewSettlement(Player player, IslandMap islandMap, int hexID){
         Hex currentHex = islandMap.getHex(hexID);
         Settlement settlement = islandMap.getSettlementObj();
@@ -33,8 +48,9 @@ public class Builder {
 
             currentHex.addGamePieceToHex(piece);                  // Place the piece on the current hex
             settlement.addSettlement(hexID, player);
-            settlement.printAllSettlements();
             updateScore(player, piece, currentHex.getLevel());    // Update player score with 1 point
+
+            settlement.printAllSettlements(player);
             return true;
         }
         else{
@@ -43,13 +59,42 @@ public class Builder {
         }
     }
 
-    public boolean extend(int hexID, IslandMap islandMap, Player player){
+    public boolean extendForAI(int hexID, IslandMap islandMap, Player player, String terrain){
         if(islandMap.getHex(hexID).getSettlementID() == -1){
             return false;
         }
         else {
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
-            return extend.extendOnTerrain(extend.getTerrainToExtendOn());
+            boolean extensionSuccessful = extend.extendOnTerrain(terrain);
+            islandMap.getSettlementObj().printAllSettlements(player);
+            return extensionSuccessful;
+        }
+    }
+
+    public boolean extend(int hexID, IslandMap islandMap, Player player){
+        if(islandMap.getHex(hexID).getSettlementID() == -1){
+            return false;
+        }
+        else {
+
+            ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
+            boolean terrainToExtend = extend.extendOnTerrain(extend.getTerrainToExtendOn());
+            islandMap.getSettlementObj().printAllSettlements(player);
+            return terrainToExtend;
+        }
+
+    }
+
+    public boolean extend(int hexID, IslandMap islandMap, Player player, String terrain){
+        if(islandMap.getHex(hexID).getSettlementID() == -1){
+            return false;
+        }
+        else {
+
+            ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
+            boolean terrainToExtend = extend.extendOnTerrain(terrain);
+            islandMap.getSettlementObj().printAllSettlements(player);
+            return terrainToExtend;
         }
     }
 
@@ -57,7 +102,7 @@ public class Builder {
         Hex currentHex = islandMap.getHex(hexID);
         Settlement settlement = islandMap.getSettlementObj();
         GamePiece piece;
-        if(settlement.addTotoroToSettlement(hexID, player) && verifyValidHexForTotoro(currentHex)){
+        if(verifyValidHexForTotoro(currentHex) && settlement.isSettlementSizeFiveOrMore(hexID,player)){
             piece = player.placeGamePiece("Totoro");        // Get the new Totoro piece
 
             if(piece == null){
@@ -66,8 +111,9 @@ public class Builder {
             }
 
             currentHex.addGamePieceToHex(piece);                      // Add the Totoro to the map
+            settlement.addTotoroToSettlement(hexID,player);
             updateScore(player, piece, currentHex.getLevel());        // Update the players score with 200 points
-
+            settlement.printAllSettlements(player);
             return true;
         }
         else{
@@ -80,7 +126,7 @@ public class Builder {
         Hex currentHex = islandMap.getHex(hexID);
         Settlement settlement = islandMap.getSettlementObj();
         GamePiece piece;
-        if(settlement.addTigerToSettlement(hexID, player) && verifyValidHexForTiger(currentHex)){
+        if(verifyValidHexForTiger(currentHex) && settlement.isTigerNextToSettlement(hexID, player)){
             piece = player.placeGamePiece("Tiger");         // Get the new Tiger piece
 
             if(piece == null){
@@ -89,7 +135,9 @@ public class Builder {
             }
 
             currentHex.addGamePieceToHex(piece);                      // Add the Tiger to the map
+            settlement.addTigerToSettlement(hexID, player);
             updateScore(player, piece, currentHex.getLevel());        // Update the player score with 75 points
+            settlement.printAllSettlements(player);
             return true;
         }
         else{

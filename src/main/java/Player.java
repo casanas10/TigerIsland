@@ -53,6 +53,12 @@ public class Player {
         currentScore += value;
     }
 
+    public void removeMeeplesforTesting(){playerPieceContainer.removeMeeples();}
+
+    public void removeTotorosforTesting(){playerPieceContainer.removeTotoros();}
+
+    public void removeTigersforTesting(){playerPieceContainer.removeTigers();}
+
     public GamePiece placeGamePiece(String pieceName){
         return playerPieceContainer.placeGamePiece(pieceName);
     }

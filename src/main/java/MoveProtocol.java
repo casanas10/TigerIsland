@@ -88,12 +88,12 @@ public class MoveProtocol {
                 if(serverGID == MatchProtocol.gid1 && serverPID == opponentPID){
                     //send opponent's move to AI1
                     moveData = parseMessage(fromServerArr);
-                    AI1.opponentMove(moveData);
+                    AI1.updateOpponentMove(moveData);
                 }
                 else if(serverGID == MatchProtocol.gid2 && serverPID == opponentPID){
                     //send opponent's move to AI2
                     moveData = parseMessage(fromServerArr);
-                    AI2.opponentMove(moveData);
+                    AI2.updateOpponentMove(moveData);
                 }
                 else{
                     //check if server says we lost; check which game if so.
@@ -125,12 +125,12 @@ public class MoveProtocol {
             if (serverGID == MatchProtocol.gid1 && serverPID == opponentPID) {
                 //send opponent's move to AI1
                 moveData = parseMessage(fromServerArr);
-                AI1.opponentMove(moveData);
+                AI1.updateOpponentMove(moveData);
             }
             else if (serverGID == MatchProtocol.gid2 && serverPID == opponentPID) {
                 //send opponent's move to AI2
                 moveData = parseMessage(fromServerArr);
-                AI2.opponentMove(moveData);
+                AI2.updateOpponentMove(moveData);
             }
             else {
                 //check if server says we lost; check which game if so.
@@ -207,15 +207,13 @@ public class MoveProtocol {
         if(currentGID == MatchProtocol.gid1){
             //AI1 gets terrains
             AI1.makeMove(terrainsArray);
-            return AI.getMoveData();
+            return AI1.getMoveData();
         }
         else{
             //AI2 gets terrains
             AI2.makeMove(terrainsArray);
-            return AI.getMoveData();
+            return AI2.getMoveData();
         }
-
-        return null;
     }
 
     private String constructMoveString(MoveData moveData, int moveNumber, String tile){

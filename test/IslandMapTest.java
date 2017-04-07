@@ -17,7 +17,7 @@ public class IslandMapTest {
     @Test
     public void addingTileToEmptyMap(){
 
-        Assert.assertTrue(islandMap.addTileToMap(403,0));
+        Assert.assertTrue(islandMap.addTileToMap(403,4));
 
     }
 
@@ -32,21 +32,21 @@ public class IslandMapTest {
     @Test
     public void addingTileToAnAdjecentTile(){
 
-        Assert.assertTrue(islandMap.addTileToMap(413,60));
+        Assert.assertTrue(islandMap.addTileToMap(413,3));
     }
 
     @Test
     public void addingTileDirectlyOnTopOfEachOther(){
 
-        islandMap.addTileToMap(412,0);
-        Assert.assertFalse(islandMap.addTileToMap(412,0));
+        islandMap.addTileToMap(412,4);
+        Assert.assertFalse(islandMap.addTileToMap(412,4));
     }
 
     @Test
     public void addingTilePartlyOnTopOfAnotherTile(){
 
-        islandMap.addTileToMap(412,0);
-        Assert.assertFalse(islandMap.addTileToMap(412,300));
+        islandMap.addTileToMap(412,4);
+        Assert.assertFalse(islandMap.addTileToMap(412,5));
     }
 
 
