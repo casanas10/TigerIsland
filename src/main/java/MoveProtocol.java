@@ -130,7 +130,7 @@ public class MoveProtocol {
         String serverGID;
         MoveData moveData;
 
-        if(fromServerArr[11] == "FOUND") {
+        if(fromServerArr[11] == "FOUNDED") {
              moveData = new MoveData(terrainsArray,Integer.parseInt(fromServerArr[7]),
                     Integer.parseInt(fromServerArr[8]), Integer.parseInt(fromServerArr[9]),
                     Integer.parseInt(fromServerArr[10]), 1, Integer.parseInt(fromServerArr[14]),
@@ -138,7 +138,7 @@ public class MoveProtocol {
 
              return moveData;
         }
-        else if(fromServerArr[11] == "EXPAND"){
+        else if(fromServerArr[11] == "EXPANDED"){
              moveData = new MoveData(terrainsArray,Integer.parseInt(fromServerArr[7]),
                     Integer.parseInt(fromServerArr[8]), Integer.parseInt(fromServerArr[9]),
                     Integer.parseInt(fromServerArr[10]), 2, Integer.parseInt(fromServerArr[14]),
