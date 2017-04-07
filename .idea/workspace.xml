@@ -881,7 +881,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491608605393</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Merge branches 'TestingAIToServer' and 'Threading' of https://github.com/casanas10/TigerIsland into Threading&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/AI.java&#10;#&#9;src/main/java/Builder.java&#10;#&#9;src/main/java/ExtendSettlement.java&#10;#&#9;src/main/java/Main.java&#10;#&#9;src/main/java/Settlement.java&#10;#&#9;test/ExtendTest.java&#10;">
+      <created>1491608623500</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1491608623500</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
