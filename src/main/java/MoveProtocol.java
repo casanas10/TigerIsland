@@ -189,13 +189,13 @@ public class MoveProtocol {
 
         if(currentGID == MatchProtocol.gid1){
             //AI1 gets terrains
-            moveData = AI1.makeMove(terrainsArray);
-            return moveData;
+            AI1.makeMove(terrainsArray);
+            return AI.getMoveData(moveData);
         }
         else{
             //AI2 gets terrains
-            moveData = AI2.makeMove(terrainsArray);
-            return moveData;
+            AI2.makeMove(terrainsArray);
+            return AI.getMoveData(moveData);
         }
 
         return null;
