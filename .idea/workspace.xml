@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/AI.java" afterPath="$PROJECT_DIR$/src/main/java/AI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/AIPlayingTest.java" afterPath="$PROJECT_DIR$/test/AIPlayingTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -241,7 +239,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="NewGame_Version2" />
+        <entry key="$PROJECT_DIR$" value="NewGame_Version3" />
       </map>
     </option>
   </component>
@@ -952,7 +950,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491593838505</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="updated gui and ai">
+      <created>1491604850514</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1491604850514</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
