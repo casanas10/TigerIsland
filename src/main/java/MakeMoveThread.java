@@ -4,6 +4,7 @@
 public class MakeMoveThread extends Thread{
     private String[] terrainsArray;
     private AI ai;
+    private volatile MoveData moveData;
 
     public void setTerrains(String[] terrainsArray){
         this.terrainsArray = terrainsArray;
@@ -12,9 +13,13 @@ public class MakeMoveThread extends Thread{
         this.ai = ai;
     }
 
+    public MoveData getMoveData(){
+        return moveData;
+    }
+
     public void run(){
         System.out.println("Making move from MakeMoveThread...");
-        ai.makeMove(terrainsArray);
+        moveData = ai.makeMove(terrainsArray);
     }
 
 }

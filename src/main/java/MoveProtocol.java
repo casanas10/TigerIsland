@@ -10,8 +10,10 @@ import java.io.PrintWriter;
  */
 public class MoveProtocol {
     private String currentGID;
+    private OpponentMoveThread oppThread = new OpponentMoveThread();
+    private MakeMoveThread makeMoveThread = new MakeMoveThread();
 
-    public void makeMove(PrintWriter out, BufferedReader in, MyRunnable r1, MyRunnable r2,
+    public void makeMove(PrintWriter out, BufferedReader in, AI AI1, AI AI2,
                          int moveNumber, String opponentPID) throws Exception {
         BufferedReader stdIn =
                 new BufferedReader(new InputStreamReader(System.in));
@@ -20,50 +22,102 @@ public class MoveProtocol {
         MoveData moveData;
         String moveString;
 
+
         //MAKE YOUR MOVE IN GAME <gid> WITHIN <time_move> SECOND(S): MOVE <#> PLACE <tile>
         fromServer = in.readLine();
         if(fromServer.substring(0,4).equals("MAKE")) {
             String fromServerArr[] = fromServer.split(" ");
             if(MatchProtocol.gid1 == null){
                 MatchProtocol.gid1 = fromServerArr[5];
-                moveData = getTile(fromServerArr[12],MatchProtocol.gid1);
+                getTile(fromServerArr[12],MatchProtocol.gid1, AI1, AI2);
+                makeMoveThread.start();
+                moveData = makeMoveThread.getMoveData();
                 moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
                 out.println(moveString);
-                checkMessages(out, in, opponentPID);
+
+                checkMessages(out, in, opponentPID, AI1, AI2);
+                oppThread.start();
+
             }
             else if((MatchProtocol.gid2 == null) && (fromServerArr[5] != MatchProtocol.gid1)){
                 MatchProtocol.gid2 = fromServerArr[5];
-                moveData = getTile(fromServerArr[12],MatchProtocol.gid2);
+                getTile(fromServerArr[12],MatchProtocol.gid2, AI1, AI2);
+                makeMoveThread.start();
+                moveData = makeMoveThread.getMoveData();
                 moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
                 out.println(moveString);
-                checkMessages(out,in,opponentPID);
+
+                checkMessages(out,in,opponentPID, AI1, AI2);
+                oppThread.start();
             }
             else{
-                currentGID = fromServerArr[5];
-                moveData = getTile(fromServerArr[12],currentGID);
-                moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
-                out.println(moveString);
-                checkMessages(out,in,opponentPID);
+                startThreads(out, in, moveNumber, opponentPID, fromServerArr, AI1, AI2);
             }
             System.out.println("Server: " + fromServer);
         }
     }
 
-    private MoveData getTile(String tile, String currentGID) {
+    private void startThreads(PrintWriter out, BufferedReader in, int moveNumber, String opponentPID,
+                              String[] fromServerArr, AI AI1, AI AI2) throws Exception {
+        MoveData moveData;
+        String moveString;
+
+        if(moveNumber == 3) {
+            currentGID = fromServerArr[5];
+            getTile(fromServerArr[12], currentGID, AI1, AI2);
+            makeMoveThread.start();
+            moveData = makeMoveThread.getMoveData();
+            moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
+            out.println(moveString);
+
+            //do threads
+            checkMessages(out,in,opponentPID, AI1, AI2);
+            currentGID = fromServerArr[5];
+            getTile(fromServerArr[12], currentGID, AI1, AI2);
+
+            oppThread.start();
+            makeMoveThread.start();
+            moveData = makeMoveThread.getMoveData();
+
+            moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
+            out.println(moveString);
+
+
+        }
+        else {
+            checkMessages(out, in, opponentPID, AI1, AI2);
+            currentGID = fromServerArr[5];
+            getTile(fromServerArr[12], currentGID, AI1, AI2);
+
+            oppThread.start();
+            makeMoveThread.start();
+            moveData = makeMoveThread.getMoveData();
+
+            moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
+            out.println(moveString);
+        }
+    }
+
+    private void getTile(String tile, String currentGID, AI AI1, AI AI2) {
+        MoveData moveData;
         tile = tile.replaceAll("[+]"," ");
         String givenTerrains[] = tile.split(" ");
         String terrainsArray[] = {"Volcano",givenTerrains[0],givenTerrains[1]};
 
         if(currentGID == MatchProtocol.gid1){
             //AI1 gets terrains
-            //MoveData moveData = AI1.makeMove(terrainsArray);
+            //moveData = AI1.makeMove(terrainsArray);
+            makeMoveThread.setAI(AI1);
+            makeMoveThread.setTerrains(terrainsArray);
         }
         else{
             //AI2 gets terrains
-            //MoveData moveData = AI2.makeMove(terrainsArray);
+            //moveData = AI2.makeMove(terrainsArray);
+            makeMoveThread.setAI(AI2);
+            makeMoveThread.setTerrains(terrainsArray);
         }
 
-        return null;
+        //return null;
     }
 
     private String constructMoveString(MoveData moveData, int moveNumber, String tile){
@@ -105,16 +159,17 @@ public class MoveProtocol {
         return moveString;
     }
 
-    private void checkMessages(PrintWriter out, BufferedReader in, String opponentPID) throws Exception{
+    private void checkMessages(PrintWriter out, BufferedReader in, String opponentPID
+            , AI AI1, AI AI2) throws Exception{
         if(MatchProtocol.gid1 != "dead" && MatchProtocol.gid2 != "dead"){
-            getTwoMessages(in, opponentPID);
+            getTwoMessages(in, opponentPID, AI1, AI2);
         }
         else{
-            getOneMessage(in,opponentPID);
+            getOneMessage(in,opponentPID, AI1, AI2);
         }
     }
 
-    private void getTwoMessages(BufferedReader in, String opponentPID) throws IOException {
+    private void getTwoMessages(BufferedReader in, String opponentPID, AI AI1, AI AI2) throws IOException {
         String fromServer;
         String serverGID;
         String serverPID;
@@ -133,11 +188,15 @@ public class MoveProtocol {
                     //send opponent's move to AI1
                     moveData = parseMessage(fromServerArr);
                     //AI1.updateOpponentMove(moveData);
+                    oppThread.setAI(AI1);
+                    oppThread.setMoveData(moveData);
                 }
                 else if(serverGID == MatchProtocol.gid2 && serverPID == opponentPID){
                     //send opponent's move to AI2
                     moveData = parseMessage(fromServerArr);
                     //AI2.updateOpponentMove(moveData);
+                    oppThread.setAI(AI2);
+                    oppThread.setMoveData(moveData);
                 }
                 else{
                     //check if server says we lost; check which game if so.
@@ -148,7 +207,7 @@ public class MoveProtocol {
         }
     }
 
-    private void getOneMessage(BufferedReader in, String opponentPID) throws Exception{
+    private void getOneMessage(BufferedReader in, String opponentPID, AI AI1, AI AI2) throws Exception{
         String fromServer;
         String serverGID;
         String serverPID;
@@ -164,11 +223,15 @@ public class MoveProtocol {
                 //send opponent's move to AI1
                 moveData = parseMessage(fromServerArr);
                 //AI1.updateOpponentMove(moveData);
+                oppThread.setAI(AI1);
+                oppThread.setMoveData(moveData);
 
             } else if (serverGID == MatchProtocol.gid2 && serverPID == opponentPID) {
                 //send opponent's move to AI2
                 moveData = parseMessage(fromServerArr);
                 //AI2.updateOpponentMove(moveData);
+                oppThread.setAI(AI2);
+                oppThread.setMoveData(moveData);
 
             } else {
                 //check if server says we lost; check which game if so.

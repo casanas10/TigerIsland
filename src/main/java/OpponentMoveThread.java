@@ -13,7 +13,7 @@ public class OpponentMoveThread extends Thread {
     }
 
     public void run(){
-        System.out.println("Making move from MakeMoveThread...");
-        ai.makeMove(moveData);
+        System.out.println("Making move from OpponentMoveThread...");
+        ai.updateOpponentMove(moveData);
     }
 }

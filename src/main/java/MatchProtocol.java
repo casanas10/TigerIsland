@@ -22,14 +22,12 @@ public class MatchProtocol {
 
             System.out.println("Server: " + fromServer);
 
-            MyRunnable R1 = new MyRunnable("Thread for AI 1");
-            R1.start();
-            MyRunnable R2 = new MyRunnable("Thread for AI 2");
-            R2.start();
+//            AI AI1 = new AI();
+//            AI AI2 = new AI();
 
             for(int i=0; i<48; i++) {
                 MoveProtocol move = new MoveProtocol();
-                move.makeMove(out, in, R1, R2, i + 1, opponentPID);
+                move.makeMove(out, in, AI1, AI2, i + 1, opponentPID);
             }
         }
 
