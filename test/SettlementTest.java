@@ -67,7 +67,7 @@ public class SettlementTest {
         settlement.addSettlement(3012,player);
         settlement.addSettlement(3013,player);
 
-        settlement.printAllSettlements();
+        settlement.printAllSettlements(player);
 
         //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,3014));
     }
@@ -119,7 +119,7 @@ public class SettlementTest {
 
         settlement.updateSettlementAfterNuke(expectedHexes, player);
 
-        settlement.printAllSettlements();
+        settlement.printAllSettlements(player);
 
         Assert.assertTrue(settlement.isPiecePartOfASettlement(7, 1005));
         Assert.assertTrue(settlement.isPiecePartOfASettlement(8, 606));
@@ -142,14 +142,14 @@ public class SettlementTest {
         islandMap.getHex(3217).setTerrain("Rocky");
         builder.build(whitePlayer, islandMap, 1, 2815);
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
         islandMap.addTileToMap(2616,0);
         islandMap.getHex(2816).setTerrain("Lake");
         islandMap.getHex(2817).setTerrain("Lake");
         builder.extend(2815,islandMap, whitePlayer,"Lake");
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
         islandMap.addTileToMap(2813, 0, islandMap.getNewTile(), whitePlayer);
         islandMap.getHex(3012).setTerrain("Jungle");
@@ -158,10 +158,10 @@ public class SettlementTest {
         Hex currentHex = islandMap.getHex(2814);
         System.out.println(currentHex.getTerrain());
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
         builder.extend(2815,islandMap, whitePlayer,"Jungle");
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
 
         islandMap.addTileToMap(2418, 0, islandMap.getNewTile(), whitePlayer);
@@ -169,7 +169,7 @@ public class SettlementTest {
         islandMap.getHex(2618).setTerrain("Rocky");
         builder.build(whitePlayer, islandMap, 1, 2617);
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
         //Nuke
         islandMap.addTileToMap(3016, 180, islandMap.getNewTile(), whitePlayer);
@@ -182,7 +182,7 @@ public class SettlementTest {
         System.out.println(hex.getSettlementID());
 
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
         //Nuke
 //        islandMap.addTileToMap(3014, 240, islandMap.getNewTile(), whitePlayer);
@@ -352,7 +352,7 @@ public class SettlementTest {
 
         builder.build(whitePlayer, islandMap, 1, 807);
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
     }
 

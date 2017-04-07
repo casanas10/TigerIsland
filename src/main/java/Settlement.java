@@ -1,13 +1,8 @@
 
-
-            /**
-             * Created by alecasanas on 3/25/17.
-             */
-
-            import java.util.ArrayList;
-            import java.util.HashMap;
-            import java.util.Iterator;
-            import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
     /**
      * Created by Val on 3/24/2017.
@@ -78,7 +73,6 @@
                         NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
 
                         for (int j = 0; j < NewHexIDs.size(); j++){
-                            System.out.println(NewHexIDs.get(j));
                             setSettlementID(NewHexIDs.get(j),settID);
                         }
 
@@ -196,15 +190,15 @@
             hexGrid.getHexValue(hexID).setSettlementID(settlementID);
         }
 
-        public void printAllSettlements(){
+        public void printAllSettlements(Player player){
             Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlementMap.entrySet().iterator();
             while(iterator.hasNext()){
                 Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
-                System.out.print("Settlement " + entry.getKey() + ": ");
+
+
+                System.out.print(hexGrid.getHexValue(entry.getValue().get(0)).getPlayerColorOnHex() + " Settlement " + entry.getKey() + ": ");
 
                 System.out.print( entry.getValue() + " ");
-
-
                 System.out.println();
             }
 
