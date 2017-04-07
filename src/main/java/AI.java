@@ -32,8 +32,8 @@ public class AI {
 
     private int[] possibleOrientation = {0, 60, 120, 180, 240, 300};
     private MoveData moveData = new MoveData();
-    private int maxHexID = 20100;
-    private int minHexID = 19699;
+    private int maxHexID = 3215;
+    private int minHexID = 2814;
     private ArrayList<Integer> volcanosOnMap = new ArrayList<>();
     private Boolean maxMinTurn = true;
     private Boolean isFirstTilePlaced = false;
@@ -43,6 +43,14 @@ public class AI {
     private int[] level3HexIDs  = new int[2];
     private Boolean readyToPlaceTiger = false;
     private int[] toSendServer = new int[6]; //int ourTileX, int ourTileY, int ourOrientation, int ourBuildOption, int ourBuildOptionX, int ourBuildOptionY
+
+    //CONSTANTS FOR FIRST TILE
+    private static final int hex1  = 3014;
+    private static final int hex2  = 2814;
+    private static final int hex3  = 2815;
+    private static final int hex4  = 3214;
+    private static final int hex5  = 3215;
+
     /*
     * Strategy for building:
      *
@@ -72,19 +80,16 @@ public class AI {
 
     public AI(Game game){
         this.game = game;
-        this.islandMap = new IslandMap();
+        this.islandMap = game.getIslandMap();
         this.player = game.getWhitePlayer();
 
-        int[] tileHexIDsArray = {coordinateSystem.getHexID(99,99), coordinateSystem.getHexID(99,98),coordinateSystem.getHexID(100,98),
-        coordinateSystem.getHexID(99,100), coordinateSystem.getHexID(100, 100)};
-        activeHexIDs.add(coordinateSystem.getHexID(99, 99));
-        volcanosOnMap.add(coordinateSystem.getHexID(99, 99));
-        activeHexIDs.add(coordinateSystem.getHexID(99, 98));
-        activeHexIDs.add(coordinateSystem.getHexID(100, 98));
-        activeHexIDs.add(coordinateSystem.getHexID(99, 100));
-        activeHexIDs.add(coordinateSystem.getHexID(100, 100));
-        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grasslands"};
-        islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+        activeHexIDs.add(hex1);
+        volcanosOnMap.add(hex1);
+        activeHexIDs.add(hex2);
+        activeHexIDs.add(hex3);
+        activeHexIDs.add(hex4);
+        activeHexIDs.add(hex5);
+
     }
 
     public Player getPlayer(){
@@ -541,20 +546,20 @@ public class AI {
         RotateTile rotateTile = new RotateTile(0,0);
 
         //Check right side
-        if(islandMap.addTileToMap(19900,60)){
+        if(islandMap.addTileToMap(3015,60)){
             //return x, y, z and orientation
-            toServer = toSendToServer(19900, 60);
-            volcanosOnMap.add(19900);
-            rotateTile = new RotateTile(19900, 60);
-            placeMeeple(islandMap, player, 19901);
+            toServer = toSendToServer(3015, 60);
+            volcanosOnMap.add(3015);
+            rotateTile = new RotateTile(3015, 60);
+            placeMeeple(islandMap, player, 3016);
         }
         //Check left side
-        else if(islandMap.addTileToMap(19898,240)){
+        else if(islandMap.addTileToMap(3013,240)){
             //return x, y, z and orientation
-            toSendToServer(19898, 240);
-            volcanosOnMap.add(19898);
-            rotateTile = new RotateTile(19898, 240);
-            placeMeeple(islandMap, player, 19897);
+            toSendToServer(3013, 240);
+            volcanosOnMap.add(3013);
+            rotateTile = new RotateTile(3013, 240);
+            placeMeeple(islandMap, player, 3012);
         }
         isFirstTilePlaced = true;
         int[] Tile = rotateTile.checkPair();

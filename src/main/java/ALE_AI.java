@@ -1,4 +1,6 @@
-
+/**
+ * Created by alecasanas on 4/2/17.
+ */
 
 import java.util.*;
 
@@ -6,14 +8,7 @@ public class ALE_AI {
 
     private Game game = new Game();
     private IslandMap islandMap;
-
-
-    private static final int hex1  = 3014;
-    private static final int hex2  = 2814;
-    private static final int hex3  = 2815;
-    private static final int hex4  = 3214;
-    private static final int hex5  = 3215;
-
+    private Builder builder = new Builder();
 
     PlacementValidity validity = new PlacementValidity();
 
@@ -21,25 +16,32 @@ public class ALE_AI {
 
     HashMap<Integer, int[]> allPossibleTiles = new HashMap<>();
 
-    public ALE_AI(Game game, IslandMap islandMap){
+    //CONSTANTS FOR FIRST TILE
+    private static final int hex1  = 3014;
+    private static final int hex2  = 2814;
+    private static final int hex3  = 2815;
+    private static final int hex4  = 3214;
+    private static final int hex5  = 3215;
+
+
+    public ALE_AI(Game game){
         this.game = game;
-        this.islandMap = islandMap;
+        this.islandMap = game.getIslandMap();
     }
 
-    public void play(Player player) {
+    public void play() {
 
-       // ArrayList<Integer> startingTile =
-       // getAllPossibleTilePlacementPosition()
+        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(game.getWhitePlayer());  //gets player settlements
 
-//        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(player);
+        int[] tileInfo = allPossibleTiles.get(0);
 
-//        if (){
-//
-//        } else if (settlements.size() >=  5){
-//
-//            System.out.println("build Totoro");
-//        }
+        boolean tileSuccessfullyPlaced = islandMap.addTileToMap(tileInfo[0], tileInfo[1], islandMap.getNewTile(), game.getWhitePlayer());
 
+        tile = new RotateTile(tileInfo[0], tileInfo[1]);
+
+        int[] pairs = tile.checkPair();
+
+        builder.build(game.getWhitePlayer(), islandMap, 1, pairs[1]);
     }
 
 //    private void placeTile() {
@@ -83,7 +85,9 @@ public class ALE_AI {
 
                         if(validity.checkIfHexesCanBePlaced(islandMap.getHexGrid(), tile.checkPair()) && islandMap.isValidTilePlacement(tile)){
 
-                            allPossibleTiles.put(index, tile.checkPair());
+                            int[] tileInfo = {tile.HexID, orientation[l]};
+
+                            allPossibleTiles.put(index, tileInfo);
                             index++;
                         }
                     }
@@ -120,7 +124,7 @@ public class ALE_AI {
         while(iterator.hasNext()){
             Map.Entry<Integer, int[]> entry = iterator.next();
             System.out.print("Tile " + entry.getKey() + ": ");
-            for(int i=0;i<3;i++){
+            for(int i=0;i<2;i++){
                 System.out.print(entry.getValue()[i] + " ");
             }
             System.out.println();

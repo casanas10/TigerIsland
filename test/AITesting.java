@@ -1,161 +1,112 @@
-//import gherkin.lexer.Ro;
-//import org.junit.Assert;
-//import org.junit.Before;
-//import org.junit.Test;
-//
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//
-///**
-// * Created by alecasanas on 3/27/17.
-// */
-//public class AITesting {
-//
-//    private ALE_AI ai;
-//
-//    private IslandMap islandMap;
-//    private Player whitePlayer;
-//
-//    private RotateTile tile;
-//
-//    @Before
-//    public void setUp() throws Exception {
-//        islandMap = new IslandMap();
-//
-//        whitePlayer = new Player("Black", 0);
-//
-//        Game game = new Game();
-//        ai = new ALE_AI(game, islandMap);
-//
-//    }
-//
-//    @Test
-//    public void getAllPossibleTilePosition() {
-//
-//        Hex currentHex = islandMap.getHex(606);
-//
-//        tile = new RotateTile(606, 0);
-//
-//        int[] tileArr = tile.checkPair();
-//
-//        HashMap<Integer, int[]> tileMap = new HashMap<>();
-//
-//        ArrayList<Integer> expectedHexes = new ArrayList<Integer>() {{
-//            add(407);
-//            add(607);
-//            add(408);
-//        }};
-//
-//        tileMap = ai.getAllPossibleTilePlacementPosition(tileArr);
-//
-//
-//        ai.printAllPossibleTiles();
-//    }
-//
-//    @Test
-//    public void largestSettlementLessThanFiveTest(){
-//        Player bPlayer = new Player("Black", 0);
-//        HexGrid hexGrid = new HexGrid();
-//
-//        hexGrid.generateHexGrid();
-//
-//        Settlement settlement = islandMap.getSettlementObj();
-//
-//        Builder builder = new Builder();
-//
-//        builder.build(whitePlayer, islandMap, 1, 806); //807 from 606
-//
-//        islandMap.addTileToMap(608, 0);
-//        builder.build(bPlayer, islandMap, 1, 807);
-//        //builder.build(bPlayer, islandMap, 1, 808);
-//        builder.build(bPlayer, islandMap, 1, 809);
-//
-//        ArrayList<Integer> playerSettlement = islandMap.getPlayerSettlement(bPlayer);
-//
-//        ai.findTheLargestSettlementLessThanFive(islandMap, whitePlayer);
-//    }
-//
-//
-//    @Test
-//    public void lookAroundAHexForAnEmptySettlementTest(){
-//
-//        Player bPlayer = new Player("Black", 0);
-//        HexGrid hexGrid = new HexGrid();
-//
-//        hexGrid.generateHexGrid();
-//
-//        Settlement settlement = islandMap.getSettlementObj();
-//
-//        Builder builder = new Builder();
-//
-//        builder.build(whitePlayer, islandMap, 1, 806); //807 from 606
-//
-//        islandMap.addTileToMap(608, 0);
-//        builder.build(bPlayer, islandMap, 1, 807);
-//        //builder.build(bPlayer, islandMap, 1, 808);
-//        //builder.build(bPlayer, islandMap, 1, 809);
-//
-//        ArrayList<Integer> playerSettlement = islandMap.getPlayerSettlement(bPlayer);
-//
-//        ArrayList<Integer> availableHexIDs = ai.lookAroundAHexForAnEmptySettlement(islandMap, 807);
-//
-//        System.out.println(availableHexIDs);
-//    }
-//
-//    @Test
-//    public void canATotoroBePlacedTest(){
-//        islandMap.addTileToMap(606, 0);
-//
-//        Player bPlayer = new Player("Black", 0);
-//        HexGrid hexGrid = new HexGrid();
-//
-//        hexGrid.generateHexGrid();
-//
-//        Settlement settlement = islandMap.getSettlementObj();
-//
-//        Builder builder = new Builder();
-//
-//        builder.build(whitePlayer, islandMap, 1, 806); //807 from 606
-//
-//        islandMap.addTileToMap(608, 0);
-//        builder.build(bPlayer, islandMap, 1, 807);
-//        builder.build(bPlayer, islandMap, 1, 808);
-//        builder.build(bPlayer, islandMap, 1, 809);
-//
-//        islandMap.addTileToMap(610, 0);
-//        builder.build(bPlayer, islandMap, 1, 810);
-//
-//        islandMap.addTileToMap(612, 0);
-//        System.out.println(ai.canATotoroBePlaced(islandMap,bPlayer));
-//
-//    }
-//
-//
-//    @Test
-//    public void canYouNukeTest(){
-//        Player bPlayer = new Player("Black", 0);
-//        HexGrid hexGrid = new HexGrid();
-//
-//        hexGrid.generateHexGrid();
-//
-//        Settlement settlement = islandMap.getSettlementObj();
-//
-//        Builder builder = new Builder();
-//
-//        //islandMap.addTileToMap(607, 60);
-//        int[] toServer = new int[4];
-//        toServer = ai.placeTile(islandMap, 19899, 0);
-//        for(int i = 0; i<4; i++){
-//            System.out.print(toServer[i] + " ");
-//        }
-//        System.out.println();
-//        toServer = ai.placeTile(islandMap, 19900, 60);
-//        for(int i = 0; i<4; i++){
-//            System.out.print(toServer[i] + " ");
-//        }
-//        System.out.println();
-//        Assert.assertEquals(true, ai.canYouNuke(islandMap));
-//
-//    }
-//
-//}
+/**
+ * Created by alecasanas on 4/2/17.
+ */
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+/**
+ * Created by alecasanas on 3/27/17.
+ */
+public class AITesting {
+
+    private ALE_AI ai;
+    private Game game;
+    private IslandMap islandMap;
+    private Player player1;
+    private Player player2;
+
+    private RotateTile tile;
+
+    Builder builder;
+
+    @Before
+    public void setUp() throws Exception {
+        game = new Game();
+        islandMap = game.getIslandMap();
+        islandMap.addTileToMap(807, 0);
+        player1 = new Player("Black", 0);
+        player2 = game.getWhitePlayer();
+
+        Game game = new Game();
+        ai = new ALE_AI(game);
+        builder = game.builder;
+    }
+
+    @Test
+    public void getAllPossibleTilePosition() {
+
+        ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
+            add(807);
+            add(1006);
+            add(1007);
+        }};
+
+        ai.getAllPossibleTilePlacementPosition(tileArr);
+        ai.printAllPossibleTiles();
+
+    }
+
+    @Test
+    public void findSettlementsSize3To5() {
+
+        Settlement settlement = islandMap.getSettlementObj();
+
+        islandMap.addTileToMap(807, 0);
+        islandMap.addTileToMap(809, 0);
+        islandMap.addTileToMap(811, 0);
+        islandMap.addTileToMap(813, 0);
+
+        builder.build(player1,islandMap,1,1006);
+        builder.build(player1,islandMap,1,1007);
+        builder.build(player1,islandMap,1,1008);
+
+
+        builder.build(player1,islandMap,1,1010);
+        builder.build(player1,islandMap,1,1011);
+
+        //int actualSettlement = ai.findOpponentsSettlementSizeThreeToFive().get(1);
+
+        //Assert.assertEquals(0,actualSettlement);
+    }
+
+    @Test
+    public void LookingForYourSettlementSize5OrMore() {
+
+        Settlement settlement = islandMap.getSettlementObj();
+
+        islandMap.addTileToMap(807, 0);
+        islandMap.addTileToMap(809, 0);
+        islandMap.addTileToMap(811, 0);
+        islandMap.addTileToMap(813, 0);
+        islandMap.addTileToMap(815, 0);
+        islandMap.addTileToMap(817, 0);
+        islandMap.addTileToMap(819, 0);
+        islandMap.addTileToMap(821, 0);
+        islandMap.addTileToMap(823, 0);
+
+
+        builder.build(player1,islandMap,1,1006);
+        builder.build(player1,islandMap,1,1007);
+        builder.build(player1,islandMap,1,1008);
+        builder.build(player1,islandMap,1,1009);
+        builder.build(player1,islandMap,1,1010);
+
+        builder.build(player2,islandMap,1,1011);
+        builder.build(player2,islandMap,1,1012);
+        builder.build(player2,islandMap,1,1013);
+        builder.build(player2,islandMap,1,1014);
+        builder.build(player2,islandMap,1,1015);
+
+        builder.build(player1,islandMap,1,1016);
+
+        islandMap.getSettlementObj().printAllSettlements();
+
+        ai.play();
+
+    }
+
+}

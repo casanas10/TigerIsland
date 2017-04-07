@@ -13,7 +13,7 @@ public class Frame extends JFrame {
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 900;
 
-    private Game game;
+    private Game game = new Game();
 
     private boolean isOdd = false;
     private boolean aiTurn = false;
@@ -24,9 +24,9 @@ public class Frame extends JFrame {
     Hexagon hex = new Hexagon();
 
     //Game Logic
-    private Player aiPlayer = new Player("black", 0);
-    private Player serverPlayer = new Player("white", 0);
-    private IslandMap islandMap = new IslandMap();
+    private Player aiPlayer = game.getWhitePlayer();
+    private Player serverPlayer = game.getBlackPlayer();
+    private IslandMap islandMap = game.getIslandMap();
     Builder builder = new Builder();
 
     private AI ai = new AI(game);
@@ -89,7 +89,7 @@ public class Frame extends JFrame {
                     System.out.println("AI TURN");
                     ai.playingAI();
 
-
+                    
 
                 } else {
 
@@ -209,7 +209,6 @@ public class Frame extends JFrame {
 
                 aiTurnToPlay();
 
-                islandMap.getSettlementObj().printAllSettlements();
             }
 
 
