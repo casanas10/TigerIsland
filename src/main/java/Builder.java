@@ -50,7 +50,7 @@ public class Builder {
             settlement.addSettlement(hexID, player);
             updateScore(player, piece, currentHex.getLevel());    // Update player score with 1 point
 
-            settlement.printAllSettlements(player);
+
             return true;
         }
         else{
@@ -66,7 +66,7 @@ public class Builder {
         else {
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
             boolean extensionSuccessful = extend.extendOnTerrain(terrain);
-            islandMap.getSettlementObj().printAllSettlements(player);
+            //islandMap.getSettlementObj().printAllSettlements(player);
             return extensionSuccessful;
         }
     }
@@ -79,7 +79,7 @@ public class Builder {
 
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
             boolean terrainToExtend = extend.extendOnTerrain(extend.getTerrainToExtendOn());
-            islandMap.getSettlementObj().printAllSettlements(player);
+            //islandMap.getSettlementObj().printAllSettlements(player);
             return terrainToExtend;
         }
 
@@ -93,7 +93,7 @@ public class Builder {
 
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
             boolean terrainToExtend = extend.extendOnTerrain(terrain);
-            islandMap.getSettlementObj().printAllSettlements(player);
+            //islandMap.getSettlementObj().printAllSettlements(player);
             return terrainToExtend;
         }
     }
@@ -113,7 +113,7 @@ public class Builder {
             currentHex.addGamePieceToHex(piece);                      // Add the Totoro to the map
             settlement.addTotoroToSettlement(hexID,player);
             updateScore(player, piece, currentHex.getLevel());        // Update the players score with 200 points
-            settlement.printAllSettlements(player);
+            //settlement.printAllSettlements(player);
             return true;
         }
         else{
@@ -137,7 +137,7 @@ public class Builder {
             currentHex.addGamePieceToHex(piece);                      // Add the Tiger to the map
             settlement.addTigerToSettlement(hexID, player);
             updateScore(player, piece, currentHex.getLevel());        // Update the player score with 75 points
-            settlement.printAllSettlements(player);
+            //settlement.printAllSettlements(player);
             return true;
         }
         else{
