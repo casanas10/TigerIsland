@@ -6,7 +6,7 @@ import org.junit.Test;
 public class AIPlayingTest {
     private Game game = new Game();
     private AI ai = new AI(game);
-    private AI server = new AI(game);
+//    private AI server = new AI(game);
 
     private boolean aiTurn = false;
 
@@ -24,10 +24,18 @@ public class AIPlayingTest {
 
     @Test
     public void testGamePlaying(){
+        MoveData moveData;
 
         while(true){
-            ai.playingAI();
+            String[] terrains = {"Volcano", "Rocky", "Lake"};
+            ai.makeMove(terrains);
             System.out.println("# of meeple left: " + game.getWhitePlayer().getPieces().getNumberOfMeeples());
+            System.out.println("*************************************************");
+            moveData = ai.getMoveData();
+            System.out.println("Tile Placement: " + moveData.getTilePlacementX() + " " + moveData.getTilePlacementY() + " " + moveData.getTilePlacementZ());
+            System.out.println("Tile Orientation: " + moveData.getOrientation());
+            System.out.println("Build option: " + moveData.getBuildOption());
+            System.out.println("Extend option: " + moveData.getExtendTerrain() + " " + moveData.getBuildOptionX() + " " + moveData.getBuildOptionY() + " " + moveData.getBuildOptionZ());
             System.out.println("---------------------------------------------------------------------------------------");
         }
 
@@ -48,7 +56,7 @@ public class AIPlayingTest {
             } else {
 
                 System.out.println("SERVER TURN");
-                server.playingAI();
+                //server.playingAI();
             }
 
             i++;
