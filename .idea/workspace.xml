@@ -2,36 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/GameFrame.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/GameView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/GridPanel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/GridPanelTest.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/test-report/report.js" afterPath="$PROJECT_DIR$/reports/test-report/report.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Builder.java" afterPath="$PROJECT_DIR$/src/main/java/Builder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/CoordinateConverter.java" afterPath="$PROJECT_DIR$/src/main/java/CoordinateConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" afterPath="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Game.java" afterPath="$PROJECT_DIR$/src/main/java/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Hex.java" afterPath="$PROJECT_DIR$/src/main/java/Hex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/HexGrid.java" afterPath="$PROJECT_DIR$/src/main/java/HexGrid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/IslandMap.java" afterPath="$PROJECT_DIR$/src/main/java/IslandMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/MoveData.java" afterPath="$PROJECT_DIR$/src/main/java/MoveData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/MoveProtocol.java" afterPath="$PROJECT_DIR$/src/main/java/MoveProtocol.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Nuking.java" afterPath="$PROJECT_DIR$/src/main/java/Nuking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/PlacementValidity.java" afterPath="$PROJECT_DIR$/src/main/java/PlacementValidity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Player.java" afterPath="$PROJECT_DIR$/src/main/java/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java" afterPath="$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/RotateTile.java" afterPath="$PROJECT_DIR$/src/main/java/RotateTile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Settlement.java" afterPath="$PROJECT_DIR$/src/main/java/Settlement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/TileGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/TileGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/GameStep.java" afterPath="$PROJECT_DIR$/src/test/java/GameStep.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/BuilderTest.java" afterPath="$PROJECT_DIR$/test/BuilderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CoordinateConverterTest.java" afterPath="$PROJECT_DIR$/test/CoordinateConverterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/ExtendTest.java" afterPath="$PROJECT_DIR$/test/ExtendTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/IslandMapTest.java" afterPath="$PROJECT_DIR$/test/IslandMapTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/RotateTileTest.java" afterPath="$PROJECT_DIR$/test/RotateTileTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/SettlementTest.java" afterPath="$PROJECT_DIR$/test/SettlementTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/BuildStep.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/NukingStep.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/building.feature" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/nuking.feature" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/AIPlayingTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/AITest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/EndOfTurnTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/MoveData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/RotateConverterTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1224">
+            <state relative-caret-position="-867">
               <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -104,7 +84,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-972">
@@ -123,43 +103,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>activehexids.add</find>
-      <find>placetile</find>
-      <find>firstm</find>
-      <find>placemee</find>
-      <find>placetil</find>
-      <find>placemeeplea</find>
-      <find>lookaro</find>
-      <find>canYou</find>
-      <find>nuke</find>
-      <find>getSettlement</find>
-      <find>placeFirst</find>
-      <find>color</find>
-      <find>first</find>
-      <find>system.out</find>
-      <find>extend</find>
-      <find>settlement</find>
-      <find>check</find>
-      <find>tiger</find>
-      <find>totoro</find>
-      <find>hex1</find>
-      <find>makeFirstmove</find>
-      <find>addTileToMap</find>
-      <find>rotate</find>
-      <find>findthelar</find>
-      <find>cana</find>
-      <find>orientation</find>
-      <find>-1</find>
-      <find>placemeeple</find>
-      <find>toSendServer[3]</find>
-      <find>toServer</find>
-    </findStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/src/main/java</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -311,6 +254,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TigerIsland" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TigerIsland" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -325,14 +282,6 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/test" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
   </component>
   <component name="RunManager" selected="JUnit.JUnit Test">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -700,9 +649,6 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="" />
@@ -886,40 +832,22 @@
       <option name="project" value="LOCAL" />
       <updated>1491604850514</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="updated gui and ai">
+      <created>1491606888479</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1491606888479</updated>
+    </task>
+    <task id="LOCAL-00027" summary="updated gui and ai">
+      <created>1491606964862</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1491606964862</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.07 at 17h 15m 05s.xml">
-      <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.07 at 17h 17m 03s.xml">
-      <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.07 at 17h 34m 21s.xml">
-      <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.07 at 18h 16m 30s.xml">
-      <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.07 at 18h 19m 29s.xml">
-      <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.07 at 18h 30m 21s.xml">
-      <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.07 at 18h 33m 06s.xml">
-      <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.07 at 18h 38m 03s.xml">
-      <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AIPlayingTest_testGamePlaying - 2017.04.07 at 18h 40m 03s.xml">
-      <configuration name="AIPlayingTest.testGamePlaying" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.07 at 18h 40m 11s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
-    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1259" height="717" extended-state="0" />
@@ -940,7 +868,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2686935" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2686935" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25349087" sideWeight="0.49529412" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1441,20 +1369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1224">
-          <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4169#4170#0" expanded="true" />
-            <element signature="e#4198#4199#0" expanded="true" />
-            <element signature="e#8122#8123#0" expanded="true" />
-            <element signature="e#8153#8154#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MatchProtocol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1468,6 +1382,20 @@
         <state relative-caret-position="-972">
           <caret line="198" column="99" lean-forward="false" selection-start-line="198" selection-start-column="99" selection-end-line="198" selection-end-column="99" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-867">
+          <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4169#4170#0" expanded="true" />
+            <element signature="e#4198#4199#0" expanded="true" />
+            <element signature="e#8122#8123#0" expanded="true" />
+            <element signature="e#8153#8154#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
