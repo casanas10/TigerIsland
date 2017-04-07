@@ -158,7 +158,7 @@ import java.util.Map;
 
         public boolean isPiecePartOfASettlement(int settlementID, int hexID) {
 
-            ArrayList<Integer> HexIDs =  settlementMap.get(new Integer(settlementID));
+            ArrayList<Integer> HexIDs =  settlementMap.get(settlementID);
 
             for (int i = 0; i < HexIDs.size(); i++){
                 if (HexIDs.contains(hexID)){
@@ -231,7 +231,7 @@ import java.util.Map;
 
                 if(currentSettlement != -1) {
 
-                    int settlementSize = settlementMap.get(new Integer(currentSettlement)).size();
+                    int settlementSize = settlementMap.get(currentSettlement).size();
 
                     if (settlementSize >= 5 && doesNotHaveATotoro(currentSettlement, player)){
                         return true;
@@ -278,7 +278,7 @@ import java.util.Map;
 
         public boolean doesNotContainTigerAlready(int settlementID, Player player) {
 
-            ArrayList<Integer> pickAHex = settlementMap.get(new Integer(settlementID));
+            ArrayList<Integer> pickAHex = settlementMap.get(settlementID);
 
             for (int i = 0; i < pickAHex.size(); i++){
 
@@ -292,7 +292,7 @@ import java.util.Map;
 
         public boolean doesNotHaveATotoro(int settlementID, Player player) {
 
-            ArrayList<Integer> pickAHex = settlementMap.get(new Integer(settlementID));
+            ArrayList<Integer> pickAHex = settlementMap.get(settlementID);
 
             for (int i = 0; i < pickAHex.size(); i++){
 
