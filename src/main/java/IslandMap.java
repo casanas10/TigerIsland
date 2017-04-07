@@ -39,7 +39,7 @@ public class IslandMap {
         ArrayList<Integer> hexesList = new ArrayList<Integer>();
         for (int i = 0; i < tileHexIDsArray.length; i++) {
             hexesList.add(tileHexIDsArray[i]);
-            System.out.println(hexesList.get(i));
+            //System.out.println(hexesList.get(i));
         }
 
         // Place first tile in the middle of the map automatically
@@ -59,6 +59,10 @@ public class IslandMap {
             tileCount++;
             System.out.println("Nuke Successful!");
 
+            for (int i = 0; i < tileHexIDsArray.length; i++){
+                System.out.print(tileHexIDsArray[i] + " ");
+                System.out.println();
+            }
 
             settlement.updateSettlementAfterNuke(hexesList, player);
 
@@ -114,6 +118,11 @@ public class IslandMap {
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             tileCount++;
             System.out.println("Nuke Successful!");
+
+            for (int i = 0; i < tileHexIDsArray.length; i++){
+                System.out.print(tileHexIDsArray[i]);
+            }
+
             return true;
         }
 

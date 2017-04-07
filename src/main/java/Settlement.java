@@ -1,13 +1,8 @@
 
-
-            /**
-             * Created by alecasanas on 3/25/17.
-             */
-
-            import java.util.ArrayList;
-            import java.util.HashMap;
-            import java.util.Iterator;
-            import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
     /**
      * Created by Val on 3/24/2017.
@@ -78,7 +73,6 @@
                         NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
 
                         for (int j = 0; j < NewHexIDs.size(); j++){
-                            System.out.println(NewHexIDs.get(j));
                             setSettlementID(NewHexIDs.get(j),settID);
                         }
 
@@ -164,7 +158,7 @@
 
         public boolean isPiecePartOfASettlement(int settlementID, int hexID) {
 
-            ArrayList<Integer> HexIDs =  settlementMap.get(settlementID);
+            ArrayList<Integer> HexIDs =  settlementMap.get(new Integer(settlementID));
 
             for (int i = 0; i < HexIDs.size(); i++){
                 if (HexIDs.contains(hexID)){
@@ -196,15 +190,15 @@
             hexGrid.getHexValue(hexID).setSettlementID(settlementID);
         }
 
-        public void printAllSettlements(){
+        public void printAllSettlements(Player player){
             Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlementMap.entrySet().iterator();
             while(iterator.hasNext()){
                 Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
-                System.out.print("Settlement " + entry.getKey() + ": ");
+
+
+                System.out.print(hexGrid.getHexValue(entry.getValue().get(0)).getPlayerColorOnHex() + " Settlement " + entry.getKey() + ": ");
 
                 System.out.print( entry.getValue() + " ");
-
-
                 System.out.println();
             }
 
@@ -237,7 +231,7 @@
 
                 if(currentSettlement != -1) {
 
-                    int settlementSize = settlementMap.get(currentSettlement).size();
+                    int settlementSize = settlementMap.get(new Integer(currentSettlement)).size();
 
                     if (settlementSize >= 5 && doesNotHaveATotoro(currentSettlement, player)){
                         return true;
@@ -284,7 +278,7 @@
 
         public boolean doesNotContainTigerAlready(int settlementID, Player player) {
 
-            ArrayList<Integer> pickAHex = settlementMap.get(settlementID);
+            ArrayList<Integer> pickAHex = settlementMap.get(new Integer(settlementID));
 
             for (int i = 0; i < pickAHex.size(); i++){
 
@@ -298,7 +292,7 @@
 
         public boolean doesNotHaveATotoro(int settlementID, Player player) {
 
-            ArrayList<Integer> pickAHex = settlementMap.get(settlementID);
+            ArrayList<Integer> pickAHex = settlementMap.get(new Integer(settlementID));
 
             for (int i = 0; i < pickAHex.size(); i++){
 

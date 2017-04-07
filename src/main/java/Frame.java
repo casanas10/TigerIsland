@@ -89,8 +89,6 @@ public class Frame extends JFrame {
                     System.out.println("AI TURN");
                     ai.playingAI();
 
-                    
-
                 } else {
 
                     int hexID = -1;
@@ -209,6 +207,7 @@ public class Frame extends JFrame {
 
                 aiTurnToPlay();
 
+                System.out.println("--------------------------------------------------------");
             }
 
 
