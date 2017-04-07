@@ -44,6 +44,9 @@ public class ExtendTest {
 
         Assert.assertTrue(lakesToExtendOn.contains(806));
         Assert.assertTrue(lakesToExtendOn.contains(1005));
+        Assert.assertTrue(grasslandsToExtendOn.isEmpty());
+        Assert.assertTrue(rockysToExtendOn.contains(1006));
+        Assert.assertTrue(junglesToExtendOn.contains(1007));
     }
 
     @Test
@@ -57,17 +60,17 @@ public class ExtendTest {
         islandMap.getHex(2808).setTerrain("Grassland");
         islandMap.getHex(2809).setTerrain("Grassland");
         islandMap.getHex(2810).setTerrain("Grassland");
-        islandMap.getHex(3215).setTerrain("Grassland");
+        //islandMap.getHex(3215).setTerrain("Grassland");
         islandMap.getHex(3009).setTerrain("Rocky");
         islandMap.getHex(3010).setTerrain("Rocky");
         islandMap.getHex(2811).setTerrain("Rocky");
         islandMap.getHex(2812).setTerrain("Rocky");
         islandMap.getHex(2813).setTerrain("Jungle");
-        islandMap.getHex(2814).setTerrain("Jungle");
+        //islandMap.getHex(2814).setTerrain("Jungle");
         islandMap.getHex(2613).setTerrain("Jungle");
         islandMap.getHex(2614).setTerrain("Lake");
-        islandMap.getHex(2815).setTerrain("Lake");
-        islandMap.getHex(3214).setTerrain("Rocky");
+        //islandMap.getHex(2815).setTerrain("Lake");
+        //islandMap.getHex(3214).setTerrain("Rocky");
         player1 = new Player("Black",0);
         player2 = new Player("White", 0);
         builder = new Builder();
@@ -88,7 +91,8 @@ public class ExtendTest {
         Assert.assertTrue(grasslandsToExtendOn.contains(2808));
         Assert.assertTrue(grasslandsToExtendOn.contains(2809));
         //Assert.assertTrue(grasslandsToExtendOn.contains(2810));
-
+        //Assert.assertTrue(junglesToExtendOn.contains(2814));
+        //Assert.assertTrue(junglesToExtendOn.contains(2613));
     }
 
     @Test
