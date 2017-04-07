@@ -508,7 +508,6 @@ public class AI {
             if(!availableHexIDs.isEmpty()){
                 //place Totoro
                 if(builder.build(player, islandMap, 3, availableHexIDs.get(0))){
-                    builder.build(player, islandMap, 3, availableHexIDs.get(0));
                     toSendServer[3] = 3;
                     toSendServer[4] = coordinateSystem.getXCoordinate(availableHexIDs.get(0));
                     toSendServer[5] = coordinateSystem.getYCoordinate(availableHexIDs.get(0));
