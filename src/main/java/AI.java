@@ -42,6 +42,7 @@ public class AI {
     private Boolean wasTigerPlaced = false;
     private int[] level3HexIDs  = new int[2];
     private Boolean readyToPlaceTiger = false;
+    private int[] toSendServer = new int[6]; //int ourTileX, int ourTileY, int ourOrientation, int ourBuildOption, int ourBuildOptionX, int ourBuildOptionY
     /*
     * Strategy for building:
      *
@@ -72,6 +73,7 @@ public class AI {
     public AI(Game game){
         this.game = game;
         this.islandMap = new IslandMap();
+        this.player = game.getWhitePlayer();
 
         int[] tileHexIDsArray = {coordinateSystem.getHexID(99,99), coordinateSystem.getHexID(99,98),coordinateSystem.getHexID(100,98),
         coordinateSystem.getHexID(99,100), coordinateSystem.getHexID(100, 100)};
@@ -85,37 +87,44 @@ public class AI {
         islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
     }
 
-    public MoveData sendTilePlacementToServer(int[] toServer){
-        moveData.setTilePlacementX(toServer[0]);
-        moveData.setTilePlacementY(toServer[1]);
-        moveData.setTilePlacementZ(toServer[2]);
-        moveData.setOrientation(toServer[3]);
-        return moveData;
+    public Player getPlayer(){
+        return player;
     }
 
-    public MoveData sendBuildToServer(int[] toServer){
-        moveData.setBuildOption(toServer[0]);
-        moveData.setBuildOptionX(toServer[1]);
-        moveData.setBuildOptionY(toServer[2]);
-        moveData.setBuildOptionZ(toServer[3]);
-        return moveData;
+    public void updateOpponentMove(MoveData moveData){
+        int ourOrientation = rotationConverter.serverToOurs(moveData.getOrientation());
+        int[] ourCoordinatesTile = coordinateConverter.serverToOurs(moveData.getTilePlacementX(), moveData.getTilePlacementY(), moveData.getTilePlacementZ());
+
+        String[] Terrains = moveData.getTerrainsArray();
+
+        int buildOption = moveData.getBuildOption(); //1. found settlement, 2. expand, 3. totoro, 4. tiger
+        String ExtendTerrain = "";
+        if(buildOption == 2){
+            ExtendTerrain = moveData.getExtendTerrain();
+        }
+        int[] ourCoordinatesBuild = coordinateConverter.serverToOurs(moveData.getBuildOptionX(), moveData.getBuildOptionY(), moveData.getBuildOptionZ());
     }
 
-    public void receiveTilePlacementFromServer(){
-        int serverX = moveData.getTilePlacementX();
-        int serverY = moveData.getTilePlacementY();
-        int serverZ = moveData.getTilePlacementZ();
-        int serverOrientation = moveData.getOrientation();
-        int[] ourX = coordinateConverter.serverToOurs(serverX, serverY, serverZ);
-        int ourOrientation = rotationConverter.serverToOurs(serverOrientation);
+    public void makeMove(String[] Terrains){
+        String volcano = Terrains[0];
+        String a = Terrains[1];
+        String b = Terrains[2];
     }
 
-    public void receiveBuildFromServer(){
-        int buildOption = moveData.getBuildOption();
-        int serverBuildOptionX = moveData.getBuildOptionX();
-        int serverBuildOptionY = moveData.getBuildOptionY();
-        int serverBuildOptionZ = moveData.getBuildOptionZ();
-        int[] hexCoordinates = coordinateConverter.serverToOurs(serverBuildOptionX, serverBuildOptionY, serverBuildOptionZ);
+    public void sendMoveToServer(int ourTileX, int ourTileY, int ourOrientation, int ourBuildOption, int ourBuildOptionX, int ourBuildOptionY){
+        int serverOrientation = rotationConverter.oursToServer(ourOrientation);
+        int[] serverCoordinatesTile = coordinateConverter.oursToServer(ourTileX, ourTileY);
+        moveData.setOrientation(serverOrientation);
+        moveData.setTilePlacementX(serverCoordinatesTile[0]);
+        moveData.setTilePlacementY(serverCoordinatesTile[1]);
+        moveData.setTilePlacementZ(serverCoordinatesTile[2]);
+
+        int[] serverCoordinatesBuild = coordinateConverter.oursToServer(ourBuildOptionX, ourBuildOptionY);
+
+        moveData.setBuildOption(ourBuildOption);
+        moveData.setBuildOptionX(serverCoordinatesBuild[0]);
+        moveData.setBuildOptionY(serverCoordinatesBuild[1]);
+        moveData.setBuildOptionZ(serverCoordinatesBuild[2]);
     }
 
     public void playingAI(){
@@ -123,7 +132,10 @@ public class AI {
         //Place first Tile
 
         if(!isFirstTilePlaced) {
-            makeFirstMove(islandMap);
+            int[] toServer = makeFirstMove(islandMap);
+            for(int i = 0; i<4; i++){
+                toSendServer[i] = toServer[i];
+            }
         }
         else {
             //place Tile

@@ -24,6 +24,8 @@ public class AIPlayingTest {
 
         while(true){
             ai.playingAI();
+            System.out.println("# of meeple left: " + game.getWhitePlayer().getPieces().getNumberOfMeeples());
+            System.out.println("---------------------------------------------------------------------------------------");
         }
 
     }
