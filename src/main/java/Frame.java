@@ -87,7 +87,7 @@ public class Frame extends JFrame {
                 if (aiTurn){
 
                     System.out.println("AI TURN");
-                    ai.playingAI(islandMap);
+                    ai.playingAI();
 
 
 
