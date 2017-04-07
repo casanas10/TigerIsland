@@ -29,7 +29,7 @@ public class Frame extends JFrame {
     private IslandMap islandMap = game.getIslandMap();
     Builder builder = new Builder();
 
-    private AI ai = new AI(game);
+    private AI ai = new AI();
 
     boolean tileSuccessfullyPlaced = false;
 

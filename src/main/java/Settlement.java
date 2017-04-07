@@ -228,8 +228,9 @@ import java.util.Map;
             for (int i = 0; i < adjacentHexes.size(); i++){
 
                 int currentSettlement = getSettlementID(adjacentHexes.get(i));
+                String settlementColor = getSettlementColor(adjacentHexes.get(i));
 
-                if(currentSettlement != -1) {
+                if((currentSettlement != -1) && (player.getPlayerColor() == settlementColor)) {
 
                     int settlementSize = settlementMap.get(currentSettlement).size();
 
@@ -263,8 +264,9 @@ import java.util.Map;
             for (int i = 0; i < adjacentHexes.size(); i++){
 
                 int currentSettlement = getSettlementID(adjacentHexes.get(i));
+                String settlementColor = getSettlementColor(adjacentHexes.get(i));
 
-                if(currentSettlement != -1) {
+                if((currentSettlement != -1) && (player.getPlayerColor() == settlementColor)) {
 
                     if (doesNotContainTigerAlready(currentSettlement, player)){
                         return true;
@@ -304,4 +306,8 @@ import java.util.Map;
 
         }
 
+        public String getSettlementColor(int hexID) {
+            String settlementColor = hexGrid.getHexValue(hexID).getPlayerColorOnHex();
+            return settlementColor;
+        }
     }

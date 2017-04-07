@@ -48,9 +48,8 @@ public class Builder {
 
             currentHex.addGamePieceToHex(piece);                  // Place the piece on the current hex
             settlement.addSettlement(hexID, player);
+            //settlement.printAllSettlements();
             updateScore(player, piece, currentHex.getLevel());    // Update player score with 1 point
-
-            settlement.printAllSettlements(player);
             return true;
         }
         else{
@@ -66,7 +65,7 @@ public class Builder {
         else {
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
             boolean extensionSuccessful = extend.extendOnTerrain(terrain);
-            islandMap.getSettlementObj().printAllSettlements(player);
+            //islandMap.getSettlementObj().printAllSettlements(player);
             return extensionSuccessful;
         }
     }
@@ -76,7 +75,6 @@ public class Builder {
             return false;
         }
         else {
-
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
             boolean terrainToExtend = extend.extendOnTerrain(extend.getTerrainToExtendOn());
             islandMap.getSettlementObj().printAllSettlements(player);
@@ -113,7 +111,7 @@ public class Builder {
             currentHex.addGamePieceToHex(piece);                      // Add the Totoro to the map
             settlement.addTotoroToSettlement(hexID,player);
             updateScore(player, piece, currentHex.getLevel());        // Update the players score with 200 points
-            settlement.printAllSettlements(player);
+
             return true;
         }
         else{
@@ -137,7 +135,6 @@ public class Builder {
             currentHex.addGamePieceToHex(piece);                      // Add the Tiger to the map
             settlement.addTigerToSettlement(hexID, player);
             updateScore(player, piece, currentHex.getLevel());        // Update the player score with 75 points
-            settlement.printAllSettlements(player);
             return true;
         }
         else{
@@ -157,6 +154,7 @@ public class Builder {
     }
 
     public boolean verifyValidHexForTotoro(Hex currentHex){
+        // Need to check for a settlement of size 5
         if(currentHex.getLevel() >= 1 && currentHex.checkIfHexIsNotSettled()
                 && !currentHex.getTerrain().equals("Volcano")){
             return true;
@@ -167,6 +165,7 @@ public class Builder {
     }
 
     public boolean verifyValidHexForTiger(Hex currentHex){
+        // Need to add check for a settlement
         if(currentHex.getLevel() >= 3 && currentHex.checkIfHexIsNotSettled()
                 && !currentHex.getTerrain().equals("Volcano")){
             return true;

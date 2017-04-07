@@ -5,7 +5,7 @@ import org.junit.Test;
  */
 public class AIPlayingTest {
     private Game game = new Game();
-    private AI ai = new AI(game);
+    private AI ai = new AI();
 //    private AI server = new AI(game);
 
     private boolean aiTurn = false;
