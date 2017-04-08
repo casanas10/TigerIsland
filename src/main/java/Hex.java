@@ -102,6 +102,7 @@ public class Hex {
     }
 
     public int getSettlementID() {
+        //System.out.println("Settlement ID of Hex " + hexID + " is: " + settlementID);
         return settlementID;
     }
 
