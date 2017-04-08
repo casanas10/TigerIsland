@@ -1,3 +1,4 @@
+
 /**
  * Created by alecasanas on 3/25/17.
  */
@@ -28,6 +29,14 @@ public class Settlement {
 
     }
 
+    public int getSettlementSize(int SettlementID){
+        return settlementMap.get(SettlementID).size();
+    }
+
+    public ArrayList<Integer> getSettlementHexIDs(int SettlementID){
+        return settlementMap.get(SettlementID);
+    }
+
     public ArrayList<Integer> getListOfActiveSettlementIDs() {
         return listOfActiveSettlementIDs;
     }
@@ -36,49 +45,52 @@ public class Settlement {
         return settlementMap;
     }
 
-    public void updateSettlementAfterNuke(ArrayList<Integer> hexes, Player player){
+    public void updateSettlementAfterNuke(ArrayList<Integer> hexes, Player player) {
 
-        hexGrid.getHexValue(hexes.get(0)).resetPlayerColorOnHex(); //reset player color
-        hexGrid.getHexValue(hexes.get(0)).setSettlementID(-1);  //and settlement id
+        ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
 
-        hexGrid.getHexValue(hexes.get(1)).resetPlayerColorOnHex();
-        hexGrid.getHexValue(hexes.get(1)).setSettlementID(-1);
+        for (int i =1; i < hexes.size(); i++ ) {
+            ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexes.get(i)));
+            for(int j = 0; j < adjacentHexes.size(); j++){
 
-        hexGrid.getHexValue(hexes.get(2)).resetPlayerColorOnHex();
-        hexGrid.getHexValue(hexes.get(2)).setSettlementID(-1);
+                if (hexGrid.getHexValue(adjacentHexes.get(j)).getSettlementID() != -1) {
 
-        int hexID = 0;
-
-
-        for (int index = 0; index < hexes.size(); index++ ){
-
-            ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(hexGrid.getHexValue(hexes.get(index)));
-
-            ArrayList<Integer> NewHexIDs = new ArrayList<Integer>();
-
-            for (int i = 0; i < adjacentHexes.size(); i++){
-
-                if (hexGrid.getHexValue(adjacentHexes.get(i)).getSettlementID() != - 1){
-                    hexID = adjacentHexes.get(i);
+                    int hexID = adjacentHexes.get(j);
 
                     int settID = getSettlementID(hexID);
+
                     settlementMap.remove(settID);
-                    listOfActiveSettlementIDs.remove(Integer.valueOf(settID));//NEW
-
-                    NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
-
-                    for (int j = 0; j < NewHexIDs.size(); j++){
-                        System.out.println(NewHexIDs.get(j));
-                        setSettlementID(NewHexIDs.get(j),settID);
-                    }
-
-                    settlementMap.put(settleID,NewHexIDs);
-                    listOfActiveSettlementIDs.add(settleID);//NEW
-                    settleID++;
+                    listOfActiveSettlementIDs.remove(new Integer(settID));  //blah blah
+                    NewHexIDs.add(hexID);
 
                 }
-
             }
+        }
+
+        for (int i = 0 ; i < NewHexIDs.size(); i++){
+
+            Player player2 = new Player(hexGrid.getHexValue(NewHexIDs.get(i)).getPlayerColorOnHex(), 0);
+
+            ArrayList<Integer> hexesArr = settlementSizeChecker.checkSettlementSize(NewHexIDs.get(i), player2);
+
+           setSettlementID(NewHexIDs.get(i),settleID);
+            for(int hexID : hexesArr)
+                setSettlementID(hexID, settleID);
+
+            settlementMap.put(settleID, hexesArr);
+            listOfActiveSettlementIDs.add(settleID);    //blah blah
+
+            settleID++;
+        }
+
+    }
+
+    private String settlementColor(int hexID) {
+
+        if (hexGrid.getHexValue(hexID).getPlayerColorOnHex() == "Black"){
+            return "Black";
+        } else {
+            return "White";
         }
     }
 
@@ -88,15 +100,17 @@ public class Settlement {
 
         hex.setPlayerColorOnHex(player.getPlayerColor());
 
-        if (isNewSettlement(hexID,player)){
+        if (!settlementMap.containsValue(hexID)) {
 
-            foundNewSettlement(hexID, player);
+            if (isNewSettlement(hexID, player)) {
 
-        } else {
+                foundNewSettlement(hexID, player);
 
-            addPieceToAnExistingSettlement(hexID, player);
+            } else {
+
+                addPieceToAnExistingSettlement(hexID, player);
+            }
         }
-
 
     }
 
@@ -124,7 +138,7 @@ public class Settlement {
 
         for(int i = 0; i<setIDPlaceHolder.size(); i++){
             settlementMap.remove(setIDPlaceHolder.get(i));
-            listOfActiveSettlementIDs.remove(setIDPlaceHolder.get(i));
+            listOfActiveSettlementIDs.remove(new Integer(setIDPlaceHolder.get(i))); //blah blah
         }
 
         NewHexIDs = settlementSizeChecker.checkSettlementSize(hexID, player);
@@ -186,15 +200,15 @@ public class Settlement {
         hexGrid.getHexValue(hexID).setSettlementID(settlementID);
     }
 
-    public void printAllSettlements(){
+    public void printAllSettlements(Player player){
         Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlementMap.entrySet().iterator();
         while(iterator.hasNext()){
             Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
-            System.out.print("Settlement " + entry.getKey() + ": ");
+
+
+            System.out.print(hexGrid.getHexValue(entry.getValue().get(0)).getPlayerColorOnHex() + " Settlement " + entry.getKey() + ": ");
 
             System.out.print( entry.getValue() + " ");
-
-
             System.out.println();
         }
 

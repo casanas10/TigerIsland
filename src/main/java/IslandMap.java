@@ -12,6 +12,8 @@ public class IslandMap {
     Nuking nuker;
     Settlement settlement;
 
+    String tileTerrainsArray[] = new String[3];
+
 
     public IslandMap(){
         gameBoardMap = new HashMap<Integer, int[]>();
@@ -23,6 +25,74 @@ public class IslandMap {
         settlement = new Settlement(hexGrid);
     }
 
+    public String[] getNewTile() {
+        return myGen.getNewTile();
+    }
+
+
+    public boolean addTileToMap(int hexID, int orientation, String[] newTile, Player player){
+
+        int tileHexIDsArray[] = new int[3];
+        RotateTile rotateTile = new RotateTile(hexID, orientation);
+        tileHexIDsArray = rotateTile.checkPair();
+
+        ArrayList<Integer> hexesList = new ArrayList<Integer>();
+        for (int i = 0; i < tileHexIDsArray.length; i++) {
+            hexesList.add(tileHexIDsArray[i]);
+            //System.out.println(hexesList.get(i));
+        }
+
+        // Place first tile in the middle of the map automatically
+        if(getNumberOfTiles() == 47 && tileCount == 0){
+            placeFirstTile(tileHexIDsArray, newTile);   //changed
+            System.out.println("First tile successfully placed!");
+            return true;
+        }
+
+        // CHECK FOR NUKE
+        if(nuker.canYouNukeSettlement(this, tileHexIDsArray, hexID)){
+
+            nuker.performNuke(hexGrid, tileHexIDsArray, newTile, tileCount);
+
+            Tile tile = new Tile(tileCount,tileHexIDsArray);
+            gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+            tileCount++;
+            System.out.println("Nuke Successful!");
+
+            for (int i = 0; i < tileHexIDsArray.length; i++){
+                System.out.print(tileHexIDsArray[i] + " ");
+                System.out.println();
+            }
+
+            settlement.updateSettlementAfterNuke(hexesList, player);
+
+            return true;
+        }
+
+        boolean hexesCanBePlaced = false;
+        boolean adjacentTilesValid = false;
+        PlacementValidity placementValidity = new PlacementValidity();
+        //I want the function below to take hexID array instead and also terrain array
+        hexesCanBePlaced = placementValidity.checkIfHexesCanBePlaced(hexGrid, tileHexIDsArray);
+        adjacentTilesValid = placementValidity.SearchAdjacentTiles(hexGrid, tileHexIDsArray);
+
+        if(hexesCanBePlaced && adjacentTilesValid){
+            Tile tile = new Tile(tileCount,tileHexIDsArray);
+            hexGrid.setTerrains(tileHexIDsArray, newTile);
+            hexGrid.increaseLevelsByOne(tileHexIDsArray);
+            gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+            hexGrid.setHexTileIDs(tileHexIDsArray, tileCount);
+            tileCount++;
+            System.out.println("Tile Successfully Placed!");
+            return true;
+        }
+        else{
+            //return to user to request new hexID and Orientation
+            System.out.println("Tile could not be placed, select another location");
+            return false;
+        }
+
+    }
 
     public boolean addTileToMap(int hexID, int orientation) {
 
@@ -30,13 +100,13 @@ public class IslandMap {
         RotateTile rotateTile = new RotateTile(hexID, orientation);
         tileHexIDsArray = rotateTile.checkPair();
 
-        String tileTerrainsArray[] = new String[3];
-        tileTerrainsArray = myGen.getNewTile();
+        tileTerrainsArray = getNewTile();
 
         // Place first tile in the middle of the map automatically
         if(getNumberOfTiles() == 47 && tileCount == 0){
             placeFirstTile(tileHexIDsArray, tileTerrainsArray);   //changed
             System.out.println("First tile successfully placed!");
+
             return true;
         }
 
@@ -49,6 +119,11 @@ public class IslandMap {
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             tileCount++;
             System.out.println("Nuke Successful!");
+
+            for (int i = 0; i < tileHexIDsArray.length; i++){
+                System.out.print(tileHexIDsArray[i]);
+            }
+
             return true;
         }
 
@@ -89,8 +164,8 @@ public class IslandMap {
         }
     }
 
-    public boolean containsHexKey(Tile tile){
-        if (gameBoardMap.containsKey(tile.getTileID())){
+    public boolean containsHexKey(int tileID){
+        if (gameBoardMap.containsKey(tileID)){
             return true;
         }
         return false;

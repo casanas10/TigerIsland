@@ -1,111 +1,55 @@
 /**
- * Created by alecasanas on 4/2/17.
+ * Created by alecasanas on 4/7/17.
  */
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
- * Created by alecasanas on 3/27/17.
+ * Created by Val on 4/3/2017.
  */
 public class AITest {
 
-    private AI ai;
+    private Game game = new Game();
+    private ALE_AI ai = new ALE_AI(game);
 
-    private IslandMap islandMap;
-    private Player player1;
-    private Player player2;
-
-    private RotateTile tile;
-
-    Builder builder;
-
-    @Before
-    public void setUp() throws Exception {
-        islandMap = new IslandMap();
-        islandMap.addTileToMap(807, 0);
-        player1 = new Player("Black", 0);
-        player2 = new Player("White", 0);
-
-        Game game = new Game();
-        ai = new AI(game, islandMap);
-        builder = new Builder();
-    }
 
     @Test
-    public void getAllPossibleTilePosition() {
-
-        ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
-            add(807);
-            add(1006);
-            add(1007);
-        }};
-
-        ai.getAllPossibleTilePlacementPosition(tileArr);
-        ai.printAllPossibleTiles();
-    }
-
-    @Test
-    public void findSettlementsSize3To5() {
-
-        Settlement settlement = islandMap.getSettlementObj();
-
-        islandMap.addTileToMap(807, 0);
-        islandMap.addTileToMap(809, 0);
-        islandMap.addTileToMap(811, 0);
-        islandMap.addTileToMap(813, 0);
-
-        builder.build(player1,islandMap,1,1006);
-        builder.build(player1,islandMap,1,1007);
-        builder.build(player1,islandMap,1,1008);
+    public void PlayGame() {
 
 
-        builder.build(player1,islandMap,1,1010);
-        builder.build(player1,islandMap,1,1011);
-
-        islandMap.getSettlementObj().printAllSettlements();
-
-        int actualSettlement = ai.findOpponentsSettlementSizeThreeToFive().get(1);
-
-        Assert.assertEquals(0,actualSettlement);
-    }
-
-    @Test
-    public void LookingForYourSettlementSize5OrMore() {
-
-        Settlement settlement = islandMap.getSettlementObj();
-
-        islandMap.addTileToMap(807, 0);
-        islandMap.addTileToMap(809, 0);
-        islandMap.addTileToMap(811, 0);
-        islandMap.addTileToMap(813, 0);
-        islandMap.addTileToMap(815, 0);
-        islandMap.addTileToMap(817, 0);
-        islandMap.addTileToMap(819, 0);
-        islandMap.addTileToMap(821, 0);
-        islandMap.addTileToMap(823, 0);
+        //PLACE STARTING TILE
+        CoordinateSystem coors = new CoordinateSystem();
+        // First tile will actually be placed in the center, this is for testing purposes
+        //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+        int[] tileHexIDsArray = {coors.getHexID(14,15), coors.getHexID(14,14),coors.getHexID(15,14),
+                coors.getHexID(14,16), coors.getHexID(15, 16)};
+        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
+        game.getIslandMap().placeFirstTile(tileHexIDsArray, tileTerrainsArray);
 
 
-        builder.build(player1,islandMap,1,1006);
-        builder.build(player1,islandMap,1,1007);
-        builder.build(player1,islandMap,1,1008);
-        builder.build(player1,islandMap,1,1009);
-        builder.build(player1,islandMap,1,1010);
+        int i = 0;
 
-        builder.build(player2,islandMap,1,1011);
-        builder.build(player2,islandMap,1,1012);
-        builder.build(player2,islandMap,1,1013);
-        builder.build(player2,islandMap,1,1014);
-        builder.build(player2,islandMap,1,1015);
+        while(i < 48){
 
-        builder.build(player1,islandMap,1,1016);
+            ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
+                add(3014);
+                add(2814);
+                add(2815);
+                add(3214);
+                add(3215);
+            }};
 
-        islandMap.getSettlementObj().printAllSettlements();
+            ai.getAllPossibleTilePlacementPosition(tileArr);
 
-        ai.play(player1);
+            ai.play();
+            System.out.println("# of meeple left: " + game.getWhitePlayer().getRemainingMeeples());
+            System.out.println("---------------------------------------------------------------------------------------");
+
+
+            i++;
+        }
 
     }
 }
+

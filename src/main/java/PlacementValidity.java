@@ -27,9 +27,7 @@ public class PlacementValidity {
 
         for (int i = 0; i < tileHexIDsArray.length; i++) {
             if (hexGrid.getHexValue(tileHexIDsArray[i]).getTerrain().isEmpty() == true) {
-
                 counter++;
-
             }
         }
 
@@ -149,8 +147,6 @@ public class PlacementValidity {
 
         return searchCoordinates.getHexID(newX, newY);  //gets the East Hex ID
     }
-
-
 
 
     public boolean SearchAdjacentTiles(HexGrid hexGrid, int[] tileHexIDsArray){
