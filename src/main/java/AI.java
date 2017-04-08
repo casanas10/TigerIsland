@@ -190,10 +190,29 @@ public class AI {
         }
         else {
             //place Tile
+
+            if(player.getRemainingMeeples() == 0){
+                if(canYouNuke(islandMap))
+                    nuke(islandMap);
+                else
+                    findLocationToPlaceTile(islandMap);
+
+                if(!canATotoroBePlaced(islandMap, player)){
+                    if(!checkToPlaceTiger()){
+                        toSendServer[3] = 5;
+                        sendMoveToServer(toSendServer[0], toSendServer[1], toSendServer[2], toSendServer[3], toSendServer[4], toSendServer[5]);
+                        return;
+                    }
+                }
+            }
+
+
+
             if (canYouNuke(islandMap)) {
                 if (!canYouPlaceMeepleAnywhere(islandMap, player)) {
                     findLocationToPlaceTile(islandMap);
                 }
+
                 else {
                     nuke(islandMap);
                     if(checkToPlaceTiger()){

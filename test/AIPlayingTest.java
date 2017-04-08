@@ -41,6 +41,15 @@ public class AIPlayingTest {
             System.out.println("Build option: " + moveData.getBuildOption());
             System.out.println("Extend option: " + moveData.getExtendTerrain() + " " + moveData.getBuildOptionX() + " " + moveData.getBuildOptionY() + " " + moveData.getBuildOptionZ());
             System.out.println("---------------------------------------------------------------------------------------");
+
+            if(moveData.getBuildOption() == 5){
+                System.out.println("GAME OVER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                System.out.println("Final Score: " + game.getWhitePlayer().getCurrentScore());
+                System.out.println("Number of Meeple placed: " + (20-game.getWhitePlayer().getRemainingMeeples()));
+                System.out.println("Number of Totoros placed: " + (3-game.getWhitePlayer().getRemainingTotoros()));
+                System.out.println("Number of Tigers placed: " + (2-game.getWhitePlayer().getRemainingTigers()));
+                break;
+            }
         }
 
     }
