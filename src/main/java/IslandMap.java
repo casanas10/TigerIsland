@@ -61,8 +61,10 @@ public class IslandMap {
 
             for (int i = 0; i < tileHexIDsArray.length; i++){
                 System.out.print(tileHexIDsArray[i] + " ");
-                System.out.println();
+
             }
+
+            System.out.println();
 
             settlement.updateSettlementAfterNuke(hexesList, player);
 
@@ -120,8 +122,11 @@ public class IslandMap {
             System.out.println("Nuke Successful!");
 
             for (int i = 0; i < tileHexIDsArray.length; i++){
-                System.out.print(tileHexIDsArray[i]);
+                System.out.print(tileHexIDsArray[i] + " ");
+
             }
+
+            System.out.println();
 
             return true;
         }

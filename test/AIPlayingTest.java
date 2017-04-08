@@ -1,3 +1,4 @@
+import gherkin.lexer.Pl;
 import org.junit.Test;
 
 /**
@@ -7,6 +8,9 @@ public class AIPlayingTest {
     private Game game = new Game();
     private AI ai = new AI(game);
     private AI server = new AI(game);
+
+    private Player aiPlayer = new Player("white", 0);
+    private Player serverPlayer = new Player("black", 0);
 
     private boolean aiTurn = false;
 
@@ -52,6 +56,8 @@ public class AIPlayingTest {
             }
 
             i++;
+
+            System.out.println("---------------------------------------------------------------------------------------");
         }
 
     }

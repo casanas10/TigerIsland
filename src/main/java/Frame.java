@@ -42,18 +42,17 @@ public class Frame extends JFrame {
     private void playGame() {
 
         //PLACE STARTING TILE
-        CoordinateSystem coors = new CoordinateSystem();
+        CoordinateSystem coordinateSystem = new CoordinateSystem();
         // First tile will actually be placed in the center, this is for testing purposes
         //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
-        int[] tileHexIDsArray = {coors.getHexID(14,15), coors.getHexID(14,14),coors.getHexID(15,14),
-                coors.getHexID(14,16), coors.getHexID(15, 16)};
+        int[] tileHexIDsArray = {coordinateSystem.getHexID(99,99), coordinateSystem.getHexID(99,98),coordinateSystem.getHexID(100,98),
+                coordinateSystem.getHexID(99,100), coordinateSystem.getHexID(100, 100)};
         String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
         islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
 
-
         if (islandMap.containsHexKey(0)){
 
-            int[] firstTileArr = {3014, 2814, 2815, 3214, 3215};
+            int[] firstTileArr = {19899, 19699, 19700, 20099, 20100};
 
             for (int i = 0; i < firstTileArr.length; i++){
 
@@ -88,6 +87,8 @@ public class Frame extends JFrame {
 
                     System.out.println("AI TURN");
                     ai.playingAI();
+
+
 
                 } else {
 
