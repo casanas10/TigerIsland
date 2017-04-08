@@ -6,9 +6,13 @@ import java.util.*;
 
 public class ALE_AI {
 
+
+
+
     private Game game = new Game();
     private IslandMap islandMap;
     private Builder builder = new Builder();
+    private Player player = new Player("White", 0);
 
     PlacementValidity validity = new PlacementValidity();
 
@@ -27,21 +31,45 @@ public class ALE_AI {
     public ALE_AI(Game game){
         this.game = game;
         this.islandMap = game.getIslandMap();
+        this.player = game.getWhitePlayer();
     }
 
-    public void play() {
+    public MoveInfo play() {
 
-        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(game.getWhitePlayer());  //gets player settlements
+        ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
+            add(3014);
+            add(2814);
+            add(2815);
+            add(3214);
+            add(3215);
+        }};
+
+        getAllPossibleTilePlacementPosition(tileArr);
+
+        MoveInfo info = new MoveInfo();
+
+        //ArrayList<Integer> settlements = islandMap.getPlayerSettlement(game.getWhitePlayer());  //gets player settlements
+
 
         int[] tileInfo = allPossibleTiles.get(0);
 
-        boolean tileSuccessfullyPlaced = islandMap.addTileToMap(tileInfo[0], tileInfo[1], islandMap.getNewTile(), game.getWhitePlayer());
+        String[] newTile = islandMap.getNewTile();
+
+        boolean tileSuccessfullyPlaced = islandMap.addTileToMap(tileInfo[0], tileInfo[1], newTile, game.getWhitePlayer());
 
         tile = new RotateTile(tileInfo[0], tileInfo[1]);
 
         int[] pairs = tile.checkPair();
 
         builder.build(game.getWhitePlayer(), islandMap, 1, pairs[1]);
+
+        info.setHexID(tileInfo[0]);
+        info.setOrientation(tileInfo[1]);
+        info.setPlayer(game.getWhitePlayer());
+        info.setTile(newTile);
+        info.setHexSettled(pairs[1]);
+
+        return info;
     }
 
 //    private void placeTile() {

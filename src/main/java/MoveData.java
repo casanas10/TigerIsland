@@ -125,9 +125,5 @@ public class MoveData {
         this.terrainsArray = terrainsArray;
     }
 
+}
 
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> remotes/origin/FixesExtend

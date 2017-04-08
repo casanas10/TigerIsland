@@ -103,9 +103,8 @@ public class AITesting {
 
         builder.build(player1,islandMap,1,1016);
 
-        islandMap.getSettlementObj().printAllSettlements();
-
-        ai.play();
+        islandMap.getSettlementObj().printAllSettlements(player1);
+        islandMap.getSettlementObj().printAllSettlements(player2);
 
     }
 

@@ -67,7 +67,7 @@ public class SettlementTest {
         settlement.addSettlement(3012,player);
         settlement.addSettlement(3013,player);
 
-        settlement.printAllSettlements();
+        settlement.printAllSettlements(player);
 
         //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,3014));
     }
@@ -93,39 +93,6 @@ public class SettlementTest {
 
 
     @Test
-    public void updateSettlementAfterNukeTest() {
-
-        Player player = new Player("Black", 0);
-        HexGrid hexGrid = new HexGrid();
-
-        hexGrid.generateHexGrid();
-
-        Settlement settlement = new Settlement(hexGrid);
-
-        settlement.addSettlement(407, player);
-        settlement.addSettlement(606, player);
-        settlement.addSettlement(607, player);
-        settlement.addSettlement(807, player);
-        settlement.addSettlement(808, player);
-        settlement.addSettlement(806, player);
-        settlement.addSettlement(1005, player);
-
-        ArrayList<Integer> expectedHexes = new ArrayList<Integer>() {{
-            add(1006);
-            add(806);
-            add(807);
-        }};
-
-
-        settlement.updateSettlementAfterNuke(expectedHexes, player);
-
-        settlement.printAllSettlements();
-
-        Assert.assertTrue(settlement.isPiecePartOfASettlement(7, 1005));
-        Assert.assertTrue(settlement.isPiecePartOfASettlement(8, 606));
-    }
-
-    @Test
     public void updateSettlementAfterNukeTest2() {
 
         //PLACE STARTING TILE
@@ -142,14 +109,14 @@ public class SettlementTest {
         islandMap.getHex(3217).setTerrain("Rocky");
         builder.build(whitePlayer, islandMap, 1, 2815);
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
         islandMap.addTileToMap(2616,0);
         islandMap.getHex(2816).setTerrain("Lake");
         islandMap.getHex(2817).setTerrain("Lake");
         builder.extend(2815,islandMap, whitePlayer,"Lake");
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
         islandMap.addTileToMap(2813, 0, islandMap.getNewTile(), whitePlayer);
         islandMap.getHex(3012).setTerrain("Jungle");
@@ -158,10 +125,10 @@ public class SettlementTest {
         Hex currentHex = islandMap.getHex(2814);
         System.out.println(currentHex.getTerrain());
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
         builder.extend(2815,islandMap, whitePlayer,"Jungle");
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
 
         islandMap.addTileToMap(2418, 0, islandMap.getNewTile(), whitePlayer);
@@ -169,7 +136,7 @@ public class SettlementTest {
         islandMap.getHex(2618).setTerrain("Rocky");
         builder.build(whitePlayer, islandMap, 1, 2617);
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
         //Nuke
         islandMap.addTileToMap(3016, 180, islandMap.getNewTile(), whitePlayer);
@@ -182,7 +149,7 @@ public class SettlementTest {
         System.out.println(hex.getSettlementID());
 
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
         //Nuke
 //        islandMap.addTileToMap(3014, 240, islandMap.getNewTile(), whitePlayer);
@@ -352,7 +319,28 @@ public class SettlementTest {
 
         builder.build(whitePlayer, islandMap, 1, 807);
 
-        islandMap.getSettlementObj().printAllSettlements();
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
+        islandMap.getSettlementObj().printAllSettlements(blackPlayer);
+    }
+
+    @Test
+    public void checkNuking(){
+        String[] terrains = {"Volcano", "Rocky", "Lake"};
+        islandMap.addTileToMap(606, 0);
+        islandMap.addTileToMap(608,0);
+        islandMap.addTileToMap(607,180);
+
+        builder.build(blackPlayer,islandMap,1,806);
+        builder.build(blackPlayer, islandMap,1,807);
+        builder.build(blackPlayer, islandMap, 1, 808);
+        builder.build(blackPlayer, islandMap, 1, 809);
+        builder.build(blackPlayer, islandMap, 1, 407);
+        builder.build(whitePlayer, islandMap, 1, 408);
+
+        islandMap.addTileToMap(607,0, terrains, whitePlayer);
+
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
+
 
     }
 

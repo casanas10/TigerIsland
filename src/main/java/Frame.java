@@ -29,7 +29,7 @@ public class Frame extends JFrame {
     private IslandMap islandMap = game.getIslandMap();
     Builder builder = new Builder();
 
-    private AI ai = new AI(game);
+    private ALE_AI ai = new ALE_AI(game);
 
     boolean tileSuccessfullyPlaced = false;
 
@@ -87,9 +87,21 @@ public class Frame extends JFrame {
                 if (aiTurn){
 
                     System.out.println("AI TURN");
-                    ai.playingAI();
+                    MoveInfo info = ai.play();
 
-                    
+                    RotateTile tile = new RotateTile(info.getHexID(),info.getOrientation());
+
+                    int[] hexes = tile.checkPair();
+
+                    Hex hex1 = islandMap.getHexGrid().getHexValue(hexes[0]);
+                    Hex hex2 = islandMap.getHexGrid().getHexValue(hexes[1]);
+                    Hex hex3 = islandMap.getHexGrid().getHexValue(hexes[2]);
+
+                    paintHexOnGrid(hex1.getX(), hex1.getY(), islandMap.getHexGrid().getHexValue(hexes[0]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
+                    paintHexOnGrid(hex2.getX(), hex2.getY(), islandMap.getHexGrid().getHexValue(hexes[1]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
+                    paintHexOnGrid(hex3.getX(), hex3.getY(), islandMap.getHexGrid().getHexValue(hexes[2]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
+
+                    addNewElement(islandMap.getHex(info.getHexSettled()).getX(),islandMap.getHex(info.getHexSettled()).getY(), 1);
 
                 } else {
 

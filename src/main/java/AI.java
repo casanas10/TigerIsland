@@ -622,7 +622,6 @@ public class AI {
     public void expandSettlement(HexGrid hexGrid, Player player){
         updateActiveSettlements(hexGrid);
         ArrayList<Integer> settlementSmallerThanFive = SettlementSmallerThanFive(hexGrid, player);
-
     }
     */
 
