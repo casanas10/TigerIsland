@@ -65,7 +65,8 @@ public class MoveProtocol {
         String givenTerrains[] = tile.split(" ");
         givenTerrains[0] = givenTerrains[0].substring(0,1).toUpperCase() + givenTerrains[0].substring(1).toLowerCase();
         givenTerrains[1] = givenTerrains[1].substring(0,1).toUpperCase() + givenTerrains[1].substring(1).toLowerCase();
-        //System.out.println()
+        System.out.println(givenTerrains[0]);
+        System.out.println(givenTerrains[1]);
         String terrainsArray[] = {"Volcano",givenTerrains[0],givenTerrains[1]};
 
         if(currentGID.equals(MatchProtocol.gid1)){

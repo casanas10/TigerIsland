@@ -1,6 +1,8 @@
 import cucumber.api.java.eo.Se;
 import org.junit.Test;
 
+import java.util.Scanner;
+
 /**
  * Created by Val on 4/3/2017.
  */
@@ -8,6 +10,7 @@ public class AIPlayingTest {
     private Game game = new Game();
     private AI ai = new AI();
     private Settlement settlement = game.getIslandMap().getSettlementObj();
+    private TileGenerator tileGenerator = new TileGenerator();
 //    private AI server = new AI(game);
 
     private boolean aiTurn = false;
@@ -27,9 +30,10 @@ public class AIPlayingTest {
     @Test
     public void testGamePlaying(){
         MoveData moveData;
+        Scanner scan = new Scanner(System.in);
 
         for(int i = 0; i < 48; i++){
-            String[] terrains = {"Volcano", "Rocky", "Lake"};
+            String[] terrains = tileGenerator.getNewTile();
             ai.makeMove(terrains);
             System.out.println("# of meeple left: " + game.getWhitePlayer().getPieces().getNumberOfMeeples());
             System.out.println("\nSettlements:");
@@ -41,6 +45,15 @@ public class AIPlayingTest {
             System.out.println("Build option: " + moveData.getBuildOption());
             System.out.println("Extend option: " + moveData.getExtendTerrain() + " " + moveData.getBuildOptionX() + " " + moveData.getBuildOptionY() + " " + moveData.getBuildOptionZ());
             System.out.println("---------------------------------------------------------------------------------------");
+
+            if(moveData.getBuildOption() == 5){
+                System.out.println("GAME OVER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                System.out.println("Final Score: " + game.getWhitePlayer().getCurrentScore());
+                System.out.println("Number of Meeple placed: " + (20-game.getWhitePlayer().getRemainingMeeples()));
+                System.out.println("Number of Totoros placed: " + (3-game.getWhitePlayer().getRemainingTotoros()));
+                System.out.println("Number of Tigers placed: " + (2-game.getWhitePlayer().getRemainingTigers()));
+                break;
+            }
         }
 
     }
