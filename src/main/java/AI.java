@@ -329,16 +329,16 @@ public class AI {
     }
 
     public Boolean canYouPlaceMeepleAnywhere(IslandMap islandMap, Player player){
-        for(int i = activeHexIDs.size()-1; i>0; i--){
-            if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
-                if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex() == "") {
-                    if (islandMap.getHex(activeHexIDs.get(i)).getTerrain() != "Volcano") {
-                        //placeMeeple(islandMap, player, activeHexIDs.get(i));
-                        return true;
-                    }
-                }
-            }
-        }
+//        for(int i = activeHexIDs.size()-1; i>0; i--){
+//            if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
+//                if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex() == "") {
+//                    if (islandMap.getHex(activeHexIDs.get(i)).getTerrain() != "Volcano") {
+//                        placeMeeple(islandMap, player, activeHexIDs.get(i));
+//                        return true;
+//                    }
+//                }
+//            }
+//        }
         return false;
     }
 
