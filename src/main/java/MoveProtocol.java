@@ -33,6 +33,7 @@ public class MoveProtocol {
                 MatchProtocol.gid1 = fromServerArr[5];
                 moveData = getTile(fromServerArr[12],MatchProtocol.gid1, AI1, AI2);
                 moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
+                System.out.println(moveString);
                 out.println(moveString);
                 checkMessages(out, in, opponentPID, AI1, AI2);
             }
@@ -40,6 +41,7 @@ public class MoveProtocol {
                 MatchProtocol.gid2 = fromServerArr[5];
                 moveData = getTile(fromServerArr[12],MatchProtocol.gid2, AI1, AI2);
                 moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
+                System.out.println(moveString);
                 out.println(moveString);
                 checkMessages(out,in,opponentPID, AI1, AI2);
             }
@@ -47,6 +49,7 @@ public class MoveProtocol {
                 currentGID = fromServerArr[5];
                 moveData = getTile(fromServerArr[12],currentGID, AI1, AI2);
                 moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
+                System.out.println(moveString);
                 out.println(moveString);
                 checkMessages(out,in,opponentPID, AI1, AI2);
             }
