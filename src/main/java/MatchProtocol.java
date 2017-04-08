@@ -30,9 +30,9 @@ public class MatchProtocol {
             AI AI1 = new AI();
             AI AI2 = new AI();
 
-            for(int i=0; i<48; i++) {
+            for(int i=1; i<49; i++) {
                 MoveProtocol move = new MoveProtocol();
-                move.makeMove(out, in, AI1, AI2, i + 1, opponentPID);
+                move.makeMove(out, in, AI1, AI2, i, opponentPID);
             }
         }
 
