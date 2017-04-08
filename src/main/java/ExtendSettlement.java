@@ -46,11 +46,22 @@ public class ExtendSettlement {
     }
 
     private void findExtensions(int hexID){
+        Hex hex;
+        hex = islandMap.getHex(hexID);
+        String terrain = hex.getTerrain();
 
-        goToTerrain(hexID, "Lake");
-        goToTerrain(hexID, "Grassland");
-        goToTerrain(hexID, "Rocky");
-        goToTerrain(hexID, "Jungle");
+        if(terrain == "Lake"){
+            goToTerrain(hexID,terrain);
+        }
+        if(terrain == "Grassland"){
+            goToTerrain(hexID,terrain);
+        }
+        if(terrain == "Rocky"){
+            goToTerrain(hexID,terrain);
+        }
+        if(terrain == "Jungle"){
+            goToTerrain(hexID,terrain);
+        }
     }
 
     private void goToTerrain(int hexID, String terrain){
@@ -441,34 +452,11 @@ public class ExtendSettlement {
         }
     }
 
-    public ArrayList<Integer> getTerrainList(String terrain) {
-
-        ArrayList<Integer> terrainsList = null;
-
-        switch (terrain)
-        {
-            case "Lake" :
-                terrainsList = getLakesToExtendOn();
-                break;
-            case "Grassland" :
-                terrainsList = getGrasslandsToExtendOn();
-                break;
-            case "Jungle" :
-                terrainsList = getJunglesToExtendOn();
-                break;
-            case "Rocky" :
-                terrainsList = getRockysToExtendOn();
-                break;
-            default:
-                break;
-        }
-
-        return terrainsList;
-    }
-
     public ArrayList<Integer> getLakesToExtendOn(){ return lakesToExtendOn; }
     public ArrayList<Integer> getGrasslandsToExtendOn(){ return grasslandsToExtendOn; }
     public ArrayList<Integer> getJunglesToExtendOn(){ return junglesToExtendOn; }
     public ArrayList<Integer> getRockysToExtendOn(){ return rockysToExtendOn; }
-
+    public int getSettlementID(){
+        return settlementID;
+    }
 }
