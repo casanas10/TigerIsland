@@ -106,6 +106,7 @@ public class IslandMap {
         if(getNumberOfTiles() == 47 && tileCount == 0){
             placeFirstTile(tileHexIDsArray, tileTerrainsArray);   //changed
             System.out.println("First tile successfully placed!");
+
             return true;
         }
 

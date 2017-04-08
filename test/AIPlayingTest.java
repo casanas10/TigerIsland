@@ -1,3 +1,4 @@
+import cucumber.api.java.eo.Se;
 import org.junit.Test;
 
 /**
@@ -6,6 +7,7 @@ import org.junit.Test;
 public class AIPlayingTest {
     private Game game = new Game();
     private AI ai = new AI(game);
+    private Settlement settlement = game.getIslandMap().getSettlementObj();
 //    private AI server = new AI(game);
 
     private boolean aiTurn = false;
@@ -26,10 +28,12 @@ public class AIPlayingTest {
     public void testGamePlaying(){
         MoveData moveData;
 
-        while(true){
+        for(int i = 0; i < 48; i++){
             String[] terrains = {"Volcano", "Rocky", "Lake"};
             ai.makeMove(terrains);
             System.out.println("# of meeple left: " + game.getWhitePlayer().getPieces().getNumberOfMeeples());
+            System.out.println("\nSettlements:");
+            settlement.printAllSettlements(game.getWhitePlayer());
             System.out.println("*************************************************");
             moveData = ai.getMoveData();
             System.out.println("Tile Placement: " + moveData.getTilePlacementX() + " " + moveData.getTilePlacementY() + " " + moveData.getTilePlacementZ());
