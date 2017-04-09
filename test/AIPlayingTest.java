@@ -21,8 +21,8 @@ public class AIPlayingTest {
         int[] toServer = ai.makeFirstMove(game.getIslandMap());
 
 
-        for(int value : toServer)
-            System.out.print(value + " ");
+        //for(int value : toServer)
+        //    System.out.print(value + " ");
 
     }
 

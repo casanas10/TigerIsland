@@ -60,7 +60,7 @@ public class Nuking {
     //currently do not have a unit test for tiger in NukingTest
     private boolean doLowerHexesHaveATiger(HexGrid hexGrid, int[] hexIDsArray) {
         for (int hexID : hexIDsArray) {
-            if (hexGrid.getHexValue(hexID).getPieceOnHex() == "Tiger")
+            if (hexGrid.getHexValue(hexID).getPieceOnHex().equals("Tiger"))
                 return true;
         }
         return false;
@@ -68,7 +68,7 @@ public class Nuking {
 
     public boolean doLowerHexesHaveATotoro(HexGrid hexGrid, int[] hexIDsArray){
         for (int hexID : hexIDsArray) {
-            if (hexGrid.getHexValue(hexID).getPieceOnHex() == "Totoro")
+            if (hexGrid.getHexValue(hexID).getPieceOnHex().equals("Totoro"))
                 return true;
         }
         return false;
@@ -118,7 +118,7 @@ public class Nuking {
     }
 
     public boolean isVolcanoOverVolcano(HexGrid hexGrid, int hexID){
-        if(hexGrid.getHexValue(hexID).getTerrain() == "Volcano"){
+        if(hexGrid.getHexValue(hexID).getTerrain().equals("Volcano")){
             return true;
         }
         else return false;

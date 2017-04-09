@@ -97,6 +97,7 @@ public class Main {
                         }
 
                         ai.updateOpponentMove(moveData);
+                        System.out.println("Our score: " + game.getBlackPlayer().getCurrentScore());
                         //server.playingAI();
                         aiTurn = true;
                     }

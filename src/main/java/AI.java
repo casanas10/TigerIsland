@@ -88,7 +88,7 @@ public class AI {
         activeHexIDs.add(coordinateSystem.getHexID(100, 98));
         activeHexIDs.add(coordinateSystem.getHexID(99, 100));
         activeHexIDs.add(coordinateSystem.getHexID(100, 100));
-        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grasslands"};
+        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
         islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
 
 
@@ -114,14 +114,19 @@ public class AI {
         switch (buildOption){
             case 1:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
             case 3:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
             case 4:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
         }
 
         if(buildOption == 2){
             ExtendTerrain = moveData.getExtendTerrain();
+            System.out.println("ExtendTerrain in moveData is: " + ExtendTerrain);
+            System.out.println("X coordinate is: " + ourCoordinatesBuild[0] + "\nY coordinate is: " + ourCoordinatesBuild[1]);
             builder.extendForAI(coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]), islandMap, otherAI, ExtendTerrain);
         }
         tile = new RotateTile(hexID, ourOrientation);
@@ -146,7 +151,7 @@ public class AI {
             level3HexIDs[0] = activeHexIDs.get(activeHexIDs.size() - 1);
             level3HexIDs[1] = activeHexIDs.get(activeHexIDs.size() - 2);
         }
-
+        System.out.println("otherAI score " + otherAI.getCurrentScore());
     }
 
     public void makeMove(String[] Terrains){
@@ -328,8 +333,8 @@ public class AI {
     public Boolean placeMeepleAnywhere(IslandMap islandMap, Player player){
         for(int i = activeHexIDs.size()-1; i>0; i--){
             if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
-                if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex() == "") {
-                    if (islandMap.getHex(activeHexIDs.get(i)).getTerrain() != "Volcano") {
+                if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex().equals("")) {
+                    if (!islandMap.getHex(activeHexIDs.get(i)).getTerrain().equals("Volcano")) {
                         placeMeeple(islandMap, player, activeHexIDs.get(i));
                         return true;
                     }
@@ -342,8 +347,8 @@ public class AI {
     public Boolean canYouPlaceMeepleAnywhere(IslandMap islandMap, Player player){
         for(int i = activeHexIDs.size()-1; i>0; i--){
             if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
-                if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex() == "") {
-                    if (islandMap.getHex(activeHexIDs.get(i)).getTerrain() != "Volcano") {
+                if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex().equals("")) {
+                    if (!islandMap.getHex(activeHexIDs.get(i)).getTerrain().equals("Volcano")) {
                         //placeMeeple(islandMap, player, activeHexIDs.get(i));
                         return true;
                     }
@@ -403,7 +408,7 @@ public class AI {
                         tileTerrains[j] = islandMap.getHex(Tile[j]).getTerrain();
                     }
                     if (nuker.canYouNukeSettlement(islandMap, Tile, volcanosOnMap.get(k))) {
-                        if(!((islandMap.getHex(Tile[1]).getTerrain() == "Volcano") || (islandMap.getHex(Tile[2]).getTerrain() == "Volcano"))){
+                        if(!((islandMap.getHex(Tile[1]).getTerrain().equals("Volcano")) || (islandMap.getHex(Tile[2]).getTerrain().equals("Volcano")))){
                             volcanoTemp = Tile[0];
                             orientationTemp = possibleOrientation[i];
                         }
@@ -441,7 +446,7 @@ public class AI {
 
                 settlementHexIDsTemp = settlements.getSettlementHexIDs(ActiveSettlements.get(i));
 
-                if(islandMap.getHex(settlementHexIDsTemp.get(0)).getPlayerColorOnHex() == player.getPlayerColor()){
+                if(islandMap.getHex(settlementHexIDsTemp.get(0)).getPlayerColorOnHex().equals(player.getPlayerColor())){
                     settlementHexIDs = settlements.getSettlementHexIDs(ActiveSettlements.get(i));
                     maxSize = (settlements.getSettlementSize(ActiveSettlements.get(i)));
                 }
@@ -531,7 +536,7 @@ public class AI {
         ArrayList<Integer> availableHexIDs = new ArrayList<>();
         for(int i = 0; i < settlementHexIDs.size(); i++){
             availableHexIDs = lookAroundAHexForAnEmptySettlement(islandMap, settlementHexIDs.get(i));
-            if(islandMap.getHex(settlementHexIDs.get(i)).getPlayerColorOnHex() == player.getPlayerColor() && (islandMap.getHex(settlementHexIDs.get(i)).getTerrain() != "Volcano")) {
+            if(islandMap.getHex(settlementHexIDs.get(i)).getPlayerColorOnHex().equals(player.getPlayerColor()) && (!islandMap.getHex(settlementHexIDs.get(i)).getTerrain().equals("Volcano"))) {
                 if (!availableHexIDs.isEmpty()) {
                     //place Totoro
                     if (builder.build(player, islandMap, 3, availableHexIDs.get(0))) {
@@ -582,7 +587,7 @@ public class AI {
             hexColor = islandMap.getHex(hexIDTest).getPlayerColorOnHex();
             hexTerrain = islandMap.getHex(hexIDTest).getTerrain();
             if(hexLevel != 0){
-                if(hexColor == player.getPlayerColor()) {
+                if(hexColor.equals(player.getPlayerColor())) {
                     return true;
                 }
             }
@@ -624,8 +629,8 @@ public class AI {
             hexColor = islandMap.getHex(hexIDTest).getPlayerColorOnHex();
             hexTerrain = islandMap.getHex(hexIDTest).getTerrain();
             if(hexLevel != 0){
-                if(hexColor == "") {
-                    if (hexTerrain != "Volcano") {
+                if(hexColor.equals("")) {
+                    if (!hexTerrain.equals("Volcano")) {
                         availableHexIDs.add(hexIDTest);
                     }
                 }
