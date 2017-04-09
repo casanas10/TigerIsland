@@ -64,7 +64,8 @@ public class Main {
                         System.out.println("SERVER TURN");
                         System.out.println("Enter tile orientation in degrees: ");
                         int degrees = scan.nextInt();
-                        moveData.setOrientation(rotationConverter.oursToServer(degrees));
+                        int rotationNumberServer = rotationConverter.oursToServer(degrees);
+                        moveData.setOrientation(rotationNumberServer);
 
                         System.out.println("Enter tile x: ");
                         int ourTileX = scan.nextInt();

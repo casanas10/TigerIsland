@@ -140,11 +140,11 @@ public class AI {
         level = islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel();
         if (islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel() >= 3) {
             Boolean isThereASettlement = false;
-            isThereASettlement = lookAroundAHexForASettlment(islandMap, activeHexIDs.get(activeHexIDs.size() - 1), player);
+            isThereASettlement = lookAroundAHexForASettlement(islandMap, activeHexIDs.get(activeHexIDs.size() - 1), player);
             if (isThereASettlement) {
                 readyToPlaceTiger = true;
             }
-            isThereASettlement = lookAroundAHexForASettlment(islandMap, activeHexIDs.get(activeHexIDs.size() - 2), player);
+            isThereASettlement = lookAroundAHexForASettlement(islandMap, activeHexIDs.get(activeHexIDs.size() - 2), player);
             if (isThereASettlement) {
                 readyToPlaceTiger = true;
             }
@@ -237,8 +237,10 @@ public class AI {
                     if(checkToPlaceTiger()){
                         return;
                     }
+                    //readyToPlaceTiger = false;
                 }
-            } else {
+            }
+            else {
                 findLocationToPlaceTile(islandMap);
             }
 
@@ -246,7 +248,7 @@ public class AI {
 
             if (readyToPlaceTiger) {
                 Boolean isThereASettlement = false;
-                isThereASettlement = lookAroundAHexForASettlment(islandMap, level3HexIDs[0], player);
+                isThereASettlement = lookAroundAHexForASettlement(islandMap, level3HexIDs[0], player);
                 if (isThereASettlement) {
                     if (builder.build(player, islandMap, 4, level3HexIDs[0])) {
                         toSendServer[3] = 4;
@@ -257,7 +259,7 @@ public class AI {
                         return;
                     }
                 }
-                isThereASettlement = lookAroundAHexForASettlment(islandMap, level3HexIDs[1], player);
+                isThereASettlement = lookAroundAHexForASettlement(islandMap, level3HexIDs[1], player);
                 if (isThereASettlement) {
                     if (builder.build(player, islandMap, 4, level3HexIDs[1])) {
                         toSendServer[3] = 4;
@@ -272,13 +274,38 @@ public class AI {
             }
 
             if ((wasTigerPlaced == false) && (level == 3)) {
-                if (lookAroundAHexForASettlment(islandMap, level3HexIDs[0], player)) {
-                    placeMeeple(islandMap, player, level3HexIDs[0]);
+                if (lookAroundAHexForASettlement(islandMap, level3HexIDs[0], player)) {
+                    if(checkToPlaceTiger()){
+                        return;
+                    }
                 }
-                else if (lookAroundAHexForASettlment(islandMap, level3HexIDs[1], player)) {
-                    placeMeeple(islandMap, player, level3HexIDs[1]);
+                else if (lookAroundAHexForASettlement(islandMap, level3HexIDs[1], player)) {
+                    if(checkToPlaceTiger()){
+                        return;
+                    }
                 }
-                readyToPlaceTiger = true;
+                else{
+                    ArrayList<Integer> availableHexes = lookAroundAHexForAnEmptySettlement(islandMap, level3HexIDs[0]);
+                    if(!availableHexes.isEmpty()){
+                        if(!placeMeeple(islandMap, player, availableHexes.get(0))){
+                            placeMeepleAnywhere(islandMap, player);
+                            return;
+                        }
+                    }
+                    else{
+                        availableHexes = lookAroundAHexForAnEmptySettlement(islandMap, level3HexIDs[1]);
+                        if(!availableHexes.isEmpty()){
+                            if(!placeMeeple(islandMap, player, availableHexes.get(0))){
+                                placeMeepleAnywhere(islandMap, player);
+                                return;
+                            }
+                        }
+                        else{
+                            placeMeepleAnywhere(islandMap, player);
+                            return;
+                        }
+                    }
+                }
             }
             else {
                 if (!canATotoroBePlaced(islandMap, player)) {
@@ -300,7 +327,7 @@ public class AI {
         level = islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel();
         if (islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel() >= 3) {
             Boolean isThereASettlement = false;
-            isThereASettlement = lookAroundAHexForASettlment(islandMap, activeHexIDs.get(activeHexIDs.size() - 1), player);
+            isThereASettlement = lookAroundAHexForASettlement(islandMap, activeHexIDs.get(activeHexIDs.size() - 1), player);
             if (isThereASettlement) {
                 if(builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 1))) {
                     toSendServer[3] = 4;
@@ -312,7 +339,7 @@ public class AI {
                     return true;
                 }
             }
-            isThereASettlement = lookAroundAHexForASettlment(islandMap, activeHexIDs.get(activeHexIDs.size() - 2), player);
+            isThereASettlement = lookAroundAHexForASettlement(islandMap, activeHexIDs.get(activeHexIDs.size() - 2), player);
             if (isThereASettlement) {
                 if(builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 2))) {
                     toSendServer[3] = 4;
@@ -555,7 +582,7 @@ public class AI {
         return false;
     }
 
-    public Boolean lookAroundAHexForASettlment(IslandMap islandMap, int HexID, Player player){
+    public Boolean lookAroundAHexForASettlement(IslandMap islandMap, int HexID, Player player){
         int hexLevel;
         int hexIDTest;
         String hexColor = "";
