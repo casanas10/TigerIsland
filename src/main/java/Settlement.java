@@ -87,7 +87,7 @@ public class Settlement {
 
     private String settlementColor(int hexID) {
 
-        if (hexGrid.getHexValue(hexID).getPlayerColorOnHex() == "Black"){
+        if (hexGrid.getHexValue(hexID).getPlayerColorOnHex().equals("Black")){
             return "Black";
         } else {
             return "White";
@@ -292,7 +292,7 @@ public class Settlement {
 
         for (int i = 0; i < pickAHex.size(); i++){
 
-            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex() == "Tiger"){
+            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex().equals("Tiger")){
                 return false;
             }
         }
@@ -306,7 +306,7 @@ public class Settlement {
 
         for (int i = 0; i < pickAHex.size(); i++){
 
-            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex() == "Totoro"){
+            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex().equals("Totoro")){
                 return false;
             }
         }
