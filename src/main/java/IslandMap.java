@@ -14,6 +14,8 @@ public class IslandMap {
 
     String tileTerrainsArray[] = new String[3];
 
+    private boolean playerNuked = false;
+
 
     public IslandMap(){
         gameBoardMap = new HashMap<Integer, int[]>();
@@ -26,6 +28,8 @@ public class IslandMap {
     }
 
     public boolean addTileToMap(int hexID, int orientation, String[] newTile, Player player){
+
+        playerNuked = false;
 
         int tileHexIDsArray[] = new int[3];
         RotateTile rotateTile = new RotateTile(hexID, orientation);
@@ -71,7 +75,7 @@ public class IslandMap {
 
     }
 
-    private boolean checkForNuke(int hexID, String[] newTile, Player player, int[] tileHexIDsArray, ArrayList<Integer> hexesList) {
+    public boolean checkForNuke(int hexID, String[] newTile, Player player, int[] tileHexIDsArray, ArrayList<Integer> hexesList) {
 
         if(nuker.canYouNukeSettlement(this, tileHexIDsArray, hexID)){
 
@@ -82,8 +86,9 @@ public class IslandMap {
             tileCount++;
             System.out.println("Nuke Successful!");
 
-
             settlement.updateSettlementAfterNuke(hexesList, player);
+
+            playerNuked = true;
 
             return true;
         }
@@ -265,6 +270,10 @@ public class IslandMap {
             return false;
         }
 
+    }
+
+    public boolean getHasNuked(){
+        return playerNuked;
     }
 
 }

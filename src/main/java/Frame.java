@@ -35,6 +35,8 @@ public class Frame extends JFrame {
 
     MoveInfo playerMove = new MoveInfo();
 
+    Nuking nuker = new Nuking();
+
     ArrayList<Integer> activeHexes = new ArrayList<Integer>() {{
         add(3014);
         add(2814);
@@ -137,6 +139,24 @@ public class Frame extends JFrame {
                         orientation = Integer.parseInt(orientationField.getText());
 
                         tileSuccessfullyPlaced = islandMap.addTileToMap(hexID, orientation, newTile, getActivePlayer());
+
+                        // CHECK FOR NUKE
+                        int tileHexIDsArray[] = new int[3];
+                        RotateTile rotateTile = new RotateTile(hexID, orientation);
+                        tileHexIDsArray = rotateTile.checkPair();
+
+                        ArrayList<Integer> hexesList = new ArrayList<Integer>();
+                        for (int i = 0; i < tileHexIDsArray.length; i++) {
+                            hexesList.add(tileHexIDsArray[i]);
+                        }
+
+                        if (islandMap.getHasNuked()){
+
+                            for (int i = 0; i < tileHexIDsArray.length; i++){
+                                addNewElement(islandMap.getHex(tileHexIDsArray[i]).getX(),islandMap.getHex(tileHexIDsArray[i]).getY(), 5);
+                            }
+                        }
+
                     }
 
                     if (tileSuccessfullyPlaced){
@@ -390,6 +410,8 @@ public class Frame extends JFrame {
             drawTotoro(x,y,g);
         } else if (buildOption == 4){
             drawTiger(x,y,g);
+        } else if (buildOption == 5){
+            removeMeeple(x,y,g);
         }
 
         g.dispose();
@@ -422,6 +444,14 @@ public class Frame extends JFrame {
         } else {
             g.setColor(Color.white);
         }
+        g.fillOval(x, y, 4, 4);
+        g.drawOval(x, y, 4, 4);
+    }
+
+    public void removeMeeple(int x, int y, Graphics g) {
+
+        g.setColor(Color.orange);
+
         g.fillOval(x, y, 4, 4);
         g.drawOval(x, y, 4, 4);
     }
