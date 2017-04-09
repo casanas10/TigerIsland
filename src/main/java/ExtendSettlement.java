@@ -466,30 +466,30 @@ public class ExtendSettlement {
         }
     }
 
-    public ArrayList<Integer> getTerrainList(String terrain) {
-
-        ArrayList<Integer> terrainsList = null;
-
-        switch (terrain)
-        {
-            case "Lake" :
-                terrainsList = getLakesToExtendOn();
-                break;
-            case "Grassland" :
-                terrainsList = getGrasslandsToExtendOn();
-                break;
-            case "Jungle" :
-                terrainsList = getJunglesToExtendOn();
-                break;
-            case "Rocky" :
-                terrainsList = getRockysToExtendOn();
-                break;
-            default:
-                break;
-        }
-
-        return terrainsList;
-    }
+//    public ArrayList<Integer> getTerrainList(String terrain) {
+//
+//        ArrayList<Integer> terrainsList = null;
+//
+//        switch (terrain)
+//        {
+//            case "Lake" :
+//                terrainsList = getLakesToExtendOn();
+//                break;
+//            case "Grassland" :
+//                terrainsList = getGrasslandsToExtendOn();
+//                break;
+//            case "Jungle" :
+//                terrainsList = getJunglesToExtendOn();
+//                break;
+//            case "Rocky" :
+//                terrainsList = getRockysToExtendOn();
+//                break;
+//            default:
+//                break;
+//        }
+//
+//        return terrainsList;
+//    }
 
     public ArrayList<Integer> getLakesToExtendOn(){ return lakesToExtendOn; }
     public ArrayList<Integer> getGrasslandsToExtendOn(){ return grasslandsToExtendOn; }
