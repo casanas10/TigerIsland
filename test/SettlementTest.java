@@ -441,8 +441,7 @@ public class SettlementTest {
         islandMap.getHex(3018).setTerrain("Lake");
         builder.build(blackPlayer, islandMap, 1, 3017);
 
-
-        ExtendSettlement extend = new ExtendSettlement(3017, islandMap, blackPlayer);
+        ExtendSettlement extend = new ExtendSettlement(2815, islandMap, whitePlayer);
 
         extend.extendOnTerrain("Lake");
         islandMap.getSettlementObj().printAllSettlements(whitePlayer);

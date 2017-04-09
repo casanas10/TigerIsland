@@ -230,7 +230,8 @@ public class ExtendSettlement {
         Hex hex;
         hex = islandMap.getHex(hexID);
         if((hex.getTileID() != -1) && (hex.checkIfHexIsNotSettled()) &&
-                (hex.getTerrain() != "Volcano") && hasNotBeenVisited(hexID,terrain)){
+                (hex.getSettlementID() == -1) && (hex.getTerrain() != "Volcano")
+                && hasNotBeenVisited(hexID,terrain)){
             return true;
         }
         else{

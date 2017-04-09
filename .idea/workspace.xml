@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Frame.java" afterPath="$PROJECT_DIR$/src/main/java/Frame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" afterPath="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Settlement.java" afterPath="$PROJECT_DIR$/src/main/java/Settlement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/SettlementTest.java" afterPath="$PROJECT_DIR$/test/SettlementTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -52,15 +52,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="119" column="167" lean-forward="false" selection-start-line="119" selection-start-column="167" selection-end-line="119" selection-end-column="167" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3672#3681#0" expanded="true" />
-                <element signature="e#3749#3758#0" expanded="true" />
+                <element signature="e#3685#3694#0" expanded="true" />
+                <element signature="e#3762#3771#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,18 +79,18 @@
       <file leaf-file-name="SettlementTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/SettlementTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="440" column="50" lean-forward="true" selection-start-line="440" selection-start-column="50" selection-end-line="440" selection-end-column="50" />
+            <state relative-caret-position="426">
+              <caret line="448" column="48" lean-forward="false" selection-start-line="448" selection-start-column="44" selection-end-line="448" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExtendSettlement.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ExtendSettlement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ExtendSettlement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="441" column="53" lean-forward="true" selection-start-line="441" selection-start-column="53" selection-end-line="441" selection-end-column="53" />
+            <state relative-caret-position="210">
+              <caret line="439" column="32" lean-forward="false" selection-start-line="439" selection-start-column="19" selection-end-line="439" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -152,7 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>placeOurFirstTile</find>
       <find>findLoca</find>
       <find>placeFirs</find>
       <find>placeOur</find>
@@ -182,6 +181,7 @@
       <find>color</find>
       <find>first</find>
       <find>system.out</find>
+      <find>==</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java</dir>
@@ -233,7 +233,6 @@
         <option value="$PROJECT_DIR$/src/main/java/PlayerMove.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveData.java" />
         <option value="$PROJECT_DIR$/test/ExtendTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" />
         <option value="$PROJECT_DIR$/src/main/java/Builder.java" />
         <option value="$PROJECT_DIR$/src/main/java/AI.java" />
         <option value="$PROJECT_DIR$/src/main/java/Hex.java" />
@@ -246,15 +245,16 @@
         <option value="$PROJECT_DIR$/src/main/java/AutoFramePlayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/Frame.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
         <option value="$PROJECT_DIR$/test/SettlementTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="61" />
-    <option name="y" value="23" />
-    <option name="width" value="1379" />
+    <option name="x" value="137" />
+    <option name="y" value="28" />
+    <option name="width" value="1376" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -410,7 +410,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SettlementTest.addPieceToAnExistingSettlement">
+  <component name="RunManager" selected="JUnit.JUnit Test">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -765,8 +765,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SettlementTest.addPieceToAnExistingSettlement" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.SettlementTest.updateSettlementsAfterExtending" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.SettlementTest.updateSettlementsAfterExtending" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SettlementTest.addPieceToAnExistingSettlement" />
         <item index="2" class="java.lang.String" itemvalue="Application.Main" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.AIPlayingTest.PlayGame" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.SettlementTest.updateSettlementAfterNukeTest3" />
@@ -983,43 +983,50 @@
       <option name="project" value="LOCAL" />
       <updated>1491757179771</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Merge remote-tracking branch 'remotes/origin/FixesExtend' into NewGame_Version4&#10;">
+      <created>1491760187565</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1491760187565</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SettlementTest_addPieceToAnExistingSettlement - 2017.04.09 at 13h 43m 00s.xml">
-      <configuration name="SettlementTest.addPieceToAnExistingSettlement" configurationId="JUnit" />
+    <history-entry file="JUnit_Test - 2017.04.09 at 14h 21m 29s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 13h 34m 55s.xml">
+    <history-entry file="JUnit_Test - 2017.04.09 at 14h 26m 24s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.04.09 at 14h 26m 48s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.04.09 at 14h 32m 59s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 14h 17m 41s.xml">
       <configuration name="SettlementTest.updateSettlementsAfterExtending" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 13h 35m 18s.xml">
+    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 14h 19m 15s.xml">
       <configuration name="SettlementTest.updateSettlementsAfterExtending" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 13h 36m 41s.xml">
+    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 14h 20m 36s.xml">
       <configuration name="SettlementTest.updateSettlementsAfterExtending" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 13h 36m 59s.xml">
+    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 14h 26m 34s.xml">
       <configuration name="SettlementTest.updateSettlementsAfterExtending" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 13h 37m 16s.xml">
+    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 14h 27m 34s.xml">
       <configuration name="SettlementTest.updateSettlementsAfterExtending" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 13h 37m 44s.xml">
-      <configuration name="SettlementTest.updateSettlementsAfterExtending" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 13h 38m 11s.xml">
-      <configuration name="SettlementTest.updateSettlementsAfterExtending" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 13h 39m 45s.xml">
-      <configuration name="SettlementTest.updateSettlementsAfterExtending" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 13h 41m 52s.xml">
+    <history-entry file="SettlementTest_updateSettlementsAfterExtending - 2017.04.09 at 14h 32m 46s.xml">
       <configuration name="SettlementTest.updateSettlementsAfterExtending" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="23" width="1379" height="877" extended-state="6" />
+    <frame x="137" y="28" width="1376" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1032,12 +1039,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.505625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.494375" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2736573" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2736573" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25888324" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25944766" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25349087" sideWeight="0.49529412" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1052,6 +1059,37 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08888889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.505625" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25349087" sideWeight="0.49529412" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37084398" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37212276" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.494375" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2736573" sideWeight="0.48828697" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25944766" sideWeight="0.49441788" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08888889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5047059" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1524,31 +1562,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3672#3681#0" expanded="true" />
-            <element signature="e#3749#3758#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/SettlementTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="440" column="50" lean-forward="true" selection-start-line="440" selection-start-column="50" selection-end-line="440" selection-end-column="50" />
+        <state relative-caret-position="426">
+          <caret line="448" column="48" lean-forward="false" selection-start-line="448" selection-start-column="44" selection-end-line="448" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ExtendSettlement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="441" column="53" lean-forward="true" selection-start-line="441" selection-start-column="53" selection-end-line="441" selection-end-column="53" />
+        <state relative-caret-position="210">
+          <caret line="439" column="32" lean-forward="false" selection-start-line="439" selection-start-column="19" selection-end-line="439" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="119" column="167" lean-forward="false" selection-start-line="119" selection-start-column="167" selection-end-line="119" selection-end-column="167" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3685#3694#0" expanded="true" />
+            <element signature="e#3762#3771#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

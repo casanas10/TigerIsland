@@ -76,7 +76,7 @@ import java.util.Map;
 
         private String settlementColor(int hexID) {
 
-            if (hexGrid.getHexValue(hexID).getPlayerColorOnHex() == "Black"){
+            if (hexGrid.getHexValue(hexID).getPlayerColorOnHex().equals("Black")){
                 return "Black";
             } else {
                 return "White";
@@ -85,11 +85,11 @@ import java.util.Map;
 
         public void addSettlement(int hexID, Player player){
 
-            Hex hex = hexGrid.getHexValue(hexID);
-
-            hex.setPlayerColorOnHex(player.getPlayerColor());
-
             if (!settlementMap.containsValue(hexID)) {
+
+                Hex hex = hexGrid.getHexValue(hexID);
+
+                hex.setPlayerColorOnHex(player.getPlayerColor());
 
                 if (isNewSettlement(hexID, player)) {
 
@@ -117,7 +117,7 @@ import java.util.Map;
 
                 NewHexIDs = new ArrayList<Integer>();
 
-                if(hexGrid.getHexValue(hexes.get(i)).getSettlementID() != - 1){
+                if(hexGrid.getHexValue(hexes.get(i)).getSettlementID() != - 1 && player.getPlayerColor().equals(hexGrid.getHexValue(hexes.get(i)).getPlayerColorOnHex())){
 
                     settID = getSettlementID(hexes.get(i));
                     setIDPlaceHolder.add(settID);
@@ -281,7 +281,7 @@ import java.util.Map;
 
             for (int i = 0; i < pickAHex.size(); i++){
 
-                if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex() == "Tiger"){
+                if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex().equals("Tiger")){
                     return false;
                 }
             }
@@ -295,7 +295,7 @@ import java.util.Map;
 
             for (int i = 0; i < pickAHex.size(); i++){
 
-                if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex() == "Totoro"){
+                if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex().equals("Totoro")){
                     return false;
                 }
             }
