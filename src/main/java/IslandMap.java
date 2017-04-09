@@ -25,7 +25,6 @@ public class IslandMap {
         settlement = new Settlement(hexGrid);
     }
 
-
     public boolean addTileToMap(int hexID, int orientation, String[] newTile, Player player){
 
         int tileHexIDsArray[] = new int[3];
@@ -35,7 +34,6 @@ public class IslandMap {
         ArrayList<Integer> hexesList = new ArrayList<Integer>();
         for (int i = 0; i < tileHexIDsArray.length; i++) {
             hexesList.add(tileHexIDsArray[i]);
-            System.out.println(hexesList.get(i));
         }
 
         // Place first tile in the middle of the map automatically
@@ -46,20 +44,7 @@ public class IslandMap {
         }
 
         // CHECK FOR NUKE
-        if(nuker.canYouNukeSettlement(this, tileHexIDsArray, hexID)){
-
-            nuker.performNuke(hexGrid, tileHexIDsArray, newTile, tileCount);
-
-            Tile tile = new Tile(tileCount,tileHexIDsArray);
-            gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
-            tileCount++;
-            System.out.println("Nuke Successful!");
-
-
-            settlement.updateSettlementAfterNuke(hexesList, player);
-
-            return true;
-        }
+        if (checkForNuke(hexID, newTile, player, tileHexIDsArray, hexesList)) return true;
 
         boolean hexesCanBePlaced = false;
         boolean adjacentTilesValid = false;
@@ -84,6 +69,25 @@ public class IslandMap {
             return false;
         }
 
+    }
+
+    private boolean checkForNuke(int hexID, String[] newTile, Player player, int[] tileHexIDsArray, ArrayList<Integer> hexesList) {
+
+        if(nuker.canYouNukeSettlement(this, tileHexIDsArray, hexID)){
+
+            nuker.performNuke(hexGrid, tileHexIDsArray, newTile, tileCount);
+
+            Tile tile = new Tile(tileCount,tileHexIDsArray);
+            gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+            tileCount++;
+            System.out.println("Nuke Successful!");
+
+
+            settlement.updateSettlementAfterNuke(hexesList, player);
+
+            return true;
+        }
+        return false;
     }
 
     public String[] getNewTile() {
@@ -193,7 +197,6 @@ public class IslandMap {
 
     public void placeFirstTile(int[] tileHexIDsArray, String[] tileTerrainsArray){
         CoordinateSystem coors = new CoordinateSystem();
-
 
         Tile tile = new Tile(tileCount,tileHexIDsArray);
         hexGrid.setTerrains(tileHexIDsArray, tileTerrainsArray);

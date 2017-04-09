@@ -8,6 +8,7 @@ public class MoveInfo {
     private int orientation;
     private String[] tile;
     private int hexSettled;
+    private int buildOption;
 
     public int getHexID() {
         return hexID;
@@ -47,5 +48,13 @@ public class MoveInfo {
 
     public void setHexSettled(int hexSettled) {
         this.hexSettled = hexSettled;
+    }
+
+    public int getBuildOption() {
+        return buildOption;
+    }
+
+    public void setBuildOption(int buildOption) {
+        this.buildOption = buildOption;
     }
 }

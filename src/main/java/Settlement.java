@@ -1,17 +1,8 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-
-            /**
-             * Created by alecasanas on 3/25/17.
-             */
-
-            import java.util.ArrayList;
-            import java.util.HashMap;
-            import java.util.Iterator;
-            import java.util.Map;
-
-    /**
-     * Created by Val on 3/24/2017.
-     */
     public class Settlement {
 
         private ArrayList<Integer> hexIDContainer;
@@ -73,10 +64,11 @@
 
                 ArrayList<Integer> hexesArr = settlementSizeChecker.checkSettlementSize(NewHexIDs.get(i), player2);
 
-                setSettlementID(NewHexIDs.get(i),settleID);
+                for (int hexID : hexesArr){
+                    setSettlementID(NewHexIDs.get(i),settleID);
+                }
 
                 settlementMap.put(settleID, hexesArr);
-
                 settleID++;
             }
 

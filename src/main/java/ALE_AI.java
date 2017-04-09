@@ -6,9 +6,6 @@ import java.util.*;
 
 public class ALE_AI {
 
-
-
-
     private Game game = new Game();
     private IslandMap islandMap;
     private Builder builder = new Builder();
@@ -34,7 +31,9 @@ public class ALE_AI {
         this.player = game.getWhitePlayer();
     }
 
-    public MoveInfo play() {
+    public MoveInfo play(MoveInfo opponentMove) {
+
+        opponentMove = new MoveInfo();
 
         ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
             add(3014);
@@ -48,9 +47,6 @@ public class ALE_AI {
 
         MoveInfo info = new MoveInfo();
 
-        //ArrayList<Integer> settlements = islandMap.getPlayerSettlement(game.getWhitePlayer());  //gets player settlements
-
-
         int[] tileInfo = allPossibleTiles.get(0);
 
         String[] newTile = islandMap.getNewTile();
@@ -61,13 +57,16 @@ public class ALE_AI {
 
         int[] pairs = tile.checkPair();
 
-        builder.build(game.getWhitePlayer(), islandMap, 1, pairs[1]);
+        int buildOption = 1;
+
+        builder.build(game.getWhitePlayer(), islandMap, buildOption, pairs[1]);
 
         info.setHexID(tileInfo[0]);
         info.setOrientation(tileInfo[1]);
         info.setPlayer(game.getWhitePlayer());
         info.setTile(newTile);
         info.setHexSettled(pairs[1]);
+        info.setBuildOption(buildOption);
 
         return info;
     }

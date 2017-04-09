@@ -128,15 +128,11 @@ public class SettlementTest {
         islandMap.getSettlementObj().printAllSettlements(whitePlayer);
         builder.extend(2815,islandMap, whitePlayer,"Jungle");
 
-        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
-
 
         islandMap.addTileToMap(2418, 0, islandMap.getNewTile(), whitePlayer);
         islandMap.getHex(2617).setTerrain("Lake");
         islandMap.getHex(2618).setTerrain("Rocky");
         builder.build(whitePlayer, islandMap, 1, 2617);
-
-        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
         //Nuke
         islandMap.addTileToMap(3016, 180, islandMap.getNewTile(), whitePlayer);
@@ -146,10 +142,7 @@ public class SettlementTest {
 //        builder.extend(2617,islandMap,whitePlayer,"Rocky");
 
         Hex hex = islandMap.getHex(2617);
-        System.out.println(hex.getSettlementID());
 
-
-        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
         //Nuke
 //        islandMap.addTileToMap(3014, 240, islandMap.getNewTile(), whitePlayer);
@@ -341,6 +334,87 @@ public class SettlementTest {
 
         islandMap.getSettlementObj().printAllSettlements(whitePlayer);
 
+
+    }
+
+    @Test
+    public void updateSettlementAfterNukeTest3() {
+
+        //PLACE STARTING TILE
+        CoordinateSystem coors = new CoordinateSystem();
+        // First tile will actually be placed in the center, this is for testing purposes
+        //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+        int[] tileHexIDsArray = {coors.getHexID(14,15), coors.getHexID(14,14),coors.getHexID(15,14),
+                coors.getHexID(14,16), coors.getHexID(15, 16)};
+        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
+        islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+
+        islandMap.addTileToMap(3015,120);
+        islandMap.getHex(2816).setTerrain("Jungle");
+        islandMap.getHex(3016).setTerrain("Rocky");
+        builder.build(whitePlayer, islandMap, 1, 2815);
+
+        //NUKE
+        islandMap.addTileToMap(3014,60);
+        islandMap.getHex(3215).setTerrain("Lake");
+        islandMap.getHex(3015).setTerrain("Lake");
+        builder.build(whitePlayer, islandMap, 1, 3016);
+
+        islandMap.getHex(2815).getSettlementID();
+        islandMap.getHex(3016).getSettlementID();
+
+        islandMap.addTileToMap(2614,180);
+        builder.build(blackPlayer, islandMap, 1, 2814);
+
+        islandMap.getHex(2815).getSettlementID();
+        islandMap.getHex(3016).getSettlementID();
+        islandMap.getHex(2814).getSettlementID();
+
+        //NUKE
+        String[] newTile = islandMap.getNewTile();
+        islandMap.addTileToMap(2614, 0, newTile, whitePlayer);
+        builder.build(blackPlayer, islandMap, 1, 3215);
+
+        islandMap.getHex(2815).getSettlementID();
+        islandMap.getHex(3016).getSettlementID();
+        islandMap.getHex(2814).getSettlementID();
+        islandMap.getHex(3215).getSettlementID();
+//
+//        islandMap.addTileToMap(2813, 0, islandMap.getNewTile(), whitePlayer);
+//        islandMap.getHex(3012).setTerrain("Jungle");
+//        islandMap.getHex(3013).setTerrain("Jungle");
+//        builder.build(whitePlayer, islandMap, 1, 2814);
+//        Hex currentHex = islandMap.getHex(2814);
+//        System.out.println(currentHex.getTerrain());
+//
+//        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
+//        builder.extend(2815,islandMap, whitePlayer,"Jungle");
+//
+//
+//        islandMap.addTileToMap(2418, 0, islandMap.getNewTile(), whitePlayer);
+//        islandMap.getHex(2617).setTerrain("Lake");
+//        islandMap.getHex(2618).setTerrain("Rocky");
+//        builder.build(whitePlayer, islandMap, 1, 2617);
+//
+//        //Nuke
+//        islandMap.addTileToMap(3016, 180, islandMap.getNewTile(), whitePlayer);
+//        islandMap.getHex(2816).setTerrain("Lake");
+//        islandMap.getHex(2817).setTerrain("Rocky");
+//
+////        builder.extend(2617,islandMap,whitePlayer,"Rocky");
+//
+//        Hex hex = islandMap.getHex(2617);
+//
+//
+//        //Nuke
+////        islandMap.addTileToMap(3014, 240, islandMap.getNewTile(), whitePlayer);
+////        islandMap.getHex(2814).setTerrain("Rocky");
+////        islandMap.getHex(3013).setTerrain("Grassland");
+////
+////        islandMap.getSettlementObj().printAllSettlements();
+//
+//        //Hex currentHex = islandMap.getHex(410);
+//        //Assert.assertEquals("No game piece on hex", currentHex.getPieceOnHex());
 
     }
 

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by alecasanas on 4/3/17.
  */
-public class Frame extends JFrame {
+public class AutoFramePlayer extends JFrame {
 
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 900;
@@ -30,10 +30,22 @@ public class Frame extends JFrame {
     Builder builder = new Builder();
 
     private ALE_AI ai = new ALE_AI(game);
+    private ALE_AI serverAI = new ALE_AI(game);
 
     boolean tileSuccessfullyPlaced = false;
 
-    public Frame (Game game){
+
+    MoveInfo playerMove = new MoveInfo();
+
+    ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
+        add(3014);
+        add(2814);
+        add(2815);
+        add(3214);
+        add(3215);
+    }};
+
+    public AutoFramePlayer (Game game){
         this.game = game;
         runGUI();
         playGame();
@@ -78,6 +90,17 @@ public class Frame extends JFrame {
         Container window = getContentPane();
         paintGrid();
         addScrollPanel(window);
+
+
+        ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
+            add(3014);
+            add(2814);
+            add(2815);
+            add(3214);
+            add(3215);
+        }};
+
+        
     }
 
     private void listenToClick() {
@@ -91,112 +114,33 @@ public class Frame extends JFrame {
                     terrainsStr += newTile[i] + " ";
                 }
 
+
+                MoveInfo playerMove = new MoveInfo();
+
                 if (aiTurn){
 
                     System.out.println("AI TURN");
-                    MoveInfo info = ai.play();
 
-                    RotateTile tile = new RotateTile(info.getHexID(),info.getOrientation());
+                    playerMove = ai.play(playerMove);
+
+                    RotateTile tile = new RotateTile(playerMove.getHexID(),playerMove.getOrientation());
 
                     drawTile(tile);
 
-                    addNewElement(islandMap.getHex(info.getHexSettled()).getX(),islandMap.getHex(info.getHexSettled()).getY(), info.getBuildOption());
+                    addNewElement(islandMap.getHex(playerMove.getHexSettled()).getX(),islandMap.getHex(playerMove.getHexSettled()).getY(), playerMove.getBuildOption());
 
                 } else {
 
-                    int hexID = -1;
-                    int orientation = -1;
-
                     System.out.println("SERVER TURN");
 
-                    JTextField hexField = new JTextField(5);
-                    JTextField orientationField = new JTextField(5);
+                    playerMove = serverAI.play(playerMove);
 
-                    JPanel myPanel = new JPanel();
-                    myPanel.add(new JLabel("Tile: " + terrainsStr));
-                    myPanel.add(new JLabel("Hex ID:"));
-                    myPanel.add(hexField);
-                    myPanel.add(Box.createHorizontalStrut(15));
-                    myPanel.add(new JLabel("Rotation:"));
-                    myPanel.add(orientationField);
+                    RotateTile tile = new RotateTile(playerMove.getHexID(),playerMove.getOrientation());
 
-                    int result = JOptionPane.showConfirmDialog(null, myPanel,
-                            "Please Enter Hex and Rotation Values", JOptionPane.OK_CANCEL_OPTION);
-                    if (result == JOptionPane.OK_OPTION) {
-                        hexID = Integer.parseInt(hexField.getText());
-                        orientation = Integer.parseInt(orientationField.getText());
+                    drawTile(tile);
 
-                        tileSuccessfullyPlaced = islandMap.addTileToMap(hexID, orientation, newTile, getActivePlayer());
-                    }
+                    addNewElement(islandMap.getHex(playerMove.getHexSettled()).getX(),islandMap.getHex(playerMove.getHexSettled()).getY(), playerMove.getBuildOption());
 
-                    if (tileSuccessfullyPlaced){
-
-                        int buildOption = -1;
-
-                        RotateTile tile = new RotateTile(hexID,orientation);
-
-                        drawTile(tile);
-
-                        JTextField hexField2 = new JTextField(5);
-                        JTextField buildOptionField = new JTextField(5);
-
-                        JPanel buildPanel = new JPanel();
-                        buildPanel.add(new JLabel("1,2,3,4"));
-                        buildPanel.add(buildOptionField);
-
-                        buildPanel.add(new JLabel("Hex ID:"));
-                        buildPanel.add(hexField2);
-
-                        int buildResult = JOptionPane.showConfirmDialog(null, buildPanel,
-                                "Please Enter Build Option", JOptionPane.OK_CANCEL_OPTION);
-                        if (buildResult == JOptionPane.OK_OPTION) {
-                            hexID = Integer.parseInt(hexField2.getText());
-                            buildOption = Integer.parseInt(buildOptionField.getText());
-                        }
-
-                        if (buildOption == 2){
-
-                            ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, getActivePlayer());
-
-                            JTextField extendField = new JTextField(5);
-
-                            JPanel extendPanel = new JPanel();
-                            extendPanel.add(new JLabel("Which Terrain will you like to extend:"));
-                            extendPanel.add(extendField);
-
-                            int extendResult = JOptionPane.showConfirmDialog(null, extendPanel,
-                                    "Please Enter Build Option", JOptionPane.OK_CANCEL_OPTION);
-                            if (extendResult == JOptionPane.OK_OPTION) {
-
-                                int terrainNum = Integer.parseInt(extendField.getText());
-
-                                String terrain = "";
-                                switch (terrainNum){
-                                    case 1 : terrain = "Jungle"; break;
-                                    case 2 : terrain = "Lake"; break;
-                                    case 3 : terrain = "Rocky"; break;
-                                    case 4 : terrain = "Grassland"; break;
-
-                                }
-
-                                builder.extend(hexID, islandMap, getActivePlayer(), terrain);
-                                ArrayList<Integer> hexList = extend.getTerrainList(terrain);
-
-                                for (int i = 0; i < hexList.size(); i++){
-                                    addNewElement(islandMap.getHex(hexList.get(i)).getX(),islandMap.getHex(hexList.get(i)).getY(), buildOption);
-                                }
-                            }
-
-                        } else if (builder.build(getActivePlayer(), islandMap, buildOption, hexID)){
-
-                            addNewElement(islandMap.getHex(hexID).getX(),islandMap.getHex(hexID).getY(), buildOption);
-
-                        }
-
-                    } else {
-                        System.out.println("False Placement");
-                        aiTurnToPlay();
-                    }
                 }
 
                 aiTurnToPlay();

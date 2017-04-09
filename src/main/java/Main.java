@@ -10,7 +10,8 @@ public class Main {
             @Override
             public void run() {
                 Game game = new Game();
-                new Frame(game);
+//                new Frame(game);
+                new AutoFramePlayer(game);
             }
         });
 
