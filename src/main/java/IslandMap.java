@@ -171,19 +171,6 @@ public class IslandMap {
     }
 
 
-    public void printMap(){
-        Set set = gameBoardMap.entrySet();
-        Iterator iterator = set.iterator();
-
-        while (iterator.hasNext()){
-            Map.Entry mentry = (Map.Entry)iterator.next();
-
-            Hex hexObj = (Hex)mentry.getValue();
-            System.out.print("key: "+ mentry.getKey() + " & Value: ");
-            hexObj.printHexCoordinates();
-        }
-    }
-
     public boolean containsHexKey(int tileID){
         if (gameBoardMap.containsKey(tileID)){
             return true;
@@ -222,7 +209,21 @@ public class IslandMap {
                 System.out.print(hexGrid.getHexValue(mapValue.getValue()[i]).getTerrain() + " ");
             System.out.println();
         }
+    }
 
+    public ArrayList<Integer> getAllHexesOnMap(){
+
+        ArrayList<Integer> hexes = new ArrayList<>();
+
+        Iterator<Map.Entry<Integer, int[]>> iterator = gameBoardMap.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, int[]> mapValue = iterator.next();
+            for(int i=0;i<mapValue.getValue().length;i++){
+                hexes.add(mapValue.getValue()[i]);
+            }
+        }
+
+        return hexes;
     }
 
     public Hex getHex(int hexID){

@@ -33,6 +33,8 @@ public class Frame extends JFrame {
 
     boolean tileSuccessfullyPlaced = false;
 
+    MoveInfo playerMove = new MoveInfo();
+
     public Frame (Game game){
         this.game = game;
         runGUI();
@@ -93,14 +95,14 @@ public class Frame extends JFrame {
 
                 if (aiTurn){
 
-                    System.out.println("AI TURN");
-                    MoveInfo info = ai.play();
-
-                    RotateTile tile = new RotateTile(info.getHexID(),info.getOrientation());
-
-                    drawTile(tile);
-
-                    addNewElement(islandMap.getHex(info.getHexSettled()).getX(),islandMap.getHex(info.getHexSettled()).getY(), info.getBuildOption());
+//                    System.out.println("AI TURN");
+//                    MoveInfo info = ai.play();
+//
+//                    RotateTile tile = new RotateTile(info.getHexID(),info.getOrientation());
+//
+//                    drawTile(tile);
+//
+//                    addNewElement(islandMap.getHex(info.getHexSettled()).getX(),islandMap.getHex(info.getHexSettled()).getY(), info.getBuildOption());
 
                 } else {
 

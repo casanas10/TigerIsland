@@ -14,6 +14,8 @@ public class AutoFramePlayer extends JFrame {
     public static final int HEIGHT = 900;
 
     private Game game = new Game();
+    private ALE_AI ai = new ALE_AI(game);
+    private ALE_AI serverAI = new ALE_AI(game);
 
     private boolean isOdd = false;
     private boolean aiTurn = false;
@@ -23,21 +25,7 @@ public class AutoFramePlayer extends JFrame {
 
     Hexagon hex = new Hexagon();
 
-    //Game Logic
-    private Player aiPlayer = game.getWhitePlayer();
-    private Player serverPlayer = game.getBlackPlayer();
-    private IslandMap islandMap = game.getIslandMap();
-    Builder builder = new Builder();
-
-    private ALE_AI ai = new ALE_AI(game);
-    private ALE_AI serverAI = new ALE_AI(game);
-
-    boolean tileSuccessfullyPlaced = false;
-
-
-    MoveInfo playerMove = new MoveInfo();
-
-    ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
+    ArrayList<Integer> activeHexes = new ArrayList<Integer>() {{
         add(3014);
         add(2814);
         add(2815);
@@ -45,8 +33,9 @@ public class AutoFramePlayer extends JFrame {
         add(3215);
     }};
 
-    public AutoFramePlayer (Game game){
-        this.game = game;
+    MoveInfo playerMove = new MoveInfo();
+
+    public AutoFramePlayer (){
         runGUI();
         playGame();
     }
@@ -60,17 +49,17 @@ public class AutoFramePlayer extends JFrame {
         int[] tileHexIDsArray = {coors.getHexID(14,15), coors.getHexID(14,14),coors.getHexID(15,14),
                 coors.getHexID(14,16), coors.getHexID(15, 16)};
         String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
-        islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+        game.getIslandMap().placeFirstTile(tileHexIDsArray, tileTerrainsArray);
 
 
-        if (islandMap.containsHexKey(0)){
+        if (game.getIslandMap().containsHexKey(0)){
 
             int[] firstTileArr = {3014, 2814, 2815, 3214, 3215};
 
             for (int i = 0; i < firstTileArr.length; i++){
 
                 Hex hex = game.getIslandMap().getHexGrid().getHexValue(firstTileArr[i]);
-                paintHexOnGrid(hex.getX(), hex.getY(), islandMap.getHex(firstTileArr[i]).getTerrain(), islandMap.getHex(firstTileArr[i]).getLevel());
+                paintHexOnGrid(hex.getX(), hex.getY(), game.getIslandMap().getHex(firstTileArr[i]).getTerrain(), game.getIslandMap().getHex(firstTileArr[i]).getLevel());
             }
         }
 
@@ -91,76 +80,73 @@ public class AutoFramePlayer extends JFrame {
         paintGrid();
         addScrollPanel(window);
 
-
-        ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
-            add(3014);
-            add(2814);
-            add(2815);
-            add(3214);
-            add(3215);
-        }};
-
-        
     }
 
     private void listenToClick() {
         view.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
 
-                String[] newTile = islandMap.getNewTile();
-
-                String terrainsStr = "";
-                for (int i =0; i < newTile.length; i++){
-                    terrainsStr += newTile[i] + " ";
-                }
-
-
-                MoveInfo playerMove = new MoveInfo();
+//                while(game.getWhitePlayer().getRemainingMeeples() != 0){
+//
+//                    playerMove = ai.play(activeHexes);
+//                    game.getIslandMap().printTilesOnMap();
+//                    System.out.println("# of meeple left: " + game.getWhitePlayer().getRemainingMeeples());
+//                    System.out.println("---------------------------------------------------------------------------------------");
+//                    activeHexes = game.getIslandMap().getAllHexesOnMap();
+//
+//
+//                    RotateTile tile = new RotateTile(playerMove.getHexID(),playerMove.getOrientation());
+//
+//                    drawTile(tile);
+//
+//                    addNewElement(game.getIslandMap().getHex(playerMove.getHexSettled()).getX(),game.getIslandMap().getHex(playerMove.getHexSettled()).getY(), playerMove.getBuildOption());
+//
+//                }
 
                 if (aiTurn){
 
                     System.out.println("AI TURN");
 
-                    playerMove = ai.play(playerMove);
+                    playerMove = ai.play(activeHexes);
 
                     RotateTile tile = new RotateTile(playerMove.getHexID(),playerMove.getOrientation());
 
                     drawTile(tile);
 
-                    addNewElement(islandMap.getHex(playerMove.getHexSettled()).getX(),islandMap.getHex(playerMove.getHexSettled()).getY(), playerMove.getBuildOption());
+                    addNewElement(game.getIslandMap().getHex(playerMove.getHexSettled()).getX(),game.getIslandMap().getHex(playerMove.getHexSettled()).getY(), playerMove.getBuildOption());
+
 
                 } else {
 
                     System.out.println("SERVER TURN");
 
-                    playerMove = serverAI.play(playerMove);
+                    playerMove = serverAI.play(activeHexes);
 
                     RotateTile tile = new RotateTile(playerMove.getHexID(),playerMove.getOrientation());
 
                     drawTile(tile);
 
-                    addNewElement(islandMap.getHex(playerMove.getHexSettled()).getX(),islandMap.getHex(playerMove.getHexSettled()).getY(), playerMove.getBuildOption());
+                    addNewElement(game.getIslandMap().getHex(playerMove.getHexSettled()).getX(),game.getIslandMap().getHex(playerMove.getHexSettled()).getY(), playerMove.getBuildOption());
 
                 }
 
+                activeHexes = game.getIslandMap().getAllHexesOnMap();
+
                 aiTurnToPlay();
-
             }
-
-
         });
     }
 
     private void drawTile(RotateTile tile) {
         int[] hexes = tile.checkPair();
 
-        Hex hex1 = islandMap.getHexGrid().getHexValue(hexes[0]);
-        Hex hex2 = islandMap.getHexGrid().getHexValue(hexes[1]);
-        Hex hex3 = islandMap.getHexGrid().getHexValue(hexes[2]);
+        Hex hex1 = game.getIslandMap().getHexGrid().getHexValue(hexes[0]);
+        Hex hex2 = game.getIslandMap().getHexGrid().getHexValue(hexes[1]);
+        Hex hex3 = game.getIslandMap().getHexGrid().getHexValue(hexes[2]);
 
-        paintHexOnGrid(hex1.getX(), hex1.getY(), islandMap.getHexGrid().getHexValue(hexes[0]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
-        paintHexOnGrid(hex2.getX(), hex2.getY(), islandMap.getHexGrid().getHexValue(hexes[1]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
-        paintHexOnGrid(hex3.getX(), hex3.getY(), islandMap.getHexGrid().getHexValue(hexes[2]).getTerrain(), islandMap.getHexGrid().getHexValue(hexes[0]).getLevel());
+        paintHexOnGrid(hex1.getX(), hex1.getY(), game.getIslandMap().getHexGrid().getHexValue(hexes[0]).getTerrain(), game.getIslandMap().getHexGrid().getHexValue(hexes[0]).getLevel());
+        paintHexOnGrid(hex2.getX(), hex2.getY(), game.getIslandMap().getHexGrid().getHexValue(hexes[1]).getTerrain(), game.getIslandMap().getHexGrid().getHexValue(hexes[0]).getLevel());
+        paintHexOnGrid(hex3.getX(), hex3.getY(), game.getIslandMap().getHexGrid().getHexValue(hexes[2]).getTerrain(), game.getIslandMap().getHexGrid().getHexValue(hexes[0]).getLevel());
     }
 
     public boolean aiTurnToPlay() {
@@ -170,10 +156,10 @@ public class AutoFramePlayer extends JFrame {
     public Player getActivePlayer () {
 
         if (aiTurn){
-            return aiPlayer;
+            return game.getWhitePlayer();
         }
 
-        return serverPlayer;
+        return game.getBlackPlayer();
     }
 
     private void addScrollPanel(Container window) {
@@ -244,7 +230,6 @@ public class AutoFramePlayer extends JFrame {
         } else {
             g2.setStroke(new BasicStroke(2));
         }
-
 
         switch (terrain) {
             case "Volcano":
@@ -331,7 +316,7 @@ public class AutoFramePlayer extends JFrame {
     }
 
     private void drawTiger(int x, int y, Graphics g) {
-        if (getActivePlayer() == serverPlayer){
+        if (getActivePlayer() == game.getBlackPlayer()){
             g.setColor(Color.black);
         } else {
             g.setColor(Color.white);
@@ -342,7 +327,7 @@ public class AutoFramePlayer extends JFrame {
 
     private void drawTotoro(int x, int y, Graphics g) {
 
-        if (getActivePlayer() == serverPlayer){
+        if (getActivePlayer() == game.getBlackPlayer()){
             g.setColor(Color.black);
         } else {
             g.setColor(Color.white);
@@ -351,7 +336,7 @@ public class AutoFramePlayer extends JFrame {
     }
 
     public void drawMeeple(int x, int y, Graphics g) {
-        if (getActivePlayer() == serverPlayer){
+        if (getActivePlayer() == game.getBlackPlayer()){
             g.setColor(Color.black);
         } else {
             g.setColor(Color.white);

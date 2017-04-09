@@ -10,6 +10,7 @@ public class AIPlayingTest {
     private Game game = new Game();
     private ALE_AI ai = new ALE_AI(game);
 
+    private MoveInfo playerMove = new MoveInfo();
 
     @Test
     public void PlayGame() {
@@ -24,27 +25,16 @@ public class AIPlayingTest {
         String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
         game.getIslandMap().placeFirstTile(tileHexIDsArray, tileTerrainsArray);
 
+        ArrayList<Integer> hexesArray = game.getIslandMap().getAllHexesOnMap();
 
-        int i = 0;
+        while(game.getWhitePlayer().getRemainingMeeples() != 0){
 
-        while(i < 48){
-
-            ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
-                add(3014);
-                add(2814);
-                add(2815);
-                add(3214);
-                add(3215);
-            }};
-
-            ai.getAllPossibleTilePlacementPosition(tileArr);
-
-            ai.play();
+            ai.play(hexesArray);
+            game.getIslandMap().printTilesOnMap();
             System.out.println("# of meeple left: " + game.getWhitePlayer().getRemainingMeeples());
             System.out.println("---------------------------------------------------------------------------------------");
 
-
-            i++;
+            hexesArray = game.getIslandMap().getAllHexesOnMap();
         }
 
     }

@@ -46,7 +46,7 @@ public class AITesting {
         }};
 
         ai.getAllPossibleTilePlacementPosition(tileArr);
-        ai.printAllPossibleTiles();
+        //ai.printAllPossibleTiles();
 
     }
 

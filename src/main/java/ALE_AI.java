@@ -6,7 +6,7 @@ import java.util.*;
 
 public class ALE_AI {
 
-    private Game game = new Game();
+    private Game game;
     private IslandMap islandMap;
     private Builder builder = new Builder();
     private Player player = new Player("White", 0);
@@ -14,8 +14,6 @@ public class ALE_AI {
     PlacementValidity validity = new PlacementValidity();
 
     private RotateTile tile;
-
-    HashMap<Integer, int[]> allPossibleTiles = new HashMap<>();
 
     //CONSTANTS FOR FIRST TILE
     private static final int hex1  = 3014;
@@ -31,19 +29,9 @@ public class ALE_AI {
         this.player = game.getWhitePlayer();
     }
 
-    public MoveInfo play(MoveInfo opponentMove) {
+    public MoveInfo play(ArrayList<Integer> activeHexes) {
 
-        opponentMove = new MoveInfo();
-
-        ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
-            add(3014);
-            add(2814);
-            add(2815);
-            add(3214);
-            add(3215);
-        }};
-
-        getAllPossibleTilePlacementPosition(tileArr);
+        HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(activeHexes);
 
         MoveInfo info = new MoveInfo();
 
@@ -91,6 +79,8 @@ public class ALE_AI {
 
     //given a tile it gets all the possible tile placement positions
     public HashMap<Integer, int[]> getAllPossibleTilePlacementPosition(ArrayList<Integer> tileArr) {
+
+        HashMap<Integer, int[]> allPossibleTiles = new HashMap<>();
 
         int[] orientation = {0,60,120,180,240,300};
 
@@ -146,15 +136,15 @@ public class ALE_AI {
         return settleKey;
     }
 
-    public void printAllPossibleTiles(){
-        Iterator<Map.Entry<Integer, int[]>> iterator = allPossibleTiles.entrySet().iterator();
-        while(iterator.hasNext()){
-            Map.Entry<Integer, int[]> entry = iterator.next();
-            System.out.print("Tile " + entry.getKey() + ": ");
-            for(int i=0;i<2;i++){
-                System.out.print(entry.getValue()[i] + " ");
-            }
-            System.out.println();
-        }
-    }
+//    public void printAllPossibleTiles(){
+//        Iterator<Map.Entry<Integer, int[]>> iterator = allPossibleTiles.entrySet().iterator();
+//        while(iterator.hasNext()){
+//            Map.Entry<Integer, int[]> entry = iterator.next();
+//            System.out.print("Tile " + entry.getKey() + ": ");
+//            for(int i=0;i<2;i++){
+//                System.out.print(entry.getValue()[i] + " ");
+//            }
+//            System.out.println();
+//        }
+//    }
 }
