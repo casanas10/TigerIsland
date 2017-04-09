@@ -27,7 +27,9 @@ public class SettlementColorTest {
         builder.build(blackPlayer, islandMap, 1, 407);
         builder.build(whitePlayer, islandMap, 1, 408);
 
-        islandMap.addTileToMap(607,0, terrains, whitePlayer);
+        islandMap.addTileToMap(607,0, terrains, blackPlayer);
+
+        builder.extendForAI(806, islandMap, blackPlayer, "Lake");
 
         settlement.printAllSettlements(whitePlayer);
 

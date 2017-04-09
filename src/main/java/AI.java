@@ -114,14 +114,19 @@ public class AI {
         switch (buildOption){
             case 1:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
             case 3:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
             case 4:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
         }
 
         if(buildOption == 2){
             ExtendTerrain = moveData.getExtendTerrain();
+            System.out.println("ExtendTerrain in moveData is: " + ExtendTerrain);
+            System.out.println("X coordinate is: " + ourCoordinatesBuild[0] + "\nY coordinate is: " + ourCoordinatesBuild[1]);
             builder.extendForAI(coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]), islandMap, otherAI, ExtendTerrain);
         }
         tile = new RotateTile(hexID, ourOrientation);
@@ -146,7 +151,7 @@ public class AI {
             level3HexIDs[0] = activeHexIDs.get(activeHexIDs.size() - 1);
             level3HexIDs[1] = activeHexIDs.get(activeHexIDs.size() - 2);
         }
-
+        System.out.println("otherAI score " + otherAI.getCurrentScore());
     }
 
     public void makeMove(String[] Terrains){
