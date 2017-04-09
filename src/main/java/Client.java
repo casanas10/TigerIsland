@@ -7,14 +7,13 @@ import java.net.*;
 public class Client {
 
     public void OpenClient() throws Exception{
-        String hostName = "10.136.53.55";
-        int portNumber = 6066;
+        String hostName = "192.168.1.142";
+        int portNumber = 6969;
 
         try (
             Socket socket = new Socket(hostName, portNumber);
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))
         ) {
 
             TournamentProtocol tournament = new TournamentProtocol();
