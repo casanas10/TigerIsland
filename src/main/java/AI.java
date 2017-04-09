@@ -88,7 +88,7 @@ public class AI {
         activeHexIDs.add(coordinateSystem.getHexID(100, 98));
         activeHexIDs.add(coordinateSystem.getHexID(99, 100));
         activeHexIDs.add(coordinateSystem.getHexID(100, 100));
-        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grasslands"};
+        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
         islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
 
 
@@ -272,7 +272,7 @@ public class AI {
                                 return;
                             }
                         }
-                        //Look for tile in talest level
+                        //Look for tile in tallest level
                         //If level >= 3 place tiger
                         //else look if a totoro can be placed
                         //else place a meeple in your largest settlement <5
@@ -329,16 +329,16 @@ public class AI {
     }
 
     public Boolean canYouPlaceMeepleAnywhere(IslandMap islandMap, Player player){
-//        for(int i = activeHexIDs.size()-1; i>0; i--){
-//            if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
-//                if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex() == "") {
-//                    if (islandMap.getHex(activeHexIDs.get(i)).getTerrain() != "Volcano") {
-//                        placeMeeple(islandMap, player, activeHexIDs.get(i));
-//                        return true;
-//                    }
-//                }
-//            }
-//        }
+        for(int i = activeHexIDs.size()-1; i>0; i--){
+            if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
+                if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex() == "") {
+                    if (islandMap.getHex(activeHexIDs.get(i)).getTerrain() != "Volcano") {
+                        //placeMeeple(islandMap, player, activeHexIDs.get(i));
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
 
