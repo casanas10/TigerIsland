@@ -9,10 +9,8 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                Game game = new Game();
-//                new Frame(game);
-                new AutoFramePlayer();
-//                new NewGame();
+                new Frame();
+//                new AutoFramePlayer();
             }
         });
 

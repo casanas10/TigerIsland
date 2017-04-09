@@ -418,4 +418,41 @@ public class SettlementTest {
 
     }
 
+
+    @Test
+    public void updateSettlementsAfterExtending() {
+
+        //PLACE STARTING TILE
+        CoordinateSystem coors = new CoordinateSystem();
+        // First tile will actually be placed in the center, this is for testing purposes
+        //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+        int[] tileHexIDsArray = {coors.getHexID(14, 15), coors.getHexID(14, 14), coors.getHexID(15, 14),
+                coors.getHexID(14, 16), coors.getHexID(15, 16)};
+        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
+        islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
+
+        islandMap.addTileToMap(3015, 120);
+        islandMap.getHex(2816).setTerrain("Lake");
+        islandMap.getHex(3016).setTerrain("Lake");
+        builder.build(whitePlayer, islandMap, 1, 2815);
+
+        islandMap.addTileToMap(2818, 0);
+        islandMap.getHex(3017).setTerrain("Jungle");
+        islandMap.getHex(3018).setTerrain("Lake");
+        builder.build(blackPlayer, islandMap, 1, 3017);
+
+
+        ExtendSettlement extend = new ExtendSettlement(3017, islandMap, blackPlayer);
+
+        extend.extendOnTerrain("Lake");
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
+//
+        System.out.println(islandMap.getHex(3017).getSettlementID());
+
+//        //NUKE
+//        islandMap.addTileToMap(3014, 60);
+//        islandMap.getHex(3215).setTerrain("Lake");
+//        islandMap.getHex(3015).setTerrain("Lake");
+//        builder.build(whitePlayer, islandMap, 1, 3016);
+    }
 }

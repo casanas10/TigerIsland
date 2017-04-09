@@ -35,8 +35,15 @@ public class Frame extends JFrame {
 
     MoveInfo playerMove = new MoveInfo();
 
-    public Frame (Game game){
-        this.game = game;
+    ArrayList<Integer> activeHexes = new ArrayList<Integer>() {{
+        add(3014);
+        add(2814);
+        add(2815);
+        add(3214);
+        add(3215);
+    }};
+
+    public Frame (){
         runGUI();
         playGame();
     }
@@ -86,25 +93,26 @@ public class Frame extends JFrame {
         view.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
 
-                String[] newTile = islandMap.getNewTile();
-
-                String terrainsStr = "";
-                for (int i =0; i < newTile.length; i++){
-                    terrainsStr += newTile[i] + " ";
-                }
 
                 if (aiTurn){
 
-//                    System.out.println("AI TURN");
-//                    MoveInfo info = ai.play();
-//
-//                    RotateTile tile = new RotateTile(info.getHexID(),info.getOrientation());
-//
-//                    drawTile(tile);
-//
-//                    addNewElement(islandMap.getHex(info.getHexSettled()).getX(),islandMap.getHex(info.getHexSettled()).getY(), info.getBuildOption());
+                    System.out.println("AI TURN");
+                    playerMove = ai.play(activeHexes);
+
+                    RotateTile tile = new RotateTile(playerMove.getHexID(),playerMove.getOrientation());
+
+                    drawTile(tile);
+
+                    addNewElement(islandMap.getHex(playerMove.getHexSettled()).getX(),islandMap.getHex(playerMove.getHexSettled()).getY(), playerMove.getBuildOption());
 
                 } else {
+
+                    String[] newTile = islandMap.getNewTile();
+
+                    String terrainsStr = "";
+                    for (int i =0; i < newTile.length; i++){
+                        terrainsStr += newTile[i] + " ";
+                    }
 
                     int hexID = -1;
                     int orientation = -1;
