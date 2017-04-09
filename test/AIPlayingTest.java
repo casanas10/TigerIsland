@@ -1,6 +1,8 @@
 import cucumber.api.java.eo.Se;
 import org.junit.Test;
 
+import java.util.*;
+
 /**
  * Created by Val on 4/3/2017.
  */
@@ -55,25 +57,21 @@ public class AIPlayingTest {
     }
 
     @Test
+    public void expandingTest(){
+        IslandMap islandMap = new IslandMap();
+        Player whitePlayer = new Player("White", 0);
+        MoveData moveData = new MoveData();
+        String[] terrains = {"Volcano", "Lake", "Rocky"};
+
+        ai.makeMove(terrains);
+        ai.makeMove(terrains);
+
+        moveData = ai.getMoveData();
+        System.out.println("Extend settlement is: " + moveData.getExtendTerrain());
+    }
+
+    @Test
     public void whenTwoPlayersPlayGame(){
-
-        int i = 0;
-
-        while(i < 48){
-
-            if (aiTurn){
-
-                System.out.println("AI TURN");
-                ai.playingAI();
-
-            } else {
-
-                System.out.println("SERVER TURN");
-                //server.playingAI();
-            }
-
-            i++;
-        }
 
     }
 
