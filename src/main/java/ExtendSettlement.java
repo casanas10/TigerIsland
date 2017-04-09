@@ -61,6 +61,31 @@ public class ExtendSettlement {
         checkUpperLeftHexID(hexID,terrain);
     }
 
+    public ArrayList<Integer> getTerrainList(String terrain) {
+
+        ArrayList<Integer> terrainsList = null;
+
+        switch (terrain)
+        {
+            case "Lake" :
+                terrainsList = getLakesToExtendOn();
+                break;
+            case "Grassland" :
+                terrainsList = getGrasslandsToExtendOn();
+                break;
+            case "Jungle" :
+                terrainsList = getJunglesToExtendOn();
+                break;
+            case "Rocky" :
+                terrainsList = getRockysToExtendOn();
+                break;
+            default:
+                break;
+        }
+
+        return terrainsList;
+    }
+
     private void checkUpperRightHexID(int hexID, String terrain) {
         if(hexIsInEvenRow(hexID)) {
             isSameTerrain = checkIfSameTerrain(hexID - maxArrayLength, terrain);
