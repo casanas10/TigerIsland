@@ -84,6 +84,10 @@ public class Nuking {
 
             if (settlementID == -1)
                 continue;
+            else if(settlement.getSettlementMap().get(settlementID) == null){   //blah blah
+                hexGrid.getHexValue(hexID[i]).setSettlementID(-1);
+                continue;
+            }
             else if (settlement.getSettlementMap().get(settlementID).size() == 1)
                 return true;
 

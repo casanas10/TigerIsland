@@ -434,6 +434,7 @@ public class AI {
                     for(int j = 0; j < 3; j++){
                         tileTerrains[j] = islandMap.getHex(Tile[j]).getTerrain();
                     }
+
                     if (nuker.canYouNukeSettlement(islandMap, Tile, volcanosOnMap.get(k))) {
                         if(!((islandMap.getHex(Tile[1]).getTerrain().equals("Volcano")) || (islandMap.getHex(Tile[2]).getTerrain().equals("Volcano")))){
                             volcanoTemp = Tile[0];
