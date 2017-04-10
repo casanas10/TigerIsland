@@ -26,6 +26,7 @@ public class Main {
                 while(i < 24){
 
                     if (aiTurn){
+                        System.out.println("------------------------------------------------------------------------");
                         System.out.println("AI TURN");
 
                         ai.makeMove(terrains);
@@ -52,6 +53,9 @@ public class Main {
                         if(buildOption == 2){
                             System.out.println("Terrain to extend to: " + moveData.getExtendTerrain());
                         }
+                        System.out.println("\nAI # of meeple remaining: " + game.getWhitePlayer().getRemainingMeeples());
+                        System.out.println("AI # of Totoro remaining: " + game.getWhitePlayer().getRemainingTotoros());
+                        System.out.println("AI # of Tigers remaining: " + game.getWhitePlayer().getRemainingTigers());
                         aiTurn = false;
                     }
                     else {
@@ -99,6 +103,9 @@ public class Main {
 
                         ai.updateOpponentMove(moveData);
                         System.out.println("Our score: " + game.getBlackPlayer().getCurrentScore());
+                        System.out.println("\nAI # of meeple remaining: " + game.getBlackPlayer().getRemainingMeeples());
+                        System.out.println("AI # of Totoro remaining: " + game.getBlackPlayer().getRemainingTotoros());
+                        System.out.println("AI # of Tigers remaining: " + game.getBlackPlayer().getRemainingTigers());
                         //server.playingAI();
                         aiTurn = true;
                     }
