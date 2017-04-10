@@ -25,11 +25,6 @@ public class IslandMap {
         settlement = new Settlement(hexGrid);
     }
 
-    public String[] getNewTile() {
-        return myGen.getNewTile();
-    }
-
-
     public boolean addTileToMap(int hexID, int orientation, String[] newTile, Player player){
 
         int tileHexIDsArray[] = new int[3];
@@ -39,7 +34,6 @@ public class IslandMap {
         ArrayList<Integer> hexesList = new ArrayList<Integer>();
         for (int i = 0; i < tileHexIDsArray.length; i++) {
             hexesList.add(tileHexIDsArray[i]);
-            //System.out.println(hexesList.get(i));
         }
 
         // Place first tile in the middle of the map automatically
@@ -50,24 +44,7 @@ public class IslandMap {
         }
 
         // CHECK FOR NUKE
-        if(nuker.canYouNukeSettlement(this, tileHexIDsArray, hexID)){
-
-            nuker.performNuke(hexGrid, tileHexIDsArray, newTile, tileCount);
-
-            Tile tile = new Tile(tileCount,tileHexIDsArray);
-            gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
-            tileCount++;
-            System.out.println("Nuke Successful!");
-
-            for (int i = 0; i < tileHexIDsArray.length; i++){
-                System.out.print(tileHexIDsArray[i] + " ");
-                System.out.println();
-            }
-
-            settlement.updateSettlementAfterNuke(hexesList, player);
-
-            return true;
-        }
+        if (checkForNuke(hexID, newTile, player, tileHexIDsArray, hexesList)) return true;
 
         boolean hexesCanBePlaced = false;
         boolean adjacentTilesValid = false;
@@ -94,6 +71,29 @@ public class IslandMap {
 
     }
 
+    private boolean checkForNuke(int hexID, String[] newTile, Player player, int[] tileHexIDsArray, ArrayList<Integer> hexesList) {
+
+        if(nuker.canYouNukeSettlement(this, tileHexIDsArray, hexID)){
+
+            nuker.performNuke(hexGrid, tileHexIDsArray, newTile, tileCount);
+
+            Tile tile = new Tile(tileCount,tileHexIDsArray);
+            gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
+            tileCount++;
+            System.out.println("Nuke Successful!");
+
+
+            settlement.updateSettlementAfterNuke(hexesList, player);
+
+            return true;
+        }
+        return false;
+    }
+
+    public String[] getNewTile() {
+        return myGen.getNewTile();
+    }
+
     public boolean addTileToMap(int hexID, int orientation) {
 
         int tileHexIDsArray[] = new int[3];
@@ -106,6 +106,7 @@ public class IslandMap {
         if(getNumberOfTiles() == 47 && tileCount == 0){
             placeFirstTile(tileHexIDsArray, tileTerrainsArray);   //changed
             System.out.println("First tile successfully placed!");
+
             return true;
         }
 
@@ -118,11 +119,6 @@ public class IslandMap {
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             tileCount++;
             System.out.println("Nuke Successful!");
-
-            for (int i = 0; i < tileHexIDsArray.length; i++){
-                System.out.print(tileHexIDsArray[i]);
-            }
-
             return true;
         }
 
@@ -150,18 +146,30 @@ public class IslandMap {
         }
     }
 
-    public void printMap(){
-        Set set = gameBoardMap.entrySet();
-        Iterator iterator = set.iterator();
+    public ArrayList<Integer> getPlayerSettlement(Player player) {
 
-        while (iterator.hasNext()){
-            Map.Entry mentry = (Map.Entry)iterator.next();
+        HashMap<Integer, ArrayList<Integer>> settlements = getSettlementsMap();
 
-            Hex hexObj = (Hex)mentry.getValue();
-            System.out.print("key: "+ mentry.getKey() + " & Value: ");
-            hexObj.printHexCoordinates();
+        ArrayList<Integer> playerSettlement = new ArrayList<Integer>() {{
+            add(-1);
+        }};
+
+        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlements.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
+
+            int hexID = entry.getValue().get(0);
+
+            if (getHex(hexID).getPlayerColorOnHex() == player.getPlayerColor()){
+
+                System.out.println(entry.getKey());
+                playerSettlement.add(entry.getKey());
+            }
         }
+
+        return playerSettlement;
     }
+
 
     public boolean containsHexKey(int tileID){
         if (gameBoardMap.containsKey(tileID)){
@@ -201,7 +209,21 @@ public class IslandMap {
                 System.out.print(hexGrid.getHexValue(mapValue.getValue()[i]).getTerrain() + " ");
             System.out.println();
         }
+    }
 
+    public ArrayList<Integer> getAllHexesOnMap(){
+
+        ArrayList<Integer> hexes = new ArrayList<>();
+
+        Iterator<Map.Entry<Integer, int[]>> iterator = gameBoardMap.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, int[]> mapValue = iterator.next();
+            for(int i=0;i<mapValue.getValue().length;i++){
+                hexes.add(mapValue.getValue()[i]);
+            }
+        }
+
+        return hexes;
     }
 
     public Hex getHex(int hexID){
@@ -220,30 +242,6 @@ public class IslandMap {
 
     public HexGrid getHexGrid() {
         return hexGrid;
-    }
-
-    public ArrayList<Integer> getPlayerSettlement(Player player) {
-
-        HashMap<Integer, ArrayList<Integer>> settlements = getSettlementsMap();
-
-        ArrayList<Integer> playerSettlement = new ArrayList<Integer>() {{
-            add(-1);
-        }};
-
-        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlements.entrySet().iterator();
-        while(iterator.hasNext()){
-            Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
-
-            int hexID = entry.getValue().get(0);
-
-            if (getHex(hexID).getPlayerColorOnHex() == player.getPlayerColor()){
-
-                System.out.println(entry.getKey());
-                playerSettlement.add(entry.getKey());
-            }
-        }
-
-        return playerSettlement;
     }
 
     public boolean isValidTilePlacement(RotateTile tile) {

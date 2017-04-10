@@ -9,12 +9,13 @@ public class Main {
 //        SwingUtilities.invokeLater(new Runnable() {
 //            @Override
 //            public void run() {
-//                Game game = new Game();
-//                new Frame(game);
+//                new Frame();
+////                new AutoFramePlayer();
 //            }
 //        });
-
         Client client = new Client();
         client.OpenClient();
+//        Game game = new Game();
+//        game.gameRunning();
     }
 }

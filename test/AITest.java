@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class AITest {
 
     private Game game = new Game();
-    private ALE_AI ai = new ALE_AI(game);
+    //private ALE_AI ai = new ALE_AI(game);
 
 
     @Test
@@ -40,9 +40,9 @@ public class AITest {
                 add(3215);
             }};
 
-            ai.getAllPossibleTilePlacementPosition(tileArr);
+            //ai.getAllPossibleTilePlacementPosition(tileArr);
 
-            ai.play();
+            //ai.play();
             System.out.println("# of meeple left: " + game.getWhitePlayer().getRemainingMeeples());
             System.out.println("---------------------------------------------------------------------------------------");
 
