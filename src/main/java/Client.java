@@ -7,8 +7,10 @@ import java.net.*;
 public class Client {
 
     public void OpenClient() throws Exception{
-        String hostName = "192.168.1.142";
-        int portNumber = 6969;
+        //String hostName = "192.168.1.142";
+        //int portNumber = 6969;
+        String hostName = "10.136.65.163";
+        int portNumber = 6066;
 
         try (
             Socket socket = new Socket(hostName, portNumber);
