@@ -101,7 +101,6 @@ import java.util.Map;
                 addPieceToAnExistingSettlement(hexID, player);
             }
 
-
         }
 
         public void addPieceToAnExistingSettlement(int hexID, Player player) {

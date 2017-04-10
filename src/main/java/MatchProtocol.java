@@ -32,7 +32,7 @@ public class MatchProtocol {
 
             for(int i=0; i<48; i++) {
                 MoveProtocol move = new MoveProtocol();
-                move.makeMove(out, in, AI1, AI2, i + 1, opponentPID);
+                move.makeMove(out, in, AI1, AI2, i, opponentPID);
             }
         }
 
