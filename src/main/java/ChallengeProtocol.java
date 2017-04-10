@@ -18,7 +18,7 @@ public class ChallengeProtocol {
             Thread.sleep(50);
             //maybe add system exit
         }
-        System.out.println("Passed the while loop");
+       // System.out.println("Passed the while loop");
 
         //Server: NEW CHALLENGE <cid> YOU WILL PLAY <rounds> MATCH
         if(fromServer != null) {
@@ -59,7 +59,7 @@ public class ChallengeProtocol {
             //Server: THANK YOU FOR PLAYING! GOODBYE
             fromServer = in.readLine();
             System.out.println("Server: " + fromServer);
-            System.exit(1);
+            //System.exit(1);
         }
 
     }

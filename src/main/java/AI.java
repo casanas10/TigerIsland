@@ -233,7 +233,8 @@ public class AI {
                 }
 
                 else {
-                    nuke(islandMap);
+                    if(!nuke(islandMap));
+                        findLocationToPlaceTile(islandMap);
                     if(checkToPlaceTiger()){
                         return;
                     }

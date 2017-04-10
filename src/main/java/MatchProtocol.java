@@ -7,6 +7,7 @@ public class MatchProtocol {
     private String opponentPID;
     public static String gid1 = null;
     public static String gid2 = null;
+    public static boolean isMatchDone = false;
 
     public void playMatch(PrintWriter out, BufferedReader in) throws Exception{
         BufferedReader stdIn =
@@ -31,6 +32,9 @@ public class MatchProtocol {
             AI AI2 = new AI();
 
             for(int i=0; i<48; i++) {
+                if(isMatchDone == true){
+                    break;
+                }
                 MoveProtocol move = new MoveProtocol();
                 move.makeMove(out, in, AI1, AI2, i, opponentPID);
             }
@@ -49,5 +53,6 @@ public class MatchProtocol {
         
         gid1 = null;
         gid2 = null;
+        isMatchDone = false;
     }
 }

@@ -68,27 +68,29 @@ public class MoveProtocol {
         givenTerrains[0] = givenTerrains[0].substring(0, 1).toUpperCase() + givenTerrains[0].substring(1).toLowerCase();
         givenTerrains[1] = givenTerrains[1].substring(0, 1).toUpperCase() + givenTerrains[1].substring(1).toLowerCase();
 
-        if (givenTerrains[0].equals("ROCK")) {
+        if (givenTerrains[0].equals("Rock")) {
             givenTerrains[0] = "Rocky";
         }
-        if (givenTerrains[1].equals("ROCK")) {
+        if (givenTerrains[1].equals("Rock")) {
             givenTerrains[1] = "Rocky";
         }
 
-        if (givenTerrains[0].equals("GRASS")) {
+        if (givenTerrains[0].equals("Grass")) {
             givenTerrains[0] = "Grassland";
         }
-        if (givenTerrains[1].equals("GRASS")) {
+        if (givenTerrains[1].equals("Grass")) {
             givenTerrains[1] = "Grassland";
         }
         String terrainsArray[] = {"Volcano", givenTerrains[0], givenTerrains[1]};
 
         if (currentGID.equals(MatchProtocol.gid1)) {
             //AI1 gets terrains
+            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
             AI1.makeMove(terrainsArray);
             return AI1.getMoveData();
         } else {
             //AI2 gets terrains
+            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
             AI2.makeMove(terrainsArray);
             return AI2.getMoveData();
         }
@@ -190,15 +192,15 @@ public class MoveProtocol {
 
                 if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI1
-                    moveData = parseMessage(fromServerArr);
+                    moveData = parseMessage(fromServerArr, in);
                     AI1.updateOpponentMove(moveData);
                 } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI2
-                    moveData = parseMessage(fromServerArr);
+                    moveData = parseMessage(fromServerArr, in);
                     AI2.updateOpponentMove(moveData);
                 } else {
                     //check if server says we lost; check which game if so.
-                    moveData = parseMessage(fromServerArr);
+                    moveData = parseMessage(fromServerArr, in);
 
                 }
             }
@@ -228,21 +230,22 @@ public class MoveProtocol {
 
             if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                 //send opponent's move to AI1
-                moveData = parseMessage(fromServerArr);
+                moveData = parseMessage(fromServerArr, in);
                 AI1.updateOpponentMove(moveData);
             } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
                 //send opponent's move to AI2
-                moveData = parseMessage(fromServerArr);
+                moveData = parseMessage(fromServerArr, in);
                 AI2.updateOpponentMove(moveData);
             } else {
                 //check if server says we lost; check which game if so.
-                moveData = parseMessage(fromServerArr);
+                moveData = parseMessage(fromServerArr, in);
             }
         }
     }
 
-    private MoveData parseMessage(String[] fromServerArr) {
+    private MoveData parseMessage(String[] fromServerArr, BufferedReader in) throws Exception{
         String serverGID;
+        String fromServer;
         MoveData moveData;
 
         if (fromServerArr[6].equals("FORFEITED:") || fromServerArr[6].equals("LOST:")) {
@@ -256,46 +259,58 @@ public class MoveProtocol {
                 MatchProtocol.gid2 = "dead";
             }
 
+            if(MatchProtocol.gid2 != null) {
+                if (MatchProtocol.gid1.equals("dead") && MatchProtocol.gid2.equals("dead")) {
+                    //fromServer = in.readLine();
+                    //System.out.println("Server: " + fromServer);
+                    MatchProtocol.isMatchDone = true;
+                }
+//                else{
+//                    fromServer = in.readLine();
+//                    System.out.println("Server: " + fromServer);
+//                }
+            }
             return moveData;
         }
+        else {
+            String tile = fromServerArr[7];
+            tile = tile.replaceAll("[+]", " ");
+            String givenTerrains[] = tile.split(" ");
+            String terrainsArray[] = {"Volcano", givenTerrains[0], givenTerrains[1]};
 
-        String tile = fromServerArr[7];
-        tile = tile.replaceAll("[+]", " ");
-        String givenTerrains[] = tile.split(" ");
-        String terrainsArray[] = {"Volcano", givenTerrains[0], givenTerrains[1]};
+            if ((fromServerArr[13].equals("FOUNDED")) || (fromServerArr[13].equals("FOUND"))) {
+                moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
+                        Integer.parseInt(fromServerArr[10]), Integer.parseInt(fromServerArr[11]),
+                        Integer.parseInt(fromServerArr[12]), 1, Integer.parseInt(fromServerArr[16]),
+                        Integer.parseInt(fromServerArr[17]), Integer.parseInt(fromServerArr[18]));
 
-        if ((fromServerArr[13].equals("FOUNDED")) || (fromServerArr[13].equals("FOUND"))) {
-            moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
-                    Integer.parseInt(fromServerArr[10]), Integer.parseInt(fromServerArr[11]),
-                    Integer.parseInt(fromServerArr[12]), 1, Integer.parseInt(fromServerArr[16]),
-                    Integer.parseInt(fromServerArr[17]), Integer.parseInt(fromServerArr[18]));
+                return moveData;
+            } else if ((fromServerArr[13].equals("EXPANDED")) || (fromServerArr[13].equals("EXPAND"))) {
+                moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
+                        Integer.parseInt(fromServerArr[10]), Integer.parseInt(fromServerArr[11]),
+                        Integer.parseInt(fromServerArr[12]), 2, Integer.parseInt(fromServerArr[16]),
+                        Integer.parseInt(fromServerArr[17]), Integer.parseInt(fromServerArr[18]),
+                        fromServerArr[19]);
 
-            return moveData;
-        } else if ((fromServerArr[13].equals("EXPANDED")) || (fromServerArr[13].equals("EXPAND"))) {
-            moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
-                    Integer.parseInt(fromServerArr[10]), Integer.parseInt(fromServerArr[11]),
-                    Integer.parseInt(fromServerArr[12]), 2, Integer.parseInt(fromServerArr[16]),
-                    Integer.parseInt(fromServerArr[17]), Integer.parseInt(fromServerArr[18]),
-                    fromServerArr[19]);
+                return moveData;
+            } else if (fromServerArr[14].equals("TOTORO")) {
+                moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
+                        Integer.parseInt(fromServerArr[10]), Integer.parseInt(fromServerArr[11]),
+                        Integer.parseInt(fromServerArr[12]), 3, Integer.parseInt(fromServerArr[17]),
+                        Integer.parseInt(fromServerArr[18]), Integer.parseInt(fromServerArr[19]));
 
-            return moveData;
-        } else if (fromServerArr[14].equals("TOTORO")) {
-            moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
-                    Integer.parseInt(fromServerArr[10]), Integer.parseInt(fromServerArr[11]),
-                    Integer.parseInt(fromServerArr[12]), 3, Integer.parseInt(fromServerArr[17]),
-                    Integer.parseInt(fromServerArr[18]), Integer.parseInt(fromServerArr[19]));
+                return moveData;
+            } else if (fromServerArr[14].equals("TIGER")) {
+                moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
+                        Integer.parseInt(fromServerArr[10]), Integer.parseInt(fromServerArr[11]),
+                        Integer.parseInt(fromServerArr[12]), 4, Integer.parseInt(fromServerArr[17]),
+                        Integer.parseInt(fromServerArr[18]), Integer.parseInt(fromServerArr[19]));
 
-            return moveData;
-        } else if (fromServerArr[14].equals("TIGER")) {
-            moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
-                    Integer.parseInt(fromServerArr[10]), Integer.parseInt(fromServerArr[11]),
-                    Integer.parseInt(fromServerArr[12]), 4, Integer.parseInt(fromServerArr[17]),
-                    Integer.parseInt(fromServerArr[18]), Integer.parseInt(fromServerArr[19]));
-
-            return moveData;
-        } else {
-            moveData = new MoveData();
-            return moveData;
+                return moveData;
+            } else {
+                moveData = new MoveData();
+                return moveData;
+            }
         }
     }
 }
