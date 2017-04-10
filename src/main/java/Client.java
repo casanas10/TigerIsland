@@ -10,10 +10,10 @@ public class Client {
         //String hostName = "192.168.1.142";
         //int portNumber = 6969;
         //String hostName = "10.136.65.163";
-        String hostName = "10.228.1.171";
+        String hostName = "10.136.15.159";
 
 //        int portNumber = 6066;
-        int portNumber = 1708;
+        int portNumber = 6969;
 
         try (
             Socket socket = new Socket(hostName, portNumber);

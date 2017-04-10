@@ -17,7 +17,7 @@ public class AuthenticationProtocol {
             fromServer = in.readLine();
             System.out.println("Server: " + fromServer);
             if(fromServer.substring(0,7).equals("WELCOME")) {
-                fromUser = "ENTER THUNDERDOME goodluck";
+                fromUser = "ENTER THUNDERDOME heygang";
                 out.println(fromUser);
                 System.out.println("Client: " + fromUser);
             }
