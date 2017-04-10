@@ -80,8 +80,8 @@ public class AI {
                 Look at how to fill the message for the server
     * */
 
-    public AI(Game game){
-        this.game = game;
+    public AI(){
+        this.game = new Game();
         this.islandMap = game.getIslandMap();
         this.player = game.getWhitePlayer();
 

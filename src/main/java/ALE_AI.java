@@ -59,23 +59,6 @@ public class ALE_AI {
         return info;
     }
 
-//    private void placeTile() {
-//
-//        ArrayList<Integer> setOfSettlements = findOpponentsSettlementSizeThreeToFive();
-//
-//        if (setOfSettlements.size() <= 1) {
-//            System.out.println("didn't found settlement of size 3 ++");
-//        } else {
-//            for (int i = 1; i < setOfSettlements.size(); i++){
-//                ArrayList<Integer> hexIDs = islandMap.getSettlementObj().getSettlementsMap().get(setOfSettlements.get(i));
-//                getAllPossibleTilePlacementPosition(hexIDs);
-//            }
-//        }
-//    }
-//
-//    private void build(){
-//
-//    }
 
     //given a tile it gets all the possible tile placement positions
     public HashMap<Integer, int[]> getAllPossibleTilePlacementPosition(ArrayList<Integer> tileArr) {

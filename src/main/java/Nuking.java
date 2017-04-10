@@ -60,7 +60,7 @@ public class Nuking {
     //currently do not have a unit test for tiger in NukingTest
     private boolean doLowerHexesHaveATiger(HexGrid hexGrid, int[] hexIDsArray) {
         for (int hexID : hexIDsArray) {
-            if (hexGrid.getHexValue(hexID).getPieceOnHex() == "Tiger")
+            if (hexGrid.getHexValue(hexID).getPieceOnHex().equals("Tiger"))
                 return true;
         }
         return false;
@@ -68,7 +68,7 @@ public class Nuking {
 
     public boolean doLowerHexesHaveATotoro(HexGrid hexGrid, int[] hexIDsArray){
         for (int hexID : hexIDsArray) {
-            if (hexGrid.getHexValue(hexID).getPieceOnHex() == "Totoro")
+            if (hexGrid.getHexValue(hexID).getPieceOnHex().equals("Totoro"))
                 return true;
         }
         return false;
@@ -91,8 +91,6 @@ public class Nuking {
 
         return false;
     }
-
-
 
     public boolean doesNukeSpanTwoTiles(HexGrid hexGrid, int[] HexIDsArray){
 
@@ -118,7 +116,7 @@ public class Nuking {
     }
 
     public boolean isVolcanoOverVolcano(HexGrid hexGrid, int hexID){
-        if(hexGrid.getHexValue(hexID).getTerrain() == "Volcano"){
+        if(hexGrid.getHexValue(hexID).getTerrain().equals("Volcano")){
             return true;
         }
         else return false;
@@ -137,22 +135,4 @@ public class Nuking {
 
     }
 
-//    public void performNuke(HexGrid hexGrid, int[] hexIDS, String[] hexTerrains, int nextTile, Settlement settlement, Player player){
-//
-//        for(int i=0; i<hexIDS.length; i++){
-//            hexGrid.getHexValue(hexIDS[i]).incrementLevel();
-//            hexGrid.getHexValue(hexIDS[i]).setTerrain(hexTerrains[i]);
-//            hexGrid.getHexValue(hexIDS[i]).removeGamePiecesFromMap();
-//            hexGrid.getHexValue(hexIDS[i]).setSettlementID(-1);
-//            hexGrid.getHexValue(hexIDS[i]).setTileID(nextTile);
-//        }
-//
-//        ArrayList<Integer> hexes = null;
-//        for (int i = 0; i < hexIDS.length; i++){
-//            hexes.add(hexIDS[i]);
-//            System.out.println(hexIDS[i]);
-//        }
-//
-//        settlement.updateSettlementAfterNuke(hexes, player);
-//    }
 }

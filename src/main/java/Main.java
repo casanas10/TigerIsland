@@ -6,15 +6,15 @@ import java.awt.*;
  */
 public class Main {
     public static void main(String[] args) throws Exception{
-//        SwingUtilities.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                Game game = new Game();
-//                new Frame(game);
-//            }
-//        });
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Frame();
+               // new AutoFramePlayer();
+            }
+        });
 
-        Client client = new Client();
-        client.OpenClient();
+//        Client client = new Client();
+//        client.OpenClient();
     }
 }

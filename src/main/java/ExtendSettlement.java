@@ -218,7 +218,7 @@ public class ExtendSettlement {
     private boolean checkIfSameTerrain(int hexID, String terrain) {
         Hex hex;
         hex = islandMap.getHex(hexID);
-        if(terrain == hex.getTerrain()){
+        if(terrain.equals(hex.getTerrain())){
             return true;
         }
         else{
@@ -230,7 +230,7 @@ public class ExtendSettlement {
         Hex hex;
         hex = islandMap.getHex(hexID);
         if((hex.getTileID() != -1) && (hex.checkIfHexIsNotSettled()) &&
-                (hex.getSettlementID() == -1) && (hex.getTerrain() != "Volcano")
+                (hex.getSettlementID() == -1) && (!hex.getTerrain().equals("Volcano"))
                 && hasNotBeenVisited(hexID,terrain)){
             return true;
         }
@@ -241,7 +241,7 @@ public class ExtendSettlement {
 
     private boolean hasNotBeenVisited(int hexID, String terrain) {
         int i=0;
-        if(terrain == "Lake"){
+        if(terrain.equals("Lake")){
             i=0;
             while(i<lakesToExtendOn.size()){
                 if(lakesToExtendOn.get(i) == hexID){
@@ -251,7 +251,7 @@ public class ExtendSettlement {
             }
             return true;
         }
-        if(terrain == "Grassland"){
+        if(terrain.equals("Grassland")){
             i=0;
             while(i<grasslandsToExtendOn.size()){
                 if(grasslandsToExtendOn.get(i) == hexID){
@@ -261,7 +261,7 @@ public class ExtendSettlement {
             }
             return true;
         }
-        if(terrain == "Rocky"){
+        if(terrain.equals("Rocky")){
             i=0;
             while(i<rockysToExtendOn.size()){
                 if(rockysToExtendOn.get(i) == hexID){
@@ -271,7 +271,7 @@ public class ExtendSettlement {
             }
             return true;
         }
-        if(terrain == "Jungle"){
+        if(terrain.equals("Jungle")){
             i = 0;
             while (i < junglesToExtendOn.size()) {
                 if (junglesToExtendOn.get(i) == hexID) {
@@ -285,16 +285,16 @@ public class ExtendSettlement {
     }
 
     private void addToTerrainContainer(int hexID, String terrain) {
-        if(terrain == "Lake"){
+        if(terrain.equals("Lake")){
             lakesToExtendOn.add(hexID);
         }
-        if(terrain == "Grassland"){
+        if(terrain.equals("Grassland")){
             grasslandsToExtendOn.add(hexID);
         }
-        if(terrain == "Rocky"){
+        if(terrain.equals("Rocky")){
             rockysToExtendOn.add(hexID);
         }
-        if(terrain == "Jungle"){
+        if(terrain.equals("Jungle")){
             junglesToExtendOn.add(hexID);
         }
     }
@@ -335,10 +335,10 @@ public class ExtendSettlement {
     }
 
     public boolean extendOnTerrain(String terrain){
-        if(terrain == "invalid terrain"){
+        if(terrain.equals("invalid terrain")){
             return false;
         }
-        if(terrain == "Lake"){
+        if(terrain.equals("Lake")){
             if((lakesToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
                 return false;
             }
@@ -351,7 +351,7 @@ public class ExtendSettlement {
                 return true;
             }
         }
-        if(terrain == "Grassland"){
+        if(terrain.equals("Grassland")){
             if((grasslandsToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
                 return false;
             }
@@ -364,7 +364,7 @@ public class ExtendSettlement {
                 return true;
             }
         }
-        if(terrain == "Rocky"){
+        if(terrain.equals("Rocky")){
             if((rockysToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
                 return false;
             }
@@ -377,7 +377,7 @@ public class ExtendSettlement {
                 return true;
             }
         }
-        if(terrain == "Jungle"){
+        if(terrain.equals("Jungle")){
             if((junglesToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
                 return false;
             }
@@ -397,28 +397,28 @@ public class ExtendSettlement {
         Hex hex;
         int meeplesRequired = 0;
         int i=0;
-        if(terrain == "Lake"){
+        if(terrain.equals("Lake")){
             i=0;
             while(i<lakesToExtendOn.size()) {
                 meeplesRequired += islandMap.getHex(lakesToExtendOn.get(i)).getLevel();
                 i++;
             }
         }
-        if(terrain == "Grassland"){
+        if(terrain.equals("Grassland")){
             i=0;
             while(i<grasslandsToExtendOn.size()){
                 meeplesRequired += islandMap.getHex(grasslandsToExtendOn.get(i)).getLevel();
                 i++;
             }
         }
-        if(terrain == "Rocky"){
+        if(terrain.equals("Rocky")){
             i=0;
             while(i<rockysToExtendOn.size()){
                 meeplesRequired += islandMap.getHex(rockysToExtendOn.get(i)).getLevel();
                 i++;
             }
         }
-        if(terrain == "Jungle"){
+        if(terrain.equals("Jungle")){
             i=0;
             while(i<junglesToExtendOn.size()){
                 meeplesRequired += islandMap.getHex(junglesToExtendOn.get(i)).getLevel();
@@ -457,8 +457,8 @@ public class ExtendSettlement {
         System.out.println("Enter terrain name to extend to: \n");
         String terrain = s.nextLine();
 
-        if((terrain == "Lake") || (terrain == "Grassland") ||
-                (terrain == "Rocky") || (terrain == "Jungle")){
+        if((terrain.equals("Lake")) || (terrain.equals("Grassland")) ||
+                (terrain.equals("Rocky")) || (terrain.equals("Jungle"))){
             return terrain;
         }
         else{
