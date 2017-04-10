@@ -7,7 +7,7 @@ import java.net.*;
 public class Client {
 
     public void OpenClient() throws Exception{
-        String hostName = "10.136.25.123";
+        String hostName = "10.136.53.55";
         int portNumber = 6066;
 
         try (

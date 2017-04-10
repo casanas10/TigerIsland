@@ -14,23 +14,40 @@ public class MatchProtocol {
         String fromServer;
         String fromUser;
 
+        int readAttempts = 0;
+        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
+            readAttempts++;
+            Thread.sleep(50);
+            //maybe add system exit
+        }
         //Server: NEW MATCH BEGINNING NOW YOUR OPPONENT IS PLAYER <pid>
-        fromServer = in.readLine();
         if(fromServer.substring(0,3).equals("NEW")){
             opponentPID = fromServer.substring(48);
             System.out.println("Opponent PID: " + opponentPID);
 
             System.out.println("Server: " + fromServer);
 
-            MyRunnable R1 = new MyRunnable("Thread for Game 1");
-            R1.start();
-            MyRunnable R2 = new MyRunnable("Thread for Game 2");
-            R2.start();
+            AI AI1 = new AI();
+            AI AI2 = new AI();
 
             for(int i=0; i<48; i++) {
                 MoveProtocol move = new MoveProtocol();
-                move.makeMove(out, in, R1, R2, i + 1, opponentPID);
+                move.makeMove(out, in, AI1, AI2, i + 1, opponentPID);
             }
         }
+
+        readAttempts = 0;
+        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
+            readAttempts++;
+            Thread.sleep(50);
+            //maybe add system exit
+        }
+        //Server: GAME <gid> OVER PLAYER <pid> <score> PLAYER <pid> <score>
+        if(fromServer.substring(0,4).equals("GAME")){
+            System.out.println("Server: " + fromServer);
+        }
+        
+        gid1 = null;
+        gid2 = null;
     }
 }

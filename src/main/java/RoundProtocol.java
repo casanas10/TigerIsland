@@ -11,16 +11,26 @@ public class RoundProtocol {
         String fromServer;
         String fromUser;
 
+        int readAttempts = 0;
+        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
+            readAttempts++;
+            Thread.sleep(50);
+            //maybe add system exit
+        }
         //Server: BEGIN ROUND <rid> OF <rounds>
-        fromServer = in.readLine();
         if(fromServer.substring(0,5).equals("BEGIN")){
             System.out.println("Server: " + fromServer);
             MatchProtocol match = new MatchProtocol();
             match.playMatch(out,in);
         }
 
+        readAttempts = 0;
+        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
+            readAttempts++;
+            Thread.sleep(50);
+            //maybe add system exit
+        }
         //Server: END OF ROUND <rid> OF <rounds> (WAIT FOR THE NEXT MATCH)
-        fromServer = in.readLine();
         if(fromServer.substring(0,4).equals("END")){
             System.out.println("Server: " + fromServer);
         }

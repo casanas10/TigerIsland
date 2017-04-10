@@ -1,8 +1,17 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
+
+            /**
+             * Created by alecasanas on 3/25/17.
+             */
+
+            import java.util.ArrayList;
+            import java.util.HashMap;
+            import java.util.Iterator;
+            import java.util.Map;
+
+    /**
+     * Created by Val on 3/24/2017.
+     */
     public class Settlement {
 
         private ArrayList<Integer> hexIDContainer;
@@ -100,6 +109,7 @@ import java.util.Map;
                     addPieceToAnExistingSettlement(hexID, player);
                 }
             }
+
 
         }
 
@@ -227,8 +237,9 @@ import java.util.Map;
             for (int i = 0; i < adjacentHexes.size(); i++){
 
                 int currentSettlement = getSettlementID(adjacentHexes.get(i));
+                String settlementColor = getSettlementColor(adjacentHexes.get(i));
 
-                if(currentSettlement != -1) {
+                if((currentSettlement != -1) && (player.getPlayerColor() == settlementColor)) {
 
                     int settlementSize = settlementMap.get(currentSettlement).size();
 
@@ -262,8 +273,9 @@ import java.util.Map;
             for (int i = 0; i < adjacentHexes.size(); i++){
 
                 int currentSettlement = getSettlementID(adjacentHexes.get(i));
+                String settlementColor = getSettlementColor(adjacentHexes.get(i));
 
-                if(currentSettlement != -1) {
+                if((currentSettlement != -1) && (player.getPlayerColor() == settlementColor)) {
 
                     if (doesNotContainTigerAlready(currentSettlement, player)){
                         return true;
@@ -303,4 +315,8 @@ import java.util.Map;
 
         }
 
+        public String getSettlementColor(int hexID) {
+            String settlementColor = hexGrid.getHexValue(hexID).getPlayerColorOnHex();
+            return settlementColor;
+        }
     }

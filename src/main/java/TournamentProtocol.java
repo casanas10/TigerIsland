@@ -6,9 +6,11 @@ import java.net.*;
 public class TournamentProtocol {
 
     public void playTournament(PrintWriter out, BufferedReader in) throws Exception{
+        System.out.println("ABOUT TO AUTHENTICATE");
         AuthenticationProtocol authentication = new AuthenticationProtocol();
         authentication.authenticate(out,in);
 
+        System.out.println("STARTING CHALLENGE PROTOCOL");
         ChallengeProtocol challenge = new ChallengeProtocol();
         challenge.playChallenge(out,in);
     }

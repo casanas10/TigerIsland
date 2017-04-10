@@ -67,7 +67,7 @@ public class SettlementTest {
         settlement.addSettlement(3012,player);
         settlement.addSettlement(3013,player);
 
-        settlement.printAllSettlements(player);
+        settlement.printAllSettlements();
 
         //Assert.assertTrue(settlement.isPiecePartOfASettlement(0,3014));
     }

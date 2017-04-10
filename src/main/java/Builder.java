@@ -76,9 +76,10 @@ public class Builder {
             return false;
         }
         else {
-
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
-            return extend.extendOnTerrain(extend.getTerrainToExtendOn());
+            boolean terrainToExtend = extend.extendOnTerrain(extend.getTerrainToExtendOn());
+            islandMap.getSettlementObj().printAllSettlements(player);
+            return terrainToExtend;
         }
 
     }
@@ -90,7 +91,9 @@ public class Builder {
         else {
 
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
-            return extend.extendOnTerrain(terrain);
+            boolean terrainToExtend = extend.extendOnTerrain(terrain);
+            islandMap.getSettlementObj().printAllSettlements(player);
+            return terrainToExtend;
         }
     }
 
@@ -152,6 +155,7 @@ public class Builder {
     }
 
     public boolean verifyValidHexForTotoro(Hex currentHex){
+        // Need to check for a settlement of size 5
         if(currentHex.getLevel() >= 1 && currentHex.checkIfHexIsNotSettled()
                 && !currentHex.getTerrain().equals("Volcano")){
             return true;
@@ -162,6 +166,7 @@ public class Builder {
     }
 
     public boolean verifyValidHexForTiger(Hex currentHex){
+        // Need to add check for a settlement
         if(currentHex.getLevel() >= 3 && currentHex.checkIfHexIsNotSettled()
                 && !currentHex.getTerrain().equals("Volcano")){
             return true;

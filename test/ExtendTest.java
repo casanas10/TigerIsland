@@ -1,4 +1,3 @@
-
 /**
  * Created by cyonkee on 4/1/17.
  */
@@ -43,17 +42,57 @@ public class ExtendTest {
         ArrayList<Integer> junglesToExtendOn = extend.getJunglesToExtendOn();
         ArrayList<Integer> rockysToExtendOn = extend.getRockysToExtendOn();
 
-        int lake1 = lakesToExtendOn.get(0);
-        int lake2 = lakesToExtendOn.get(1);
-        int rocky1 = rockysToExtendOn.get(0);
-        int jungle1 = junglesToExtendOn.get(0);
-
-        Assert.assertEquals(806,lake1);
-        Assert.assertEquals(1005,lake2);
-
+        Assert.assertTrue(lakesToExtendOn.contains(806));
+        Assert.assertTrue(lakesToExtendOn.contains(1005));
         Assert.assertTrue(grasslandsToExtendOn.isEmpty());
-        Assert.assertEquals(1006,rocky1);
-        Assert.assertEquals(1007,jungle1);
+        Assert.assertTrue(rockysToExtendOn.contains(1006));
+        Assert.assertTrue(junglesToExtendOn.contains(1007));
+    }
+
+    @Test
+    public void extendSettlementTest2(){
+        islandMap = new IslandMap();
+        islandMap.addTileToMap(2608,0);
+        islandMap.addTileToMap(2610,0);
+        islandMap.addTileToMap(2612,0);
+        islandMap.addTileToMap(2414,0);
+        islandMap.addTileToMap(3210,180);
+        islandMap.getHex(2808).setTerrain("Grassland");
+        islandMap.getHex(2809).setTerrain("Grassland");
+        islandMap.getHex(2810).setTerrain("Grassland");
+        //islandMap.getHex(3215).setTerrain("Grassland");
+        islandMap.getHex(3009).setTerrain("Rocky");
+        islandMap.getHex(3010).setTerrain("Rocky");
+        islandMap.getHex(2811).setTerrain("Rocky");
+        islandMap.getHex(2812).setTerrain("Rocky");
+        islandMap.getHex(2813).setTerrain("Jungle");
+        //islandMap.getHex(2814).setTerrain("Jungle");
+        islandMap.getHex(2613).setTerrain("Jungle");
+        islandMap.getHex(2614).setTerrain("Lake");
+        //islandMap.getHex(2815).setTerrain("Lake");
+        //islandMap.getHex(3214).setTerrain("Rocky");
+        player1 = new Player("Black",0);
+        player2 = new Player("White", 0);
+        builder = new Builder();
+        builder.build(player1,islandMap,1,2813);
+        builder.build(player2,islandMap,1,3016);
+        builder.build(player1,islandMap,1,2811);
+        builder.extendForAI(3016,islandMap,player2,"Rocky");
+        builder.extendForAI(2811,islandMap,player1,"Rocky");
+        builder.build(player2,islandMap,3,2810);
+        //builder.extendForAI(3009,islandMap,player1,"Grassland");
+
+        extend = new ExtendSettlement(3009, islandMap, player1);
+        ArrayList<Integer> lakesToExtendOn = extend.getLakesToExtendOn();
+        ArrayList<Integer> grasslandsToExtendOn = extend.getGrasslandsToExtendOn();
+        ArrayList<Integer> junglesToExtendOn = extend.getJunglesToExtendOn();
+        ArrayList<Integer> rockysToExtendOn = extend.getRockysToExtendOn();
+
+        Assert.assertTrue(grasslandsToExtendOn.contains(2808));
+        Assert.assertTrue(grasslandsToExtendOn.contains(2809));
+        //Assert.assertTrue(grasslandsToExtendOn.contains(2810));
+        //Assert.assertTrue(junglesToExtendOn.contains(2814));
+        //Assert.assertTrue(junglesToExtendOn.contains(2613));
     }
 
     @Test

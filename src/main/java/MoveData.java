@@ -125,5 +125,5 @@ public class MoveData {
         this.terrainsArray = terrainsArray;
     }
 
-}
 
+}

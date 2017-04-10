@@ -27,6 +27,11 @@ public class IslandMap {
         settlement = new Settlement(hexGrid);
     }
 
+    public String[] getNewTile() {
+        return myGen.getNewTile();
+    }
+
+
     public boolean addTileToMap(int hexID, int orientation, String[] newTile, Player player){
 
         playerNuked = false;
@@ -95,9 +100,6 @@ public class IslandMap {
         return false;
     }
 
-    public String[] getNewTile() {
-        return myGen.getNewTile();
-    }
 
     public boolean addTileToMap(int hexID, int orientation) {
 
@@ -199,18 +201,18 @@ public class IslandMap {
         System.out.println("Tile Successfully Placed!");
     }
 
-    public void printTilesOnMap(){
+    public void printTilesOnMap() {
         Iterator<Map.Entry<Integer, int[]>> iterator = gameBoardMap.entrySet().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             Map.Entry<Integer, int[]> mapValue = iterator.next();
             System.out.print("Tile " + mapValue.getKey() + ": ");
-            for(int i=0;i<mapValue.getValue().length;i++){
+            for (int i = 0; i < mapValue.getValue().length; i++) {
                 System.out.print(mapValue.getValue()[i] + " ");
             }
             System.out.println();
 
             //Prints tile's terrains
-            for(int i=0; i<mapValue.getValue().length; i++)
+            for (int i = 0; i < mapValue.getValue().length; i++)
                 System.out.print(hexGrid.getHexValue(mapValue.getValue()[i]).getTerrain() + " ");
             System.out.println();
         }
