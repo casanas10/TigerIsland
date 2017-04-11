@@ -1,8 +1,4 @@
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
-
-import javax.crypto.Mac;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
@@ -12,7 +8,7 @@ import java.io.PrintWriter;
 public class MoveProtocol {
     private String currentGID;
 
-    public void makeMove(PrintWriter out, BufferedReader in, AI AI1, AI AI2, String opponentPID) throws Exception {
+    public void makeMove(PrintWriter out, BufferedReader in, ALE_AI AI1, ALE_AI AI2, String opponentPID) throws Exception {
         BufferedReader stdIn =
                 new BufferedReader(new InputStreamReader(System.in));
         String fromServer;
@@ -49,7 +45,7 @@ public class MoveProtocol {
         }
     }
 
-    private MoveData getTile(String tile, String currentGID, AI AI1, AI AI2) {
+    private MoveData getTile(String tile, String currentGID, ALE_AI AI1, ALE_AI AI2) {
         tile = tile.replaceAll("[+]", " ");
         String givenTerrains[] = tile.split(" ");
         givenTerrains[0] = givenTerrains[0].substring(0, 1).toUpperCase() + givenTerrains[0].substring(1).toLowerCase();
@@ -73,13 +69,13 @@ public class MoveProtocol {
         if (currentGID.equals(MatchProtocol.gid1)) {
             //AI1 gets terrains
             System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
-            AI1.makeMove(terrainsArray);
-            return AI1.getMoveData();
+            AI1.setTerrainsArray(terrainsArray);
+            return AI1.play();
         } else {
             //AI2 gets terrains
             System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
-            AI2.makeMove(terrainsArray);
-            return AI2.getMoveData();
+            AI2.setTerrainsArray(terrainsArray);
+            return AI2.play();
         }
     }
 
@@ -135,7 +131,7 @@ public class MoveProtocol {
     }
 
     private void checkMessages(PrintWriter out, BufferedReader in, String opponentPID,
-                               AI AI1, AI AI2) throws Exception {
+                               ALE_AI AI1, ALE_AI AI2) throws Exception {
         if (MatchProtocol.gid2 == null) {
             getTwoMessages(in, opponentPID, AI1, AI2);
         } else {
@@ -147,7 +143,7 @@ public class MoveProtocol {
         }
     }
 
-    private void getTwoMessages(BufferedReader in, String opponentPID, AI AI1, AI AI2) throws Exception {
+    private void getTwoMessages(BufferedReader in, String opponentPID, ALE_AI AI1, ALE_AI AI2) throws Exception {
         String fromServer;
         String serverGID;
         String serverPID;
@@ -189,7 +185,7 @@ public class MoveProtocol {
         }
     }
 
-    private void getOneMessage(BufferedReader in, String opponentPID, AI AI1, AI AI2) throws Exception {
+    private void getOneMessage(BufferedReader in, String opponentPID, ALE_AI AI1, ALE_AI AI2) throws Exception {
         String fromServer;
         String serverGID;
         String serverPID;
