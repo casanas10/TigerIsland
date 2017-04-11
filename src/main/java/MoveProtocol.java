@@ -17,16 +17,10 @@ public class MoveProtocol {
         BufferedReader stdIn =
                 new BufferedReader(new InputStreamReader(System.in));
         String fromServer;
-        //String fromUser;
         MoveData moveData;
         String moveString;
 
-        int readAttempts = 0;
-        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
-            readAttempts++;
-            Thread.sleep(50);
-            //maybe add system exit
-        }
+        while ((fromServer = in.readLine()) == null){}
         //MAKE YOUR MOVE IN GAME <gid> WITHIN <time_move> SECOND(S): MOVE <#> PLACE <tile>
         if (fromServer.substring(0, 4).equals("MAKE")) {
             System.out.println("Server: " + fromServer);
@@ -41,15 +35,6 @@ public class MoveProtocol {
                 out.println(moveString);
                 checkMessages(out, in, opponentPID, AI1, AI2);
             }
-//            else if((MatchProtocol.gid2 == null) && (fromServerArr[5] != MatchProtocol.gid1)){
-//                currentGID = fromServerArr[5];
-//                MatchProtocol.gid2 = fromServerArr[5];
-//                moveData = getTile(fromServerArr[12],MatchProtocol.gid2, AI1, AI2);
-//                moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
-//                System.out.println("Client: " + moveString);
-//                out.println(moveString);
-//                checkMessages(out,in,opponentPID, AI1, AI2);
-//            }
             else {
                 currentGID = fromServerArr[5];
                 moveData = getTile(fromServerArr[12], currentGID, AI1, AI2);
@@ -169,13 +154,7 @@ public class MoveProtocol {
         //get two messages
         int i = 0;
         while (i < 2) {
-            int readAttempts = 0;
-            while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
-                readAttempts++;
-                Thread.sleep(50);
-                //maybe add system exit
-            }
-
+            while ((fromServer = in.readLine()) == null){}
             //GAME x MOVE x PLAYER x PLACED GRASSLAND+ROCKY AT 1 -1 0 3 FOUNDED SETTLEMENT AT 2 -2 0
             if (fromServer.substring(0, 4).equals("GAME")) {
                 System.out.println("Server: " + fromServer);
@@ -214,13 +193,7 @@ public class MoveProtocol {
         String serverPID;
         MoveData moveData;
 
-        int readAttempts = 0;
-        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
-            readAttempts++;
-            Thread.sleep(50);
-            //maybe add system exit
-        }
-
+        while ((fromServer = in.readLine()) == null){}
         //GAME x MOVE x PLAYER x PLACED GRASSLAND+ROCKY AT 1 -1 0 3 FOUNDED SETTLEMENT AT 2 -2 0
         if (fromServer.substring(0, 4).equals("GAME")) {
             System.out.println("Server: " + fromServer);
@@ -261,8 +234,9 @@ public class MoveProtocol {
 
             if(MatchProtocol.gid2 != null) {
                 if (MatchProtocol.gid1.equals("dead") && MatchProtocol.gid2.equals("dead")) {
-                    //fromServer = in.readLine();
-                    //System.out.println("Server: " + fromServer);
+                    while((fromServer = in.readLine()) == null) {
+                    }
+                    System.out.println("Server: " + fromServer);
                     MatchProtocol.isMatchDone = true;
                 }
 //                else{
