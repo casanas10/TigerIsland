@@ -12,13 +12,7 @@ public class ChallengeProtocol {
         String fromServer;
         String fromUser;
 
-        int readAttempts = 0;
-        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
-            readAttempts++;
-            Thread.sleep(50);
-            //maybe add system exit
-        }
-        System.out.println("Passed the while loop");
+        while ((fromServer = in.readLine()) == null){}
 
         //Server: NEW CHALLENGE <cid> YOU WILL PLAY <rounds> MATCH
         if(fromServer != null) {
@@ -35,31 +29,21 @@ public class ChallengeProtocol {
             round.playRound(out,in);
         }
 
-        readAttempts = 0;
-        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
-            readAttempts++;
-            Thread.sleep(50);
-            //maybe add system exit
-        }
+        while ((fromServer = in.readLine()) == null){}
 
         //Check for end of challenges or continuation
-        if(fromServer == "WAIT FOR THE NEXT CHALLENGE TO BEGIN"){
+        if(fromServer.equals("WAIT FOR THE NEXT CHALLENGE TO BEGIN")){
             System.out.println("Server: " + fromServer);
             playChallenge(out,in);
         }
-        else if(fromServer == "END OF CHALLENGES"){
+        else if(fromServer.equals("END OF CHALLENGES")){
             System.out.println("Server: " + fromServer);
 
-            readAttempts = 0;
-            while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
-                readAttempts++;
-                Thread.sleep(50);
-                //maybe add system exit
-            }
+
+            while ((fromServer = in.readLine()) == null){}
             //Server: THANK YOU FOR PLAYING! GOODBYE
-            fromServer = in.readLine();
             System.out.println("Server: " + fromServer);
-            System.exit(1);
+
         }
 
     }

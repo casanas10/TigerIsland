@@ -87,12 +87,12 @@ public class Settlement {
 
     private String settlementColor(int hexID) {
 
-        if (hexGrid.getHexValue(hexID).getPlayerColorOnHex() == "Black"){
-            return "Black";
-        } else {
-            return "White";
+            if (hexGrid.getHexValue(hexID).getPlayerColorOnHex().equals("Black")){
+                return "Black";
+            } else {
+                return "White";
+            }
         }
-    }
 
     public void addSettlement(int hexID, Player player){
 
@@ -292,10 +292,10 @@ public class Settlement {
 
         for (int i = 0; i < pickAHex.size(); i++){
 
-            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex() == "Tiger"){
-                return false;
+                if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex().equals("Tiger")){
+                    return false;
+                }
             }
-        }
 
         return true;
     }
@@ -306,11 +306,11 @@ public class Settlement {
 
         for (int i = 0; i < pickAHex.size(); i++){
 
-            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex() == "Totoro"){
-                return false;
+                if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex().equals("Totoro")){
+                    return false;
+                }
             }
-        }
-        return true;
+            return true;
 
     }
 

@@ -6,15 +6,14 @@ import java.util.*;
 
 public class ALE_AI {
 
-    private Game game = new Game();
+    private Game game;
     private IslandMap islandMap;
     private Builder builder = new Builder();
+    private Player player = new Player("White", 0);
 
     PlacementValidity validity = new PlacementValidity();
 
     private RotateTile tile;
-
-    HashMap<Integer, int[]> allPossibleTiles = new HashMap<>();
 
     //CONSTANTS FOR FIRST TILE
     private static final int hex1  = 3014;
@@ -27,21 +26,37 @@ public class ALE_AI {
     public ALE_AI(Game game){
         this.game = game;
         this.islandMap = game.getIslandMap();
+        this.player = game.getWhitePlayer();
     }
 
-    public void play() {
+    public MoveInfo play(ArrayList<Integer> activeHexes) {
 
-        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(game.getWhitePlayer());  //gets player settlements
+        HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(activeHexes);
+
+        MoveInfo info = new MoveInfo();
 
         int[] tileInfo = allPossibleTiles.get(0);
 
-        boolean tileSuccessfullyPlaced = islandMap.addTileToMap(tileInfo[0], tileInfo[1], islandMap.getNewTile(), game.getWhitePlayer());
+        String[] newTile = islandMap.getNewTile();
+
+        boolean tileSuccessfullyPlaced = islandMap.addTileToMap(tileInfo[0], tileInfo[1], newTile, game.getWhitePlayer());
 
         tile = new RotateTile(tileInfo[0], tileInfo[1]);
 
         int[] pairs = tile.checkPair();
 
-        builder.build(game.getWhitePlayer(), islandMap, 1, pairs[1]);
+        int buildOption = 1;
+
+        builder.build(game.getWhitePlayer(), islandMap, buildOption, pairs[1]);
+
+        info.setHexID(tileInfo[0]);
+        info.setOrientation(tileInfo[1]);
+        info.setPlayer(game.getWhitePlayer());
+        info.setTile(newTile);
+        info.setHexSettled(pairs[1]);
+        info.setBuildOption(buildOption);
+
+        return info;
     }
 
 //    private void placeTile() {
@@ -64,6 +79,8 @@ public class ALE_AI {
 
     //given a tile it gets all the possible tile placement positions
     public HashMap<Integer, int[]> getAllPossibleTilePlacementPosition(ArrayList<Integer> tileArr) {
+
+        HashMap<Integer, int[]> allPossibleTiles = new HashMap<>();
 
         int[] orientation = {0,60,120,180,240,300};
 
@@ -119,15 +136,15 @@ public class ALE_AI {
         return settleKey;
     }
 
-    public void printAllPossibleTiles(){
-        Iterator<Map.Entry<Integer, int[]>> iterator = allPossibleTiles.entrySet().iterator();
-        while(iterator.hasNext()){
-            Map.Entry<Integer, int[]> entry = iterator.next();
-            System.out.print("Tile " + entry.getKey() + ": ");
-            for(int i=0;i<2;i++){
-                System.out.print(entry.getValue()[i] + " ");
-            }
-            System.out.println();
-        }
-    }
+//    public void printAllPossibleTiles(){
+//        Iterator<Map.Entry<Integer, int[]>> iterator = allPossibleTiles.entrySet().iterator();
+//        while(iterator.hasNext()){
+//            Map.Entry<Integer, int[]> entry = iterator.next();
+//            System.out.print("Tile " + entry.getKey() + ": ");
+//            for(int i=0;i<2;i++){
+//                System.out.print(entry.getValue()[i] + " ");
+//            }
+//            System.out.println();
+//        }
+//    }
 }

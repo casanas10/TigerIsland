@@ -7,6 +7,7 @@ public class MatchProtocol {
     private String opponentPID;
     public static String gid1 = null;
     public static String gid2 = null;
+    public static boolean isMatchDone = false;
 
     public void playMatch(PrintWriter out, BufferedReader in) throws Exception{
         BufferedReader stdIn =
@@ -14,12 +15,7 @@ public class MatchProtocol {
         String fromServer;
         String fromUser;
 
-        int readAttempts = 0;
-        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
-            readAttempts++;
-            Thread.sleep(50);
-            //maybe add system exit
-        }
+        while ((fromServer = in.readLine()) == null){}
         //Server: NEW MATCH BEGINNING NOW YOUR OPPONENT IS PLAYER <pid>
         if(fromServer.substring(0,3).equals("NEW")){
             opponentPID = fromServer.substring(48);
@@ -30,18 +26,21 @@ public class MatchProtocol {
             AI AI1 = new AI();
             AI AI2 = new AI();
 
-            for(int i=1; i<49; i++) {
+            for(int i=0; i<48; i++) {
+                if(isMatchDone){
+                    break;
+                }
                 MoveProtocol move = new MoveProtocol();
-                move.makeMove(out, in, AI1, AI2, i, opponentPID);
+                move.makeMove(out, in, AI1, AI2, opponentPID);
             }
         }
 
-        readAttempts = 0;
-        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
-            readAttempts++;
-            Thread.sleep(50);
-            //maybe add system exit
+        while ((fromServer = in.readLine()) == null){}
+        //Server: GAME <gid> OVER PLAYER <pid> <score> PLAYER <pid> <score>
+        if(fromServer.substring(0,4).equals("GAME")){
+            System.out.println("Server: " + fromServer);
         }
+        while ((fromServer = in.readLine()) == null){}
         //Server: GAME <gid> OVER PLAYER <pid> <score> PLAYER <pid> <score>
         if(fromServer.substring(0,4).equals("GAME")){
             System.out.println("Server: " + fromServer);
@@ -49,5 +48,6 @@ public class MatchProtocol {
         
         gid1 = null;
         gid2 = null;
+        isMatchDone = false;
     }
 }

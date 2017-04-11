@@ -5,20 +5,23 @@ import java.io.*;
 import java.net.*;
 
 public class Client {
+    private String tournamentPW;
+    private String username;
+    private String password;
+
 
     public void OpenClient() throws Exception{
-        String hostName = "10.136.53.55";
-        int portNumber = 6066;
+        String hostName = "10.93.167.112";
+        int portNumber = 6969;
 
         try (
             Socket socket = new Socket(hostName, portNumber);
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))
         ) {
 
             TournamentProtocol tournament = new TournamentProtocol();
-            tournament.playTournament(out,in);
+            tournament.playTournament(out,in,tournamentPW,username,password);
 
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);
@@ -28,5 +31,17 @@ public class Client {
                     hostName);
             System.exit(1);
         }
+    }
+
+    public void setTournamentPassword(String tournamentPW){
+        this.tournamentPW = tournamentPW;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

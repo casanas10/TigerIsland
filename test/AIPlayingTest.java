@@ -1,7 +1,7 @@
 import cucumber.api.java.eo.Se;
 import org.junit.Test;
 
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by Val on 4/3/2017.
@@ -10,7 +10,6 @@ public class AIPlayingTest {
     private Game game = new Game();
     private AI ai = new AI();
     private Settlement settlement = game.getIslandMap().getSettlementObj();
-    private TileGenerator tileGenerator = new TileGenerator();
 //    private AI server = new AI(game);
 
     private boolean aiTurn = false;
@@ -22,18 +21,17 @@ public class AIPlayingTest {
         int[] toServer = ai.makeFirstMove(game.getIslandMap());
 
 
-        for(int value : toServer)
-            System.out.print(value + " ");
+        //for(int value : toServer)
+        //    System.out.print(value + " ");
 
     }
 
     @Test
     public void testGamePlaying(){
         MoveData moveData;
-        Scanner scan = new Scanner(System.in);
 
         for(int i = 0; i < 48; i++){
-            String[] terrains = tileGenerator.getNewTile();
+            String[] terrains = {"Volcano", "Rocky", "Lake"};
             ai.makeMove(terrains);
             System.out.println("# of meeple left: " + game.getWhitePlayer().getPieces().getNumberOfMeeples());
             System.out.println("\nSettlements:");
@@ -59,25 +57,21 @@ public class AIPlayingTest {
     }
 
     @Test
+    public void expandingTest(){
+        IslandMap islandMap = new IslandMap();
+        Player whitePlayer = new Player("White", 0);
+        MoveData moveData = new MoveData();
+        String[] terrains = {"Volcano", "Lake", "Rocky"};
+
+        ai.makeMove(terrains);
+        ai.makeMove(terrains);
+
+        moveData = ai.getMoveData();
+        System.out.println("Extend settlement is: " + moveData.getExtendTerrain());
+    }
+
+    @Test
     public void whenTwoPlayersPlayGame(){
-
-        int i = 0;
-
-        while(i < 48){
-
-            if (aiTurn){
-
-                System.out.println("AI TURN");
-                ai.playingAI();
-
-            } else {
-
-                System.out.println("SERVER TURN");
-                //server.playingAI();
-            }
-
-            i++;
-        }
 
     }
 
