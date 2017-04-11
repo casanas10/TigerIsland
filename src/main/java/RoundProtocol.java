@@ -21,7 +21,7 @@ public class RoundProtocol {
 
         while ((fromServer = in.readLine()) == null){}
         //Server: END OF ROUND <rid> OF <rounds> (WAIT FOR THE NEXT MATCH)
-        if(fromServer.substring(0,4).equals("END")){
+        if(fromServer.substring(0,3).equals("END")){
             System.out.println("Server: " + fromServer);
         }
 

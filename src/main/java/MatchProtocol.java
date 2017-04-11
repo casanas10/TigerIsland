@@ -31,10 +31,15 @@ public class MatchProtocol {
                     break;
                 }
                 MoveProtocol move = new MoveProtocol();
-                move.makeMove(out, in, AI1, AI2, i, opponentPID);
+                move.makeMove(out, in, AI1, AI2, opponentPID);
             }
         }
 
+        while ((fromServer = in.readLine()) == null){}
+        //Server: GAME <gid> OVER PLAYER <pid> <score> PLAYER <pid> <score>
+        if(fromServer.substring(0,4).equals("GAME")){
+            System.out.println("Server: " + fromServer);
+        }
         while ((fromServer = in.readLine()) == null){}
         //Server: GAME <gid> OVER PLAYER <pid> <score> PLAYER <pid> <score>
         if(fromServer.substring(0,4).equals("GAME")){

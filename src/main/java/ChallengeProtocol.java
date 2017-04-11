@@ -32,11 +32,11 @@ public class ChallengeProtocol {
         while ((fromServer = in.readLine()) == null){}
 
         //Check for end of challenges or continuation
-        if(fromServer == "WAIT FOR THE NEXT CHALLENGE TO BEGIN"){
+        if(fromServer.equals("WAIT FOR THE NEXT CHALLENGE TO BEGIN")){
             System.out.println("Server: " + fromServer);
             playChallenge(out,in);
         }
-        else if(fromServer == "END OF CHALLENGES"){
+        else if(fromServer.equals("END OF CHALLENGES")){
             System.out.println("Server: " + fromServer);
 
 
