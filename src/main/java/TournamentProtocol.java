@@ -5,10 +5,10 @@ import java.net.*;
  */
 public class TournamentProtocol {
 
-    public void playTournament(PrintWriter out, BufferedReader in) throws Exception{
+    public void playTournament(PrintWriter out, BufferedReader in, String tournamentPW, String username, String password) throws Exception{
         System.out.println("ABOUT TO AUTHENTICATE");
         AuthenticationProtocol authentication = new AuthenticationProtocol();
-        authentication.authenticate(out,in);
+        authentication.authenticate(out,in,tournamentPW,username,password);
 
         System.out.println("STARTING CHALLENGE PROTOCOL");
         ChallengeProtocol challenge = new ChallengeProtocol();
