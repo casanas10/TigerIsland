@@ -15,12 +15,7 @@ public class MatchProtocol {
         String fromServer;
         String fromUser;
 
-        int readAttempts = 0;
-        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
-            readAttempts++;
-            Thread.sleep(50);
-            //maybe add system exit
-        }
+        while ((fromServer = in.readLine()) == null){}
         //Server: NEW MATCH BEGINNING NOW YOUR OPPONENT IS PLAYER <pid>
         if(fromServer.substring(0,3).equals("NEW")){
             opponentPID = fromServer.substring(48);
@@ -32,7 +27,7 @@ public class MatchProtocol {
             AI AI2 = new AI();
 
             for(int i=0; i<48; i++) {
-                if(isMatchDone == true){
+                if(isMatchDone){
                     break;
                 }
                 MoveProtocol move = new MoveProtocol();
@@ -40,12 +35,7 @@ public class MatchProtocol {
             }
         }
 
-        readAttempts = 0;
-        while ((fromServer = in.readLine()) == null && readAttempts < 1000) {
-            readAttempts++;
-            Thread.sleep(50);
-            //maybe add system exit
-        }
+        while ((fromServer = in.readLine()) == null){}
         //Server: GAME <gid> OVER PLAYER <pid> <score> PLAYER <pid> <score>
         if(fromServer.substring(0,4).equals("GAME")){
             System.out.println("Server: " + fromServer);

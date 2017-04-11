@@ -13,34 +13,28 @@ public class AuthenticationProtocol {
         String fromServer;
         String fromUser;
 
-        //while ((fromServer = in.readLine()) == null) {
-            fromServer = in.readLine();
-            System.out.println("Server: " + fromServer);
-            if(fromServer.substring(0,7).equals("WELCOME")) {
-                fromUser = "ENTER THUNDERDOME heygang";
-                out.println(fromUser);
-                System.out.println("Client: " + fromUser);
-            }
+        fromServer = in.readLine();
+        System.out.println("Server: " + fromServer);
+        if(fromServer.substring(0,7).equals("WELCOME")) {
+            fromUser = "ENTER THUNDERDOME FurRealz";
+            out.println(fromUser);
+            System.out.println("Client: " + fromUser);
+        }
 
-            fromServer = in.readLine();
-            System.out.println("Server: " + fromServer);
-            if(fromServer.substring(0,3).equals("TWO")) {
-                fromUser = "I AM C C";
-                out.println(fromUser);
-                System.out.println("Client: " + fromUser);
-            }
+        fromServer = in.readLine();
+        System.out.println("Server: " + fromServer);
+        if(fromServer.substring(0,3).equals("TWO")) {
+            fromUser = "I AM C C";
+            out.println(fromUser);
+            System.out.println("Client: " + fromUser);
+        }
 
-            fromServer = in.readLine();
+        fromServer = in.readLine();
+        System.out.println("Server: " + fromServer);
+        if(fromServer.substring(0,4).equals("WAIT")) {
             System.out.println("Server: " + fromServer);
-            if(fromServer.substring(0,4).equals("WAIT")) {
-                System.out.println("Server: " + fromServer);
-            }
-//            fromUser = stdIn.readLine();
-//            //if (fromUser != null) {
-//                out.println(fromUser);
-//                System.out.println("Client: " + fromUser);
-//            //}
-        //}
+        }
+
     }
     public String getPID(){
         return pid;
