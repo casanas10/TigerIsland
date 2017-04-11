@@ -12,13 +12,13 @@ import java.io.PrintWriter;
 public class MoveProtocol {
     private String currentGID;
 
-    public void makeMove(PrintWriter out, BufferedReader in, AI AI1, AI AI2,
-                         int moveNumber, String opponentPID) throws Exception {
+    public void makeMove(PrintWriter out, BufferedReader in, AI AI1, AI AI2, String opponentPID) throws Exception {
         BufferedReader stdIn =
                 new BufferedReader(new InputStreamReader(System.in));
         String fromServer;
         MoveData moveData;
         String moveString;
+        String moveNumber;
 
         while ((fromServer = in.readLine()) == null){}
         //MAKE YOUR MOVE IN GAME <gid> WITHIN <time_move> SECOND(S): MOVE <#> PLACE <tile>
@@ -28,6 +28,7 @@ public class MoveProtocol {
             if ((MatchProtocol.gid1 == null) || (MatchProtocol.gid1 != null && MatchProtocol.gid2 == null)) {
                 currentGID = fromServerArr[5];
                 MatchProtocol.gid1 = fromServerArr[5];
+                moveNumber = fromServerArr[10];
                 moveData = getTile(fromServerArr[12], MatchProtocol.gid1, AI1, AI2);
                 moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
                 moveString = moveString.toUpperCase();
@@ -37,6 +38,7 @@ public class MoveProtocol {
             }
             else {
                 currentGID = fromServerArr[5];
+                moveNumber = fromServerArr[10];
                 moveData = getTile(fromServerArr[12], currentGID, AI1, AI2);
                 moveString = constructMoveString(moveData, moveNumber, fromServerArr[12]);
                 moveString = moveString.toUpperCase();
@@ -81,12 +83,12 @@ public class MoveProtocol {
         }
     }
 
-    private String constructMoveString(MoveData moveData, int moveNumber, String tile) {
+    private String constructMoveString(MoveData moveData, String moveNumber, String tile) {
         String moveString = "";
 
         switch (moveData.getBuildOption()) {
             case 1:
-                moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
+                moveString = "GAME " + currentGID + " MOVE " + moveNumber + " PLACE " + tile + " AT "
                         + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
                         + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
                         + " FOUND SETTLEMENT AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
@@ -100,7 +102,7 @@ public class MoveProtocol {
                 if (terrain.equals("Rocky")) {
                     terrain = "Rock";
                 }
-                moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
+                moveString = "GAME " + currentGID + " MOVE " + moveNumber + " PLACE " + tile + " AT "
                         + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
                         + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
                         + " EXPAND SETTLEMENT AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
@@ -108,21 +110,21 @@ public class MoveProtocol {
                         + " " + terrain;
                 break;
             case 3:
-                moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
+                moveString = "GAME " + currentGID + " MOVE " + moveNumber + " PLACE " + tile + " AT "
                         + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
                         + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
                         + " BUILD TOTORO SANCTUARY AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
                         Integer.toString(moveData.getBuildOptionY()) + " " + Integer.toString(moveData.getBuildOptionZ());
                 break;
             case 4:
-                moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
+                moveString = "GAME " + currentGID + " MOVE " + moveNumber + " PLACE " + tile + " AT "
                         + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
                         + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
                         + " BUILD TIGER PLAYGROUND AT " + Integer.toString(moveData.getBuildOptionX()) + " " +
                         Integer.toString(moveData.getBuildOptionY()) + " " + Integer.toString(moveData.getBuildOptionZ());
                 break;
             case 5:
-                moveString = "GAME " + currentGID + " MOVE " + Integer.toString(moveNumber) + " PLACE " + tile + " AT "
+                moveString = "GAME " + currentGID + " MOVE " + moveNumber + " PLACE " + tile + " AT "
                         + Integer.toString(moveData.getTilePlacementX()) + " " + Integer.toString(moveData.getTilePlacementY())
                         + " " + Integer.toString(moveData.getTilePlacementZ()) + " " + Integer.toString(moveData.getOrientation())
                         + " UNABLE TO BUILD";
@@ -234,9 +236,6 @@ public class MoveProtocol {
 
             if(MatchProtocol.gid2 != null) {
                 if (MatchProtocol.gid1.equals("dead") && MatchProtocol.gid2.equals("dead")) {
-                    while((fromServer = in.readLine()) == null) {
-                    }
-                    System.out.println("Server: " + fromServer);
                     MatchProtocol.isMatchDone = true;
                 }
 //                else{
