@@ -21,15 +21,6 @@ public class ALE_AI {
 
     private String[] terrainsArray;
 
-
-    ArrayList<Integer> activeHexes = new ArrayList<Integer>() {{
-        add(3014);
-        add(2814);
-        add(2815);
-        add(3214);
-        add(3215);
-    }};
-
     public ALE_AI(){
         this.islandMap = game.getIslandMap();
         this.aiPlayer = game.getWhitePlayer();
@@ -187,24 +178,6 @@ public class ALE_AI {
 
         return info;
     }
-
-
-//    public void sendMoveToServer(int ourTileX, int ourTileY, int ourOrientation, int ourBuildOption, int ourBuildOptionX, int ourBuildOptionY){
-//        int serverOrientation = rotationConverter.oursToServer(ourOrientation);
-//        int[] serverCoordinatesTile = coordinateConverter.oursToServer(ourTileX, ourTileY);
-//        moveData.setOrientation(serverOrientation);
-//        moveData.setTilePlacementX(serverCoordinatesTile[0]);
-//        moveData.setTilePlacementY(serverCoordinatesTile[1]);
-//        moveData.setTilePlacementZ(serverCoordinatesTile[2]);
-//
-//        int[] serverCoordinatesBuild = coordinateConverter.oursToServer(ourBuildOptionX, ourBuildOptionY);
-//
-//        moveData.setBuildOption(ourBuildOption);
-//        moveData.setBuildOptionX(serverCoordinatesBuild[0]);
-//        moveData.setBuildOptionY(serverCoordinatesBuild[1]);
-//        moveData.setBuildOptionZ(serverCoordinatesBuild[2]);
-//    }
-
 
     //given a tile it gets all the possible tile placement positions
     public HashMap<Integer, int[]> getAllPossibleTilePlacementPosition(ArrayList<Integer> tileArr) {
