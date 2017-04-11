@@ -6,40 +6,89 @@ import java.util.*;
 
 public class ALE_AI {
 
-    private Game game;
+    private Game game = new Game();
     private IslandMap islandMap;
     private Builder builder = new Builder();
-    private Player player = new Player("White", 0);
+    private Player aiPlayer = new Player("White", 0);
+    private Player serverPlayer = new Player("Black" , 0);
 
     PlacementValidity validity = new PlacementValidity();
 
     private RotateTile tile;
+    private RotationConverter rotationConverter = new RotationConverter();
+    private CoordinateConverter coordinateConverter = new CoordinateConverter();
+    private CoordinateSystem coordinateSystem = new CoordinateSystem();
 
-    //CONSTANTS FOR FIRST TILE
-    private static final int hex1  = 3014;
-    private static final int hex2  = 2814;
-    private static final int hex3  = 2815;
-    private static final int hex4  = 3214;
-    private static final int hex5  = 3215;
+    ArrayList<Integer> activeHexes = new ArrayList<Integer>() {{
+        add(3014);
+        add(2814);
+        add(2815);
+        add(3214);
+        add(3215);
+    }};
 
-
-    public ALE_AI(Game game){
-        this.game = game;
+    public ALE_AI(){
         this.islandMap = game.getIslandMap();
-        this.player = game.getWhitePlayer();
+        this.aiPlayer = game.getWhitePlayer();
+        this.serverPlayer = game.getBlackPlayer();
+
+        //PLACE STARTING TILE
+        CoordinateSystem coors = new CoordinateSystem();
+        // First tile will actually be placed in the center, this is for testing purposes
+        //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
+        int[] tileHexIDsArray = {coors.getHexID(14,15), coors.getHexID(14,14),coors.getHexID(15,14),
+                coors.getHexID(14,16), coors.getHexID(15, 16)};
+        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
+        islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
     }
 
-    public MoveInfo play(ArrayList<Integer> activeHexes) {
+    public void updateOpponentMove(MoveData moveData){
+        int ourOrientation = rotationConverter.serverToOurs(moveData.getOrientation());
+        int[] ourCoordinatesTile = coordinateConverter.serverToOurs(moveData.getTilePlacementX(), moveData.getTilePlacementY(), moveData.getTilePlacementZ());
+
+        String[] Terrains = moveData.getTerrainsArray();
+
+        int hexID = coordinateSystem.getHexID(ourCoordinatesTile[0], ourCoordinatesTile[1]);
+
+        islandMap.addTileToMap(hexID, ourOrientation, Terrains, serverPlayer);
+
+        int buildOption = moveData.getBuildOption(); //1. found settlement, 2. expand, 3. totoro, 4. tiger
+        String ExtendTerrain = "";
+        int[] ourCoordinatesBuild = coordinateConverter.serverToOurs(moveData.getBuildOptionX(), moveData.getBuildOptionY(), moveData.getBuildOptionZ());
+        switch (buildOption){
+            case 1:
+                builder.build(serverPlayer, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
+            case 3:
+                builder.build(serverPlayer, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
+            case 4:
+                builder.build(serverPlayer, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
+        }
+
+        if(buildOption == 2){
+            ExtendTerrain = moveData.getExtendTerrain();
+            System.out.println("ExtendTerrain in moveData is: " + ExtendTerrain);
+            System.out.println("X coordinate is: " + ourCoordinatesBuild[0] + "\nY coordinate is: " + ourCoordinatesBuild[1]);
+            builder.extendForAI(coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]), islandMap, serverPlayer, ExtendTerrain);
+        }
+        tile = new RotateTile(hexID, ourOrientation);
+        int[] Tile = tile.checkPair();
+
+    }
+
+    public MoveData play() {
 
         HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(activeHexes);
 
-        MoveInfo info = new MoveInfo();
+        MoveData info = new MoveData();
 
         int[] tileInfo = allPossibleTiles.get(0);
 
         String[] newTile = islandMap.getNewTile();
 
-        boolean tileSuccessfullyPlaced = islandMap.addTileToMap(tileInfo[0], tileInfo[1], newTile, game.getWhitePlayer());
+        islandMap.addTileToMap(tileInfo[0], tileInfo[1], newTile, game.getWhitePlayer());
 
         tile = new RotateTile(tileInfo[0], tileInfo[1]);
 
@@ -49,33 +98,13 @@ public class ALE_AI {
 
         builder.build(game.getWhitePlayer(), islandMap, buildOption, pairs[1]);
 
-        info.setHexID(tileInfo[0]);
-        info.setOrientation(tileInfo[1]);
-        info.setPlayer(game.getWhitePlayer());
-        info.setTile(newTile);
-        info.setHexSettled(pairs[1]);
         info.setBuildOption(buildOption);
+        info.setOrientation(tileInfo[1]);
+        info.setTilePlacementX(tileInfo[0]);
 
         return info;
     }
 
-//    private void placeTile() {
-//
-//        ArrayList<Integer> setOfSettlements = findOpponentsSettlementSizeThreeToFive();
-//
-//        if (setOfSettlements.size() <= 1) {
-//            System.out.println("didn't found settlement of size 3 ++");
-//        } else {
-//            for (int i = 1; i < setOfSettlements.size(); i++){
-//                ArrayList<Integer> hexIDs = islandMap.getSettlementObj().getSettlementsMap().get(setOfSettlements.get(i));
-//                getAllPossibleTilePlacementPosition(hexIDs);
-//            }
-//        }
-//    }
-//
-//    private void build(){
-//
-//    }
 
     //given a tile it gets all the possible tile placement positions
     public HashMap<Integer, int[]> getAllPossibleTilePlacementPosition(ArrayList<Integer> tileArr) {
@@ -116,35 +145,4 @@ public class ALE_AI {
         return allPossibleTiles;
     }
 
-    public ArrayList<Integer> findOpponentsSettlementSizeThreeToFive() {
-
-        HashMap<Integer, ArrayList<Integer>> settlements = islandMap.getSettlementsMap();
-
-        ArrayList<Integer> settleKey = new ArrayList<Integer>() {{
-            add(-1);
-        }};
-
-        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = settlements.entrySet().iterator();
-        while(iterator.hasNext()){
-            Map.Entry<Integer, ArrayList<Integer>> entry = iterator.next();
-
-            if (entry.getValue().size() >= 3){
-                settleKey.add(entry.getKey());
-            }
-        }
-
-        return settleKey;
-    }
-
-//    public void printAllPossibleTiles(){
-//        Iterator<Map.Entry<Integer, int[]>> iterator = allPossibleTiles.entrySet().iterator();
-//        while(iterator.hasNext()){
-//            Map.Entry<Integer, int[]> entry = iterator.next();
-//            System.out.print("Tile " + entry.getKey() + ": ");
-//            for(int i=0;i<2;i++){
-//                System.out.print(entry.getValue()[i] + " ");
-//            }
-//            System.out.println();
-//        }
-//    }
 }

@@ -10,46 +10,37 @@ import java.util.ArrayList;
  */
 public class AITest {
 
-    private Game game = new Game();
-    //private ALE_AI ai = new ALE_AI(game);
+    private ALE_AI ai = new ALE_AI();
 
 
     @Test
     public void PlayGame() {
 
-
-        //PLACE STARTING TILE
-        CoordinateSystem coors = new CoordinateSystem();
-        // First tile will actually be placed in the center, this is for testing purposes
-        //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
-        int[] tileHexIDsArray = {coors.getHexID(14,15), coors.getHexID(14,14),coors.getHexID(15,14),
-                coors.getHexID(14,16), coors.getHexID(15, 16)};
-        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
-        game.getIslandMap().placeFirstTile(tileHexIDsArray, tileTerrainsArray);
-
-
         int i = 0;
 
         while(i < 48){
-
-            ArrayList<Integer> tileArr = new ArrayList<Integer>() {{
-                add(3014);
-                add(2814);
-                add(2815);
-                add(3214);
-                add(3215);
-            }};
-
-            //ai.getAllPossibleTilePlacementPosition(tileArr);
-
-            //ai.play();
-            System.out.println("# of meeple left: " + game.getWhitePlayer().getRemainingMeeples());
-            System.out.println("---------------------------------------------------------------------------------------");
-
-
+            ai.play();
             i++;
         }
 
+    }
+
+    @Test
+    public void getOpponentsMove(){
+
+        String[] terrains = {"Volcano", "Lake", "Rocky"};
+        int tilePlacementX = 1;
+        int tilePlacementY = -1;
+        int tilePlacementZ = 0;
+        int orientation = 4;
+        int buildOption = 1;
+        int buildOptionX = 2;
+        int buildOptionY = -1;
+        int buildOptionZ = -1;
+
+        MoveData moveData = new MoveData(terrains, tilePlacementX, tilePlacementY, tilePlacementZ, orientation, buildOption, buildOptionX, buildOptionY, buildOptionZ);
+
+        ai.updateOpponentMove(moveData);
     }
 }
 

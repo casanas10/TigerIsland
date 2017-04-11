@@ -12,7 +12,6 @@ public class AIPlayingTest {
     private Settlement settlement = game.getIslandMap().getSettlementObj();
 //    private AI server = new AI(game);
 
-    private boolean aiTurn = false;
 
     @Test
     public void placeFirstTileTest(){
@@ -75,7 +74,4 @@ public class AIPlayingTest {
 
     }
 
-    public boolean aiTurnToPlay() {
-        return aiTurn = !aiTurn;
-    }
 }
