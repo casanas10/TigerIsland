@@ -103,6 +103,11 @@ public class Hex {
         setPlayerColorOnHex(piece.getColor());
         System.out.println(getPlayerColorOnHex() + " " + piece.getName() + " successfully placed on Hex: " + getHexID());
     }
+    public void addGamePieceToHex(GamePiece piece, int numOfMeeples){
+        gamePiecesMap.put(piece.getName(), numOfMeeples);
+        setPlayerColorOnHex(piece.getColor());
+        System.out.println(getPlayerColorOnHex() + " " + piece.getName() + " successfully placed on Hex: " + getHexID());
+    }
 
     public int getSettlementID() {
         //System.out.println("Settlement ID of Hex " + hexID + " is: " + settlementID);
