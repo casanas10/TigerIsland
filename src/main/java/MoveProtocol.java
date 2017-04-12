@@ -175,11 +175,13 @@ public class MoveProtocol {
                 if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI1
                     moveData = parseMessage(fromServerArr, in);
-                    AI1.updateOpponentMove(moveData);
+                    if (moveData.getTerrainsArray() != null)
+                        AI1.updateOpponentMove(moveData);
                 } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI2
                     moveData = parseMessage(fromServerArr, in);
-                    AI2.updateOpponentMove(moveData);
+                    if (moveData.getTerrainsArray() != null)
+                        AI2.updateOpponentMove(moveData);
                 } else {
                     //check if server says we lost; check which game if so.
                     moveData = parseMessage(fromServerArr, in);
@@ -251,6 +253,7 @@ public class MoveProtocol {
             tile = tile.replaceAll("[+]", " ");
             String givenTerrains[] = tile.split(" ");
             String terrainsArray[] = {"Volcano", givenTerrains[0], givenTerrains[1]};
+            String extendTerrain = "";
 
             if ((fromServerArr[13].equals("FOUNDED")) || (fromServerArr[13].equals("FOUND"))) {
                 moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
@@ -260,11 +263,23 @@ public class MoveProtocol {
 
                 return moveData;
             } else if ((fromServerArr[13].equals("EXPANDED")) || (fromServerArr[13].equals("EXPAND"))) {
+                if(fromServerArr[19].equals("GRASS")){
+                    extendTerrain = "Grassland";
+                }
+                if(fromServerArr[19].equals("ROCK")){
+                    extendTerrain = "Rocky";
+                }
+                if(fromServerArr[19].equals("LAKE")){
+                    extendTerrain = "Lake";
+                }
+                if(fromServerArr[19].equals("JUNGLE")){
+                    extendTerrain = "Jungle";
+                }
                 moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
                         Integer.parseInt(fromServerArr[10]), Integer.parseInt(fromServerArr[11]),
                         Integer.parseInt(fromServerArr[12]), 2, Integer.parseInt(fromServerArr[16]),
                         Integer.parseInt(fromServerArr[17]), Integer.parseInt(fromServerArr[18]),
-                        fromServerArr[19]);
+                        extendTerrain);
 
                 return moveData;
             } else if (fromServerArr[14].equals("TOTORO")) {

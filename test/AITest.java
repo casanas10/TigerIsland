@@ -87,6 +87,10 @@ public class AITest {
     @Test
     public void expandSettlements(){
 
+        String[] terrains = ai.getIslandMap().getNewTile();
+        ai.setTerrainsArray(terrains);
+
+
         ai.getIslandMap().addTileToMap(19900, 60);
         ai.getIslandMap().getHex(19701).setTerrain("Lake");
         ai.getIslandMap().getHex(19901).setTerrain("Rocky");
@@ -96,10 +100,23 @@ public class AITest {
         ai.getIslandMap().getHex(19499).setTerrain("Lake");
         ai.getIslandMap().getHex(19500).setTerrain("Lake");
 
-        String[] terrains = ai.getIslandMap().getNewTile();
-        ai.setTerrainsArray(terrains);
 
-        //ai.expandSettlement();
+        ai.getIslandMap().addTileToMap(20302, 180);
+        ai.getIslandMap().getHex(20102).setTerrain("Rocky");
+        ai.getIslandMap().getHex(20103).setTerrain("Rocky");
+
+        ai.getIslandMap().addTileToMap(19098, 0);
+        ai.getIslandMap().getHex(19298).setTerrain("Grassland");
+        ai.getIslandMap().getHex(19299).setTerrain("Lake");
+
+
+        int[] bestExpansion = ai.findTheBestExpansion(ai.getAiPlayer());
+
+        for(int i = 0; i < bestExpansion.length; i++){
+            System.out.println(bestExpansion[i]);
+        }
+
+        ai.expandSettlement();
 
         ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
     }

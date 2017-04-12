@@ -7,14 +7,14 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) throws Exception{
-//        SwingUtilities.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-////                new Frame();
-////                new AutoFramePlayer();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+//                new Frame();
+//                new AutoFramePlayer();
 //                new PlayGame();
-//            }
-//        });
+            }
+        });
 //        Game game = new Game();
 //        game.gameRunning();
         Scanner s = new Scanner(System.in);

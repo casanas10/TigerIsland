@@ -42,7 +42,7 @@ public class ExtendSettlement {
             i++;
         }
 
-        printExtendOptions();
+//        printExtendOptions();
     }
 
     private void findExtensions(int hexID){
@@ -304,35 +304,35 @@ public class ExtendSettlement {
         isValidTile = false;
     }
 
-    public void printExtendOptions(){
-        int i=0;
-        System.out.println("Lakes to extend on: ");
-        while(i<lakesToExtendOn.size()){
-            System.out.print(lakesToExtendOn.get(i) + " ");
-            i++;
-        }
-
-        i=0;
-        System.out.println("\nGrasslands to extend on: ");
-        while(i<grasslandsToExtendOn.size()){
-            System.out.print(grasslandsToExtendOn.get(i) + " ");
-            i++;
-        }
-
-        i=0;
-        System.out.println("\nRockys to extend on: ");
-        while(i<rockysToExtendOn.size()){
-            System.out.print(rockysToExtendOn.get(i) + " ");
-            i++;
-        }
-
-        i=0;
-        System.out.println("\nJungles to extend on: ");
-        while(i<junglesToExtendOn.size()){
-            System.out.print(junglesToExtendOn.get(i) + " ");
-            i++;
-        }
-    }
+//    public void printExtendOptions(){
+//        int i=0;
+//        System.out.println("Lakes to extend on: ");
+//        while(i<lakesToExtendOn.size()){
+//            System.out.print(lakesToExtendOn.get(i) + " ");
+//            i++;
+//        }
+//
+//        i=0;
+//        System.out.println("\nGrasslands to extend on: ");
+//        while(i<grasslandsToExtendOn.size()){
+//            System.out.print(grasslandsToExtendOn.get(i) + " ");
+//            i++;
+//        }
+//
+//        i=0;
+//        System.out.println("\nRockys to extend on: ");
+//        while(i<rockysToExtendOn.size()){
+//            System.out.print(rockysToExtendOn.get(i) + " ");
+//            i++;
+//        }
+//
+//        i=0;
+//        System.out.println("\nJungles to extend on: ");
+//        while(i<junglesToExtendOn.size()){
+//            System.out.print(junglesToExtendOn.get(i) + " ");
+//            i++;
+//        }
+//    }
 
     public boolean extendOnTerrain(String terrain){
         if(terrain.equals("invalid terrain")){
@@ -431,7 +431,8 @@ public class ExtendSettlement {
 
     private void updateHex(int hexID) {
         Hex hex;
-        GamePiece piece;
+        GamePiece piece = null;
+
         hex = islandMap.getHex(hexID);
         int level = hex.getLevel();
 
@@ -443,6 +444,9 @@ public class ExtendSettlement {
             piece = player.placeMeepleForExtension();
             updateScore(player,piece,level);
         }
+
+        hex.addGamePieceToHex(piece, level);
+
     }
 
     public void updateScore(Player player, GamePiece piece, int level){
