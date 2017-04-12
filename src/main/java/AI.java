@@ -36,13 +36,13 @@ public class AI {
     private int maxHexID = 20100;
     private int minHexID = 19699;
     private ArrayList<Integer> volcanosOnMap = new ArrayList<>();
-    private Boolean maxMinTurn = true;
-    private Boolean isFirstTilePlaced = false;
-    private Boolean nukingFlag = false;
+    private boolean maxMinTurn = true;
+    private boolean isFirstTilePlaced = false;
+    private boolean nukingFlag = false;
     private int level = 0;
-    private Boolean wasTigerPlaced = false;
+    private boolean wasTigerPlaced = false;
     private int[] level3HexIDs  = new int[2];
-    private Boolean readyToPlaceTiger = false;
+    private boolean readyToPlaceTiger = false;
     private int[] toSendServer = new int[6]; //int ourTileX, int ourTileY, int ourOrientation, int ourBuildOption, int ourBuildOptionX, int ourBuildOptionY
     private String[] globalTerrains = new String[3];
 
@@ -228,7 +228,7 @@ public class AI {
             //build
 
             if (readyToPlaceTiger) {
-                Boolean isThereASettlement = false;
+                boolean isThereASettlement = false;
                 isThereASettlement = lookAroundAHexForASettlment(islandMap, level3HexIDs[0], player);
                 if (isThereASettlement) {
                     if (builder.build(player, islandMap, 4, level3HexIDs[0])) {
@@ -286,10 +286,10 @@ public class AI {
         }
     }
 
-    public Boolean checkToPlaceTiger(){
+    public boolean checkToPlaceTiger(){
         level = islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel();
         if (islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel() >= 3) {
-            Boolean isThereASettlement = false;
+            boolean isThereASettlement = false;
             isThereASettlement = lookAroundAHexForASettlment(islandMap, activeHexIDs.get(activeHexIDs.size() - 1), player);
             if (isThereASettlement) {
                 if(builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 1))) {
@@ -318,7 +318,7 @@ public class AI {
         return false;
     }
 
-    public Boolean placeMeepleAnywhere(IslandMap islandMap, Player player){
+    public boolean placeMeepleAnywhere(IslandMap islandMap, Player player){
         for(int i = activeHexIDs.size()-1; i>0; i--){
             if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
                 if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex().equals("")) {
@@ -332,7 +332,7 @@ public class AI {
         return false;
     }
 
-    public Boolean canYouPlaceMeepleAnywhere(IslandMap islandMap, Player player){
+    public boolean canYouPlaceMeepleAnywhere(IslandMap islandMap, Player player){
        for(int i = activeHexIDs.size()-1; i>0; i--){
             if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
                 if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex().equals("")) {
@@ -420,7 +420,7 @@ public class AI {
         return false;
     }
 
-    public Boolean findTheLargestSettlementLessThanFive(IslandMap islandMap, Player player){
+    public boolean findTheLargestSettlementLessThanFive(IslandMap islandMap, Player player){
         Settlement settlements = islandMap.getSettlementObj();
         ArrayList<Integer> settlementHexIDs = new ArrayList<>();
         ActiveSettlements = settlements.getListOfActiveSettlementIDs();
@@ -508,7 +508,7 @@ public class AI {
     }
 
 
-    public Boolean canATotoroBePlaced(IslandMap islandMap, Player player ){
+    public boolean canATotoroBePlaced(IslandMap islandMap, Player player ){
 
         Settlement settlements = islandMap.getSettlementObj();
         ArrayList<Integer> settlementHexIDs = new ArrayList<>();
@@ -544,7 +544,7 @@ public class AI {
         return false;
     }
 
-    public Boolean lookAroundAHexForASettlment(IslandMap islandMap, int HexID, Player player){
+    public boolean lookAroundAHexForASettlment(IslandMap islandMap, int HexID, Player player){
         int hexLevel;
         int hexIDTest;
         String hexColor = "";
@@ -721,7 +721,7 @@ public class AI {
         }
     }
 
-    public Boolean placeMeeple(IslandMap islandMap, Player player, int hexID){
+    public boolean placeMeeple(IslandMap islandMap, Player player, int hexID){
         if(builder.build(player, islandMap, 1, hexID)){
             toSendServer[3] = 1;
             toSendServer[4] = coordinateSystem.getXCoordinate(hexID);
