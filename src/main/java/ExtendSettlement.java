@@ -42,7 +42,7 @@ public class ExtendSettlement {
             i++;
         }
 
-        printExtendOptions();
+        //printExtendOptions();
     }
 
     private void findExtensions(int hexID){
