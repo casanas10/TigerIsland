@@ -7,9 +7,9 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
+        //SwingUtilities.invokeLater(new Runnable() {
+        //    @Override
+        //    public void run() {
                 Game game = new Game();
                 //new Frame(game);
 
@@ -114,8 +114,8 @@ public class Main {
                 }
 
 
-            }
-        });
+          //  }
+        //});
 
 
 

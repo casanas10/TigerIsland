@@ -66,7 +66,6 @@ public class AI {
                 Else Remember where the other player placed their tile and check where we can place it -
                 place volcanos close to each other (place volcano next to volcano of main tile)
                 Else remember were self placed the first tile and place place tile there. (place volcano next to volcano of main tile)
-
                 For Tomorrow:
                 Look at:
                     placing meeple before nuking, if not possible: place tile in level 1
@@ -88,7 +87,7 @@ public class AI {
         activeHexIDs.add(coordinateSystem.getHexID(100, 98));
         activeHexIDs.add(coordinateSystem.getHexID(99, 100));
         activeHexIDs.add(coordinateSystem.getHexID(100, 100));
-        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
+        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grasslands"};
         islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
 
 
@@ -114,19 +113,14 @@ public class AI {
         switch (buildOption){
             case 1:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
-                break;
             case 3:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
-                break;
             case 4:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
-                break;
         }
 
         if(buildOption == 2){
             ExtendTerrain = moveData.getExtendTerrain();
-            System.out.println("ExtendTerrain in moveData is: " + ExtendTerrain);
-            System.out.println("X coordinate is: " + ourCoordinatesBuild[0] + "\nY coordinate is: " + ourCoordinatesBuild[1]);
             builder.extendForAI(coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]), islandMap, otherAI, ExtendTerrain);
         }
         tile = new RotateTile(hexID, ourOrientation);
@@ -136,22 +130,6 @@ public class AI {
         activeHexIDs.add(Tile[2]);
         volcanosOnMap.add(hexID);
         updateMaxAndMin();
-
-        level = islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel();
-        if (islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel() >= 3) {
-            Boolean isThereASettlement = false;
-            isThereASettlement = lookAroundAHexForASettlement(islandMap, activeHexIDs.get(activeHexIDs.size() - 1), player);
-            if (isThereASettlement) {
-                readyToPlaceTiger = true;
-            }
-            isThereASettlement = lookAroundAHexForASettlement(islandMap, activeHexIDs.get(activeHexIDs.size() - 2), player);
-            if (isThereASettlement) {
-                readyToPlaceTiger = true;
-            }
-            level3HexIDs[0] = activeHexIDs.get(activeHexIDs.size() - 1);
-            level3HexIDs[1] = activeHexIDs.get(activeHexIDs.size() - 2);
-        }
-        System.out.println("otherAI score " + otherAI.getCurrentScore());
     }
 
     public void makeMove(String[] Terrains){
@@ -227,21 +205,20 @@ public class AI {
                 }
             }
 
+
+
             if (canYouNuke(islandMap)) {
                 if (!canYouPlaceMeepleAnywhere(islandMap, player)) {
                     findLocationToPlaceTile(islandMap);
                 }
 
                 else {
-                    if(!nuke(islandMap));
-                        findLocationToPlaceTile(islandMap);
+                    nuke(islandMap);
                     if(checkToPlaceTiger()){
                         return;
                     }
-                    //readyToPlaceTiger = false;
                 }
-            }
-            else {
+            } else {
                 findLocationToPlaceTile(islandMap);
             }
 
@@ -249,7 +226,7 @@ public class AI {
 
             if (readyToPlaceTiger) {
                 Boolean isThereASettlement = false;
-                isThereASettlement = lookAroundAHexForASettlement(islandMap, level3HexIDs[0], player);
+                isThereASettlement = lookAroundAHexForASettlment(islandMap, level3HexIDs[0], player);
                 if (isThereASettlement) {
                     if (builder.build(player, islandMap, 4, level3HexIDs[0])) {
                         toSendServer[3] = 4;
@@ -260,7 +237,7 @@ public class AI {
                         return;
                     }
                 }
-                isThereASettlement = lookAroundAHexForASettlement(islandMap, level3HexIDs[1], player);
+                isThereASettlement = lookAroundAHexForASettlment(islandMap, level3HexIDs[1], player);
                 if (isThereASettlement) {
                     if (builder.build(player, islandMap, 4, level3HexIDs[1])) {
                         toSendServer[3] = 4;
@@ -275,52 +252,34 @@ public class AI {
             }
 
             if ((wasTigerPlaced == false) && (level == 3)) {
-                if (lookAroundAHexForASettlement(islandMap, level3HexIDs[0], player)) {
-                    if(checkToPlaceTiger()){
-                        return;
-                    }
+                if (lookAroundAHexForASettlment(islandMap, level3HexIDs[0], player)) {
+                    placeMeeple(islandMap, player, level3HexIDs[0]);
                 }
-                else if (lookAroundAHexForASettlement(islandMap, level3HexIDs[1], player)) {
-                    if(checkToPlaceTiger()){
-                        return;
-                    }
+                else if (lookAroundAHexForASettlment(islandMap, level3HexIDs[1], player)) {
+                    placeMeeple(islandMap, player, level3HexIDs[1]);
                 }
-                else{
-                    ArrayList<Integer> availableHexes = lookAroundAHexForAnEmptySettlement(islandMap, level3HexIDs[0]);
-                    if(!availableHexes.isEmpty()){
-                        if(!placeMeeple(islandMap, player, availableHexes.get(0))){
-                            placeMeepleAnywhere(islandMap, player);
-                            return;
-                        }
-                    }
-                    else{
-                        availableHexes = lookAroundAHexForAnEmptySettlement(islandMap, level3HexIDs[1]);
-                        if(!availableHexes.isEmpty()){
-                            if(!placeMeeple(islandMap, player, availableHexes.get(0))){
-                                placeMeepleAnywhere(islandMap, player);
-                                return;
-                            }
-                        }
-                        else{
-                            placeMeepleAnywhere(islandMap, player);
-                            return;
-                        }
-                    }
-                }
+                readyToPlaceTiger = true;
             }
             else {
                 if (!canATotoroBePlaced(islandMap, player)) {
                     if (!findTheLargestSettlementLessThanFive(islandMap, player)) {
                         if (player.getPieces().getNumberOfMeeples() != 0)
-                            System.out.println(placeMeepleAnywhere(islandMap, player));
-
-                            else {
-                                System.out.println("Out of Meeple!");
+                            if (!placeMeepleAnywhere(islandMap, player)) {
+                                return;
+                            } else {
+                                //System out of moves
+                                toSendServer[3] = 5;
+                                sendMoveToServer(toSendServer[0], toSendServer[1], toSendServer[2], toSendServer[3], toSendServer[4], toSendServer[5]);
                                 return;
                             }
-                        }
                     }
+                    //Look for tile in talest level
+                    //If level >= 3 place tiger
+                    //else look if a totoro can be placed
+                    //else place a meeple in your largest settlement <5
                 }
+            }
+
         }
     }
 
@@ -328,7 +287,7 @@ public class AI {
         level = islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel();
         if (islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel() >= 3) {
             Boolean isThereASettlement = false;
-            isThereASettlement = lookAroundAHexForASettlement(islandMap, activeHexIDs.get(activeHexIDs.size() - 1), player);
+            isThereASettlement = lookAroundAHexForASettlment(islandMap, activeHexIDs.get(activeHexIDs.size() - 1), player);
             if (isThereASettlement) {
                 if(builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 1))) {
                     toSendServer[3] = 4;
@@ -336,11 +295,10 @@ public class AI {
                     toSendServer[5] = coordinateSystem.getYCoordinate(activeHexIDs.get(activeHexIDs.size() - 1));
                     sendMoveToServer(toSendServer[0], toSendServer[1], toSendServer[2], toSendServer[3], toSendServer[4], toSendServer[5]);
                     wasTigerPlaced = true;
-                    level = 0;
                     return true;
                 }
             }
-            isThereASettlement = lookAroundAHexForASettlement(islandMap, activeHexIDs.get(activeHexIDs.size() - 2), player);
+            isThereASettlement = lookAroundAHexForASettlment(islandMap, activeHexIDs.get(activeHexIDs.size() - 2), player);
             if (isThereASettlement) {
                 if(builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 2))) {
                     toSendServer[3] = 4;
@@ -348,7 +306,6 @@ public class AI {
                     toSendServer[5] = coordinateSystem.getYCoordinate(activeHexIDs.get(activeHexIDs.size() - 2));
                     sendMoveToServer(toSendServer[0], toSendServer[1], toSendServer[2], toSendServer[3], toSendServer[4], toSendServer[5]);
                     wasTigerPlaced = true;
-                    level = 0;
                     return true;
                 }
             }
@@ -373,11 +330,11 @@ public class AI {
     }
 
     public Boolean canYouPlaceMeepleAnywhere(IslandMap islandMap, Player player){
-        for(int i = activeHexIDs.size()-1; i>0; i--){
+       for(int i = activeHexIDs.size()-1; i>0; i--){
             if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
                 if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex().equals("")) {
                     if (!islandMap.getHex(activeHexIDs.get(i)).getTerrain().equals("Volcano")) {
-                        //placeMeeple(islandMap, player, activeHexIDs.get(i));
+                        placeMeeple(islandMap, player, activeHexIDs.get(i));
                         return true;
                     }
                 }
@@ -435,7 +392,6 @@ public class AI {
                     for(int j = 0; j < 3; j++){
                         tileTerrains[j] = islandMap.getHex(Tile[j]).getTerrain();
                     }
-
                     if (nuker.canYouNukeSettlement(islandMap, Tile, volcanosOnMap.get(k))) {
                         if(!((islandMap.getHex(Tile[1]).getTerrain().equals("Volcano")) || (islandMap.getHex(Tile[2]).getTerrain().equals("Volcano")))){
                             volcanoTemp = Tile[0];
@@ -548,6 +504,7 @@ public class AI {
         return false;
     }
 
+
     public Boolean canATotoroBePlaced(IslandMap islandMap, Player player ){
 
         Settlement settlements = islandMap.getSettlementObj();
@@ -584,7 +541,7 @@ public class AI {
         return false;
     }
 
-    public Boolean lookAroundAHexForASettlement(IslandMap islandMap, int HexID, Player player){
+    public Boolean lookAroundAHexForASettlment(IslandMap islandMap, int HexID, Player player){
         int hexLevel;
         int hexIDTest;
         String hexColor = "";
