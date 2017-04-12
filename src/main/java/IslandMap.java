@@ -162,7 +162,6 @@ public class IslandMap {
 
             if (getHex(hexID).getPlayerColorOnHex() == player.getPlayerColor()){
 
-                System.out.println(entry.getKey());
                 playerSettlement.add(entry.getKey());
             }
         }

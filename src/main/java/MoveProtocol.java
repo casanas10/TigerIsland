@@ -69,12 +69,17 @@ public class MoveProtocol {
         if (currentGID.equals(MatchProtocol.gid1)) {
             //AI1 gets terrains
             System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
-            AI1.setTerrainsArray(terrainsArray);
+
+            if (givenTerrains[0] != null && givenTerrains[1] != null)
+                AI1.setTerrainsArray(terrainsArray);
+
             return AI1.play();
         } else {
             //AI2 gets terrains
             System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
-            AI2.setTerrainsArray(terrainsArray);
+
+            if (givenTerrains[0] != null && givenTerrains[1] != null)
+                AI2.setTerrainsArray(terrainsArray);
             return AI2.play();
         }
     }

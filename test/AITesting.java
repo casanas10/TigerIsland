@@ -68,7 +68,7 @@
 //        builder.build(player1,islandMap,1,1010);
 //        builder.build(player1,islandMap,1,1011);
 //
-//        //int actualSettlement = ai.findOpponentsSettlementSizeThreeToFive().get(1);
+//        //int actualSettlement = ai.findAISettlements5orGreater().get(1);
 //
 //        //Assert.assertEquals(0,actualSettlement);
 //    }
