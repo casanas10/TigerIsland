@@ -267,7 +267,7 @@ public class AI {
                 if (!canATotoroBePlaced(islandMap, player)) {
                     if (!findTheLargestSettlementLessThanFive(islandMap, player)) {
                         if (player.getPieces().getNumberOfMeeples() != 0)
-                            if (!placeMeepleAnywhere(islandMap, player)) {
+                            if (placeMeepleAnywhere(islandMap, player)) {  //Connor update
                                 return;
                             } else {
                                 //System out of moves
