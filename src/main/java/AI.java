@@ -678,16 +678,20 @@ public class AI {
 
 
     public int[] placeTile(IslandMap islandMap, int volcanoHexID, int orientation){
-        islandMap.addTileToMap(volcanoHexID, orientation, globalTerrains, player);
-        RotateTile rotateTile = new RotateTile(volcanoHexID, orientation);
-        int[] Tile = rotateTile.checkPair();
-        for(int i = 0; i<3; i++) {
-            activeHexIDs.add(Tile[i]);
+        if(islandMap.addTileToMap(volcanoHexID, orientation, globalTerrains, player)) {
+            RotateTile rotateTile = new RotateTile(volcanoHexID, orientation);
+            int[] Tile = rotateTile.checkPair();
+            for (int i = 0; i < 3; i++) {
+                activeHexIDs.add(Tile[i]);
+            }
+
+            updateMaxAndMin();
+
+            volcanosOnMap.add(volcanoHexID);
         }
-
-        updateMaxAndMin();
-
-        volcanosOnMap.add(volcanoHexID);
+        else{
+            findLocationToPlaceTile(islandMap);
+        }
 
         return toSendToServer(volcanoHexID, orientation);
     }
