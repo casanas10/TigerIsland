@@ -98,24 +98,43 @@ public class ALE_AI {
                 builder.build(serverPlayer, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
                 break;
         }
-        
+
     }
 
     public int findBestStrategy() {
 
         if (findAISettlements5orGreater(aiPlayer) != -1) return 1;  //build a totoro
-        //else if (findTheBestExpansion(aiPlayer) != -1) return 2; //expand
+        else if (youCanExpand()) return 2; //expand
 
         return 5;
     }
 
-    public int findTheBestExpansion(Player aiPlayer) {
-
-        int settlementID = - 1;
+    private boolean youCanExpand() {
 
         ArrayList<Integer> settlements = islandMap.getPlayerSettlement(aiPlayer);
 
         for (int i = 0; i < settlements.size(); i++){
+
+            ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getSettlementsMap().get(settlements.get(i)).get(0));
+
+            if (settlements.get(i) != -1){
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int[] findTheBestExpansion(Player aiPlayer) {
+
+        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(aiPlayer);
+
+        int[] hexIDPlusTerrain = new int[2];  //hexID   terrain number
+
+        int tempMaxSize = 0;
+
+        for (int i = 1; i < settlements.size(); i++){
 
             ArrayList<Integer> hexIDs = islandMap.getSettlementsMap().get(settlements.get(i));
 
@@ -137,15 +156,25 @@ public class ALE_AI {
 
             int max = arraylistSizes[0];
 
+            int bestTerrain = arraylistSizes[0];
+
             for (int j = 0; j < arraylistSizes.length; j++){
-                if (arraylistSizes[i] > max) {
-                    max = arraylistSizes[i];
+
+                if (arraylistSizes[j] > max) {
+                    max = arraylistSizes[j];
+                    bestTerrain = j;
                 }
+            }
+
+            if (max > tempMaxSize){
+                hexIDPlusTerrain[0] = hexID; //hexid
+                hexIDPlusTerrain[1] = bestTerrain;  //terrain max expansion
+
+                tempMaxSize = max;
             }
         }
 
-
-        return settlementID;
+        return hexIDPlusTerrain;
     }
 
     public MoveData play() {
@@ -154,15 +183,69 @@ public class ALE_AI {
 
         switch (strategy) {
 
-            //case 1: return buildATotoroSantuary();
+            case 1: return buildATotoroSantuary();
 
-            //case 2: return expandSettlement();
+            case 2: return expandSettlement();
 
             case 5: return addMeepleSomewhere();
 
             default: return addMeepleSomewhere();
         }
 
+    }
+
+    public MoveData expandSettlement() {
+
+        int[] theBestExpansion = findTheBestExpansion(aiPlayer);
+
+        MoveData info = new MoveData();
+
+        HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(islandMap.getAllHexesOnMap());
+
+        int[] tileInfo = allPossibleTiles.get(0);
+
+        islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer);
+
+        tile = new RotateTile(tileInfo[0], tileInfo[1]);
+
+        int buildOption = 2;
+
+        String terrainToExpand = "";
+
+        if (theBestExpansion[1] == 0){
+            terrainToExpand = "Jungle";
+        } else if (theBestExpansion[1] == 1){
+            terrainToExpand = "Lake";
+        } else if (theBestExpansion[1] == 2){
+            terrainToExpand = "Rocky";
+        } else if (theBestExpansion[1] == 3){
+            terrainToExpand = "Grassland";
+        }
+
+        builder.build(aiPlayer, islandMap, buildOption, theBestExpansion[0], terrainToExpand);
+
+        int tileX = islandMap.getHex(tileInfo[0]).getX();
+        int tileY = islandMap.getHex(tileInfo[0]).getY();
+        int orientation = tileInfo[1];
+        int buildOptX = islandMap.getHex(theBestExpansion[0]).getX();
+        int buildOptY = islandMap.getHex(theBestExpansion[0]).getY();
+
+        int serverOrientation = rotationConverter.oursToServer(orientation);
+        int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+        info.setOrientation(serverOrientation);
+        info.setTilePlacementX(serverCoordinatesTile[0]);
+        info.setTilePlacementY(serverCoordinatesTile[1]);
+        info.setTilePlacementZ(serverCoordinatesTile[2]);
+
+        int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+
+        info.setBuildOption(buildOption);
+        info.setBuildOptionX(serverCoordinatesBuild[0]);
+        info.setBuildOptionY(serverCoordinatesBuild[1]);
+        info.setBuildOptionZ(serverCoordinatesBuild[2]);
+        info.setExtendTerrain(terrainToExpand);
+
+        return info;
     }
 
     public MoveData addMeepleSomewhere() {
@@ -203,8 +286,6 @@ public class ALE_AI {
         info.setBuildOptionX(serverCoordinatesBuild[0]);
         info.setBuildOptionY(serverCoordinatesBuild[1]);
         info.setBuildOptionZ(serverCoordinatesBuild[2]);
-
-        islandMap.getSettlementObj().printAllSettlements(aiPlayer);
 
         return info;
     }
@@ -274,7 +355,7 @@ public class ALE_AI {
 
         int largestSettlement = 0;
 
-        for (int i = 0; i < settlements.size(); i++){
+        for (int i = 1; i < settlements.size(); i++){
 
             if (islandMap.getSettlementsMap().get(settlements.get(i)).size() > largestSettlement){
                 largestSettlement = settlements.get(i);
