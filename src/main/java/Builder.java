@@ -156,7 +156,7 @@ public class Builder {
     public boolean verifyValidHexForTotoro(Hex currentHex){
         // Need to check for a settlement of size 5
         if(currentHex.getLevel() >= 1 && currentHex.checkIfHexIsNotSettled()
-                && !currentHex.getTerrain().equals("Volcano")){
+                && !currentHex.getTerrain().equals("Volcano") && currentHex.getSettlementID() == -1){
             return true;
         }
         else{

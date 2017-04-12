@@ -59,7 +59,15 @@ public class ALE_AI {
         String[] Terrains = moveData.getTerrainsArray();
 
         for (int i = 0; i < Terrains.length; i++){
-            System.out.println("Terrain: " + Terrains[i]);
+            if (Terrains[i].equals("JUNGLE")){
+                Terrains[i] = "Jungle";
+            } else if (Terrains[i].equals("LAKE")){
+                Terrains[i] = "Lake";
+            } else if (Terrains[i].equals("ROCK")) {
+                Terrains[i] = "Rocky";
+            } else if (Terrains[i].equals("GRASS")) {
+                Terrains[i] = "Grassland";
+            }
         }
 
         int hexID = coordinateSystem.getHexID(ourCoordinatesTile[0], ourCoordinatesTile[1]);
@@ -69,11 +77,19 @@ public class ALE_AI {
         islandMap.addTileToMap(hexID, ourOrientation, Terrains, serverPlayer);
 
         int buildOption = moveData.getBuildOption(); //1. found settlement, 2. expand, 3. totoro, 4. tiger
+
         String ExtendTerrain = "";
+
         int[] ourCoordinatesBuild = coordinateConverter.serverToOurs(moveData.getBuildOptionX(), moveData.getBuildOptionY(), moveData.getBuildOptionZ());
+
         switch (buildOption){
             case 1:
                 builder.build(serverPlayer, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
+
+            case 2:
+                ExtendTerrain = moveData.getExtendTerrain();
+                builder.build(serverPlayer, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]), ExtendTerrain);
                 break;
             case 3:
                 builder.build(serverPlayer, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
@@ -82,14 +98,7 @@ public class ALE_AI {
                 builder.build(serverPlayer, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
                 break;
         }
-
-        if(buildOption == 2){
-            ExtendTerrain = moveData.getExtendTerrain();
-            System.out.println("ExtendTerrain in moveData is: " + ExtendTerrain);
-            System.out.println("X coordinate is: " + ourCoordinatesBuild[0] + "\nY coordinate is: " + ourCoordinatesBuild[1]);
-            builder.extendForAI(coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]), islandMap, serverPlayer, ExtendTerrain);
-        }
-
+        
     }
 
     public int findBestStrategy() {
@@ -194,6 +203,8 @@ public class ALE_AI {
         info.setBuildOptionX(serverCoordinatesBuild[0]);
         info.setBuildOptionY(serverCoordinatesBuild[1]);
         info.setBuildOptionZ(serverCoordinatesBuild[2]);
+
+        islandMap.getSettlementObj().printAllSettlements(aiPlayer);
 
         return info;
     }
