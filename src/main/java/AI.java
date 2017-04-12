@@ -143,15 +143,15 @@ public class AI {
         int serverOrientation = rotationConverter.oursToServer(ourOrientation);
         int[] serverCoordinatesTile = coordinateConverter.oursToServer(ourTileX, ourTileY);
         moveData.setOrientation(serverOrientation);
-        moveData.setTilePlacementX(serverCoordinatesTile[0]);
-        moveData.setTilePlacementY(serverCoordinatesTile[1]);
+        moveData.setTilePlacementX(serverCoordinatesTile[1]);
+        moveData.setTilePlacementY(serverCoordinatesTile[0]);
         moveData.setTilePlacementZ(serverCoordinatesTile[2]);
 
         int[] serverCoordinatesBuild = coordinateConverter.oursToServer(ourBuildOptionX, ourBuildOptionY);
 
         moveData.setBuildOption(ourBuildOption);
-        moveData.setBuildOptionX(serverCoordinatesBuild[0]);
-        moveData.setBuildOptionY(serverCoordinatesBuild[1]);
+        moveData.setBuildOptionX(serverCoordinatesBuild[1]);
+        moveData.setBuildOptionY(serverCoordinatesBuild[0]);
         moveData.setBuildOptionZ(serverCoordinatesBuild[2]);
     }
 
@@ -159,15 +159,15 @@ public class AI {
         int serverOrientation = rotationConverter.oursToServer(ourOrientation);
         int[] serverCoordinatesTile = coordinateConverter.oursToServer(ourTileX, ourTileY);
         moveData.setOrientation(serverOrientation);
-        moveData.setTilePlacementX(serverCoordinatesTile[0]);
-        moveData.setTilePlacementY(serverCoordinatesTile[1]);
+        moveData.setTilePlacementX(serverCoordinatesTile[1]);
+        moveData.setTilePlacementY(serverCoordinatesTile[0]);
         moveData.setTilePlacementZ(serverCoordinatesTile[2]);
 
         int[] serverCoordinatesBuild = coordinateConverter.oursToServer(ourBuildOptionX, ourBuildOptionY);
 
         moveData.setBuildOption(ourBuildOption);
-        moveData.setBuildOptionX(serverCoordinatesBuild[0]);
-        moveData.setBuildOptionY(serverCoordinatesBuild[1]);
+        moveData.setBuildOptionX(serverCoordinatesBuild[1]);
+        moveData.setBuildOptionY(serverCoordinatesBuild[0]);
         moveData.setBuildOptionZ(serverCoordinatesBuild[2]);
         moveData.setExtendTerrain(extendTerrain);
     }

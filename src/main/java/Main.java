@@ -40,6 +40,10 @@ public class Main {
                         int[] ourCoordinates = coordinateConverter.serverToOurs(serverTileX, serverTileY, serverTileZ);
                         System.out.println("Tile orientation x: " + ourCoordinates[0]);
                         System.out.println("Tile orientation y: " + ourCoordinates[1]);
+                        System.out.println("Server coordinates");
+                        System.out.println("Tile orientation x: " + serverTileX);
+                        System.out.println("Tile orientation y: " + serverTileY);
+                        System.out.println("Tile orientation z: " + serverTileZ);
 
                         int buildOption = moveData.getBuildOption();
                         System.out.println("Build option: " + buildOption);
@@ -49,6 +53,10 @@ public class Main {
                         int[] ourCoordinatesBuild = coordinateConverter.serverToOurs(serverBuildX, serverBuildY, serverBuildZ);
                         System.out.println("Build option x: " + ourCoordinatesBuild[0]);
                         System.out.println("Build option y: " + ourCoordinatesBuild[1]);
+                        System.out.println("Server build coordinates ");
+                        System.out.println("Build orientation x: " + serverBuildX);
+                        System.out.println("Build orientation y: " + serverBuildY);
+                        System.out.println("Build orientation z: " + serverBuildZ);
 
                         if(buildOption == 2){
                             System.out.println("Terrain to extend to: " + moveData.getExtendTerrain());
