@@ -113,10 +113,13 @@ public class AI {
         switch (buildOption){
             case 1:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
             case 3:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
             case 4:
                 builder.build(otherAI, islandMap, buildOption, coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]));
+                break;
         }
 
         if(buildOption == 2){
@@ -334,7 +337,7 @@ public class AI {
             if(islandMap.getHex(activeHexIDs.get(i)).getLevel() == 1){
                 if(islandMap.getHex(activeHexIDs.get(i)).getPlayerColorOnHex().equals("")) {
                     if (!islandMap.getHex(activeHexIDs.get(i)).getTerrain().equals("Volcano")) {
-                        placeMeeple(islandMap, player, activeHexIDs.get(i));
+                        //placeMeeple(islandMap, player, activeHexIDs.get(i));
                         return true;
                     }
                 }
