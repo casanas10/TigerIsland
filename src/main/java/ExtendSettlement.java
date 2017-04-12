@@ -408,7 +408,7 @@ public class ExtendSettlement {
 
     private void updateHex(int hexID) {
         Hex hex;
-        GamePiece piece;
+        GamePiece piece = null;
         hex = islandMap.getHex(hexID);
         int level = hex.getLevel();
 
@@ -420,6 +420,8 @@ public class ExtendSettlement {
             piece = player.placeMeepleForExtension();
             updateScore(player,piece,level);
         }
+
+        hex.addGamePieceToHex(piece, level);
     }
 
     public void updateScore(Player player, GamePiece piece, int level){

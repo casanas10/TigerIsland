@@ -10,6 +10,7 @@ public class AIPlayingTest {
     private Game game = new Game();
     private AI ai = new AI(game);
     private Settlement settlement = game.getIslandMap().getSettlementObj();
+    private TileGenerator tileGenerator = new TileGenerator();
 //    private AI server = new AI(game);
 
     private boolean aiTurn = false;
@@ -31,7 +32,7 @@ public class AIPlayingTest {
         MoveData moveData;
 
         for(int i = 0; i < 48; i++){
-            String[] terrains = {"Volcano", "Rocky", "Lake"};
+            String[] terrains = tileGenerator.getNewTile();
             ai.makeMove(terrains);
             System.out.println("# of meeple left: " + game.getWhitePlayer().getPieces().getNumberOfMeeples());
             System.out.println("\nSettlements:");
