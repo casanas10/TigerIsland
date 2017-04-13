@@ -46,6 +46,9 @@ public class AI {
     private int[] toSendServer = new int[6]; //int ourTileX, int ourTileY, int ourOrientation, int ourBuildOption, int ourBuildOptionX, int ourBuildOptionY
     private String[] globalTerrains = new String[3];
 
+    private boolean tileWasPlaced;
+    private boolean buildOptionWasChosen;
+
 
     /*
     * Strategy for building:
@@ -136,11 +139,22 @@ public class AI {
     }
 
     public void makeMove(String[] Terrains){
+        tileWasPlaced = false;
+        buildOptionWasChosen = false;
+
         System.out.println("MAKE MOVE");
         for(int i = 0; i<3; i++){
             globalTerrains[i] = Terrains[i];
         }
+
         playingAI();
+
+        if(!tileWasPlaced){
+            findLocationToPlaceTile(islandMap);
+        }
+        if(!buildOptionWasChosen){
+            placeMeepleAnywhere(islandMap, player);
+        }
     }
 
     public void sendMoveToServer(int ourTileX, int ourTileY, int ourOrientation, int ourBuildOption, int ourBuildOptionX, int ourBuildOptionY){
@@ -256,6 +270,7 @@ public class AI {
                 if (isThereASettlement) {
                     System.out.println("TICKLE ME");
                     if (builder.build(player, islandMap, 4, level3HexIDs[0])) {
+                        buildOptionWasChosen = true;
                         System.out.println("LAWDY LAWDY");
                         toSendServer[3] = 4;
                         toSendServer[4] = coordinateSystem.getXCoordinate(level3HexIDs[0]);
@@ -269,6 +284,7 @@ public class AI {
                 if (isThereASettlement) {
                     System.out.println("AHHHHHHHHHH");
                     if (builder.build(player, islandMap, 4, level3HexIDs[1])) {
+                        buildOptionWasChosen = true;
                         System.out.println("RTWERWER");
                         toSendServer[3] = 4;
                         toSendServer[4] = coordinateSystem.getXCoordinate(level3HexIDs[1]);
@@ -337,6 +353,7 @@ public class AI {
             if (isThereASettlement) {
                 System.out.println("BLOB");
                 if(builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 1))) {
+                    buildOptionWasChosen = true;
                     System.out.println("BLEEB");
                     toSendServer[3] = 4;
                     toSendServer[4] = coordinateSystem.getXCoordinate(activeHexIDs.get(activeHexIDs.size() - 1));
@@ -350,6 +367,7 @@ public class AI {
             if (isThereASettlement) {
                 System.out.println("BLOOB");
                 if(builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 2))) {
+                    buildOptionWasChosen = true;
                     System.out.println("BLERB");
                     toSendServer[3] = 4;
                     toSendServer[4] = coordinateSystem.getXCoordinate(activeHexIDs.get(activeHexIDs.size() - 2));
@@ -713,6 +731,7 @@ public class AI {
                 if (!availableHexIDs.isEmpty()) {
                     //place Totoro
                     if (builder.build(player, islandMap, 3, availableHexIDs.get(0))) {
+                        buildOptionWasChosen = true;
                         System.out.println("Totoro places");
                         toSendServer[3] = 3;
                         toSendServer[4] = coordinateSystem.getXCoordinate(availableHexIDs.get(0));
@@ -830,6 +849,7 @@ public class AI {
 
         //Check right side
         if(islandMap.addTileToMap(19900,60, globalTerrains, player)){
+            tileWasPlaced = true;
             //return x, y, z and orientation
             toServer = toSendToServer(19900, 60);
             volcanosOnMap.add(19900);
@@ -841,6 +861,7 @@ public class AI {
         }
         //Check left side
         else if(islandMap.addTileToMap(19898,240, globalTerrains, player)){
+            tileWasPlaced = true;
             //return x, y, z and orientation
             toServer = toSendToServer(19898, 240);
             volcanosOnMap.add(19898);
@@ -863,6 +884,7 @@ public class AI {
 
     public int[] placeTile(IslandMap islandMap, int volcanoHexID, int orientation){
         if(islandMap.addTileToMap(volcanoHexID, orientation, globalTerrains, player)) {
+            tileWasPlaced = true;
             RotateTile rotateTile = new RotateTile(volcanoHexID, orientation);
             int[] Tile = rotateTile.checkPair();
             for (int i = 0; i < 3; i++) {
@@ -910,6 +932,7 @@ public class AI {
 
     public boolean placeMeeple(IslandMap islandMap, Player player, int hexID){
         if(builder.build(player, islandMap, 1, hexID)){
+            buildOptionWasChosen = true;
             toSendServer[3] = 1;
             toSendServer[4] = coordinateSystem.getXCoordinate(hexID);
             toSendServer[5] = coordinateSystem.getYCoordinate(hexID);
