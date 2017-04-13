@@ -60,6 +60,11 @@ public class IslandMap {
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             hexGrid.setHexTileIDs(tileHexIDsArray, tileCount);
             tileCount++;
+
+            System.out.print("Tile Hex IDs: ");
+            for(int i=0; i<tileHexIDsArray.length; i++) {
+                System.out.print(tileHexIDsArray[i] + " ");
+            }
             System.out.println("Tile Successfully Placed!");
             return true;
         }
@@ -82,7 +87,9 @@ public class IslandMap {
             tileCount++;
             System.out.println("Nuke Successful!");
 
-
+            for(int i=0; i<3; i++) {
+                System.out.println("NukeHex " + i + ": " + tileHexIDsArray[i]);
+            }
             settlement.updateSettlementAfterNuke(hexesList, player);
 
             return true;
@@ -136,6 +143,11 @@ public class IslandMap {
             gameBoardMap.put(tile.getTileID(), tile.getHexIDContainer());
             hexGrid.setHexTileIDs(tileHexIDsArray, tileCount);
             tileCount++;
+
+            System.out.print("Tile Hex IDs: ");
+            for(int i=0; i<tileHexIDsArray.length; i++) {
+                 System.out.print(tileHexIDsArray[i] + " ");
+            }
             System.out.println("Tile Successfully Placed!");
             return true;
         }

@@ -136,6 +136,7 @@ public class AI {
     }
 
     public void makeMove(String[] Terrains){
+        System.out.println("MAKE MOVE");
         for(int i = 0; i<3; i++){
             globalTerrains[i] = Terrains[i];
         }
@@ -199,16 +200,21 @@ public class AI {
             //place Tile
 
             if(player.getRemainingMeeples() == 0){
+                System.out.println("WARNING!!!!!!!");
                 System.out.println("Remaining Meeples: " + player.getRemainingMeeples());
                 System.out.println("Remaining Totoros: " + player.getRemainingTotoros());
                 System.out.println("Remaining Tiger: " + player.getRemainingTigers());
-                if(canYouNuke(islandMap))
+                if(canYouNuke(islandMap)) {
+                    System.out.println("CONNOR SAYS");
                     nuke(islandMap);
-                else
+                }
+                else {
+                    System.out.println("ERIC WAS HERE");
                     findLocationToPlaceTile(islandMap);
-
+                }
                 if(!canATotoroBePlaced(islandMap, player)){
                     if(!checkToPlaceTiger()){
+                        System.out.println("PARTY!");
                         toSendServer[3] = 5;
                         sendMoveToServer(toSendServer[0], toSendServer[1], toSendServer[2], toSendServer[3], toSendServer[4], toSendServer[5]);
                         return;
@@ -221,26 +227,36 @@ public class AI {
             System.out.println("Remaining Totoros: " + player.getRemainingTotoros());
             System.out.println("Remaining Tiger: " + player.getRemainingTigers());
             if (canYouNuke(islandMap)) {
+                System.out.println("BOJANGLES");
                 if (!canYouPlaceMeepleAnywhere(islandMap, player)) {
+                    System.out.println("DERP");
                     findLocationToPlaceTile(islandMap);
                 }
                 else {
+                    System.out.println("NUKE THEM!!!!!!");
                     nuke(islandMap);
+                    System.out.println("WE NUKED");
                     if(checkToPlaceTiger()){
+                        System.out.println("WOOWOWOWOWOWOW");
                         return;
                     }
                 }
-            } else {
+            }
+            else {
+                System.out.println("LOLOLOLOL");
                 findLocationToPlaceTile(islandMap);
             }
 
             //build
 
             if (readyToPlaceTiger) {
+                System.out.println("YODELEEEEHOOOO");
                 boolean isThereASettlement = false;
                 isThereASettlement = lookAroundAHexForASettlment(islandMap, level3HexIDs[0], player);
                 if (isThereASettlement) {
+                    System.out.println("TICKLE ME");
                     if (builder.build(player, islandMap, 4, level3HexIDs[0])) {
+                        System.out.println("LAWDY LAWDY");
                         toSendServer[3] = 4;
                         toSendServer[4] = coordinateSystem.getXCoordinate(level3HexIDs[0]);
                         toSendServer[5] = coordinateSystem.getYCoordinate(level3HexIDs[0]);
@@ -251,7 +267,9 @@ public class AI {
                 }
                 isThereASettlement = lookAroundAHexForASettlment(islandMap, level3HexIDs[1], player);
                 if (isThereASettlement) {
+                    System.out.println("AHHHHHHHHHH");
                     if (builder.build(player, islandMap, 4, level3HexIDs[1])) {
+                        System.out.println("RTWERWER");
                         toSendServer[3] = 4;
                         toSendServer[4] = coordinateSystem.getXCoordinate(level3HexIDs[1]);
                         toSendServer[5] = coordinateSystem.getYCoordinate(level3HexIDs[1]);
@@ -264,30 +282,40 @@ public class AI {
             }
 
             if ((wasTigerPlaced == false) && (level == 3)) {
+                System.out.println("GLOBS");
                 if (lookAroundAHexForASettlment(islandMap, level3HexIDs[0], player)) {
+                    System.out.println("COCKADOODLEDOO");
                     placeMeeple(islandMap, player, level3HexIDs[0]);
-//                    readyToPlaceTiger = true;
-                    //return;
                 }
                 else if (lookAroundAHexForASettlment(islandMap, level3HexIDs[1], player)) {
+                    System.out.println("SSSSSSS");
                     placeMeeple(islandMap, player, level3HexIDs[1]);
-//                    readyToPlaceTiger = true;
-                    //return;
                 }
+                else {
+                    placeMeepleAnywhere(islandMap, player); //Added by Connor 4/12/17
+                }
+
                 readyToPlaceTiger = true;
             }
             else {
+                System.out.println("YOU'RE A WIZARD");
                 if (!canATotoroBePlaced(islandMap, player)) {
+                    System.out.println("YUCK");
                     if (!findTheLargestSettlementLessThanFive(islandMap, player)) {
-                        if (player.getPieces().getNumberOfMeeples() != 0)
+                        System.out.println("PUMPKIN");
+                        if (player.getPieces().getNumberOfMeeples() != 0) {
+                            System.out.println("PIE IS GOOd");
                             if (placeMeepleAnywhere(islandMap, player)) {
+                                System.out.println("BLABLABLA");
                                 return;
                             } else {
+                                System.out.println("HOWDY GANG");
                                 //System out of moves
                                 toSendServer[3] = 5;
                                 sendMoveToServer(toSendServer[0], toSendServer[1], toSendServer[2], toSendServer[3], toSendServer[4], toSendServer[5]);
                                 return;
                             }
+                        }
                     }
                     //Look for tile in tallest level
                     //If level >= 3 place tiger
@@ -300,12 +328,16 @@ public class AI {
     }
 
     public boolean checkToPlaceTiger(){
+        System.out.println("TIGERERRSSS");
         level = islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel();
-        if (islandMap.getHex(activeHexIDs.get(activeHexIDs.size() - 1)).getLevel() >= 3) {
+        if (level >= 3) {
+            System.out.println("BLUB");
             boolean isThereASettlement = false;
             isThereASettlement = lookAroundAHexForASettlment(islandMap, activeHexIDs.get(activeHexIDs.size() - 1), player);
             if (isThereASettlement) {
+                System.out.println("BLOB");
                 if(builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 1))) {
+                    System.out.println("BLEEB");
                     toSendServer[3] = 4;
                     toSendServer[4] = coordinateSystem.getXCoordinate(activeHexIDs.get(activeHexIDs.size() - 1));
                     toSendServer[5] = coordinateSystem.getYCoordinate(activeHexIDs.get(activeHexIDs.size() - 1));
@@ -316,7 +348,9 @@ public class AI {
             }
             isThereASettlement = lookAroundAHexForASettlment(islandMap, activeHexIDs.get(activeHexIDs.size() - 2), player);
             if (isThereASettlement) {
+                System.out.println("BLOOB");
                 if(builder.build(player, islandMap, 4, activeHexIDs.get(activeHexIDs.size() - 2))) {
+                    System.out.println("BLERB");
                     toSendServer[3] = 4;
                     toSendServer[4] = coordinateSystem.getXCoordinate(activeHexIDs.get(activeHexIDs.size() - 2));
                     toSendServer[5] = coordinateSystem.getYCoordinate(activeHexIDs.get(activeHexIDs.size() - 2));
@@ -828,17 +862,20 @@ public class AI {
 
 
     public int[] placeTile(IslandMap islandMap, int volcanoHexID, int orientation){
-        islandMap.addTileToMap(volcanoHexID, orientation, globalTerrains, player);
-        RotateTile rotateTile = new RotateTile(volcanoHexID, orientation);
-        int[] Tile = rotateTile.checkPair();
-        for(int i = 0; i<3; i++) {
-            activeHexIDs.add(Tile[i]);
+        if(islandMap.addTileToMap(volcanoHexID, orientation, globalTerrains, player)) {
+            RotateTile rotateTile = new RotateTile(volcanoHexID, orientation);
+            int[] Tile = rotateTile.checkPair();
+            for (int i = 0; i < 3; i++) {
+                activeHexIDs.add(Tile[i]);
+            }
+
+            updateMaxAndMin();
+
+            volcanosOnMap.add(volcanoHexID);
         }
-
-        updateMaxAndMin();
-
-        volcanosOnMap.add(volcanoHexID);
-
+        else{
+            findLocationToPlaceTile(islandMap);
+        }
         return toSendToServer(volcanoHexID, orientation);
     }
 
