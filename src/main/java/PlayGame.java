@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-
 /**
  * Created by ale on 4/11/17.
  */
 public class PlayGame {
 
     private ALE_AI ai = new ALE_AI();
+    private ALE_AI serverAI = new ALE_AI();
 
     private boolean aiTurn = true;
 
@@ -17,6 +16,7 @@ public class PlayGame {
 
             if (aiTurn) {
 
+                ai.setTerrainsArray(ai.getIslandMap().getNewTile());
                 moveData = ai.play();
 
             } else {

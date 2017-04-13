@@ -1,5 +1,5 @@
 import java.io.*;
-import java.net.*;
+
 /**
  * Created by cyonkee on 4/4/17.
  */
@@ -45,7 +45,7 @@ public class MatchProtocol {
         if(fromServer.substring(0,4).equals("GAME")){
             System.out.println("Server: " + fromServer);
         }
-        
+
         gid1 = null;
         gid2 = null;
         isMatchDone = false;

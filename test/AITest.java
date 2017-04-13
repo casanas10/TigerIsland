@@ -120,5 +120,35 @@ public class AITest {
 
         ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
     }
+
+    @Test
+    public void ableToExpand() {
+
+        String[] terrains = ai.getIslandMap().getNewTile();
+        ai.setTerrainsArray(terrains);
+
+        System.out.println(ai.ableToExpand());
+
+        ai.getIslandMap().addTileToMap(19500, 60);
+        ai.getIslandMap().getHex(19701).setTerrain("Grassland");
+        ai.getIslandMap().getHex(19501).setTerrain("Grassland");
+        ai.getIslandMap().getSettlementObj().addSettlement(19501, ai.getAiPlayer());
+
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+
+        System.out.println(ai.ableToExpand());
+
+        ai.getIslandMap().addTileToMap(19499, 180);
+        ai.getIslandMap().getHex(19300).setTerrain("Rocky");
+        ai.getIslandMap().getHex(19299).setTerrain("Rocky");
+        ai.getIslandMap().getSettlementObj().addSettlement(19299, ai.getAiPlayer());
+
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+
+        ai.ableToExpand();
+
+        ai.expandSettlement();
+
+    }
 }
 

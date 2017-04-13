@@ -1,3 +1,4 @@
+//
 //import javax.swing.*;
 //import java.awt.*;
 //import java.awt.event.MouseAdapter;
@@ -5,9 +6,11 @@
 //import java.awt.image.BufferedImage;
 //import java.util.ArrayList;
 //
+//
 ///**
-// * Created by alecasanas on 4/3/17.
-// */
+//// * Created by alecasanas on 4/3/17.
+//// */
+//
 //public class Frame extends JFrame {
 //
 //    public static final int WIDTH = 1000;
@@ -33,15 +36,11 @@
 //
 //    boolean tileSuccessfullyPlaced = false;
 //
-//    MoveInfo playerMove = new MoveInfo();
+//    MoveData playerMove = new MoveData();
 //
-//    ArrayList<Integer> activeHexes = new ArrayList<Integer>() {{
-//        add(3014);
-//        add(2814);
-//        add(2815);
-//        add(3214);
-//        add(3215);
-//    }};
+//    private RotationConverter rotationConverter = new RotationConverter();
+//    private CoordinateConverter coordinateConverter = new CoordinateConverter();
+//    private CoordinateSystem coordinateSystem = new CoordinateSystem();
 //
 //    public Frame (){
 //        runGUI();
@@ -54,15 +53,15 @@
 //        CoordinateSystem coors = new CoordinateSystem();
 //        // First tile will actually be placed in the center, this is for testing purposes
 //        //tileSuccessfullyPlaced = islandMap.addTileToMap(606, 0);
-//        int[] tileHexIDsArray = {coors.getHexID(14,15), coors.getHexID(14,14),coors.getHexID(15,14),
-//                coors.getHexID(14,16), coors.getHexID(15, 16)};
+//        int[] tileHexIDsArray = {coordinateSystem.getHexID(99,99), coordinateSystem.getHexID(99,98),coordinateSystem.getHexID(100,98),
+//                coordinateSystem.getHexID(99,100), coordinateSystem.getHexID(100, 100)};
 //        String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
 //        islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
 //
 //
 //        if (islandMap.containsHexKey(0)){
 //
-//            int[] firstTileArr = {3014, 2814, 2815, 3214, 3215};
+//            int[] firstTileArr = {19899, 19699, 19700, 20099, 20100};
 //
 //            for (int i = 0; i < firstTileArr.length; i++){
 //
@@ -96,14 +95,48 @@
 //
 //                if (aiTurn){
 //
-//                    System.out.println("AI TURN");
-//                    playerMove = ai.play(activeHexes);
+//                    MoveData aiMove = new MoveData();
 //
-//                    RotateTile tile = new RotateTile(playerMove.getHexID(),playerMove.getOrientation());
+//                    String[] newTile = islandMap.getNewTile();
+//
+//                    ai.setTerrainsArray(newTile);
+//
+//                    System.out.println("AI TURN");
+//                    aiMove = ai.play();
+//
+//                    int[] ourCoordinatesTile = coordinateConverter.serverToOurs(aiMove.getTilePlacementX(), aiMove.getTilePlacementY(), aiMove.getTilePlacementZ());
+//
+//                    int hexID = coordinateSystem.getHexID(ourCoordinatesTile[0], ourCoordinatesTile[1]);
+//
+//                    int ourOrientation = rotationConverter.serverToOurs(aiMove.getOrientation());
+//
+//                    RotateTile tile = new RotateTile(hexID, ourOrientation);
+//
+////                    System.out.println(playerMove.getOrientation());
 //
 //                    drawTile(tile);
 //
-//                    addNewElement(islandMap.getHex(playerMove.getHexSettled()).getX(),islandMap.getHex(playerMove.getHexSettled()).getY(), playerMove.getBuildOption());
+//                    int[] ourCoordinatesBuild = coordinateConverter.serverToOurs(aiMove.getBuildOptionX(), aiMove.getBuildOptionY(), aiMove.getBuildOptionZ());
+//
+//                    int hexSettled = coordinateSystem.getHexID(ourCoordinatesBuild[0], ourCoordinatesBuild[1]);
+//
+//                    //handle extend
+//                    if (playerMove.getBuildOption() == 2){
+//
+//                        ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, aiPlayer);
+//
+//                        String ExtendTerrain = aiMove.getExtendTerrain();
+//
+//                        ArrayList<Integer> hexList = extend.getTerrainList(ExtendTerrain);
+//
+//                        for (int i = 0; i < hexList.size(); i++){
+//                            addNewElement(islandMap.getHex(hexList.get(i)).getX(),islandMap.getHex(hexList.get(i)).getY(), aiMove.getBuildOption());
+//                        }
+//
+//                    } else {
+//
+//                        addNewElement(islandMap.getHex(hexSettled).getX(),islandMap.getHex(hexSettled).getY(), playerMove.getBuildOption());
+//                    }
 //
 //                } else {
 //
@@ -426,3 +459,4 @@
 //        g.drawOval(x, y, 4, 4);
 //    }
 //}
+//

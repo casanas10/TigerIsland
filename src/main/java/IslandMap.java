@@ -14,7 +14,6 @@ public class IslandMap {
 
     String tileTerrainsArray[] = new String[3];
 
-
     public IslandMap(){
         gameBoardMap = new HashMap<Integer, int[]>();
         myGen = new TileGenerator();
