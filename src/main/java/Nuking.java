@@ -35,6 +35,9 @@ public class Nuking {
 
     }
 
+
+
+
     private boolean willNukingCompletelyDestroyASettlement(IslandMap islandMap, int[] hexIDSArray) {
         Settlement settlement = islandMap.getSettlementObj();
         HexGrid hexGrid = islandMap.getHexGrid();

@@ -72,7 +72,8 @@ public class Settlement {
 
             ArrayList<Integer> hexesArr = settlementSizeChecker.checkSettlementSize(NewHexIDs.get(i), player2);
 
-            setSettlementID(NewHexIDs.get(i),settleID);
+//            setSettlementID(NewHexIDs.get(i),settleID);
+
             for(int hexID : hexesArr)
                 setSettlementID(hexID, settleID);
 
