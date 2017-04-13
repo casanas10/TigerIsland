@@ -40,8 +40,6 @@ public class ALE_AI {
         String[] tileTerrainsArray = {"Volcano", "Jungle", "Lake", "Rocky", "Grassland"};
         islandMap.placeFirstTile(tileHexIDsArray, tileTerrainsArray);
 
-        islandMap.printTilesOnMap();
-
     }
 
     public void setTerrainsArray(String[] terrainsArray){
@@ -53,13 +51,13 @@ public class ALE_AI {
     public void updateOpponentMove(MoveData moveData){
         int ourOrientation = rotationConverter.serverToOurs(moveData.getOrientation());
 
-        System.out.println("Orientation " + ourOrientation);
+//        System.out.println("Orientation " + ourOrientation);
 
         int[] ourCoordinatesTile = coordinateConverter.serverToOurs(moveData.getTilePlacementX(), moveData.getTilePlacementY(), moveData.getTilePlacementZ());
 
-        System.out.println("x " + moveData.getTilePlacementX());
-        System.out.println("y " + moveData.getTilePlacementY());
-        System.out.println("z " + moveData.getTilePlacementZ());
+//        System.out.println("x " + moveData.getTilePlacementX());
+//        System.out.println("y " + moveData.getTilePlacementY());
+//        System.out.println("z " + moveData.getTilePlacementZ());
 
         String[] Terrains = moveData.getTerrainsArray();
 
@@ -77,7 +75,7 @@ public class ALE_AI {
 
         int hexID = coordinateSystem.getHexID(ourCoordinatesTile[0], ourCoordinatesTile[1]);
 
-        System.out.println("Hex ID : " + hexID);
+//        System.out.println("Hex ID : " + hexID);
 
         islandMap.addTileToMap(hexID, ourOrientation, Terrains, serverPlayer);
 
@@ -112,10 +110,7 @@ public class ALE_AI {
         hexesThatCanBeExpanded.clear();
 
         if (findAISettlements5orGreater(aiPlayer) != -1) return 1;  //build a totoro
-        else if (ableToExpand()){
-            System.out.println(ableToExpand());
-            return 2; //expand
-        }
+        else if (ableToExpand()) return 2; //expand
 
         return 5;
     }
@@ -136,21 +131,17 @@ public class ALE_AI {
 
                 for (int j = 0; j < adjacentHexes.size(); j++){
 
-                    if (!(islandMap.getHex(adjacentHexes.get(j)).getTerrain().equals("Volcano")) && islandMap.getHex(adjacentHexes.get(j)).getTileID() != -1){
+                    if (!(islandMap.getHex(adjacentHexes.get(j)).getTerrain().equals("Volcano")) && islandMap.getHex(adjacentHexes.get(j)).getTileID() != -1 && islandMap.getHex(adjacentHexes.get(j)).checkIfHexIsNotSettled()){
 
                         hexesThatCanBeExpanded.add(hexes.get(0));
-                        System.out.println(adjacentHexes.get(j));
+//                        System.out.println(adjacentHexes.get(j));
                         ableToExpandFromASettlement = true;
-                    } else {
-                        ableToExpandFromASettlement = false;
                     }
-
                 }
 
             } else {
                 ableToExpandFromASettlement = false;
             }
-
         }
 
         return ableToExpandFromASettlement;
@@ -158,17 +149,12 @@ public class ALE_AI {
 
     public int[] findTheBestExpansion(Player aiPlayer) {
 
-        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(aiPlayer);
-
-        int[] hexIDPlusTerrain = new int[2];  //hexID   terrain number
-
         int tempMaxSize = 0;
+        int[] hexIDPlusTerrain = new int[2];
 
-        for (int i = 1; i < settlements.size(); i++){
+        for (int i = 0; i < hexesThatCanBeExpanded.size(); i++){
 
-            ArrayList<Integer> hexIDs = islandMap.getSettlementsMap().get(settlements.get(i));
-
-            int hexID = hexIDs.get(0);
+            int hexID = hexesThatCanBeExpanded.get(i);
 
             ExtendSettlement extend = new ExtendSettlement(hexID,islandMap,aiPlayer);
 
@@ -186,7 +172,7 @@ public class ALE_AI {
 
             int max = arraylistSizes[0];
 
-            int bestTerrain = arraylistSizes[0];
+            int bestTerrain = 0;
 
             for (int j = 0; j < arraylistSizes.length; j++){
 

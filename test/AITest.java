@@ -148,6 +148,53 @@ public class AITest {
         ai.ableToExpand();
 
         ai.expandSettlement();
+    }
+
+
+    @Test
+    public void ExpandingTest1() {
+
+        String[] terrains = ai.getIslandMap().getNewTile();
+        ai.setTerrainsArray(terrains);
+
+        System.out.println(ai.ableToExpand());
+
+        ai.getIslandMap().addTileToMap(19500, 60);
+        ai.getIslandMap().getHex(19701).setTerrain("Grassland");
+        ai.getIslandMap().getHex(19501).setTerrain("Grassland");
+        ai.getIslandMap().getSettlementObj().addSettlement(19501, ai.getAiPlayer());
+
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+        System.out.println(ai.ableToExpand());
+
+        ai.getIslandMap().addTileToMap(19499, 180);
+        ai.getIslandMap().getHex(19300).setTerrain("Rocky");
+        ai.getIslandMap().getHex(19299).setTerrain("Rocky");
+        ai.getIslandMap().getSettlementObj().addSettlement(19299, ai.getServerPlayer());
+
+        ai.getIslandMap().getSettlementObj().addSettlement(19701, ai.getAiPlayer());
+
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+
+        ai.getIslandMap().addTileToMap(19900, 60);
+        ai.getIslandMap().getHex(20101).setTerrain("Rocky");
+        ai.getIslandMap().getHex(19901).setTerrain("Jungle");
+
+        ai.getIslandMap().getSettlementObj().addSettlement(19700, ai.getAiPlayer());
+
+        ai.play();
+
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+//
+//        ai.getIslandMap().addTileToMap(1499, 240);
+//        ai.getIslandMap().getHex(19298).setTerrain("Grassland");
+//        ai.getIslandMap().getHex(19497).setTerrain("Grassland");
+//
+//        ai.expandSettlement();
+//
+//        ai.ableToExpand();
+//
+      //  ai.expandSettlement();
 
     }
 }

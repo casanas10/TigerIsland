@@ -77,7 +77,7 @@ public class Builder {
         else {
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
             boolean terrainToExtend = extend.extendOnTerrain(extend.getTerrainToExtendOn());
-            islandMap.getSettlementObj().printAllSettlements(player);
+            //islandMap.getSettlementObj().printAllSettlements(player);
             return terrainToExtend;
         }
 
@@ -91,7 +91,7 @@ public class Builder {
 
             ExtendSettlement extend = new ExtendSettlement(hexID, islandMap, player);
             boolean terrainToExtend = extend.extendOnTerrain(terrain);
-            islandMap.getSettlementObj().printAllSettlements(player);
+            //islandMap.getSettlementObj().printAllSettlements(player);
             return terrainToExtend;
         }
     }
@@ -177,8 +177,8 @@ public class Builder {
 
     public void updateScore(Player player, GamePiece piece, int level){
         player.updateScore(piece.calculateScore(level));
-        System.out.println(piece.calculateScore(level) + " point(s) added to " + player.getPlayerColor() + "'s score.");
-        System.out.println(player.getPlayerColor() + " player's total score: " + player.getCurrentScore());
+//        System.out.println(piece.calculateScore(level) + " point(s) added to " + player.getPlayerColor() + "'s score.");
+//        System.out.println(player.getPlayerColor() + " player's total score: " + player.getCurrentScore());
 
     }
 }

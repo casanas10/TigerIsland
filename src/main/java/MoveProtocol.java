@@ -43,6 +43,8 @@ public class MoveProtocol {
                 checkMessages(out, in, opponentPID, AI1, AI2);
             }
         }
+
+        System.out.println("---------------------------------------------");
     }
 
     private MoveData getTile(String tile, String currentGID, ALE_AI AI1, ALE_AI AI2) {
@@ -68,18 +70,20 @@ public class MoveProtocol {
 
         if (currentGID.equals(MatchProtocol.gid1)) {
             //AI1 gets terrains
-            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
+//            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
 
             if (givenTerrains[0] != null && givenTerrains[1] != null)
                 AI1.setTerrainsArray(terrainsArray);
 
+            AI1.getIslandMap().getSettlementObj().printAllSettlements(AI1.getAiPlayer());
             return AI1.play();
         } else {
             //AI2 gets terrains
-            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
+//            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
 
             if (givenTerrains[0] != null && givenTerrains[1] != null)
                 AI2.setTerrainsArray(terrainsArray);
+//            AI2.getIslandMap().getSettlementObj().printAllSettlements(AI1.getAiPlayer());
             return AI2.play();
         }
     }
@@ -169,8 +173,8 @@ public class MoveProtocol {
                     MatchProtocol.gid2 = serverGID;
                 }
 
-                System.out.println("gid1: " + MatchProtocol.gid1);
-                System.out.println("gid2: " + MatchProtocol.gid2);
+//                System.out.println("gid1: " + MatchProtocol.gid1);
+//                System.out.println("gid2: " + MatchProtocol.gid2);
 
                 if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI1
