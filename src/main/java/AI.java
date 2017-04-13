@@ -148,12 +148,21 @@ public class AI {
         }
 
         playingAI();
+        ensureThatWePlayed();
 
+    }
+
+    private void ensureThatWePlayed() {
         if(!tileWasPlaced){
             findLocationToPlaceTile(islandMap);
         }
         if(!buildOptionWasChosen){
             placeMeepleAnywhere(islandMap, player);
+        }
+
+        if(!tileWasPlaced || !buildOptionWasChosen){ //if they are still false, send "Unable To Build"
+            toSendServer[3] = 5;
+            sendMoveToServer(toSendServer[0], toSendServer[1], toSendServer[2], toSendServer[3], toSendServer[4], toSendServer[5]);
         }
     }
 
