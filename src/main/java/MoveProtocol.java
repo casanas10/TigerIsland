@@ -245,10 +245,10 @@ public class MoveProtocol {
                 if (MatchProtocol.gid1.equals("dead") && MatchProtocol.gid2.equals("dead")) {
                     MatchProtocol.isMatchDone = true;
                 }
-//                else{
-//                    fromServer = in.readLine();
-//                    System.out.println("Server: " + fromServer);
-//                }
+                else{
+                    fromServer = in.readLine();
+                    System.out.println("Server: " + fromServer);
+                }
             }
             return moveData;
         }

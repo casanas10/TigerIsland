@@ -178,7 +178,7 @@ public class Builder {
     public void updateScore(Player player, GamePiece piece, int level){
         player.updateScore(piece.calculateScore(level));
 //        System.out.println(piece.calculateScore(level) + " point(s) added to " + player.getPlayerColor() + "'s score.");
-//        System.out.println(player.getPlayerColor() + " player's total score: " + player.getCurrentScore());
+        System.out.println(player.getPlayerColor() + " player's total score: " + player.getCurrentScore());
 
     }
 }

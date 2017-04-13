@@ -265,5 +265,10 @@ public class AITest {
         Assert.assertTrue(ai.getIslandMap().getSettlementObj().getSettlementID(19301) == -1);
     }
 
+    @Test
+    public void addMeepleToAnExistingSettlementTest(){
+
+
+    }
 }
 
