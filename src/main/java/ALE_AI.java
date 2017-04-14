@@ -186,7 +186,6 @@ public class ALE_AI {
             return (new BuildResult(ableTobuild, buildOption, buildResult.foundSettlementToPlaceTotoro));
         }
 
-
         return (new BuildResult(false));
     }
 
@@ -339,7 +338,7 @@ public class ALE_AI {
             return moveData;
         }
 
-        return addTileAndMeepleSomewhereInTheMap();
+        return addMeepleToAnExistingSettlement();
     }
 
 //    public MoveData play() {
