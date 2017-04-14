@@ -177,18 +177,19 @@ public class MoveProtocol {
                     MatchProtocol.gid2 = serverGID;
                 }
 
-                System.out.println("gid1: " + MatchProtocol.gid1);
-                System.out.println("gid2: " + MatchProtocol.gid2);
+                System.out.println("Get message " + i);
+                System.out.println("Get two messages gid1: " + MatchProtocol.gid1);
+                System.out.println("Get two messages gid2: " + MatchProtocol.gid2);
 
                 if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI1
                     moveData = parseMessage(fromServerArr, in);
-                    if (moveData.getTerrainsArray() != null)
+ //                   if (moveData.getTerrainsArray() != null)
                         AI1.updateOpponentMove(moveData);
                 } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI2
                     moveData = parseMessage(fromServerArr, in);
-                    if (moveData.getTerrainsArray() != null)
+  //                  if (moveData.getTerrainsArray() != null)
                         AI2.updateOpponentMove(moveData);
                 } else {
                     //check if server says we lost; check which game if so.
@@ -214,15 +215,19 @@ public class MoveProtocol {
             serverGID = fromServerArr[1];
             serverPID = fromServerArr[5];
 
+            System.out.println("Get 1 message");
+            System.out.println("Get one message gid1: " + MatchProtocol.gid1);
+            System.out.println("Get one message gid2: " + MatchProtocol.gid2);
+
             if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                 //send opponent's move to AI1
                 moveData = parseMessage(fromServerArr, in);
-                if (moveData.getTerrainsArray() != null)
+//                if (moveData.getTerrainsArray() != null)
                     AI1.updateOpponentMove(moveData);
             } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
                 //send opponent's move to AI2
                 moveData = parseMessage(fromServerArr, in);
-                if (moveData.getTerrainsArray() != null)
+//                if (moveData.getTerrainsArray() != null)
                     AI2.updateOpponentMove(moveData);
             } else {
                 //check if server says we lost; check which game if so.
@@ -247,7 +252,8 @@ public class MoveProtocol {
 
             if (serverGID.equals(MatchProtocol.gid1)) {
                 MatchProtocol.gid1 = "dead";
-            } else {
+            }
+            if(serverGID.equals(MatchProtocol.gid2)) {
                 MatchProtocol.gid2 = "dead";
             }
 
