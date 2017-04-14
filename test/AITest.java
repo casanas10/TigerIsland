@@ -394,5 +394,40 @@ public class AITest {
         Assert.assertTrue(nukeResult.nukingSuccessfull);
     }
 
+    @Test
+    public void nukeHexAdjacentToTotoro() {
+
+        String[] terrains = ai.getIslandMap().getNewTile();
+        ai.setTerrainsArray(terrains);
+
+        ai.getIslandMap().addTileToMap(19500, 60);
+        ai.getIslandMap().getHex(19701).setTerrain("Grassland");
+        ai.getIslandMap().getHex(19501).setTerrain("Grassland");
+        ai.getIslandMap().getSettlementObj().addSettlement(19501, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19701, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19700, ai.getAiPlayer());
+
+        ai.getIslandMap().addTileToMap(19101, 0);
+        ai.getIslandMap().getHex(19301).setTerrain("Rocky");
+        ai.getIslandMap().getHex(19302).setTerrain("Grassland");
+        ai.getIslandMap().getSettlementObj().addSettlement(19301, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19302, ai.getAiPlayer());
+
+        ai.getIslandMap().addTileToMap(19499, 180);
+        ai.getIslandMap().getHex(19300).setTerrain("Grassland");
+        ai.getIslandMap().getHex(19299).setTerrain("Grassland");
+//        ai.getIslandMap().getSettlementObj().addSettlement(19299, ai.getAiPlayer());  //this will return false since more than 2 hexes touches totoro
+
+        ai.buildATotoroSantuary();
+
+        System.out.println(ai.getIslandMap().getHex(19300).getPieceOnHex());
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+
+        ai.getIslandMap().addTileToMap(19100, 180);
+
+        ai.nukeHexAdjacentToTotoro();
+
+        //Assert.assertTrue(ai.getIslandMap().getSettlementObj().getSettlementID(19301) == -1);
+    }
 }
 

@@ -2,6 +2,7 @@
  * Created by alecasanas on 4/2/17.
  */
 
+import javax.lang.model.element.NestingKind;
 import java.util.*;
 
 public class ALE_AI {
@@ -27,8 +28,6 @@ public class ALE_AI {
     private ArrayList<Integer> hexesThatCanBeExpanded = new ArrayList<>();
 
     private int touchingHex = -1;
-
-    boolean firstTile = true;
 
     private boolean hexesLevel3 = false;
 
@@ -125,15 +124,40 @@ public class ALE_AI {
         return 5;
     }
 
-    public void NukingStrategy() {
 
-        if (nukeOpponentWith3HexesOrMore().nukingSuccessfull){
+    public MoveData play(){
 
-            
-        }
+       NukeResult result = nukingStrategy();
+
+       return buildStrategy(result);
+    }
+
+    public MoveData buildStrategy(NukeResult result) {
+
+
+
+        return addTileAndMeepleSomewhereInTheMap();
 
     }
 
+    public NukeResult nukingStrategy() {
+
+        NukeResult result = nukeOpponentWith3HexesOrMore();
+
+        if (result.nukingSuccessfull) {
+            return result;
+        }
+
+        result = nukeHexAdjacentToTotoro();
+
+        if (result.nukingSuccessfull){
+
+            return result;
+        }
+
+
+        return (new NukeResult(false));
+    }
 
     public int findBestStrategyForPlacingTigers() {
 
@@ -169,80 +193,79 @@ public class ALE_AI {
 
     }
 
-
-    public MoveData play() {
-
-//        int strategy = findBestStrategyForPlacingTigers();
+//    public MoveData play() {
+//
+////        int strategy = findBestStrategyForPlacingTigers();
+////
+////        switch (strategy) {
+////
+////           // case 1: sendBuildTigerToServer(MoveData moveData);
+////
+////            case 5: return addTileAndMeepleSomewhereInTheMap();
+////
+////            default: return addTileAndMeepleSomewhereInTheMap();
+////        }
+//
+//
+//        if (aiPlayer.getRemainingMeeples() == 0){
+//
+//            int buildOption = 5; //UNABLE TO BUILD : because you ran out of meeples
+//
+//            MoveData info = new MoveData();
+//
+//            HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(islandMap.getAllHexesOnMap());
+//
+//            int[] tileInfo = allPossibleTiles.get(0);
+//
+//            islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer);
+//
+//            tile = new RotateTile(tileInfo[0], tileInfo[1]);
+//
+//            int[] pairs = tile.checkPair();
+//
+//            builder.build(aiPlayer, islandMap, buildOption, pairs[1]);
+//
+//            int tileX = islandMap.getHex(tileInfo[0]).getX();
+//            int tileY = islandMap.getHex(tileInfo[0]).getY();
+//            int orientation = tileInfo[1];
+//            int buildOptX = islandMap.getHex(pairs[1]).getX();
+//            int buildOptY = islandMap.getHex(pairs[1]).getY();
+//
+//            int serverOrientation = rotationConverter.oursToServer(orientation);
+//            int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+//
+//            info.setOrientation(serverOrientation);
+//            info.setTilePlacementX(serverCoordinatesTile[0]);
+//            info.setTilePlacementY(serverCoordinatesTile[1]);
+//            info.setTilePlacementZ(serverCoordinatesTile[2]);
+//
+//            int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+//
+//            info.setBuildOption(buildOption);
+//            info.setBuildOptionX(serverCoordinatesBuild[0]);
+//            info.setBuildOptionY(serverCoordinatesBuild[1]);
+//            info.setBuildOptionZ(serverCoordinatesBuild[2]);
+//            info.setBuildOption(buildOption);
+//
+//            return info;
+//        }
+//
+//        int strategy = findBestStrategyForPlacingTotoros();
 //
 //        switch (strategy) {
 //
-//           // case 1: sendBuildTigerToServer(MoveData moveData);
+//            case 1: return buildATotoroSantuary();
+//
+//            case 2: return nukeHexNextToTheTotoro();
+//
+//            case 3: return expandSettlement();
 //
 //            case 5: return addTileAndMeepleSomewhereInTheMap();
 //
 //            default: return addTileAndMeepleSomewhereInTheMap();
 //        }
-
-
-        if (aiPlayer.getRemainingMeeples() == 0){
-
-            int buildOption = 5; //UNABLE TO BUILD : because you ran out of meeples
-
-            MoveData info = new MoveData();
-
-            HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(islandMap.getAllHexesOnMap());
-
-            int[] tileInfo = allPossibleTiles.get(0);
-
-            islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer);
-
-            tile = new RotateTile(tileInfo[0], tileInfo[1]);
-
-            int[] pairs = tile.checkPair();
-
-            builder.build(aiPlayer, islandMap, buildOption, pairs[1]);
-
-            int tileX = islandMap.getHex(tileInfo[0]).getX();
-            int tileY = islandMap.getHex(tileInfo[0]).getY();
-            int orientation = tileInfo[1];
-            int buildOptX = islandMap.getHex(pairs[1]).getX();
-            int buildOptY = islandMap.getHex(pairs[1]).getY();
-
-            int serverOrientation = rotationConverter.oursToServer(orientation);
-            int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
-
-            info.setOrientation(serverOrientation);
-            info.setTilePlacementX(serverCoordinatesTile[0]);
-            info.setTilePlacementY(serverCoordinatesTile[1]);
-            info.setTilePlacementZ(serverCoordinatesTile[2]);
-
-            int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
-
-            info.setBuildOption(buildOption);
-            info.setBuildOptionX(serverCoordinatesBuild[0]);
-            info.setBuildOptionY(serverCoordinatesBuild[1]);
-            info.setBuildOptionZ(serverCoordinatesBuild[2]);
-            info.setBuildOption(buildOption);
-
-            return info;
-        }
-
-        int strategy = findBestStrategyForPlacingTotoros();
-
-        switch (strategy) {
-
-            case 1: return buildATotoroSantuary();
-
-            case 2: return nukeHexNextToTheTotoro();
-
-            case 3: return expandSettlement();
-
-            case 5: return addTileAndMeepleSomewhereInTheMap();
-
-            default: return addTileAndMeepleSomewhereInTheMap();
-        }
-
-    }
+//
+//    }
 
     public MoveData nukeHexNextToTheTotoro() {
 
@@ -319,9 +342,30 @@ public class ALE_AI {
 
                                             return info;
                                         } else {
-                                            System.out.println("HIII");
+                                            System.out.println("*****UNABLE TO BUILD*****");
                                             buildOption = 5; //UNABLE TO BUILD : because you ran out of meeples
+
+                                            int tileX = islandMap.getHex(adjacentHexes.get(i)).getX();
+                                            int tileY = islandMap.getHex(adjacentHexes.get(i)).getY();
+
+                                            int buildOptX = islandMap.getHex(theBestExpansion[0]).getX();
+                                            int buildOptY = islandMap.getHex(theBestExpansion[0]).getY();
+
+                                            int serverOrientation = rotationConverter.oursToServer(orientation[j]);
+                                            int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+                                            info.setOrientation(serverOrientation);
+                                            info.setTilePlacementX(serverCoordinatesTile[0]);
+                                            info.setTilePlacementY(serverCoordinatesTile[1]);
+                                            info.setTilePlacementZ(serverCoordinatesTile[2]);
+
+                                            int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+
                                             info.setBuildOption(buildOption);
+                                            info.setBuildOptionX(serverCoordinatesBuild[0]);
+                                            info.setBuildOptionY(serverCoordinatesBuild[1]);
+                                            info.setBuildOptionZ(serverCoordinatesBuild[2]);
+                                            info.setExtendTerrain(terrainToExpand);
+
                                             return info;
                                         }
 
@@ -544,38 +588,49 @@ public class ALE_AI {
 
         HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(islandMap.getAllHexesOnMap());
 
-        int[] tileInfo = allPossibleTiles.get(0);
+        for (int i = 0; i < allPossibleTiles.size(); i++){
 
-        islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer);
+            int[] tileInfo = allPossibleTiles.get(i);
 
-        tile = new RotateTile(tileInfo[0], tileInfo[1]);
+            if (islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer)){
 
-        int[] pairs = tile.checkPair();
+                System.out.println("YEY PLACED TILE");
 
-        int buildOption = 1;
+                islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer);
 
-        builder.build(aiPlayer, islandMap, buildOption, pairs[1]);
+                tile = new RotateTile(tileInfo[0], tileInfo[1]);
 
-        int tileX = islandMap.getHex(tileInfo[0]).getX();
-        int tileY = islandMap.getHex(tileInfo[0]).getY();
-        int orientation = tileInfo[1];
-        int buildOptX = islandMap.getHex(pairs[1]).getX();
-        int buildOptY = islandMap.getHex(pairs[1]).getY();
+                int[] pairs = tile.checkPair();
 
-        int serverOrientation = rotationConverter.oursToServer(orientation);
-        int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+                int buildOption = 1;
 
-        info.setOrientation(serverOrientation);
-        info.setTilePlacementX(serverCoordinatesTile[0]);
-        info.setTilePlacementY(serverCoordinatesTile[1]);
-        info.setTilePlacementZ(serverCoordinatesTile[2]);
+                builder.build(aiPlayer, islandMap, buildOption, pairs[1]);
 
-        int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+                int tileX = islandMap.getHex(tileInfo[0]).getX();
+                int tileY = islandMap.getHex(tileInfo[0]).getY();
+                int orientation = tileInfo[1];
+                int buildOptX = islandMap.getHex(pairs[1]).getX();
+                int buildOptY = islandMap.getHex(pairs[1]).getY();
 
-        info.setBuildOption(buildOption);
-        info.setBuildOptionX(serverCoordinatesBuild[0]);
-        info.setBuildOptionY(serverCoordinatesBuild[1]);
-        info.setBuildOptionZ(serverCoordinatesBuild[2]);
+                int serverOrientation = rotationConverter.oursToServer(orientation);
+                int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+
+                info.setOrientation(serverOrientation);
+                info.setTilePlacementX(serverCoordinatesTile[0]);
+                info.setTilePlacementY(serverCoordinatesTile[1]);
+                info.setTilePlacementZ(serverCoordinatesTile[2]);
+
+                int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+
+                info.setBuildOption(buildOption);
+                info.setBuildOptionX(serverCoordinatesBuild[0]);
+                info.setBuildOptionY(serverCoordinatesBuild[1]);
+                info.setBuildOptionZ(serverCoordinatesBuild[2]);
+
+                return info;
+            }
+
+        }
 
         return info;
     }
@@ -934,10 +989,18 @@ public class ALE_AI {
         return (new NukeResult(successfull));
     }
 
-//    public boolean pairsPartOfSettlement(int[] pairs, int settlementID){
-//
-//        ArrayList<Int>
-//
-//        return false;
-//    }
+    public NukeResult nukeHexAdjacentToTotoro() {
+
+        if (isThereSettlementThatHasTotoroAlready(aiPlayer) != -1) {
+
+            int settlementID = isThereSettlementThatHasTotoroAlready(aiPlayer);
+
+            if (itOnlyTouchingOneHexInTheSettlement(settlementID)) {
+
+                //NUKE IT PLACING TILE AND RETURN NUKE RESULT
+            }
+        }
+
+        return (new NukeResult(false));
+    }
 }
