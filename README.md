@@ -27,7 +27,7 @@ you can changer the IP address and port.
 Our game assumes that the inputs will be correct. If the input is incorrect, the game will skip to the AI's turn. 
 
 Implementation Details:
--When playing in the console, the AI will take a Game object. 
+- When playing in the console, the AI will take a Game object. 
 
 Notes about classes:
 - IslandMap is what keeps track of the actual map of the game. In order to place a tile, we call IslandMap.addTileToMap().
