@@ -129,15 +129,61 @@ public class ALE_AI {
 
        NukeResult result = nukingStrategy();
 
-       return buildStrategy(result);
+       if (!nukingStrategy().nukingSuccessfull){
+
+           return addTileAndMeepleSomewhereInTheMap();
+       }
+
+       performNuking(result);
+
+       return buildStrategy();
     }
 
-    public MoveData buildStrategy(NukeResult result) {
+    public MoveData buildStrategy() {
 
+        BuildResult buildResult = ableToBuildATigerPlayground();
 
+        if (buildResult.buildSuccessfull){
+
+            return buildATigerPlayground(buildResult.level3hex);
+        }
 
         return addTileAndMeepleSomewhereInTheMap();
+    }
 
+    public BuildResult ableToBuildATigerPlayground() {
+
+        ArrayList<Integer> level3Hexes = findHexLevel3();
+
+        for (int i = 0; i < level3Hexes.size(); i++){
+
+            if (checkIfLevel3HexHasSettlementAdjacentToIt(level3Hexes.get(i))){
+
+                boolean successfull = true;
+                int level3hex = level3Hexes.get(i);
+
+                return (new BuildResult(successfull, level3hex));
+            }
+        }
+
+        return (new BuildResult(false));
+    }
+
+    public MoveData performNuking(NukeResult result) {
+
+        MoveData info = new MoveData();
+
+        int tileX = islandMap.getHex(result.hexID).getX();
+        int tileY = islandMap.getHex(result.hexID).getY();
+
+        int serverOrientation = rotationConverter.oursToServer(result.orientation);
+        int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+        info.setOrientation(serverOrientation);
+        info.setTilePlacementX(serverCoordinatesTile[0]);
+        info.setTilePlacementY(serverCoordinatesTile[1]);
+        info.setTilePlacementZ(serverCoordinatesTile[2]);
+
+        return info;
     }
 
     public NukeResult nukingStrategy() {
@@ -151,7 +197,6 @@ public class ALE_AI {
         result = nukeHexAdjacentToTotoro();
 
         if (result.nukingSuccessfull){
-
             return result;
         }
 
@@ -182,15 +227,29 @@ public class ALE_AI {
         return 5;
     }
 
-    public void buildATigerPlayground(Integer level3Hex) {
+    public MoveData buildATigerPlayground(Integer level3Hex) {
+
+        MoveData info = new MoveData();
 
         int buildOption = 4;
 
         if (builder.build(aiPlayer, islandMap, buildOption, level3Hex)){
             System.out.println("Placed a tiger");
+
+            int buildOptX = islandMap.getHex(level3Hex).getX();
+            int buildOptY = islandMap.getHex(level3Hex).getY();
+
+            int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+
+            info.setBuildOption(buildOption);
+            info.setBuildOptionX(serverCoordinatesBuild[0]);
+            info.setBuildOptionY(serverCoordinatesBuild[1]);
+            info.setBuildOptionZ(serverCoordinatesBuild[2]);
+
+            return info;
         }
 
-
+        return addTileAndMeepleSomewhereInTheMap();
     }
 
 //    public MoveData play() {
@@ -998,9 +1057,95 @@ public class ALE_AI {
             if (itOnlyTouchingOneHexInTheSettlement(settlementID)) {
 
                 //NUKE IT PLACING TILE AND RETURN NUKE RESULT
+
+                if (touchingHex != -1) {
+
+                    //find all the adjacent hexes next to the hex that is touching totoro
+                    ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(touchingHex));
+
+                    int[] orientation = {0, 60, 120, 180, 240, 300};
+
+                    for (int i = 0; i < adjacentHexes.size(); i++) {
+
+                        if (islandMap.getHex(adjacentHexes.get(i)).getTerrain().equals("Volcano")) {
+
+                            Nuking nuker = new Nuking();
+
+                            for (int j = 0; j < orientation.length; j++) {
+
+                                tile = new RotateTile(adjacentHexes.get(i), orientation[j]);
+
+                                int[] pairs = tile.checkPair();
+
+                                if (nuker.canYouNukeSettlement(islandMap, pairs, adjacentHexes.get(i))) {
+
+                                    if (pairs[1] == touchingHex || pairs[2] == touchingHex) {
+
+                                        if (islandMap.addTileToMap(adjacentHexes.get(i), orientation[j], terrainsArray, aiPlayer)) {
+                                            System.out.println(adjacentHexes.get(i));
+                                            System.out.println(orientation[j]);
+
+
+                                            return (new NukeResult(true, adjacentHexes.get(i), orientation[j]));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
         return (new NukeResult(false));
+    }
+
+    private MoveData makeFirstMove() {
+
+        MoveData info = new MoveData();
+
+        int hexId = coordinateSystem.getHexID(99,99);
+        int orientation = 0;
+
+        //either build on one side or the other of the mega tile
+        if (islandMap.addTileToMap(hexId + 1, 120, terrainsArray, aiPlayer)){
+            hexId = hexId + 1;
+            orientation = 120;
+        } else {
+            islandMap.addTileToMap(hexId - 1, 300, terrainsArray, aiPlayer);
+            orientation = 300;
+        }
+
+        tile = new RotateTile(hexId, orientation);
+
+        int[] pairs = tile.checkPair();
+
+        int buildOption = 1;
+
+        builder.build(aiPlayer, islandMap, buildOption, pairs[1]);
+
+        int tileX = islandMap.getHex(hexId).getX();
+        int tileY = islandMap.getHex(hexId).getY();
+
+        int buildOptX = islandMap.getHex(pairs[1]).getX();
+        int buildOptY = islandMap.getHex(pairs[1]).getY();
+
+        int serverOrientation = rotationConverter.oursToServer(orientation);
+        int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+
+        info.setOrientation(serverOrientation);
+        info.setTilePlacementX(serverCoordinatesTile[0]);
+        info.setTilePlacementY(serverCoordinatesTile[1]);
+        info.setTilePlacementZ(serverCoordinatesTile[2]);
+
+        int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+
+        info.setBuildOption(buildOption);
+        info.setBuildOptionX(serverCoordinatesBuild[0]);
+        info.setBuildOptionY(serverCoordinatesBuild[1]);
+        info.setBuildOptionZ(serverCoordinatesBuild[2]);
+
+        return info;
+
     }
 }

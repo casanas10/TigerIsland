@@ -157,7 +157,7 @@ public class IslandMap {
 
             int hexID = entry.getValue().get(0);
 
-            if (getHex(hexID).getPlayerColorOnHex() == player.getPlayerColor()){
+            if (getHex(hexID).getPlayerColorOnHex().equals(player.getPlayerColor())){
 
                 playerSettlement.add(entry.getKey());
             }

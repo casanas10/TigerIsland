@@ -11,7 +11,7 @@ public class Client {
 
 
     public void OpenClient() throws Exception{
-        String hostName = "10.136.19.220";
+        String hostName = "192.168.1.6";
         int portNumber = 6969;
 
         try (
