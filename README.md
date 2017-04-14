@@ -1,11 +1,11 @@
 # TigerIsland
 
 Game Features:
--Place tiles
--Correctly place all types of Game Pieces:
--Can nuke
--Can expand 
--Can keep track of score for each player
+- Place tiles
+- Correctly place all types of Game Pieces:
+- Can nuke
+- Can expand 
+- Can keep track of score for each player
 
 The whole game functions. 
 
