@@ -10,8 +10,8 @@ public class ALE_AI {
 
     private IslandMap islandMap;
     private Builder builder = new Builder();
-    private Player aiPlayer = new Player("White", 0);
-    private Player serverPlayer = new Player("Black" , 0);
+    private Player aiPlayer;
+    private Player serverPlayer;
 
     private RotateTile tile;
     private RotationConverter rotationConverter = new RotationConverter();
@@ -30,8 +30,10 @@ public class ALE_AI {
 
     boolean firstTile = true;
 
+    private boolean hexesLevel3 = false;
 
     public ALE_AI(){
+
         this.islandMap = this.game.getIslandMap();
         this.aiPlayer = this.game.getWhitePlayer();
         this.serverPlayer = this.game.getBlackPlayer();
@@ -101,7 +103,7 @@ public class ALE_AI {
 
     }
 
-    public int findBestStrategy() {
+    public int findBestStrategyForPlacingTotoros() {
 
         //clear hexes that can be expanded
         hexesThatCanBeExpanded.clear();
@@ -123,9 +125,109 @@ public class ALE_AI {
         return 5;
     }
 
+    public void NukingStrategy() {
+
+        if (nukeOpponentWith3HexesOrMore().nukingSuccessfull){
+
+            
+        }
+
+    }
+
+
+    public int findBestStrategyForPlacingTigers() {
+
+        ArrayList<Integer> leve3HexesOnMap = findHexLevel3();
+
+        for (int i = 0; i < leve3HexesOnMap.size(); i++){
+
+            if (checkIfLevel3HexHasSettlementAdjacentToIt(leve3HexesOnMap.get(i))){
+
+                buildATigerPlayground(leve3HexesOnMap.get(i));
+
+                return 1;
+
+            } else {
+
+
+
+                return 2;
+            }
+        }
+
+        return 5;
+    }
+
+    public void buildATigerPlayground(Integer level3Hex) {
+
+        int buildOption = 4;
+
+        if (builder.build(aiPlayer, islandMap, buildOption, level3Hex)){
+            System.out.println("Placed a tiger");
+        }
+
+
+    }
+
+
     public MoveData play() {
 
-        int strategy = findBestStrategy();
+//        int strategy = findBestStrategyForPlacingTigers();
+//
+//        switch (strategy) {
+//
+//           // case 1: sendBuildTigerToServer(MoveData moveData);
+//
+//            case 5: return addTileAndMeepleSomewhereInTheMap();
+//
+//            default: return addTileAndMeepleSomewhereInTheMap();
+//        }
+
+
+        if (aiPlayer.getRemainingMeeples() == 0){
+
+            int buildOption = 5; //UNABLE TO BUILD : because you ran out of meeples
+
+            MoveData info = new MoveData();
+
+            HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(islandMap.getAllHexesOnMap());
+
+            int[] tileInfo = allPossibleTiles.get(0);
+
+            islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer);
+
+            tile = new RotateTile(tileInfo[0], tileInfo[1]);
+
+            int[] pairs = tile.checkPair();
+
+            builder.build(aiPlayer, islandMap, buildOption, pairs[1]);
+
+            int tileX = islandMap.getHex(tileInfo[0]).getX();
+            int tileY = islandMap.getHex(tileInfo[0]).getY();
+            int orientation = tileInfo[1];
+            int buildOptX = islandMap.getHex(pairs[1]).getX();
+            int buildOptY = islandMap.getHex(pairs[1]).getY();
+
+            int serverOrientation = rotationConverter.oursToServer(orientation);
+            int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+
+            info.setOrientation(serverOrientation);
+            info.setTilePlacementX(serverCoordinatesTile[0]);
+            info.setTilePlacementY(serverCoordinatesTile[1]);
+            info.setTilePlacementZ(serverCoordinatesTile[2]);
+
+            int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+
+            info.setBuildOption(buildOption);
+            info.setBuildOptionX(serverCoordinatesBuild[0]);
+            info.setBuildOptionY(serverCoordinatesBuild[1]);
+            info.setBuildOptionZ(serverCoordinatesBuild[2]);
+            info.setBuildOption(buildOption);
+
+            return info;
+        }
+
+        int strategy = findBestStrategyForPlacingTotoros();
 
         switch (strategy) {
 
@@ -478,7 +580,6 @@ public class ALE_AI {
         return info;
     }
 
-
     public MoveData addMeepleToAnExistingSettlement(int hexID, int orientation) {
 
         MoveData info = new MoveData();
@@ -712,4 +813,131 @@ public class ALE_AI {
         this.terrainsArray = terrainsArray;
     }
 
+    public ArrayList<Integer> findHexLevel3() {
+
+        ArrayList<Integer> level3Hexes = new ArrayList<>();
+
+        ArrayList<Integer> listHexesOnMap = islandMap.getAllHexesOnMap();
+
+        for (int i = 0; i < listHexesOnMap.size(); i++){
+
+            if(islandMap.getHex(listHexesOnMap.get(i)).getLevel() == 3 && !(islandMap.getHex(listHexesOnMap.get(i)).getTerrain().equals("Volcano"))){
+
+                level3Hexes.add(listHexesOnMap.get(i));
+
+                hexesLevel3 = true;
+            }
+        }
+
+        return level3Hexes;
+    }
+
+    public boolean checkIfLevel3HexHasSettlementAdjacentToIt(int hexID) {
+
+        ArrayList<Integer> level3Hexes = findHexLevel3();
+
+        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(aiPlayer);
+
+        for (int i = 1; i < settlements.size(); i++){
+
+            ArrayList<Integer> playerHexesInSettlements = islandMap.getSettlementObj().getSettlementHexIDs(settlements.get(i));
+
+            for (int j = 0; j < playerHexesInSettlements.size(); j++){
+
+                ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(hexID));
+
+                for (int l = 0; l < adjacentHexes.size(); l++){
+
+                    if (playerHexesInSettlements.contains(adjacentHexes.get(j))){
+
+//                        System.out.println(adjacentHexes.get(j));
+                        return true;
+                    }
+
+                }
+
+            }
+        }
+
+        return false;
+    }
+
+    public NukeResult nukeOpponentWith3HexesOrMore() {
+
+        boolean successfull = false;
+
+        //find the opponent's settlement
+        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(serverPlayer);
+
+        int settlementSize = 3;
+
+        int[] orientation = {0,60,120,180,240,300};
+
+        for (int i = 1; i < settlements.size(); i++){
+
+            boolean settlementDoesNotHaveTotoro = islandMap.getSettlementObj().doesNotHaveATotoro(settlements.get(i),serverPlayer);
+            boolean isSettlementSizeGreaterThan3 = islandMap.getSettlementsMap().get(settlements.get(i)).size() >= settlementSize;
+
+            //if settlement size is > 3 and it does not have a totoro
+            if (isSettlementSizeGreaterThan3 && settlementDoesNotHaveTotoro){
+
+                ArrayList<Integer> listHexesInSettlement = islandMap.getSettlementObj().getSettlementHexIDs(settlements.get(i));
+
+                for (int j = 0; j < listHexesInSettlement.size(); j++){
+
+                    ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(listHexesInSettlement.get(j)));
+
+                    for (int k = 0; k < adjacentHexes.size(); k++){
+
+                        System.out.println(adjacentHexes.get(k));
+
+                        if (islandMap.getHex(adjacentHexes.get(k)).getTerrain().equals("Volcano")){
+
+                            System.out.println(adjacentHexes.get(k));
+
+                            Nuking nuker = new Nuking();
+
+                            for ( int l = 0; l < orientation.length; l++){
+
+                                tile = new RotateTile(adjacentHexes.get(k), orientation[l]);
+
+                                int[] pairs = tile.checkPair();
+
+                                if(nuker.canYouNukeSettlement(islandMap, pairs , adjacentHexes.get(k))){
+
+                                    if (listHexesInSettlement.contains(pairs[1]) && listHexesInSettlement.contains(pairs[2])){
+
+                                        if (islandMap.addTileToMap(adjacentHexes.get(k), orientation[l], terrainsArray, aiPlayer)){
+                                            System.out.println("Nuked Both Meeples");
+                                            successfull = true;
+
+                                            return (new NukeResult(successfull, adjacentHexes.get(k), orientation[l]));
+                                        }
+
+                                    } else {
+
+                                        if (islandMap.addTileToMap(adjacentHexes.get(k), orientation[l], terrainsArray, aiPlayer)){
+                                            System.out.println("Nuked One Meeple");
+
+                                            successfull = true;
+                                            return (new NukeResult(successfull, adjacentHexes.get(k), orientation[l]));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return (new NukeResult(successfull));
+    }
+
+//    public boolean pairsPartOfSettlement(int[] pairs, int settlementID){
+//
+//        ArrayList<Int>
+//
+//        return false;
+//    }
 }

@@ -130,8 +130,9 @@ public class Settlement {
 
             if(hexGrid.getHexValue(hexes.get(i)).getSettlementID() != - 1){
 
-                settID = getSettlementID(hexes.get(i));
-                setIDPlaceHolder.add(settID);
+                if (hexGrid.getHexValue(hexes.get(i)).getPlayerColorOnHex() == player.getPlayerColor())
+                    settID = getSettlementID(hexes.get(i));
+                    setIDPlaceHolder.add(settID);
             }
         }
 
