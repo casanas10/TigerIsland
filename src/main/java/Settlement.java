@@ -2,6 +2,8 @@
  * Created by alecasanas on 3/25/17.
  */
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import java.util.*;
 
 /**
@@ -58,26 +60,41 @@ public class Settlement {
                     ArrayList<Integer> hexesArr = settlementSizeChecker.checkSettlementSize(hexID, player);
 
                     for(int hex : hexesArr) {
-
                         setSettlementID(hex, -1);
-                        NewHexIDs.add(hex);
                     }
 
+                    setSettlementID(hexID, -1);
+
+                    NewHexIDs.add(hexID);
                     settlementMap.remove(settID);
 
                 }
             }
         }
 
-        ArrayList<Integer> hexesArr = new ArrayList<Integer>();
-
         ArrayList<Integer> alreadySettled = new ArrayList<>();
 
         for (int i = 0; i < NewHexIDs.size(); i++){
 
-            hexesArr = settlementSizeChecker.checkSettlementSize(NewHexIDs.get(i), player);
+            Player player2 = new Player(hexGrid.getHexValue(NewHexIDs.get(i)).getPlayerColorOnHex(), 0);
 
-            if (!alreadySettled.contains(NewHexIDs.get(i))){
+            ArrayList<Integer> hexesArr = settlementSizeChecker.checkSettlementSize(NewHexIDs.get(i), player2);
+
+            if (hexesArr.size() == 0){
+
+                hexesArr.add(NewHexIDs.get(i));
+
+                settlementMap.put(settleID,hexesArr);
+                listOfActiveSettlementIDs.add(settleID);    //blah blah
+
+                for(int j = 0; j < hexesArr.size(); j++) {
+                    setSettlementID(NewHexIDs.get(i), settleID);
+                    alreadySettled.add(NewHexIDs.get(i));
+                }
+
+                settleID++;
+
+            } else if (!alreadySettled.contains(NewHexIDs.get(i))){
                 settlementMap.put(settleID, hexesArr);
                 listOfActiveSettlementIDs.add(settleID);    //blah blah
 
