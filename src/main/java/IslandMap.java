@@ -14,7 +14,6 @@ public class IslandMap {
 
     String tileTerrainsArray[] = new String[3];
 
-
     public IslandMap(){
         gameBoardMap = new HashMap<Integer, int[]>();
         myGen = new TileGenerator();
@@ -39,7 +38,6 @@ public class IslandMap {
         // Place first tile in the middle of the map automatically
         if(getNumberOfTiles() == 47 && tileCount == 0){
             placeFirstTile(tileHexIDsArray, newTile);   //changed
-            System.out.println("First tile successfully placed!");
             return true;
         }
 
@@ -105,7 +103,6 @@ public class IslandMap {
         // Place first tile in the middle of the map automatically
         if(getNumberOfTiles() == 47 && tileCount == 0){
             placeFirstTile(tileHexIDsArray, tileTerrainsArray);   //changed
-            System.out.println("First tile successfully placed!");
 
             return true;
         }
@@ -160,9 +157,8 @@ public class IslandMap {
 
             int hexID = entry.getValue().get(0);
 
-            if (getHex(hexID).getPlayerColorOnHex() == player.getPlayerColor()){
+            if (getHex(hexID).getPlayerColorOnHex().equals(player.getPlayerColor())){
 
-                System.out.println(entry.getKey());
                 playerSettlement.add(entry.getKey());
             }
         }
@@ -203,11 +199,14 @@ public class IslandMap {
                 System.out.print(mapValue.getValue()[i] + " ");
             }
             System.out.println();
+        }
+    }
 
-            //Prints tile's terrains
-            for(int i=0; i<mapValue.getValue().length; i++)
-                System.out.print(hexGrid.getHexValue(mapValue.getValue()[i]).getTerrain() + " ");
-            System.out.println();
+    public void printHexesAndTerrains(){
+        ArrayList<Integer> hexes = getAllHexesOnMap();
+
+        for(int i=0;i<hexes.size();i++){
+
         }
     }
 

@@ -1,5 +1,5 @@
 import java.io.*;
-import java.net.*;
+
 /**
  * Created by cyonkee on 4/4/17.
  */
@@ -23,10 +23,16 @@ public class MatchProtocol {
 
             System.out.println("Server: " + fromServer);
 
-            AI AI1 = new AI();
-            AI AI2 = new AI();
+            ALE_AI AI1 = new ALE_AI();
+            ALE_AI AI2 = new ALE_AI();
 
             for(int i=0; i<48; i++) {
+                if(gid1 != null && gid2 != null){
+                    if(gid1.equals("dead") && gid2.equals("dead")){
+                        isMatchDone = true;
+                    }
+                }
+
                 if(isMatchDone){
                     break;
                 }
@@ -45,7 +51,7 @@ public class MatchProtocol {
         if(fromServer.substring(0,4).equals("GAME")){
             System.out.println("Server: " + fromServer);
         }
-        
+
         gid1 = null;
         gid2 = null;
         isMatchDone = false;

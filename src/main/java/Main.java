@@ -12,6 +12,7 @@ public class Main {
 //            public void run() {
 //                new Frame();
 //                new AutoFramePlayer();
+//                new PlayGame();
 //            }
 //        });
 //        Game game = new Game();

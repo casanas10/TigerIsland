@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 public class MoveProtocol {
     private String currentGID;
 
-    public void makeMove(PrintWriter out, BufferedReader in, AI AI1, AI AI2, String opponentPID) throws Exception {
+    public void makeMove(PrintWriter out, BufferedReader in, ALE_AI AI1, ALE_AI AI2, String opponentPID) throws Exception {
         BufferedReader stdIn =
                 new BufferedReader(new InputStreamReader(System.in));
         String fromServer;
@@ -47,9 +47,11 @@ public class MoveProtocol {
                 checkMessages(out, in, opponentPID, AI1, AI2);
             }
         }
+
+        System.out.println("---------------------------------------------");
     }
 
-    private MoveData getTile(String tile, String currentGID, AI AI1, AI AI2) {
+    private MoveData getTile(String tile, String currentGID, ALE_AI AI1, ALE_AI AI2) {
         tile = tile.replaceAll("[+]", " ");
         String givenTerrains[] = tile.split(" ");
         givenTerrains[0] = givenTerrains[0].substring(0, 1).toUpperCase() + givenTerrains[0].substring(1).toLowerCase();
@@ -72,14 +74,20 @@ public class MoveProtocol {
 
         if (currentGID.equals(MatchProtocol.gid1)) {
             //AI1 gets terrains
-            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
-            AI1.makeMove(terrainsArray);
-            return AI1.getMoveData();
+//            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
+
+            //if (givenTerrains[0] != null && givenTerrains[1] != null)
+                AI1.setTerrainsArray(terrainsArray);
+
+            return AI1.play();
         } else {
             //AI2 gets terrains
-            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
-            AI2.makeMove(terrainsArray);
-            return AI2.getMoveData();
+//            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
+
+            //if (givenTerrains[0] != null && givenTerrains[1] != null)
+                AI2.setTerrainsArray(terrainsArray);
+
+            return AI2.play();
         }
     }
 
@@ -135,7 +143,7 @@ public class MoveProtocol {
     }
 
     private void checkMessages(PrintWriter out, BufferedReader in, String opponentPID,
-                               AI AI1, AI AI2) throws Exception {
+                               ALE_AI AI1, ALE_AI AI2) throws Exception {
         if (MatchProtocol.gid2 == null) {
             getTwoMessages(in, opponentPID, AI1, AI2);
         } else {
@@ -147,7 +155,7 @@ public class MoveProtocol {
         }
     }
 
-    private void getTwoMessages(BufferedReader in, String opponentPID, AI AI1, AI AI2) throws Exception {
+    private void getTwoMessages(BufferedReader in, String opponentPID, ALE_AI AI1, ALE_AI AI2) throws Exception {
         String fromServer;
         String serverGID;
         String serverPID;
@@ -168,17 +176,20 @@ public class MoveProtocol {
                     MatchProtocol.gid2 = serverGID;
                 }
 
-                System.out.println("gid1: " + MatchProtocol.gid1);
-                System.out.println("gid2: " + MatchProtocol.gid2);
+                System.out.println("Get message " + i);
+                System.out.println("Get two messages gid1: " + MatchProtocol.gid1);
+                System.out.println("Get two messages gid2: " + MatchProtocol.gid2);
 
                 if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI1
                     moveData = parseMessage(fromServerArr, in);
-                    AI1.updateOpponentMove(moveData);
+                    if (moveData.getTerrainsArray() != null)
+                        AI1.updateOpponentMove(moveData);
                 } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI2
                     moveData = parseMessage(fromServerArr, in);
-                    AI2.updateOpponentMove(moveData);
+                    if (moveData.getTerrainsArray() != null)
+                        AI2.updateOpponentMove(moveData);
                 } else {
                     //check if server says we lost; check which game if so.
                     moveData = parseMessage(fromServerArr, in);
@@ -189,7 +200,7 @@ public class MoveProtocol {
         }
     }
 
-    private void getOneMessage(BufferedReader in, String opponentPID, AI AI1, AI AI2) throws Exception {
+    private void getOneMessage(BufferedReader in, String opponentPID, ALE_AI AI1, ALE_AI AI2) throws Exception {
         String fromServer;
         String serverGID;
         String serverPID;
@@ -203,17 +214,24 @@ public class MoveProtocol {
             serverGID = fromServerArr[1];
             serverPID = fromServerArr[5];
 
+            System.out.println("Get 1 message");
+            System.out.println("Get one message gid1: " + MatchProtocol.gid1);
+            System.out.println("Get one message gid2: " + MatchProtocol.gid2);
+
             if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                 //send opponent's move to AI1
                 moveData = parseMessage(fromServerArr, in);
-                AI1.updateOpponentMove(moveData);
+//                if (moveData.getTerrainsArray() != null)
+                    AI1.updateOpponentMove(moveData);
             } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
                 //send opponent's move to AI2
                 moveData = parseMessage(fromServerArr, in);
-                AI2.updateOpponentMove(moveData);
+//                if (moveData.getTerrainsArray() != null)
+                    AI2.updateOpponentMove(moveData);
             } else {
                 //check if server says we lost; check which game if so.
                 moveData = parseMessage(fromServerArr, in);
+
             }
         }
     }
@@ -224,17 +242,22 @@ public class MoveProtocol {
         MoveData moveData;
 
         if (fromServerArr[6].equals("FORFEITED:") || fromServerArr[6].equals("LOST:")) {
+
+            System.out.println("forfeited");
+
             moveData = new MoveData();
 
             serverGID = fromServerArr[1];
 
             if (serverGID.equals(MatchProtocol.gid1)) {
                 MatchProtocol.gid1 = "dead";
-            } else {
+            }
+            if(serverGID.equals(MatchProtocol.gid2)) {
                 MatchProtocol.gid2 = "dead";
             }
 
-            if(MatchProtocol.gid2 != null) {
+            if(MatchProtocol.gid2 != null && MatchProtocol.gid1 != null) {
+
                 if (MatchProtocol.gid1.equals("dead") && MatchProtocol.gid2.equals("dead")) {
                     MatchProtocol.isMatchDone = true;
                 }
@@ -242,6 +265,7 @@ public class MoveProtocol {
 //                    fromServer = in.readLine();
 //                    System.out.println("Server: " + fromServer);
 //                }
+
             }
             return moveData;
         }
@@ -249,7 +273,24 @@ public class MoveProtocol {
             String tile = fromServerArr[7];
             tile = tile.replaceAll("[+]", " ");
             String givenTerrains[] = tile.split(" ");
+            givenTerrains[0] = givenTerrains[0].substring(0, 1).toUpperCase() + givenTerrains[0].substring(1).toLowerCase();
+            givenTerrains[1] = givenTerrains[1].substring(0, 1).toUpperCase() + givenTerrains[1].substring(1).toLowerCase();
+
+            if (givenTerrains[0].equals("Rock")) {
+                givenTerrains[0] = "Rocky";
+            }
+            if (givenTerrains[1].equals("Rock")) {
+                givenTerrains[1] = "Rocky";
+            }
+
+            if (givenTerrains[0].equals("Grass")) {
+                givenTerrains[0] = "Grassland";
+            }
+            if (givenTerrains[1].equals("Grass")) {
+                givenTerrains[1] = "Grassland";
+            }
             String terrainsArray[] = {"Volcano", givenTerrains[0], givenTerrains[1]};
+            String extendTerrain = "";
 
             if ((fromServerArr[13].equals("FOUNDED")) || (fromServerArr[13].equals("FOUND"))) {
                 moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
@@ -259,11 +300,23 @@ public class MoveProtocol {
 
                 return moveData;
             } else if ((fromServerArr[13].equals("EXPANDED")) || (fromServerArr[13].equals("EXPAND"))) {
+                if(fromServerArr[19].equals("GRASS")){
+                    extendTerrain = "Grassland";
+                }
+                if(fromServerArr[19].equals("ROCK")){
+                    extendTerrain = "Rocky";
+                }
+                if(fromServerArr[19].equals("LAKE")){
+                    extendTerrain = "Lake";
+                }
+                if(fromServerArr[19].equals("JUNGLE")){
+                    extendTerrain = "Jungle";
+                }
                 moveData = new MoveData(terrainsArray, Integer.parseInt(fromServerArr[9]),
                         Integer.parseInt(fromServerArr[10]), Integer.parseInt(fromServerArr[11]),
                         Integer.parseInt(fromServerArr[12]), 2, Integer.parseInt(fromServerArr[16]),
                         Integer.parseInt(fromServerArr[17]), Integer.parseInt(fromServerArr[18]),
-                        fromServerArr[19]);
+                        extendTerrain);
 
                 return moveData;
             } else if (fromServerArr[14].equals("TOTORO")) {
@@ -287,4 +340,3 @@ public class MoveProtocol {
         }
     }
 }
-

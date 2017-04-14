@@ -141,6 +141,8 @@ public class SettlementTest {
 
 //        builder.extend(2617,islandMap,whitePlayer,"Rocky");
 
+        islandMap.getSettlementObj().printAllSettlements(whitePlayer);
+
         Hex hex = islandMap.getHex(2617);
 
 

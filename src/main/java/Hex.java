@@ -92,11 +92,20 @@ public class Hex {
     }
 
     public boolean checkIfHexIsNotSettled(){
-        return gamePiecesMap.isEmpty();
+        if(gamePiecesMap.isEmpty() && settlementID == -1) {
+            return true;
+        }
+        else{ return false; }
     }
 
     public void addGamePieceToHex(GamePiece piece){
         gamePiecesMap.put(piece.getName(), 1);
+        setPlayerColorOnHex(piece.getColor());
+        System.out.println(getPlayerColorOnHex() + " " + piece.getName() + " successfully placed on Hex: " + getHexID());
+    }
+
+    public void addGamePieceToHex(GamePiece piece, int numOfMeeples){
+        gamePiecesMap.put(piece.getName(), numOfMeeples);
         setPlayerColorOnHex(piece.getColor());
         System.out.println(getPlayerColorOnHex() + " " + piece.getName() + " successfully placed on Hex: " + getHexID());
     }
