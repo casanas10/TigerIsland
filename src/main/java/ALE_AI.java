@@ -101,27 +101,27 @@ public class ALE_AI {
 
     }
 
-    public int findBestStrategyForPlacingTotoros() {
-
-        //clear hexes that can be expanded
-        hexesThatCanBeExpanded.clear();
-
-       // if (findAISettlements5orGreater(aiPlayer) != -1) return 1;  //build a totoro
-
-         if (isThereSettlementThatHasTotoroAlready(aiPlayer) != -1) {
-
-            int settlementID = isThereSettlementThatHasTotoroAlready(aiPlayer);
-
-            if (itOnlyTouchingOneHexInTheSettlement(settlementID)){
-
-                return 2; //Try to nuke whats next to totoro
-            }
-        } else if (ableToExpand()) {
-            return 3; //expand
-        }
-
-        return 5;
-    }
+//    public int findBestStrategyForPlacingTotoros() {
+//
+//        //clear hexes that can be expanded
+//        hexesThatCanBeExpanded.clear();
+//
+//       // if (findAISettlements5orGreater(aiPlayer) != -1) return 1;  //build a totoro
+//
+//         if (isThereSettlementThatHasTotoroAlready(aiPlayer) != -1) {
+//
+//            int settlementID = isThereSettlementThatHasTotoroAlready(aiPlayer);
+//
+//            if (itOnlyTouchingOneHexInTheSettlement(settlementID)){
+//
+//                return 2; //Try to nuke whats next to totoro
+//            }
+//        } else if (ableToExpand()) {
+//            return 3; //expand
+//        }
+//
+//        return 5;
+//    }
 
 
     public MoveData play(){
@@ -133,25 +133,25 @@ public class ALE_AI {
            return addTileAndMeepleSomewhereInTheMap();
        }
 
-       performNuking(result);
+       MoveData info = performNuking(result);
 
-       return buildStrategy();
+       return buildStrategy(info);
     }
 
-    public MoveData buildStrategy() {
+    public MoveData buildStrategy(MoveData moveData) {
 
         BuildResult buildResult = ableToBuildATigerPlayground();
 
         if (buildResult.buildSuccessfull){
 
-            return buildATigerPlayground(buildResult.hexID);
+            return buildATigerPlayground(moveData, buildResult.hexID);
         }
 
         buildResult = ableToBuildATotoroSantuary();
 
         if (buildResult.buildSuccessfull){
 
-            return buildATotoroSantuary(buildResult.foundSettlementToPlaceTotoro);
+            return buildATotoroSantuary(moveData, buildResult.foundSettlementToPlaceTotoro);
         }
 
 //        buildResult = ableToFindLevel1HexToFoundNewSettlement();
@@ -161,10 +161,13 @@ public class ALE_AI {
 //            return foundNewSettlementNextToLevel3Hex(buildResult.hexID);
 //        }
 
+
         //clear hexes that can be expanded
         hexesThatCanBeExpanded.clear();
-        if(ableToExpand()){
-            return expandSettlement();
+
+        buildResult = ableToExpand();
+        if (buildResult.buildSuccessfull){
+            return expandSettlement(moveData);
         }
 
                 //TODO change this to add just meeples
@@ -215,6 +218,7 @@ public class ALE_AI {
 
         int serverOrientation = rotationConverter.oursToServer(result.orientation);
         int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+
         info.setOrientation(serverOrientation);
         info.setTilePlacementX(serverCoordinatesTile[0]);
         info.setTilePlacementY(serverCoordinatesTile[1]);
@@ -270,11 +274,7 @@ public class ALE_AI {
 
                     for (int k = 0; k < adjacentHexes.size(); k++){
 
-                        System.out.println(adjacentHexes.get(k));
-
                         if (islandMap.getHex(adjacentHexes.get(k)).getTerrain().equals("Volcano")){
-
-                            System.out.println(adjacentHexes.get(k));
 
                             Nuking nuker = new Nuking();
 
@@ -285,6 +285,8 @@ public class ALE_AI {
                                 int[] pairs = tile.checkPair();
 
                                 if(nuker.canYouNukeSettlement(islandMap, pairs , adjacentHexes.get(k))){
+
+                                    System.out.println(adjacentHexes.get(k)+ " " + orientation[l]);
 
                                     if (listHexesInSettlement.contains(pairs[1]) && listHexesInSettlement.contains(pairs[2])){
 
@@ -316,32 +318,8 @@ public class ALE_AI {
         return (new NukeResult(false));
     }
 
-    public int findBestStrategyForPlacingTigers() {
 
-        ArrayList<Integer> leve3HexesOnMap = findHexLevel3();
-
-        for (int i = 0; i < leve3HexesOnMap.size(); i++){
-
-            if (checkIfLevel3HexHasSettlementAdjacentToIt(leve3HexesOnMap.get(i))){
-
-                buildATigerPlayground(leve3HexesOnMap.get(i));
-
-                return 1;
-
-            } else {
-
-
-
-                return 2;
-            }
-        }
-
-        return 5;
-    }
-
-    public MoveData buildATigerPlayground(Integer level3Hex) {
-
-        MoveData info = new MoveData();
+    public MoveData buildATigerPlayground(MoveData moveData, Integer level3Hex) {
 
         int buildOption = 4;
 
@@ -353,12 +331,12 @@ public class ALE_AI {
 
             int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
 
-            info.setBuildOption(buildOption);
-            info.setBuildOptionX(serverCoordinatesBuild[0]);
-            info.setBuildOptionY(serverCoordinatesBuild[1]);
-            info.setBuildOptionZ(serverCoordinatesBuild[2]);
+            moveData.setBuildOption(buildOption);
+            moveData.setBuildOptionX(serverCoordinatesBuild[0]);
+            moveData.setBuildOptionY(serverCoordinatesBuild[1]);
+            moveData.setBuildOptionZ(serverCoordinatesBuild[2]);
 
-            return info;
+            return moveData;
         }
 
         return addTileAndMeepleSomewhereInTheMap();
@@ -438,131 +416,131 @@ public class ALE_AI {
 //
 //    }
 
-    public MoveData nukeHexNextToTheTotoro() {
+//    public MoveData nukeHexNextToTheTotoro() {
+//
+//        MoveData info = new MoveData();
+//
+//        if (touchingHex != -1){
+//
+//            //find all the adjacent hexes next to the hex that is touching totoro
+//            ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(touchingHex));
+//
+//            int[] orientation = {0,60,120,180,240,300};
+//
+//            for (int i = 0; i < adjacentHexes.size(); i++){
+//
+//                if (islandMap.getHex(adjacentHexes.get(i)).getTerrain().equals("Volcano")){
+//
+//                    Nuking nuker = new Nuking();
+//
+//                    for (int j = 0; j < orientation.length; j++){
+//
+//                        tile = new RotateTile(adjacentHexes.get(i), orientation[j]);
+//
+//                        int[] pairs = tile.checkPair();
+//
+//                        if (nuker.canYouNukeSettlement(islandMap, pairs , adjacentHexes.get(i))){
+//
+//                            if (pairs[1] == touchingHex || pairs[2] == touchingHex){
+//
+//                                if (islandMap.addTileToMap(adjacentHexes.get(i), orientation[j], terrainsArray, aiPlayer)){
+//                                    System.out.println(adjacentHexes.get(i));
+//
+//                                    //if able to expand and build
+//                                    if (ableToExpand()){
+//
+//                                        int[] theBestExpansion = findTheBestExpansion(aiPlayer);
+//
+//                                        int buildOption = 2;
+//
+//                                        String terrainToExpand = "";
+//
+//                                        if (theBestExpansion[1] == 0){
+//                                            terrainToExpand = "Jungle";
+//                                        } else if (theBestExpansion[1] == 1){
+//                                            terrainToExpand = "Lake";
+//                                        } else if (theBestExpansion[1] == 2){
+//                                            terrainToExpand = "Rocky";
+//                                        } else if (theBestExpansion[1] == 3){
+//                                            terrainToExpand = "Grassland";
+//                                        }
+//
+//
+//                                        if (builder.build(aiPlayer, islandMap, buildOption, theBestExpansion[0], terrainToExpand)){
+//
+//                                            int tileX = islandMap.getHex(adjacentHexes.get(i)).getX();
+//                                            int tileY = islandMap.getHex(adjacentHexes.get(i)).getY();
+//
+//                                            int buildOptX = islandMap.getHex(theBestExpansion[0]).getX();
+//                                            int buildOptY = islandMap.getHex(theBestExpansion[0]).getY();
+//
+//                                            int serverOrientation = rotationConverter.oursToServer(orientation[j]);
+//                                            int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+//                                            info.setOrientation(serverOrientation);
+//                                            info.setTilePlacementX(serverCoordinatesTile[0]);
+//                                            info.setTilePlacementY(serverCoordinatesTile[1]);
+//                                            info.setTilePlacementZ(serverCoordinatesTile[2]);
+//
+//                                            int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+//
+//                                            info.setBuildOption(buildOption);
+//                                            info.setBuildOptionX(serverCoordinatesBuild[0]);
+//                                            info.setBuildOptionY(serverCoordinatesBuild[1]);
+//                                            info.setBuildOptionZ(serverCoordinatesBuild[2]);
+//                                            info.setExtendTerrain(terrainToExpand);
+//
+//                                            return info;
+//                                        } else {
+//                                            System.out.println("*****UNABLE TO BUILD*****");
+//                                            buildOption = 5; //UNABLE TO BUILD : because you ran out of meeples
+//
+//                                            int tileX = islandMap.getHex(adjacentHexes.get(i)).getX();
+//                                            int tileY = islandMap.getHex(adjacentHexes.get(i)).getY();
+//
+//                                            int buildOptX = islandMap.getHex(theBestExpansion[0]).getX();
+//                                            int buildOptY = islandMap.getHex(theBestExpansion[0]).getY();
+//
+//                                            int serverOrientation = rotationConverter.oursToServer(orientation[j]);
+//                                            int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+//                                            info.setOrientation(serverOrientation);
+//                                            info.setTilePlacementX(serverCoordinatesTile[0]);
+//                                            info.setTilePlacementY(serverCoordinatesTile[1]);
+//                                            info.setTilePlacementZ(serverCoordinatesTile[2]);
+//
+//                                            int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+//
+//                                            info.setBuildOption(buildOption);
+//                                            info.setBuildOptionX(serverCoordinatesBuild[0]);
+//                                            info.setBuildOptionY(serverCoordinatesBuild[1]);
+//                                            info.setBuildOptionZ(serverCoordinatesBuild[2]);
+//                                            info.setExtendTerrain(terrainToExpand);
+//
+//                                            return info;
+//                                        }
+//
+//                                    } else {
+//
+//                                        return addMeepleToAnExistingSettlement();
+//
+//                                    }
+//
+//                                }
+//
+//                            }
+//
+//                        }
+//                    }
+//
+//                }
+//
+//            }
+//
+//        }
+//
+//        return addTileAndMeepleSomewhereInTheMap();
+//    }
 
-        MoveData info = new MoveData();
-
-        if (touchingHex != -1){
-
-            //find all the adjacent hexes next to the hex that is touching totoro
-            ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(touchingHex));
-
-            int[] orientation = {0,60,120,180,240,300};
-
-            for (int i = 0; i < adjacentHexes.size(); i++){
-
-                if (islandMap.getHex(adjacentHexes.get(i)).getTerrain().equals("Volcano")){
-
-                    Nuking nuker = new Nuking();
-
-                    for (int j = 0; j < orientation.length; j++){
-
-                        tile = new RotateTile(adjacentHexes.get(i), orientation[j]);
-
-                        int[] pairs = tile.checkPair();
-
-                        if (nuker.canYouNukeSettlement(islandMap, pairs , adjacentHexes.get(i))){
-
-                            if (pairs[1] == touchingHex || pairs[2] == touchingHex){
-
-                                if (islandMap.addTileToMap(adjacentHexes.get(i), orientation[j], terrainsArray, aiPlayer)){
-                                    System.out.println(adjacentHexes.get(i));
-
-                                    //if able to expand and build
-                                    if (ableToExpand()){
-
-                                        int[] theBestExpansion = findTheBestExpansion(aiPlayer);
-
-                                        int buildOption = 2;
-
-                                        String terrainToExpand = "";
-
-                                        if (theBestExpansion[1] == 0){
-                                            terrainToExpand = "Jungle";
-                                        } else if (theBestExpansion[1] == 1){
-                                            terrainToExpand = "Lake";
-                                        } else if (theBestExpansion[1] == 2){
-                                            terrainToExpand = "Rocky";
-                                        } else if (theBestExpansion[1] == 3){
-                                            terrainToExpand = "Grassland";
-                                        }
-
-
-                                        if (builder.build(aiPlayer, islandMap, buildOption, theBestExpansion[0], terrainToExpand)){
-
-                                            int tileX = islandMap.getHex(adjacentHexes.get(i)).getX();
-                                            int tileY = islandMap.getHex(adjacentHexes.get(i)).getY();
-
-                                            int buildOptX = islandMap.getHex(theBestExpansion[0]).getX();
-                                            int buildOptY = islandMap.getHex(theBestExpansion[0]).getY();
-
-                                            int serverOrientation = rotationConverter.oursToServer(orientation[j]);
-                                            int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
-                                            info.setOrientation(serverOrientation);
-                                            info.setTilePlacementX(serverCoordinatesTile[0]);
-                                            info.setTilePlacementY(serverCoordinatesTile[1]);
-                                            info.setTilePlacementZ(serverCoordinatesTile[2]);
-
-                                            int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
-
-                                            info.setBuildOption(buildOption);
-                                            info.setBuildOptionX(serverCoordinatesBuild[0]);
-                                            info.setBuildOptionY(serverCoordinatesBuild[1]);
-                                            info.setBuildOptionZ(serverCoordinatesBuild[2]);
-                                            info.setExtendTerrain(terrainToExpand);
-
-                                            return info;
-                                        } else {
-                                            System.out.println("*****UNABLE TO BUILD*****");
-                                            buildOption = 5; //UNABLE TO BUILD : because you ran out of meeples
-
-                                            int tileX = islandMap.getHex(adjacentHexes.get(i)).getX();
-                                            int tileY = islandMap.getHex(adjacentHexes.get(i)).getY();
-
-                                            int buildOptX = islandMap.getHex(theBestExpansion[0]).getX();
-                                            int buildOptY = islandMap.getHex(theBestExpansion[0]).getY();
-
-                                            int serverOrientation = rotationConverter.oursToServer(orientation[j]);
-                                            int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
-                                            info.setOrientation(serverOrientation);
-                                            info.setTilePlacementX(serverCoordinatesTile[0]);
-                                            info.setTilePlacementY(serverCoordinatesTile[1]);
-                                            info.setTilePlacementZ(serverCoordinatesTile[2]);
-
-                                            int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
-
-                                            info.setBuildOption(buildOption);
-                                            info.setBuildOptionX(serverCoordinatesBuild[0]);
-                                            info.setBuildOptionY(serverCoordinatesBuild[1]);
-                                            info.setBuildOptionZ(serverCoordinatesBuild[2]);
-                                            info.setExtendTerrain(terrainToExpand);
-
-                                            return info;
-                                        }
-
-                                    } else {
-
-                                        return addMeepleToAnExistingSettlement();
-
-                                    }
-
-                                }
-
-                            }
-
-                        }
-                    }
-
-                }
-
-            }
-
-        }
-
-        return addTileAndMeepleSomewhereInTheMap();
-    }
-
-    public boolean ableToExpand() {
+    public BuildResult ableToExpand() {
 
         boolean ableToExpandFromASettlement = false;
 
@@ -582,16 +560,14 @@ public class ALE_AI {
 
                         hexesThatCanBeExpanded.add(hexes.get(0));
 //                        System.out.println(adjacentHexes.get(j));
-                        ableToExpandFromASettlement = true;
+                        return (new BuildResult(ableToExpandFromASettlement));
                     }
                 }
 
-            } else {
-                ableToExpandFromASettlement = false;
             }
         }
 
-        return ableToExpandFromASettlement;
+        return (new BuildResult(false));
     }
 
     public int[] findTheBestExpansion(Player aiPlayer) {
@@ -641,9 +617,7 @@ public class ALE_AI {
     }
 
     //TODO build the totoro so that it only touches one hex on in the edge of the settlement so that you can nuke and make another settlement of size 5
-    public MoveData buildATotoroSantuary(int foundSettlementToPlaceATotoro) {
-
-        MoveData info = new MoveData();
+    public MoveData buildATotoroSantuary(MoveData moveData, int foundSettlementToPlaceATotoro) {
 
         //get all hexes in the settlement
         ArrayList<Integer> hexesOnSettlement = islandMap.getSettlementsMap().get(foundSettlementToPlaceATotoro);
@@ -659,20 +633,20 @@ public class ALE_AI {
 
                     int buildOption = 3;
 
-                    if (builder.build(aiPlayer, islandMap, buildOption, adjacentHexes.get(j))) ;
+                    if (builder.build(aiPlayer, islandMap, buildOption, adjacentHexes.get(j))) {
 
-                    int buildOptX = islandMap.getHex(adjacentHexes.get(j)).getX();
-                    int buildOptY = islandMap.getHex(adjacentHexes.get(j)).getY();
+                        int buildOptX = islandMap.getHex(adjacentHexes.get(j)).getX();
+                        int buildOptY = islandMap.getHex(adjacentHexes.get(j)).getY();
 
-                    int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+                        int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
 
-                    info.setBuildOption(buildOption);
-                    info.setBuildOptionX(serverCoordinatesBuild[0]);
-                    info.setBuildOptionY(serverCoordinatesBuild[1]);
-                    info.setBuildOptionZ(serverCoordinatesBuild[2]);
+                        moveData.setBuildOption(buildOption);
+                        moveData.setBuildOptionX(serverCoordinatesBuild[0]);
+                        moveData.setBuildOptionY(serverCoordinatesBuild[1]);
+                        moveData.setBuildOptionZ(serverCoordinatesBuild[2]);
 
-                    return info;
-
+                        return moveData;
+                    }
                 }
             }
         }
@@ -681,7 +655,7 @@ public class ALE_AI {
         return addMeepleToAnExistingSettlement();
     }
 
-    public MoveData expandSettlement() {
+    public MoveData expandSettlement(MoveData moveData) {
 
         int[] theBestExpansion = findTheBestExpansion(aiPlayer);
 
@@ -713,6 +687,11 @@ public class ALE_AI {
 
            System.out.println("EXPANDED SUCCESSFULLY");
 
+           info.setOrientation(moveData.getOrientation());
+           info.setTilePlacementX(moveData.getTilePlacementX());
+           info.setTilePlacementY(moveData.getTilePlacementY());
+           info.setTilePlacementZ(moveData.getTilePlacementZ());
+
            int buildOptX = islandMap.getHex(theBestExpansion[0]).getX();
            int buildOptY = islandMap.getHex(theBestExpansion[0]).getY();
 
@@ -742,10 +721,6 @@ public class ALE_AI {
             int[] tileInfo = allPossibleTiles.get(i);
 
             if (islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer)){
-
-                System.out.println("YEY PLACED TILE");
-
-                islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer);
 
                 tile = new RotateTile(tileInfo[0], tileInfo[1]);
 
