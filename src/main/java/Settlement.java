@@ -2,6 +2,8 @@
  * Created by alecasanas on 3/25/17.
  */
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import java.util.*;
 
 /**
@@ -58,11 +60,12 @@ public class Settlement {
                     ArrayList<Integer> hexesArr = settlementSizeChecker.checkSettlementSize(hexID, player);
 
                     for(int hex : hexesArr) {
-
                         setSettlementID(hex, -1);
-                        NewHexIDs.add(hex);
                     }
 
+                    setSettlementID(hexID, -1);
+
+                    NewHexIDs.add(hexID);
                     settlementMap.remove(settID);
 
                 }
@@ -75,8 +78,24 @@ public class Settlement {
 
         for (int i = 0; i < NewHexIDs.size(); i++){
 
+            System.out.println(NewHexIDs.get(i));
+
             hexesArr = settlementSizeChecker.checkSettlementSize(NewHexIDs.get(i), player);
 
+            if (hexesArr.size() == 0){
+
+                hexesArr.add(NewHexIDs.get(i));
+
+                settlementMap.put(settleID,hexesArr);
+                listOfActiveSettlementIDs.add(settleID);    //blah blah
+
+                for(int j = 0; j < hexesArr.size(); j++) {
+                    setSettlementID(NewHexIDs.get(i), settleID);
+                    alreadySettled.add(NewHexIDs.get(i));
+                }
+
+                settleID++;
+            }
             if (!alreadySettled.contains(NewHexIDs.get(i))){
                 settlementMap.put(settleID, hexesArr);
                 listOfActiveSettlementIDs.add(settleID);    //blah blah

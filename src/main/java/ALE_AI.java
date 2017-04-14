@@ -2,7 +2,6 @@
  * Created by alecasanas on 4/2/17.
  */
 
-import javax.lang.model.element.NestingKind;
 import java.util.*;
 
 public class ALE_AI {
@@ -107,9 +106,9 @@ public class ALE_AI {
         //clear hexes that can be expanded
         hexesThatCanBeExpanded.clear();
 
-        if (findAISettlements5orGreater(aiPlayer) != -1) return 1;  //build a totoro
+       // if (findAISettlements5orGreater(aiPlayer) != -1) return 1;  //build a totoro
 
-        else if (isThereSettlementThatHasTotoroAlready(aiPlayer) != -1) {
+         if (isThereSettlementThatHasTotoroAlready(aiPlayer) != -1) {
 
             int settlementID = isThereSettlementThatHasTotoroAlready(aiPlayer);
 
@@ -129,7 +128,7 @@ public class ALE_AI {
 
        NukeResult result = nukingStrategy();
 
-       if (!nukingStrategy().nukingSuccessfull){
+       if (!result.nukingSuccessfull){
 
            return addTileAndMeepleSomewhereInTheMap();
        }
@@ -145,10 +144,47 @@ public class ALE_AI {
 
         if (buildResult.buildSuccessfull){
 
-            return buildATigerPlayground(buildResult.level3hex);
+            return buildATigerPlayground(buildResult.hexID);
         }
 
+        buildResult = ableToBuildATotoroSantuary();
+
+        if (buildResult.buildSuccessfull){
+
+            return buildATotoroSantuary(buildResult.foundSettlementToPlaceTotoro);
+        }
+
+//        buildResult = ableToFindLevel1HexToFoundNewSettlement();
+//
+//        if(buildResult.buildSuccessfull){
+//
+//            return foundNewSettlementNextToLevel3Hex(buildResult.hexID);
+//        }
+
+        //clear hexes that can be expanded
+        hexesThatCanBeExpanded.clear();
+        if(ableToExpand()){
+            return expandSettlement();
+        }
+
+                //TODO change this to add just meeples
         return addTileAndMeepleSomewhereInTheMap();
+    }
+
+    public BuildResult ableToBuildATotoroSantuary() {
+
+        BuildResult buildResult = findAISettlements5orGreater(aiPlayer);
+
+        if (buildResult.buildSuccessfull){
+
+            boolean ableTobuild = true;
+            int buildOption = 3;
+
+            return (new BuildResult(ableTobuild, buildOption, buildResult.foundSettlementToPlaceTotoro));
+        }
+
+
+        return (new BuildResult(false));
     }
 
     public BuildResult ableToBuildATigerPlayground() {
@@ -161,8 +197,9 @@ public class ALE_AI {
 
                 boolean successfull = true;
                 int level3hex = level3Hexes.get(i);
+                int buildOption = 4;
 
-                return (new BuildResult(successfull, level3hex));
+                return (new BuildResult(successfull, buildOption, level3hex));
             }
         }
 
@@ -197,8 +234,22 @@ public class ALE_AI {
         result = nukeHexAdjacentToTotoro();
 
         if (result.nukingSuccessfull){
+
             return result;
         }
+
+        result = nukeOpponentSettlement();
+
+        if(result.nukingSuccessfull){
+
+            return result;
+        }
+
+        return (new NukeResult(false));
+    }
+
+    private NukeResult nukeOpponentSettlement() {
+
 
 
         return (new NukeResult(false));
@@ -430,7 +481,7 @@ public class ALE_AI {
 
                                     } else {
 
-                                        return addMeepleToAnExistingSettlement(adjacentHexes.get(i), orientation[j]);
+                                        return addMeepleToAnExistingSettlement();
 
                                     }
 
@@ -529,12 +580,12 @@ public class ALE_AI {
     }
 
     //TODO build the totoro so that it only touches one hex on in the edge of the settlement so that you can nuke and make another settlement of size 5
-    public MoveData buildATotoroSantuary() {
+    public MoveData buildATotoroSantuary(int foundSettlementToPlaceATotoro) {
 
         MoveData info = new MoveData();
 
         //get all hexes in the settlement
-        ArrayList<Integer> hexesOnSettlement = islandMap.getSettlementsMap().get(findAISettlements5orGreater(aiPlayer));
+        ArrayList<Integer> hexesOnSettlement = islandMap.getSettlementsMap().get(foundSettlementToPlaceATotoro);
 
         //see where you can place a totoro
         for(int i = 0; i < hexesOnSettlement.size(); i++){
@@ -543,31 +594,14 @@ public class ALE_AI {
 
             for (int j = 0; j < adjacentHexes.size(); j++){
 
-                if(builder.verifyValidHexForSettlement(islandMap.getHex(adjacentHexes.get(j)))){
-
-                    HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(islandMap.getAllHexesOnMap());
-
-                    int[] tileInfo = allPossibleTiles.get(0);
-
-                    islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer);
+                if(builder.verifyValidHexForSettlement(islandMap.getHex(adjacentHexes.get(j)))) {
 
                     int buildOption = 3;
 
-                    builder.build(aiPlayer, islandMap, buildOption, adjacentHexes.get(j));
+                    if (builder.build(aiPlayer, islandMap, buildOption, adjacentHexes.get(j))) ;
 
-                    int tileX = islandMap.getHex(tileInfo[0]).getX();
-                    int tileY = islandMap.getHex(tileInfo[0]).getY();
-                    int orientation = tileInfo[1];
                     int buildOptX = islandMap.getHex(adjacentHexes.get(j)).getX();
                     int buildOptY = islandMap.getHex(adjacentHexes.get(j)).getY();
-
-                    int serverOrientation = rotationConverter.oursToServer(orientation);
-                    int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
-
-                    info.setOrientation(serverOrientation);
-                    info.setTilePlacementX(serverCoordinatesTile[0]);
-                    info.setTilePlacementY(serverCoordinatesTile[1]);
-                    info.setTilePlacementZ(serverCoordinatesTile[2]);
 
                     int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
 
@@ -580,11 +614,10 @@ public class ALE_AI {
 
                 }
             }
-
         }
 
         System.out.println("Could Not Find A Place to build a Totoro Santuary, so we build a new settlement");
-        return addTileAndMeepleSomewhereInTheMap();
+        return addMeepleToAnExistingSettlement();
     }
 
     public MoveData expandSettlement() {
@@ -615,30 +648,26 @@ public class ALE_AI {
             terrainToExpand = "Grassland";
         }
 
-        builder.build(aiPlayer, islandMap, buildOption, theBestExpansion[0], terrainToExpand);
+       if (builder.build(aiPlayer, islandMap, buildOption, theBestExpansion[0], terrainToExpand)){
 
-        int tileX = islandMap.getHex(tileInfo[0]).getX();
-        int tileY = islandMap.getHex(tileInfo[0]).getY();
-        int orientation = tileInfo[1];
-        int buildOptX = islandMap.getHex(theBestExpansion[0]).getX();
-        int buildOptY = islandMap.getHex(theBestExpansion[0]).getY();
+           System.out.println("EXPANDED SUCCESSFULLY");
 
-        int serverOrientation = rotationConverter.oursToServer(orientation);
-        int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
-        info.setOrientation(serverOrientation);
-        info.setTilePlacementX(serverCoordinatesTile[0]);
-        info.setTilePlacementY(serverCoordinatesTile[1]);
-        info.setTilePlacementZ(serverCoordinatesTile[2]);
+           int buildOptX = islandMap.getHex(theBestExpansion[0]).getX();
+           int buildOptY = islandMap.getHex(theBestExpansion[0]).getY();
 
-        int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+           int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
 
-        info.setBuildOption(buildOption);
-        info.setBuildOptionX(serverCoordinatesBuild[0]);
-        info.setBuildOptionY(serverCoordinatesBuild[1]);
-        info.setBuildOptionZ(serverCoordinatesBuild[2]);
-        info.setExtendTerrain(terrainToExpand);
+           info.setBuildOption(buildOption);
+           info.setBuildOptionX(serverCoordinatesBuild[0]);
+           info.setBuildOptionY(serverCoordinatesBuild[1]);
+           info.setBuildOptionZ(serverCoordinatesBuild[2]);
+           info.setExtendTerrain(terrainToExpand);
 
-        return info;
+           return info;
+
+       }
+
+       return addMeepleToAnExistingSettlement();
     }
 
     public MoveData addTileAndMeepleSomewhereInTheMap() {
@@ -694,7 +723,7 @@ public class ALE_AI {
         return info;
     }
 
-    public MoveData addMeepleToAnExistingSettlement(int hexID, int orientation) {
+    public MoveData addMeepleToAnExistingSettlement() {
 
         MoveData info = new MoveData();
 
@@ -714,18 +743,8 @@ public class ALE_AI {
 
                     if (builder.build(aiPlayer, islandMap, buildOption, adjacentHexes.get(j))){
 
-                        int tileX = islandMap.getHex(hexID).getX();
-                        int tileY = islandMap.getHex(hexID).getY();
-
                         int buildOptX = islandMap.getHex(adjacentHexes.get(j)).getX();
                         int buildOptY = islandMap.getHex(adjacentHexes.get(j)).getY();
-
-                        int serverOrientation = rotationConverter.oursToServer(orientation);
-                        int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
-                        info.setOrientation(serverOrientation);
-                        info.setTilePlacementX(serverCoordinatesTile[0]);
-                        info.setTilePlacementY(serverCoordinatesTile[1]);
-                        info.setTilePlacementZ(serverCoordinatesTile[2]);
 
                         int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
 
@@ -740,8 +759,6 @@ public class ALE_AI {
             }
 
         }
-
-
 
         return addTileAndMeepleSomewhereInTheMap();
     }
@@ -762,7 +779,7 @@ public class ALE_AI {
         return largestSettlement;
     }
 
-    public int findAISettlements5orGreater(Player aiPlayer) {
+    public BuildResult findAISettlements5orGreater(Player aiPlayer) {
 
         ArrayList<Integer> settlements = islandMap.getPlayerSettlement(aiPlayer);
 
@@ -771,10 +788,12 @@ public class ALE_AI {
         for (int i = 1; i < settlements.size(); i++){
             if (islandMap.getSettlementsMap().get(settlements.get(i)).size() >= 5 && islandMap.getSettlementObj().doesNotHaveATotoro(settlements.get(i),aiPlayer)){
                 foundSettlementID = settlements.get(i);
+
+                return (new BuildResult(true, 3, foundSettlementID));
             }
         }
 
-        return foundSettlementID;
+        return (new BuildResult(false));
     }
 
     public int isThereSettlementThatHasTotoroAlready(Player aiPlayer) {

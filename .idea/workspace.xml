@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/BuildResult.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ALE_AI.java" afterPath="$PROJECT_DIR$/src/main/java/ALE_AI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Client.java" afterPath="$PROJECT_DIR$/src/main/java/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/IslandMap.java" afterPath="$PROJECT_DIR$/src/main/java/IslandMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/BuildResult.java" afterPath="$PROJECT_DIR$/src/main/java/BuildResult.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Settlement.java" afterPath="$PROJECT_DIR$/src/main/java/Settlement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java" afterPath="$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/AIPlayingTest.java" afterPath="$PROJECT_DIR$/test/AIPlayingTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/AITest.java" afterPath="$PROJECT_DIR$/test/AITest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -38,19 +34,19 @@
       <file leaf-file-name="ALE_AI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="150" column="51" lean-forward="false" selection-start-line="150" selection-start-column="51" selection-end-line="150" selection-end-column="51" />
+            <state relative-caret-position="-98">
+              <caret line="252" column="0" lean-forward="true" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#ALE_AI#0;class#ALE_AI#0" expanded="false" />
                 <element signature="method#updateOpponentMove#0;class#ALE_AI#0" expanded="false" />
-                <element signature="method#findBestStrategyForPlacingTotoros#0;class#ALE_AI#0" expanded="false" />
+                <element signature="method#ableToBuildATotoroSantuary#0;class#ALE_AI#0" expanded="false" />
+                <element signature="method#ableToBuildATigerPlayground#0;class#ALE_AI#0" expanded="false" />
                 <element signature="method#performNuking#0;class#ALE_AI#0" expanded="false" />
                 <element signature="method#findBestStrategyForPlacingTigers#0;class#ALE_AI#0" expanded="false" />
-                <element signature="method#ableToExpand#0;class#ALE_AI#0" expanded="false" />
-                <element signature="method#findTheBestExpansion#0;class#ALE_AI#0" expanded="false" />
-                <element signature="method#expandSettlement#0;class#ALE_AI#0" expanded="false" />
-                <element signature="method#addMeepleToAnExistingSettlement#0;class#ALE_AI#0" expanded="false" />
+                <element signature="method#buildATigerPlayground#0;class#ALE_AI#0" expanded="false" />
+                <element signature="e#9230#9260#0" expanded="false" />
+                <element signature="method#nukeHexNextToTheTotoro#0;class#ALE_AI#0" expanded="false" />
+                <element signature="method#addTileAndMeepleSomewhereInTheMap#0;class#ALE_AI#0" expanded="false" />
                 <element signature="method#findLargestSettlement#0;class#ALE_AI#0" expanded="false" />
                 <element signature="method#isThereSettlementThatHasTotoroAlready#0;class#ALE_AI#0" expanded="false" />
                 <element signature="method#itOnlyTouchingOneHexInTheSettlement#0;class#ALE_AI#0" expanded="false" />
@@ -58,7 +54,6 @@
                 <element signature="method#getAllPossibleTilePlacementPosition#0;class#ALE_AI#0" expanded="false" />
                 <element signature="method#getServerPlayer#0;class#ALE_AI#0" expanded="false" />
                 <element signature="method#setTerrainsArray#0;class#ALE_AI#0" expanded="false" />
-                <element signature="method#nukeOpponentWith3HexesOrMore#0;class#ALE_AI#0" expanded="false" />
                 <element signature="method#nukeHexAdjacentToTotoro#0;class#ALE_AI#0" expanded="false" />
                 <element signature="method#makeFirstMove#0;class#ALE_AI#0" expanded="false" />
               </folding>
@@ -69,12 +64,58 @@
       <file leaf-file-name="AITest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/AITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-486">
-              <caret line="321" column="40" lean-forward="true" selection-start-line="321" selection-start-column="40" selection-end-line="321" selection-end-column="40" />
+            <state relative-caret-position="238">
+              <caret line="357" column="0" lean-forward="false" selection-start-line="357" selection-start-column="0" selection-end-line="357" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BuildResult.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="93" column="57" lean-forward="true" selection-start-line="93" selection-start-column="57" selection-end-line="93" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1481#1490#0" expanded="true" />
+                <element signature="e#2390#2399#0" expanded="true" />
+                <element signature="e#5193#5202#0" expanded="true" />
+                <element signature="e#5266#5275#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HexGrid.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HexGrid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="106">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettlementSizeChecker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,7 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>successfully placed on Hex</find>
       <find>END</find>
       <find>PLAYER</find>
       <find>terrains</find>
@@ -121,6 +161,7 @@
       <find>touching</find>
       <find>nuke</find>
       <find>totoro</find>
+      <find>hexesThatCanBeExpanded</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -192,10 +233,10 @@
         <option value="$PROJECT_DIR$/test/AIPlayingTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/IslandMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
         <option value="$PROJECT_DIR$/src/main/java/BuildResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/ALE_AI.java" />
         <option value="$PROJECT_DIR$/test/AITest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
       </list>
     </option>
   </component>
@@ -315,30 +356,15 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/test" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
   </component>
-  <component name="RunManager" selected="JUnit.AITest.buildTigerPlayground">
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="TigerIsland" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="AITest.nukeHexAdjacentToTotoro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AITest.NukeOpponentWith3orMoreHexes">
+    <configuration default="false" name="AITest.findSettlementsWithTotoros" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="TigerIsland" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AITest" />
-      <option name="METHOD_NAME" value="nukeHexAdjacentToTotoro" />
+      <option name="METHOD_NAME" value="findSettlementsWithTotoros" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -352,14 +378,35 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="SettlementTest.updateSettlementAfterNukeTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="AITest.doesTotoroOnlyTouchOneHexInSettlement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="TigerIsland" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SettlementTest" />
-      <option name="METHOD_NAME" value="updateSettlementAfterNukeTest3" />
+      <option name="MAIN_CLASS_NAME" value="AITest" />
+      <option name="METHOD_NAME" value="doesTotoroOnlyTouchOneHexInSettlement" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AITest.nukeHexAdjacentToTotoro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="TigerIsland" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AITest" />
+      <option name="METHOD_NAME" value="nukeHexAdjacentToTotoro" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -394,14 +441,14 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="AITest.buildTigerPlayground" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="AITest.NukeOpponentWith3orMoreHexes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="TigerIsland" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AITest" />
-      <option name="METHOD_NAME" value="buildTigerPlayground" />
+      <option name="METHOD_NAME" value="NukeOpponentWith3orMoreHexes" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -684,19 +731,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="JUnit.JUnit Test" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.SettlementColorTest.checkNuking" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.nukeHexAdjacentToTotoro" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.SettlementTest.updateSettlementAfterNukeTest3" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AITest.findSettlementsWithTotoros" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.doesTotoroOnlyTouchOneHexInSettlement" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.nukeHexAdjacentToTotoro" />
       <item index="5" class="java.lang.String" itemvalue="JUnit.AITest.ExpandingTest1" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.AITest.buildTigerPlayground" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.AITest.NukeOpponentWith3orMoreHexes" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.AITest.buildTigerPlayground" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AITest.ExpandingTest1" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.nukeHexAdjacentToTotoro" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.SettlementTest.updateSettlementAfterNukeTest3" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AITest.NukeOpponentWith3orMoreHexes" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AITest.ExpandingTest1" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AITest.nukeHexAdjacentToTotoro" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.doesTotoroOnlyTouchOneHexInSettlement" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.findSettlementsWithTotoros" />
       </list>
     </recent_temporary>
   </component>
@@ -1012,39 +1059,46 @@
       <option name="project" value="LOCAL" />
       <updated>1492138730145</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Placing Tiger Works">
+      <created>1492158693120</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1492158693121</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AITest_ExpandingTest1 - 2017.04.14 at 04h 04m 59s.xml">
+    <history-entry file="AITest_ExpandingTest1 - 2017.04.14 at 11h 35m 47s.xml">
       <configuration name="AITest.ExpandingTest1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_ExpandingTest1 - 2017.04.14 at 04h 07m 37s.xml">
+    <history-entry file="AITest_ExpandingTest1 - 2017.04.14 at 11h 37m 09s.xml">
       <configuration name="AITest.ExpandingTest1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_buildTigerPlayground - 2017.04.14 at 04h 30m 09s.xml">
-      <configuration name="AITest.buildTigerPlayground" configurationId="JUnit" />
+    <history-entry file="AITest_ExpandingTest1 - 2017.04.14 at 11h 37m 18s.xml">
+      <configuration name="AITest.ExpandingTest1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_buildTigerPlayground - 2017.04.14 at 04h 30m 46s.xml">
-      <configuration name="AITest.buildTigerPlayground" configurationId="JUnit" />
+    <history-entry file="AITest_ExpandingTest1 - 2017.04.14 at 11h 40m 13s.xml">
+      <configuration name="AITest.ExpandingTest1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_nukeHexAdjacentToTotoro - 2017.04.14 at 04h 02m 36s.xml">
-      <configuration name="AITest.nukeHexAdjacentToTotoro" configurationId="JUnit" />
+    <history-entry file="AITest_NukeOpponentWith3orMoreHexes - 2017.04.14 at 11h 40m 58s.xml">
+      <configuration name="AITest.NukeOpponentWith3orMoreHexes" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_nukeHexAdjacentToTotoro - 2017.04.14 at 04h 03m 18s.xml">
-      <configuration name="AITest.nukeHexAdjacentToTotoro" configurationId="JUnit" />
+    <history-entry file="AITest_NukeOpponentWith3orMoreHexes - 2017.04.14 at 11h 42m 48s.xml">
+      <configuration name="AITest.NukeOpponentWith3orMoreHexes" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_nukeHexAdjacentToTotoro - 2017.04.14 at 04h 03m 34s.xml">
-      <configuration name="AITest.nukeHexAdjacentToTotoro" configurationId="JUnit" />
+    <history-entry file="AITest_NukeOpponentWith3orMoreHexes - 2017.04.14 at 11h 52m 45s.xml">
+      <configuration name="AITest.NukeOpponentWith3orMoreHexes" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_nukeHexAdjacentToTotoro - 2017.04.14 at 04h 04m 09s.xml">
-      <configuration name="AITest.nukeHexAdjacentToTotoro" configurationId="JUnit" />
+    <history-entry file="AITest_NukeOpponentWith3orMoreHexes - 2017.04.14 at 11h 56m 17s.xml">
+      <configuration name="AITest.NukeOpponentWith3orMoreHexes" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_nukeHexAdjacentToTotoro - 2017.04.14 at 04h 04m 46s.xml">
-      <configuration name="AITest.nukeHexAdjacentToTotoro" configurationId="JUnit" />
+    <history-entry file="AITest_NukeOpponentWith3orMoreHexes - 2017.04.14 at 12h 06m 47s.xml">
+      <configuration name="AITest.NukeOpponentWith3orMoreHexes" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.14 at 04h 04m 50s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="AITest_NukeOpponentWith3orMoreHexes - 2017.04.14 at 12h 12m 36s.xml">
+      <configuration name="AITest.NukeOpponentWith3orMoreHexes" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1110,7 +1164,8 @@
     <MESSAGE value="Merge remote-tracking branch 'remotes/origin/TournamentFixes' into NewThreating&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Client.java&#10;" />
     <MESSAGE value="Expanding and placing totoros seem to be working" />
     <MESSAGE value="Nuking, expanding, and placing totoros work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nuking, expanding, and placing totoros work" />
+    <MESSAGE value="Placing Tiger Works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Placing Tiger Works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1133,8 +1188,32 @@
           <properties />
           <option name="timeStamp" value="100" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ALE_AI.java</url>
+          <line>128</line>
+          <properties />
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ALE_AI.java</url>
+          <line>624</line>
+          <properties />
+          <option name="timeStamp" value="153" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ALE_AI.java</url>
+          <line>142</line>
+          <properties />
+          <option name="timeStamp" value="155" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Settlement.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="149" />
+      <option name="time" value="157" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1310,14 +1389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/AuthenticationProtocol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1355,13 +1426,6 @@
         <state relative-caret-position="145">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HexGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1425,14 +1489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/AIPlayingTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1458,14 +1514,6 @@
             <element signature="e#6429#6593#0" expanded="true" />
             <element signature="e#6592#6593#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="491" column="0" lean-forward="false" selection-start-line="491" selection-start-column="0" selection-end-line="491" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1501,19 +1549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="89" column="13" lean-forward="false" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
-          <folding>
-            <element signature="e#1427#1436#0" expanded="true" />
-            <element signature="e#2290#2299#0" expanded="true" />
-            <element signature="e#4583#4592#0" expanded="true" />
-            <element signature="e#4656#4665#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NukeResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1522,18 +1557,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        <state relative-caret-position="90">
+          <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="652" column="0" lean-forward="false" selection-start-line="652" selection-start-column="0" selection-end-line="652" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HexGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SettlementSizeChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/AITest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-486">
-          <caret line="321" column="40" lean-forward="true" selection-start-line="321" selection-start-column="40" selection-end-line="321" selection-end-column="40" />
+        <state relative-caret-position="238">
+          <caret line="357" column="0" lean-forward="false" selection-start-line="357" selection-start-column="0" selection-end-line="357" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -1541,21 +1608,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="150" column="51" lean-forward="false" selection-start-line="150" selection-start-column="51" selection-end-line="150" selection-end-column="51" />
+        <state relative-caret-position="510">
+          <caret line="93" column="57" lean-forward="true" selection-start-line="93" selection-start-column="57" selection-end-line="93" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1481#1490#0" expanded="true" />
+            <element signature="e#2390#2399#0" expanded="true" />
+            <element signature="e#5193#5202#0" expanded="true" />
+            <element signature="e#5266#5275#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="252" column="0" lean-forward="true" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
+          <folding>
             <element signature="method#ALE_AI#0;class#ALE_AI#0" expanded="false" />
             <element signature="method#updateOpponentMove#0;class#ALE_AI#0" expanded="false" />
-            <element signature="method#findBestStrategyForPlacingTotoros#0;class#ALE_AI#0" expanded="false" />
+            <element signature="method#ableToBuildATotoroSantuary#0;class#ALE_AI#0" expanded="false" />
+            <element signature="method#ableToBuildATigerPlayground#0;class#ALE_AI#0" expanded="false" />
             <element signature="method#performNuking#0;class#ALE_AI#0" expanded="false" />
             <element signature="method#findBestStrategyForPlacingTigers#0;class#ALE_AI#0" expanded="false" />
-            <element signature="method#ableToExpand#0;class#ALE_AI#0" expanded="false" />
-            <element signature="method#findTheBestExpansion#0;class#ALE_AI#0" expanded="false" />
-            <element signature="method#expandSettlement#0;class#ALE_AI#0" expanded="false" />
-            <element signature="method#addMeepleToAnExistingSettlement#0;class#ALE_AI#0" expanded="false" />
+            <element signature="method#buildATigerPlayground#0;class#ALE_AI#0" expanded="false" />
+            <element signature="e#9230#9260#0" expanded="false" />
+            <element signature="method#nukeHexNextToTheTotoro#0;class#ALE_AI#0" expanded="false" />
+            <element signature="method#addTileAndMeepleSomewhereInTheMap#0;class#ALE_AI#0" expanded="false" />
             <element signature="method#findLargestSettlement#0;class#ALE_AI#0" expanded="false" />
             <element signature="method#isThereSettlementThatHasTotoroAlready#0;class#ALE_AI#0" expanded="false" />
             <element signature="method#itOnlyTouchingOneHexInTheSettlement#0;class#ALE_AI#0" expanded="false" />
@@ -1563,7 +1644,6 @@
             <element signature="method#getAllPossibleTilePlacementPosition#0;class#ALE_AI#0" expanded="false" />
             <element signature="method#getServerPlayer#0;class#ALE_AI#0" expanded="false" />
             <element signature="method#setTerrainsArray#0;class#ALE_AI#0" expanded="false" />
-            <element signature="method#nukeOpponentWith3HexesOrMore#0;class#ALE_AI#0" expanded="false" />
             <element signature="method#nukeHexAdjacentToTotoro#0;class#ALE_AI#0" expanded="false" />
             <element signature="method#makeFirstMove#0;class#ALE_AI#0" expanded="false" />
           </folding>
