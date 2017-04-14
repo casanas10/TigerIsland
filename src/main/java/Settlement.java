@@ -72,15 +72,13 @@ public class Settlement {
             }
         }
 
-        ArrayList<Integer> hexesArr = new ArrayList<Integer>();
-
         ArrayList<Integer> alreadySettled = new ArrayList<>();
 
         for (int i = 0; i < NewHexIDs.size(); i++){
 
-            System.out.println(NewHexIDs.get(i));
+            Player player2 = new Player(hexGrid.getHexValue(NewHexIDs.get(i)).getPlayerColorOnHex(), 0);
 
-            hexesArr = settlementSizeChecker.checkSettlementSize(NewHexIDs.get(i), player);
+            ArrayList<Integer> hexesArr = settlementSizeChecker.checkSettlementSize(NewHexIDs.get(i), player2);
 
             if (hexesArr.size() == 0){
 
@@ -95,8 +93,8 @@ public class Settlement {
                 }
 
                 settleID++;
-            }
-            if (!alreadySettled.contains(NewHexIDs.get(i))){
+
+            } else if (!alreadySettled.contains(NewHexIDs.get(i))){
                 settlementMap.put(settleID, hexesArr);
                 listOfActiveSettlementIDs.add(settleID);    //blah blah
 

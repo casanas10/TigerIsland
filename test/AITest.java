@@ -393,7 +393,7 @@ public class AITest {
 
         ai.getIslandMap().addTileToMap(19100, 180);
 
-        ai.play();
+        ai.nukingStrategy();
 
         ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
 
@@ -410,7 +410,6 @@ public class AITest {
         ai.getIslandMap().addTileToMap(19500, 60, terrains, ai.getServerPlayer());
         ai.getIslandMap().getHex(19701).setTerrain("Grassland");
         ai.getIslandMap().getHex(19501).setTerrain("Grassland");
-        ai.getIslandMap().getSettlementObj().addSettlement(19501, ai.getServerPlayer());
         ai.getIslandMap().getSettlementObj().addSettlement(19701, ai.getServerPlayer());
         ai.getIslandMap().getSettlementObj().addSettlement(19700, ai.getServerPlayer());
 
@@ -422,7 +421,7 @@ public class AITest {
 
         ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
 
-        NukeResult nukeResult = ai.nukeOpponentWith3HexesOrMore();
+        NukeResult nukeResult = ai.nukeOpponentSettlement();
 
         ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
 

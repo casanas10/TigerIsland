@@ -248,9 +248,70 @@ public class ALE_AI {
         return (new NukeResult(false));
     }
 
-    private NukeResult nukeOpponentSettlement() {
+    public NukeResult nukeOpponentSettlement() {
 
+        //find the opponent's settlement
+        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(serverPlayer);
 
+        int[] orientation = {0,60,120,180,240,300};
+
+        for (int i = 1; i < settlements.size(); i++){
+
+            boolean settlementDoesNotHaveTotoro = islandMap.getSettlementObj().doesNotHaveATotoro(settlements.get(i),serverPlayer);
+
+            //if settlement size is > 3 and it does not have a totoro
+            if (settlementDoesNotHaveTotoro){
+
+                ArrayList<Integer> listHexesInSettlement = islandMap.getSettlementObj().getSettlementHexIDs(settlements.get(i));
+
+                for (int j = 0; j < listHexesInSettlement.size(); j++){
+
+                    ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(listHexesInSettlement.get(j)));
+
+                    for (int k = 0; k < adjacentHexes.size(); k++){
+
+                        System.out.println(adjacentHexes.get(k));
+
+                        if (islandMap.getHex(adjacentHexes.get(k)).getTerrain().equals("Volcano")){
+
+                            System.out.println(adjacentHexes.get(k));
+
+                            Nuking nuker = new Nuking();
+
+                            for ( int l = 0; l < orientation.length; l++){
+
+                                tile = new RotateTile(adjacentHexes.get(k), orientation[l]);
+
+                                int[] pairs = tile.checkPair();
+
+                                if(nuker.canYouNukeSettlement(islandMap, pairs , adjacentHexes.get(k))){
+
+                                    if (listHexesInSettlement.contains(pairs[1]) && listHexesInSettlement.contains(pairs[2])){
+
+                                        if (islandMap.addTileToMap(adjacentHexes.get(k), orientation[l], terrainsArray, aiPlayer)){
+                                            System.out.println("Nuked Both Meeples");
+
+                                            boolean successfull = true;
+
+                                            return (new NukeResult(successfull, adjacentHexes.get(k), orientation[l]));
+                                        }
+
+                                    } else {
+
+                                        if (islandMap.addTileToMap(adjacentHexes.get(k), orientation[l], terrainsArray, aiPlayer)){
+                                            System.out.println("Nuked One Meeple");
+
+                                            boolean successfull = true;
+                                            return (new NukeResult(successfull, adjacentHexes.get(k), orientation[l]));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         return (new NukeResult(false));
     }
