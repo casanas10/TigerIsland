@@ -1,7 +1,5 @@
 # TigerIsland
 
-
-
 Game Features:
 -Place tiles
 -Correctly place all types of Game Pieces:
@@ -12,14 +10,17 @@ Game Features:
 The whole game functions. 
 
 
-Game Play:
+Game play:
+In the main method, you can either run the AI against the server, watch the AI play against itself in a GUI, or 
+play against the AI yourself in a GUI. In order to play in the GUI, make sure that the server portion in Main is commented 
+out or deleted (the server code starts at line 21, beginning with Scanner s = new Scanner(System.in)), and runs to the end of Main. 
+When you are playing with the GUI and you run Main, two GUIs will appear. When you click on one of the GUIs, you will be 
+prompted to enter a HexID and a rotation (rotations are in degrees, i.e., 0, 60, 120, 180, 240, 300 and they rotate counterclockwise). 
 
-To play the game, run the main file under src/main/java. Here, you can play against our AI in the console. It will print
-the information that it needs in terms of the server. It will ask for the rotation (1-6), x,y,z coordinates, and the build options. 
-The build options are: 1. Found a settlement, 2. Expand a settlement 3. Build a Totoro sanctuary, 4. Build a Tiger Playground,
-5. No build option. It will ask you for the x,y,z of the coordinate that you want to build. If you choose build option 2, expansion, 
-it will ask you to enter the x,y,z coordinates that you would like to expand from. Next, you will need to input the type of 
-terrain to expand to. The terrains are: Lake, Grassland, Rocky, Jungle. 
+If you click on the other GUI that pops up, you will see the AI play against itself in the GUI every time you click.
+
+If you want to play the AI in the server, make sure you comment out the GUI code (roughly lines 10-18).
+
 
 Our game assumes that the inputs will be correct. If the input is incorrect, the game will skip to the AI's turn. 
 
