@@ -202,6 +202,14 @@ public class IslandMap {
         }
     }
 
+    public void printHexesAndTerrains(){
+        ArrayList<Integer> hexes = getAllHexesOnMap();
+
+        for(int i=0;i<hexes.size();i++){
+
+        }
+    }
+
     public ArrayList<Integer> getAllHexesOnMap(){
 
         ArrayList<Integer> hexes = new ArrayList<>();

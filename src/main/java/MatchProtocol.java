@@ -27,6 +27,12 @@ public class MatchProtocol {
             ALE_AI AI2 = new ALE_AI();
 
             for(int i=0; i<48; i++) {
+                if(gid1 != null && gid2 != null){
+                    if(gid1.equals("dead") && gid2.equals("dead")){
+                        isMatchDone = true;
+                    }
+                }
+
                 if(isMatchDone){
                     break;
                 }
