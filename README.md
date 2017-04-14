@@ -31,3 +31,7 @@ Notes about classes:
 - IslandMap is what keeps track of the actual map of the game. In order to place a tile, we call IslandMap.addTileToMap().
 - Builder is what actually does the build options. The build options are 1, 2, 3, 4 (as specified in the paragraph above)
 - TileGenerator allows you to randomly generate a tile with random terrains. You can use this class to grab new tiles to place.
+
+Tests:
+To run Cucumber tests, go to the CucumberRunner class, and run src/test/java/CucumberRunner to run all the acceptance tests.
+To run the unit tests, go to TigerIsland/Test, right click the folder, and select run JUnit tests
