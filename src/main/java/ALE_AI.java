@@ -104,6 +104,8 @@ public class ALE_AI {
         //clear hexes that can be expanded
         hexesThatCanBeExpanded.clear();
 
+        if (ableToBuildATigerPlayground()) return 6;
+
         if (findAISettlements5orGreater(aiPlayer) != -1) return 1;  //build a totoro
 
         else if (isThereSettlementThatHasTotoroAlready(aiPlayer) != -1) {
@@ -121,26 +123,6 @@ public class ALE_AI {
         return 5;
     }
 
-    public void NukingStrategy() {
-
-        if (nukeOpponentWith3HexesOrMore().nukingSuccessfull){
-
-
-        }
-
-    }
-
-
-    public void buildATigerPlayground(Integer level3Hex) {
-
-        int buildOption = 4;
-
-        if (builder.build(aiPlayer, islandMap, buildOption, level3Hex)){
-            System.out.println("Placed a tiger");
-        }
-
-
-    }
 
 
     public MoveData play() {
@@ -200,9 +182,79 @@ public class ALE_AI {
 
             case 5: return addTileAndMeepleSomewhereInTheMap();
 
+            case 6: return buildATigerPlayground();
+
             default: return addTileAndMeepleSomewhereInTheMap();
         }
 
+    }
+
+    public boolean ableToBuildATigerPlayground() {
+
+        ArrayList<Integer> level3Hexes = findHexLevel3();
+
+        for (int i = 0; i < level3Hexes.size(); i++){
+
+            if (checkIfLevel3HexHasSettlementAdjacentToIt(level3Hexes.get(i))){
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public MoveData buildATigerPlayground() {
+
+        MoveData info = new MoveData();
+
+        ArrayList<Integer> level3Hexes = findHexLevel3();
+
+        for (int i = 0; i < level3Hexes.size(); i++){
+
+            if (checkIfLevel3HexHasSettlementAdjacentToIt(level3Hexes.get(i))) {
+
+                System.out.println("Placed a tiger");
+
+                int buildOption = 4;
+                int level3Hex = level3Hexes.get(i);
+
+                HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(islandMap.getAllHexesOnMap());
+
+                int[] tileInfo = allPossibleTiles.get(0);
+
+                islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer);
+
+                builder.build(aiPlayer, islandMap, buildOption, level3Hex);
+
+                tile = new RotateTile(tileInfo[0], tileInfo[1]);
+
+                int tileX = islandMap.getHex(tileInfo[0]).getX();
+                int tileY = islandMap.getHex(tileInfo[0]).getY();
+                int orientation = tileInfo[1];
+                int buildOptX = islandMap.getHex(level3Hex).getX();
+                int buildOptY = islandMap.getHex(level3Hex).getY();
+
+                int serverOrientation = rotationConverter.oursToServer(orientation);
+                int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+
+                info.setOrientation(serverOrientation);
+                info.setTilePlacementX(serverCoordinatesTile[0]);
+                info.setTilePlacementY(serverCoordinatesTile[1]);
+                info.setTilePlacementZ(serverCoordinatesTile[2]);
+
+                int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+
+                info.setBuildOption(buildOption);
+                info.setBuildOptionX(serverCoordinatesBuild[0]);
+                info.setBuildOptionY(serverCoordinatesBuild[1]);
+                info.setBuildOptionZ(serverCoordinatesBuild[2]);
+
+                return info;
+            }
+        }
+
+        return addTileAndMeepleSomewhereInTheMap();
     }
 
     public MoveData nukeHexNextToTheTotoro() {
