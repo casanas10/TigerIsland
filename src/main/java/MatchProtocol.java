@@ -23,8 +23,8 @@ public class MatchProtocol {
 
             System.out.println("Server: " + fromServer);
 
-            ALE_AI AI1 = new ALE_AI();
-            ALE_AI AI2 = new ALE_AI();
+            AI AI1 = new AI();
+            AI AI2 = new AI();
 
             for(int i=0; i<48; i++) {
                 if(gid1 != null && gid2 != null){
