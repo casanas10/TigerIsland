@@ -256,17 +256,17 @@ public class MoveProtocol {
                 MatchProtocol.gid2 = "dead";
             }
 
-            if(MatchProtocol.gid2 != null && MatchProtocol.gid1 != null) {
-
-                if (MatchProtocol.gid1.equals("dead") && MatchProtocol.gid2.equals("dead")) {
-                    MatchProtocol.isMatchDone = true;
-                }
-//                else{
-//                    fromServer = in.readLine();
-//                    System.out.println("Server: " + fromServer);
+//            if(MatchProtocol.gid2 != null && MatchProtocol.gid1 != null) {
+//
+//                if (MatchProtocol.gid1.equals("dead") && MatchProtocol.gid2.equals("dead")) {
+//                    MatchProtocol.isMatchDone = true;
 //                }
-
-            }
+////                else{
+////                    fromServer = in.readLine();
+////                    System.out.println("Server: " + fromServer);
+////                }
+//
+//            }
             return moveData;
         }
         else {
