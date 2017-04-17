@@ -184,12 +184,12 @@ public class MoveProtocol {
                 if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI1
                     moveData = parseMessage(fromServerArr, in);
- //                   if (moveData.getTerrainsArray() != null)
+                    if (moveData.getTerrainsArray() != null)
                         AI1.updateOpponentMove(moveData);
                 } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
                     //send opponent's move to AI2
                     moveData = parseMessage(fromServerArr, in);
-  //                  if (moveData.getTerrainsArray() != null)
+                    if (moveData.getTerrainsArray() != null)
                         AI2.updateOpponentMove(moveData);
                 } else {
                     //check if server says we lost; check which game if so.
@@ -222,12 +222,12 @@ public class MoveProtocol {
             if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                 //send opponent's move to AI1
                 moveData = parseMessage(fromServerArr, in);
-//                if (moveData.getTerrainsArray() != null)
+                if (moveData.getTerrainsArray() != null)
                     AI1.updateOpponentMove(moveData);
             } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
                 //send opponent's move to AI2
                 moveData = parseMessage(fromServerArr, in);
-//                if (moveData.getTerrainsArray() != null)
+                if (moveData.getTerrainsArray() != null)
                     AI2.updateOpponentMove(moveData);
             } else {
                 //check if server says we lost; check which game if so.
@@ -246,8 +246,6 @@ public class MoveProtocol {
 
             System.out.println("forfeited");
 
-            moveData = new MoveData();
-
             serverGID = fromServerArr[1];
 
             if (serverGID.equals(MatchProtocol.gid1)) {
@@ -257,18 +255,21 @@ public class MoveProtocol {
                 MatchProtocol.gid2 = "dead";
             }
 
-            if(MatchProtocol.gid2 != null && MatchProtocol.gid1 != null) {
-
-                if (MatchProtocol.gid1.equals("dead") && MatchProtocol.gid2.equals("dead")) {
-                    MatchProtocol.isMatchDone = true;
-                }
-//                else{
-//                    fromServer = in.readLine();
-//                    System.out.println("Server: " + fromServer);
+            System.out.println(MatchProtocol.gid1);
+            System.out.println(MatchProtocol.gid2);
+//
+//            if(MatchProtocol.gid2 != null && MatchProtocol.gid1 != null) {
+//
+//                if (MatchProtocol.gid1.equals("dead") && MatchProtocol.gid2.equals("dead")) {
+//                    MatchProtocol.isMatchDone = true;
 //                }
-
-            }
-            return moveData;
+////                else{
+////                    fromServer = in.readLine();
+////                    System.out.println("Server: " + fromServer);
+////                }
+//
+//            }
+//            return moveData;
         }
         else {
             String tile = fromServerArr[7];
@@ -339,5 +340,7 @@ public class MoveProtocol {
                 return moveData;
             }
         }
+
+        return (new MoveData());
     }
 }
