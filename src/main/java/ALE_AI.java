@@ -904,20 +904,38 @@ public class ALE_AI {
     }
 
     private boolean haveAllTwoPiecesBeenPlaced(Player player){
-        if(player.getRemainingMeeples() == 0){
-            if(player.getRemainingTotoros() == 0){
-                return true;
-            }
+        int numberOfMeeplesRemaining = player.getRemainingMeeples();
+        int numberOfTotorosRemaining = player.getRemainingTotoros();
+        int numberOfTigersRemaining = player.getRemainingTigers();
+        int numberOfPieceTypesEmpty = 0;
 
-            if(player.getRemainingTigers() == 0)
-                return true;
-        }
-        else if(player.getRemainingTotoros() == 0){
-            if(player.getRemainingTigers() == 0)
-                return true;
-        }
+        if(numberOfMeeplesRemaining == 0)
+            numberOfPieceTypesEmpty++;
 
-        return false;
+        if(numberOfTotorosRemaining == 0)
+            numberOfPieceTypesEmpty++;
+
+        if(numberOfTigersRemaining == 0)
+            numberOfPieceTypesEmpty++;
+
+        if(numberOfPieceTypesEmpty >=2)
+            return true;
+        else
+            return false;
+//        if(player.getRemainingMeeples() == 0){
+//            if(player.getRemainingTotoros() == 0){
+//                return true;
+//            }
+//
+//            if(player.getRemainingTigers() == 0)
+//                return true;
+//        }
+//        else if(player.getRemainingTotoros() == 0){
+//            if(player.getRemainingTigers() == 0)
+//                return true;
+//        }
+//
+//        return false;
     }
 
 //    public boolean pairsPartOfSettlement(int[] pairs, int settlementID){

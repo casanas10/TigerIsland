@@ -19,10 +19,37 @@ public class MoveProtocol {
         MoveData moveData;
         String moveString;
         String moveNumber;
+        String serverGID;
+        String serverPID;
 
         while ((fromServer = in.readLine()) == null){}
         //MAKE YOUR MOVE IN GAME <gid> WITHIN <time_move> SECOND(S): MOVE <#> PLACE <tile>
-        if (fromServer.substring(0, 4).equals("MAKE")) {
+        if((fromServer.substring(0,4).equals("GAME")) && (!fromServer.substring(5,9).equals("OVER"))){
+            System.out.println("Server: " + fromServer);
+            String fromServerArr[] = fromServer.split(" ");
+            serverGID = fromServerArr[1];
+            serverPID = fromServerArr[5];
+
+            System.out.println("Get 1 message");
+            System.out.println("Get one message gid1: " + MatchProtocol.gid1);
+            System.out.println("Get one message gid2: " + MatchProtocol.gid2);
+
+            if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
+                //send opponent's move to AI1
+                moveData = parseMessage(fromServerArr, in);
+                if (moveData.getTerrainsArray() != null)
+                    AI1.updateOpponentMove(moveData);
+            } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
+                //send opponent's move to AI2
+                moveData = parseMessage(fromServerArr, in);
+                if (moveData.getTerrainsArray() != null)
+                    AI2.updateOpponentMove(moveData);
+            } else {
+                //check if server says we lost; check which game if so.
+                moveData = parseMessage(fromServerArr, in);
+            }
+        }
+        else if (fromServer.substring(0, 4).equals("MAKE")) {
             System.out.println("Server: " + fromServer);
             String fromServerArr[] = fromServer.split(" ");
             if ((MatchProtocol.gid1 == null) || (MatchProtocol.gid1 != null && MatchProtocol.gid2 == null)) {
@@ -73,18 +100,12 @@ public class MoveProtocol {
         String terrainsArray[] = {"Volcano", givenTerrains[0], givenTerrains[1]};
 
         if (currentGID.equals(MatchProtocol.gid1)) {
-            //AI1 gets terrains
-//            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
 
-            //if (givenTerrains[0] != null && givenTerrains[1] != null)
                 AI1.setTerrainsArray(terrainsArray);
 
             return AI1.play();
         } else {
-            //AI2 gets terrains
-//            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
 
-            //if (givenTerrains[0] != null && givenTerrains[1] != null)
                 AI2.setTerrainsArray(terrainsArray);
 
             return AI2.play();
@@ -149,7 +170,8 @@ public class MoveProtocol {
         } else {
             if ((!(MatchProtocol.gid1).equals("dead")) && (!(MatchProtocol.gid2).equals("dead"))) {
                 getTwoMessages(in, opponentPID, AI1, AI2);
-            } else {
+            }
+            else {
                 getOneMessage(in, opponentPID, AI1, AI2);
             }
         }
@@ -221,12 +243,12 @@ public class MoveProtocol {
             if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
                 //send opponent's move to AI1
                 moveData = parseMessage(fromServerArr, in);
-//                if (moveData.getTerrainsArray() != null)
+                if (moveData.getTerrainsArray() != null)
                     AI1.updateOpponentMove(moveData);
             } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
                 //send opponent's move to AI2
                 moveData = parseMessage(fromServerArr, in);
-//                if (moveData.getTerrainsArray() != null)
+                if (moveData.getTerrainsArray() != null)
                     AI2.updateOpponentMove(moveData);
             } else {
                 //check if server says we lost; check which game if so.
