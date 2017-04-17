@@ -76,18 +76,17 @@ public class MoveProtocol {
             //AI1 gets terrains
 //            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
 
-            if (givenTerrains[0] != null && givenTerrains[1] != null)
+            //if (givenTerrains[0] != null && givenTerrains[1] != null)
                 AI1.setTerrainsArray(terrainsArray);
 
-            AI1.getIslandMap().getSettlementObj().printAllSettlements(AI1.getAiPlayer());
             return AI1.play();
         } else {
             //AI2 gets terrains
 //            System.out.println("terrains: " + terrainsArray[0] + " " + terrainsArray[1] + " " + terrainsArray[2]);
 
-            if (givenTerrains[0] != null && givenTerrains[1] != null)
+            //if (givenTerrains[0] != null && givenTerrains[1] != null)
                 AI2.setTerrainsArray(terrainsArray);
-//            AI2.getIslandMap().getSettlementObj().printAllSettlements(AI1.getAiPlayer());
+
             return AI2.play();
         }
     }
