@@ -895,6 +895,31 @@ public class ALE_AI {
         return (new NukeResult(successfull));
     }
 
+    public boolean hasAIPlayerPlacedAllTwoPieces(){
+        return haveAllTwoPiecesBeenPlaced(aiPlayer);
+    }
+
+    public boolean hasServerPlayerPlacedAllTwoPieces(){
+        return haveAllTwoPiecesBeenPlaced(serverPlayer);
+    }
+
+    private boolean haveAllTwoPiecesBeenPlaced(Player player){
+        if(player.getRemainingMeeples() == 0){
+            if(player.getRemainingTotoros() == 0){
+                return true;
+            }
+
+            if(player.getRemainingTigers() == 0)
+                return true;
+        }
+        else if(player.getRemainingTotoros() == 0){
+            if(player.getRemainingTigers() == 0)
+                return true;
+        }
+
+        return false;
+    }
+
 //    public boolean pairsPartOfSettlement(int[] pairs, int settlementID){
 //
 //        ArrayList<Int>

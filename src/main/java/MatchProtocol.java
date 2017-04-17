@@ -38,6 +38,11 @@ public class MatchProtocol {
                 }
                 MoveProtocol move = new MoveProtocol();
                 move.makeMove(out, in, AI1, AI2, opponentPID);
+
+                if(AI1.hasAIPlayerPlacedAllTwoPieces() || AI1.hasServerPlayerPlacedAllTwoPieces())
+                    gid1 = "dead";
+                if(AI2.hasAIPlayerPlacedAllTwoPieces() || AI2.hasServerPlayerPlacedAllTwoPieces())
+                    gid2 = "dead";
             }
         }
 
