@@ -78,27 +78,52 @@ public class Nuking {
     }
 
 
-    public boolean isSettlementSizeOne(IslandMap islandMap, int[] hexID){
+//    public boolean isSettlementSizeOne(IslandMap islandMap, int[] hexID){
+//        Settlement settlement = islandMap.getSettlementObj();
+//        HexGrid hexGrid = islandMap.getHexGrid();
+//
+//        for(int i = 0; i < hexID.length; i++) {
+//            int settlementID = hexGrid.getHexValue(hexID[i]).getSettlementID();
+//
+//            if (settlementID == -1)
+//                continue;
+//            else if(settlement.getSettlementMap().get(settlementID) == null){   //blah blah
+//                hexGrid.getHexValue(hexID[i]).setSettlementID(-1);
+//                continue;
+//            }
+//            else if (settlement.getSettlementMap().get(settlementID).size() == 1)
+//                return true;
+//
+//        }
+//
+//        return false;
+//    }
+
+    public boolean isSettlementSizeOne(IslandMap islandMap, int[] hexIDs){
+
         Settlement settlement = islandMap.getSettlementObj();
-        HexGrid hexGrid = islandMap.getHexGrid();
 
-        for(int i = 0; i < hexID.length; i++) {
-            int settlementID = hexGrid.getHexValue(hexID[i]).getSettlementID();
+        for(int i = 0; i < hexIDs.length; i++){
 
-            if (settlementID == -1)
-                continue;
-            else if(settlement.getSettlementMap().get(settlementID) == null){   //blah blah
-                hexGrid.getHexValue(hexID[i]).setSettlementID(-1);
-                continue;
+            if (!(islandMap.getHex(hexIDs[i]).getTerrain().equals("Volcano"))){
+
+                int settlementID = islandMap.getHex(hexIDs[i]).getSettlementID();
+
+                if (settlementID != -1){
+
+                    ArrayList<Integer> list = islandMap.getSettlementsMap().get(settlementID);
+
+                    if (list.size() != 1){
+
+                        return false;
+                    }
+                }
+
             }
-            else if (settlement.getSettlementMap().get(settlementID).size() == 1)
-                return true;
-
         }
 
-        return false;
+        return true;
     }
-
 
 
     public boolean doesNukeSpanTwoTiles(HexGrid hexGrid, int[] HexIDsArray){

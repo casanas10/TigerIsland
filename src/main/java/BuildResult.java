@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by ale on 4/14/17.
  */
@@ -6,13 +8,16 @@ public class BuildResult {
     public boolean buildSuccessfull;
     public int hexID;
     public int foundSettlementToPlaceTotoro;
-
+    public int buildOption;
+    public ArrayList<Integer> listHigherLevelHexes;
 
 
     public BuildResult(boolean successful) {
         this.buildSuccessfull = successful;
         this.hexID = -1;
         this.foundSettlementToPlaceTotoro = -1;
+        this.buildOption = -1;
+        this.listHigherLevelHexes = new ArrayList<>();
     }
 
     public BuildResult(boolean successfull, int buildOption, int id){
@@ -25,8 +30,19 @@ public class BuildResult {
             this.buildSuccessfull = successfull;
             this.hexID = -1;
             this.foundSettlementToPlaceTotoro = id;
+        } else if (buildOption == 1){
+            this.buildSuccessfull = successfull;
+            this.hexID = id;
+            this.foundSettlementToPlaceTotoro = -1;
         }
 
+        this.buildOption = buildOption;
+
+    }
+
+    public BuildResult(boolean buildSuccessfull, ArrayList<Integer> listHigherLevelHexes){
+        this.buildSuccessfull = buildSuccessfull;
+        this.listHigherLevelHexes = listHigherLevelHexes;
     }
 
 }

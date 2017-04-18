@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by alecasanas on 4/13/17.
  */
@@ -6,6 +8,7 @@ public class NukeResult {
     public boolean nukingSuccessfull;
     public int hexID;
     public int orientation;
+
 
     public NukeResult(boolean successful) {
         this.nukingSuccessfull = successful;

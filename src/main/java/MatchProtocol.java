@@ -1,3 +1,5 @@
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import java.io.*;
 
 /**
@@ -23,8 +25,8 @@ public class MatchProtocol {
 
             System.out.println("Server: " + fromServer);
 
-            ALE_AI AI1 = new ALE_AI();
-            ALE_AI AI2 = new ALE_AI();
+            NEW_AI AI1 = new NEW_AI();
+            NEW_AI AI2 = new NEW_AI();
 
             for(int i=0; i<48; i++) {
                 if(gid1 != null && gid2 != null){

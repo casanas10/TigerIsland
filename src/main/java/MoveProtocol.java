@@ -1,3 +1,4 @@
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 
 import javax.crypto.Mac;
@@ -12,17 +13,45 @@ import java.io.PrintWriter;
 public class MoveProtocol {
     private String currentGID;
 
-    public void makeMove(PrintWriter out, BufferedReader in, ALE_AI AI1, ALE_AI AI2, String opponentPID) throws Exception {
+    public void makeMove(PrintWriter out, BufferedReader in, NEW_AI AI1, NEW_AI AI2, String opponentPID) throws Exception {
         BufferedReader stdIn =
                 new BufferedReader(new InputStreamReader(System.in));
         String fromServer;
         MoveData moveData;
         String moveString;
         String moveNumber;
+        String serverGID;
+        String serverPID;
 
         while ((fromServer = in.readLine()) == null){}
         //MAKE YOUR MOVE IN GAME <gid> WITHIN <time_move> SECOND(S): MOVE <#> PLACE <tile>
-        if (fromServer.substring(0, 4).equals("MAKE")) {
+        if((fromServer.substring(0,4).equals("GAME")) && (!fromServer.substring(5,9).equals("OVER"))){
+            System.out.println("Server: " + fromServer);
+            String fromServerArr[] = fromServer.split(" ");
+            serverGID = fromServerArr[1];
+            serverPID = fromServerArr[5];
+
+            System.out.println("Get 1 message");
+            System.out.println("Get one message gid1: " + MatchProtocol.gid1);
+            System.out.println("Get one message gid2: " + MatchProtocol.gid2);
+
+            if ((serverGID.equals(MatchProtocol.gid1)) && (serverPID.equals(opponentPID))) {
+                //send opponent's move to AI1
+                moveData = parseMessage(fromServerArr, in);
+                if (moveData.getTerrainsArray() != null)
+                    AI1.updateOpponentMove(moveData);
+            } else if ((serverGID.equals(MatchProtocol.gid2)) && (serverPID.equals(opponentPID))) {
+                //send opponent's move to AI2
+                moveData = parseMessage(fromServerArr, in);
+                if (moveData.getTerrainsArray() != null)
+                    AI2.updateOpponentMove(moveData);
+            }
+//            } else {
+//                //check if server says we lost; check which game if so.
+//                moveData = parseMessage(fromServerArr, in);
+//            }
+        }
+        else if (fromServer.substring(0, 4).equals("MAKE")) {
             System.out.println("Server: " + fromServer);
             String fromServerArr[] = fromServer.split(" ");
             if ((MatchProtocol.gid1 == null) || (MatchProtocol.gid1 != null && MatchProtocol.gid2 == null)) {
@@ -48,10 +77,16 @@ public class MoveProtocol {
             }
         }
 
+        System.out.println("Settlements Game 1");
+        AI1.getIslandMap().getSettlementObj().printAllSettlements(AI1.getAiPlayer());
+
+        System.out.println("Settlements Game 2");
+        AI2.getIslandMap().getSettlementObj().printAllSettlements(AI2.getAiPlayer());
+
         System.out.println("---------------------------------------------");
     }
 
-    private MoveData getTile(String tile, String currentGID, ALE_AI AI1, ALE_AI AI2) {
+    private MoveData getTile(String tile, String currentGID, NEW_AI AI1, NEW_AI AI2) {
         tile = tile.replaceAll("[+]", " ");
         String givenTerrains[] = tile.split(" ");
         givenTerrains[0] = givenTerrains[0].substring(0, 1).toUpperCase() + givenTerrains[0].substring(1).toLowerCase();
@@ -143,7 +178,7 @@ public class MoveProtocol {
     }
 
     private void checkMessages(PrintWriter out, BufferedReader in, String opponentPID,
-                               ALE_AI AI1, ALE_AI AI2) throws Exception {
+                               NEW_AI AI1, NEW_AI AI2) throws Exception {
         if (MatchProtocol.gid2 == null) {
             getTwoMessages(in, opponentPID, AI1, AI2);
         } else {
@@ -155,7 +190,7 @@ public class MoveProtocol {
         }
     }
 
-    private void getTwoMessages(BufferedReader in, String opponentPID, ALE_AI AI1, ALE_AI AI2) throws Exception {
+    private void getTwoMessages(BufferedReader in, String opponentPID, NEW_AI AI1, NEW_AI AI2) throws Exception {
         String fromServer;
         String serverGID;
         String serverPID;
@@ -200,7 +235,7 @@ public class MoveProtocol {
         }
     }
 
-    private void getOneMessage(BufferedReader in, String opponentPID, ALE_AI AI1, ALE_AI AI2) throws Exception {
+    private void getOneMessage(BufferedReader in, String opponentPID, NEW_AI AI1, NEW_AI AI2) throws Exception {
         String fromServer;
         String serverGID;
         String serverPID;
@@ -245,8 +280,6 @@ public class MoveProtocol {
 
             System.out.println("forfeited");
 
-            moveData = new MoveData();
-
             serverGID = fromServerArr[1];
 
             if (serverGID.equals(MatchProtocol.gid1)) {
@@ -256,18 +289,8 @@ public class MoveProtocol {
                 MatchProtocol.gid2 = "dead";
             }
 
-//            if(MatchProtocol.gid2 != null && MatchProtocol.gid1 != null) {
-//
-//                if (MatchProtocol.gid1.equals("dead") && MatchProtocol.gid2.equals("dead")) {
-//                    MatchProtocol.isMatchDone = true;
-//                }
-////                else{
-////                    fromServer = in.readLine();
-////                    System.out.println("Server: " + fromServer);
-////                }
-//
-//            }
-            return moveData;
+            System.out.println(MatchProtocol.gid1);
+            System.out.println(MatchProtocol.gid2);
         }
         else {
             String tile = fromServerArr[7];
@@ -338,5 +361,7 @@ public class MoveProtocol {
                 return moveData;
             }
         }
+
+        return (new MoveData());
     }
 }
