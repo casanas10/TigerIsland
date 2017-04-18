@@ -15,19 +15,19 @@ public class SettlementSizeCheckerTest {
 
     @BeforeClass
     static public void setupGameScenario() {
-        blackPlayer = new Player("Black", 0);
-        whitePlayer = new Player("White", 0);
+        blackPlayer = new Player("black", 0);
+        whitePlayer = new Player("white", 0);
         hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();
-        hexGrid.getHexValue(609).setPlayerColorOnHex("Black");
-        hexGrid.getHexValue(610).setPlayerColorOnHex("Black");
-        hexGrid.getHexValue(809).setPlayerColorOnHex("Black");
-        hexGrid.getHexValue(810).setPlayerColorOnHex("White");
-        hexGrid.getHexValue(811).setPlayerColorOnHex("Black");
-        hexGrid.getHexValue(1009).setPlayerColorOnHex("Black");
-        hexGrid.getHexValue(1010).setPlayerColorOnHex("Black");
-        hexGrid.getHexValue(1008).setPlayerColorOnHex("Black");
+        hexGrid.getHexValue(609).setPlayerColorOnHex("black");
+        hexGrid.getHexValue(610).setPlayerColorOnHex("black");
+        hexGrid.getHexValue(809).setPlayerColorOnHex("black");
+        hexGrid.getHexValue(810).setPlayerColorOnHex("white");
+        hexGrid.getHexValue(811).setPlayerColorOnHex("black");
+        hexGrid.getHexValue(1009).setPlayerColorOnHex("black");
+        hexGrid.getHexValue(1010).setPlayerColorOnHex("black");
+        hexGrid.getHexValue(1008).setPlayerColorOnHex("black");
 
         checkSettlementSize = new SettlementSizeChecker(hexGrid);
     }

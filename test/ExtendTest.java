@@ -21,8 +21,8 @@ public class ExtendTest {
         islandMap.addTileToMap(606,0);
         islandMap.addTileToMap(808,0);
         islandMap.addTileToMap(1206,180);
-        player1 = new Player("Black",0);
-        player2 = new Player("White", 0);
+        player1 = new Player("black",0);
+        player2 = new Player("white", 0);
         builder = new Builder();
         builder.build(player1,islandMap,1,807);
         builder.build(player2,islandMap,1,1008);
@@ -71,8 +71,8 @@ public class ExtendTest {
         islandMap.getHex(2614).setTerrain("Lake");
         //islandMap.getHex(2815).setTerrain("Lake");
         //islandMap.getHex(3214).setTerrain("Rocky");
-        player1 = new Player("Black",0);
-        player2 = new Player("White", 0);
+        player1 = new Player("black",0);
+        player2 = new Player("white", 0);
         builder = new Builder();
         builder.build(player1,islandMap,1,2813);
         builder.build(player2,islandMap,1,3016);

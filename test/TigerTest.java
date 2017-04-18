@@ -11,7 +11,7 @@ public class TigerTest {
     Tiger testTiger;
     @Before
     public void setUp() throws Exception {
-        testTiger = new Tiger("White");
+        testTiger = new Tiger("white");
     }
 
     @Test

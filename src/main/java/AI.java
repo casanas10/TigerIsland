@@ -13,8 +13,8 @@ public class AI {
 
     private Game game;
     private IslandMap islandMap;
-    private Player player = new Player("White", 0);
-    private Player otherAI = new Player("Black", 0);
+    private Player player = new Player("white", 0);
+    private Player otherAI = new Player("black", 0);
 
     private CoordinateSystem coordinateSystem = new CoordinateSystem();
     private RotateTile tile;

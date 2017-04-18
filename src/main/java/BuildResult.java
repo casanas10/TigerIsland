@@ -43,6 +43,8 @@ public class BuildResult {
     public BuildResult(boolean buildSuccessfull, ArrayList<Integer> listHigherLevelHexes){
         this.buildSuccessfull = buildSuccessfull;
         this.listHigherLevelHexes = listHigherLevelHexes;
+        this.hexID = -1;
+        this.foundSettlementToPlaceTotoro = -1;
     }
 
 }

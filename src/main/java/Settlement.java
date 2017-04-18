@@ -133,10 +133,10 @@ public class Settlement {
 
     private String settlementColor(int hexID) {
 
-        if (hexGrid.getHexValue(hexID).getPlayerColorOnHex().equals("Black")){
-            return "Black";
+        if (hexGrid.getHexValue(hexID).getPlayerColorOnHex().equals("black")){
+            return "black";
         } else {
-            return "White";
+            return "white";
         }
     }
 
@@ -322,7 +322,7 @@ public class Settlement {
 
             int currentSettlement = getSettlementID(adjacentHexes.get(i));
 
-            if(currentSettlement != -1) {
+            if(currentSettlement != -1 && player.getPlayerColor() == settlementColor(adjacentHexes.get(i))) {
 
                 if (doesNotContainTigerAlready(currentSettlement, player)){
                     return true;

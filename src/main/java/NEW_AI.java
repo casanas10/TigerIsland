@@ -158,6 +158,11 @@ public class NEW_AI {
 
     public MoveData BuildAction(NukeResult nukeResult, BuildResult buildResult) {
 
+        if (buildResult.hexID == -1){
+
+            buildResult = foundNewSettlementSomewhere();
+        }
+
         MoveData info = new MoveData();
 
         int tileX = islandMap.getHex(nukeResult.hexID).getX();
@@ -412,7 +417,9 @@ public class NEW_AI {
 
                 Settlement settlement = islandMap.getSettlementObj();
 
-                if ( settlement.isTigerNextToSettlement(buildResult.listHigherLevelHexes.get(i), aiPlayer)) {
+                Hex currentHex = islandMap.getHex(buildResult.listHigherLevelHexes.get(i));
+
+                if (builder.verifyValidHexForTiger(currentHex) && settlement.isTigerNextToSettlement(currentHex.getHexID(), aiPlayer)) {
 
                     int buildOption = 4;
 

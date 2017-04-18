@@ -17,7 +17,7 @@ public class BuilderTest {
     public void setUp() throws Exception {
         islandMap = new IslandMap();
         islandMap.addTileToMap(606, 0);
-        player = new Player("Black",0);
+        player = new Player("black",0);
         builder = new Builder();
     }
 
@@ -293,6 +293,7 @@ public class BuilderTest {
         currentHex.incrementLevel();
         currentHex.incrementLevel();
         builder.build(player,islandMap,1,807);
+
         builder.build(player,islandMap,4,806);
 
         Assert.assertEquals(76,player.getCurrentScore());

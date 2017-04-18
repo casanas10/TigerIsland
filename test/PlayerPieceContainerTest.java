@@ -10,7 +10,7 @@ public class PlayerPieceContainerTest {
     public void whenTheGameStartsThen20MeeplesAreCreated() throws Exception{
 
         // Arrange
-        PlayerPieceContainer playerPieceContainer = new PlayerPieceContainer("White");
+        PlayerPieceContainer playerPieceContainer = new PlayerPieceContainer("white");
 
         // Act
         playerPieceContainer.create20Meeples();
@@ -23,7 +23,7 @@ public class PlayerPieceContainerTest {
     public void whenTheGameStartsThen3TotorosAreCreated() throws Exception{
 
         // Arrange
-        PlayerPieceContainer playerPieceContainer = new PlayerPieceContainer("White");
+        PlayerPieceContainer playerPieceContainer = new PlayerPieceContainer("white");
 
         // Act
         playerPieceContainer.create3Totoros();
@@ -36,7 +36,7 @@ public class PlayerPieceContainerTest {
     public void whenTheGameStartsThen2TigersAreCreated() throws Exception{
 
         // Arrange
-        PlayerPieceContainer playerPieceContainer = new PlayerPieceContainer("White");
+        PlayerPieceContainer playerPieceContainer = new PlayerPieceContainer("white");
 
         // Act
         playerPieceContainer.create2Tigers();

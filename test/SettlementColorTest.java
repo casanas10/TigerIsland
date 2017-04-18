@@ -10,8 +10,8 @@ public class SettlementColorTest {
     private IslandMap islandMap = new IslandMap();
     private Settlement settlement = islandMap.getSettlementObj();
     private Builder builder = new Builder();
-    private Player whitePlayer = new Player("White", 0);
-    private Player blackPlayer = new Player("Black", 0);
+    private Player whitePlayer = new Player("white", 0);
+    private Player blackPlayer = new Player("black", 0);
 
     @Test
     public void checkNuking(){

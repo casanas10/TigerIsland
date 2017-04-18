@@ -8,12 +8,12 @@ import org.junit.Test;
  */
 public class EndOfTurnTest {
 
-    Player player2 = new Player("Black", 0);
+    Player player2 = new Player("black", 0);
     EndOfTurn final1 = new EndOfTurn();
     Builder buildme = new Builder();
     IslandMap islandMap = new IslandMap();
-    PlayerPieceContainer playerPiece = new PlayerPieceContainer("White");
-    Player player1 = new Player("White", 0);
+    PlayerPieceContainer playerPiece = new PlayerPieceContainer("white");
+    Player player1 = new Player("white", 0);
 
     @Test
     public void isGameDoneByPieces() throws Exception{

@@ -9,7 +9,7 @@ import org.junit.Assert;
  */
 public class PlayerStep {
 
-    private Player player = new Player("White", 0);
+    private Player player = new Player("white", 0);
 
     @Given("^A new game is created")
     public void aNewGameIsCreated() throws Throwable{

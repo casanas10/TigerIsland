@@ -12,13 +12,13 @@ public class PlayerTest {
 
     @BeforeClass
     static public void createPlayer() {
-        whitePlayer = new Player("White", 0);
-        blackPlayer = new Player("Black", 0);
+        whitePlayer = new Player("white", 0);
+        blackPlayer = new Player("black", 0);
     }
 
     @Test
     public void checkColorOfPlayerAtStart(){
-        Assert.assertEquals("White", whitePlayer.getPlayerColor());
+        Assert.assertEquals("white", whitePlayer.getPlayerColor());
     }
 
     @Test

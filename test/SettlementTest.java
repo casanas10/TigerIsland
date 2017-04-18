@@ -17,15 +17,15 @@ public class SettlementTest {
     @Before
     public void setUp() throws Exception {
         islandMap = new IslandMap();
-        blackPlayer = new Player("Black",0);
-        whitePlayer = new Player("White",0);
+        blackPlayer = new Player("black",0);
+        whitePlayer = new Player("white",0);
         builder = new Builder();
     }
 
     @Test
     public void isNewSettlementTest() {
 
-        Player player = new Player("Black", 0);
+        Player player = new Player("black", 0);
         HexGrid hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();
@@ -40,7 +40,7 @@ public class SettlementTest {
     @Test
     public void foundNewSettlement() {
 
-        Player player = new Player("Black", 0);
+        Player player = new Player("black", 0);
         HexGrid hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();
@@ -55,7 +55,7 @@ public class SettlementTest {
     @Test
     public void addPieceToAnExistingSettlement() {
 
-        Player player = new Player("Black", 0);
+        Player player = new Player("black", 0);
         HexGrid hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();
@@ -75,7 +75,7 @@ public class SettlementTest {
     @Test
     public void addSeperateSettlements() {
 
-        Player player = new Player("Black", 0);
+        Player player = new Player("black", 0);
         HexGrid hexGrid = new HexGrid();
 
         hexGrid.generateHexGrid();

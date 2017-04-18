@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class NukingTest {
     static IslandMap islandMap = new IslandMap();
-    static Player player = new Player("White",0);
+    static Player player = new Player("white",0);
     static Builder builder = new Builder();
     Nuking nuking = new Nuking();
     HexGrid hexGrid = islandMap.getHexGrid();
