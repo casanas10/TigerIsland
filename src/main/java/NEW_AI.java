@@ -106,9 +106,29 @@ public class NEW_AI {
             }
         }
 
+        buildResult = findHexAtLevel2();
+
+        if (buildResult.buildSuccessfull){
+
+            for(int i = 0; i < buildResult.listHigherLevelHexes.size(); i++){
+
+                ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(buildResult.listHigherLevelHexes.get(i)));
+
+                for (int j = 0; j < adjacentHexes.size(); j++){
+
+                    if (builder.build(aiPlayer, islandMap, buildOption, adjacentHexes.get(j))){
+
+                        return (new BuildResult(true, buildOption, adjacentHexes.get(j)));
+                    }
+                }
+
+            }
+        }
 
         return (new BuildResult(false));
     }
+
+
 
     private NukeResult placeTile() {
 
@@ -192,11 +212,77 @@ public class NEW_AI {
         return (new BuildResult(false));
     }
 
+    private BuildResult findHexAtLevel2() {
+
+        boolean foundLevel3Hex = false;
+
+        ArrayList<Integer> level3Hexes = new ArrayList<>();
+
+        ArrayList<Integer> listHexesOnMap = islandMap.getAllHexesOnMap();
+
+        for (int i = 0; i < listHexesOnMap.size(); i++){
+
+            if(islandMap.getHex(listHexesOnMap.get(i)).getLevel() >= 2 && !(islandMap.getHex(listHexesOnMap.get(i)).getTerrain().equals("Volcano"))){
+
+                level3Hexes.add(listHexesOnMap.get(i));
+
+                foundLevel3Hex = true;
+            }
+        }
+
+        if (foundLevel3Hex){
+            return (new BuildResult(true,level3Hexes));
+        }
+
+        return (new BuildResult(false));
+
+    }
+
     public MoveData BuildAction(NukeResult nukeResult, BuildResult buildResult) {
 
-        if (buildResult.hexID == -1){
+        if (buildResult.hexID == -1 || buildResult.hexID == 0){
 
-            buildResult = foundNewSettlementSomewhere();
+            System.out.println("NO MORE MEEEEPLLLEEEESSSS");
+
+            MoveData info = new MoveData();
+
+            HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(islandMap.getAllHexesOnMap());
+
+            int[] tileInfo = allPossibleTiles.get(0);
+
+            islandMap.addTileToMap(tileInfo[0], tileInfo[1], terrainsArray, aiPlayer);
+
+            tile = new RotateTile(tileInfo[0], tileInfo[1]);
+
+            int[] pairs = tile.checkPair();
+
+            int buildOption = 1;
+
+            builder.build(aiPlayer, islandMap, buildOption, pairs[1]);
+
+            int tileX = islandMap.getHex(tileInfo[0]).getX();
+            int tileY = islandMap.getHex(tileInfo[0]).getY();
+            int orientation = tileInfo[1];
+            int buildOptX = islandMap.getHex(pairs[1]).getX();
+            int buildOptY = islandMap.getHex(pairs[1]).getY();
+
+            int serverOrientation = rotationConverter.oursToServer(orientation);
+            int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+
+            info.setOrientation(serverOrientation);
+            info.setTilePlacementX(serverCoordinatesTile[0]);
+            info.setTilePlacementY(serverCoordinatesTile[1]);
+            info.setTilePlacementZ(serverCoordinatesTile[2]);
+
+            int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+
+            info.setBuildOption(buildOption);
+            info.setBuildOptionX(serverCoordinatesBuild[0]);
+            info.setBuildOptionY(serverCoordinatesBuild[1]);
+            info.setBuildOptionZ(serverCoordinatesBuild[2]);
+
+            return info;
+
         }
 
         MoveData info = new MoveData();
@@ -239,7 +325,7 @@ public class NEW_AI {
                 return (new BuildResult(true, buildOption, activeHexesOnMap.get(i)));
             }
         }
-
+        
         return (new BuildResult(false));
     }
 
