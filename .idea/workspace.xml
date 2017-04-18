@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Settlement.java" afterPath="$PROJECT_DIR$/src/main/java/Settlement.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NEW_AI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NEW_AI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/NEW_AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-446">
-              <caret line="29" column="41" lean-forward="false" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+            <state relative-caret-position="109">
+              <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#foundNewSettlementSomewhere#0;class#NEW_AI#0" expanded="false" />
@@ -64,12 +65,22 @@
       <file leaf-file-name="AITest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/AITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
+            <state relative-caret-position="414">
               <caret line="203" column="42" lean-forward="false" selection-start-line="203" selection-start-column="42" selection-end-line="203" selection-end-column="42" />
               <folding>
                 <element signature="e#0#21550#0" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="386">
+              <caret line="356" column="148" lean-forward="false" selection-start-line="356" selection-start-column="148" selection-end-line="356" selection-end-column="148" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -179,7 +190,6 @@
         <option value="$PROJECT_DIR$/src/main/java/MoveProtocol.java" />
         <option value="$PROJECT_DIR$/src/main/java/BuildResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/MatchProtocol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/NEW_AI.java" />
         <option value="$PROJECT_DIR$/test/MeepleTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/AI.java" />
         <option value="$PROJECT_DIR$/src/test/java/PlayerStep.java" />
@@ -193,6 +203,7 @@
         <option value="$PROJECT_DIR$/test/SettlementTest.java" />
         <option value="$PROJECT_DIR$/test/TigerTest.java" />
         <option value="$PROJECT_DIR$/test/BuilderTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/NEW_AI.java" />
         <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
       </list>
     </option>
@@ -300,7 +311,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="extract.method.default.visibility" value="private" />
   </component>
-  <component name="RunManager" selected="JUnit.AITest.level3HexHasAMeepleAdjacent">
+  <component name="RunManager" selected="JUnit.JUnit Test">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -696,13 +707,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490119781401</updated>
     </task>
-    <task id="LOCAL-00003" summary="Updated Rotate Tile Tests to account for the origin being on an even row and an odd row">
-      <created>1490279727409</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1490279727409</updated>
-    </task>
     <task id="LOCAL-00004" summary="Updated tile rotation test so that it has tests for even and odd rows. Updated some logic in placement validity for checking for empty hexes. Added logic in game to place tiles in a loop. Tiles can be placed correctly and incorrectly and have an error message shown.">
       <created>1490283361513</created>
       <option name="number" value="00004" />
@@ -1039,7 +1043,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492536307948</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Fixed tiger playground">
+      <created>1492536571006</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1492536571007</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1058,12 +1069,6 @@
     <history-entry file="BuilderTest_updateScoreForAddingATigerSucceeds - 2017.04.18 at 13h 22m 03s.xml">
       <configuration name="BuilderTest.updateScoreForAddingATigerSucceeds" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.18 at 12h 57m 01s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.18 at 13h 02m 05s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="JUnit_Test - 2017.04.18 at 13h 03m 44s.xml">
       <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
@@ -1071,6 +1076,12 @@
       <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="JUnit_Test - 2017.04.18 at 13h 22m 22s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.04.18 at 13h 34m 18s.xml">
+      <configuration name="JUnit Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnit_Test - 2017.04.18 at 13h 35m 53s.xml">
       <configuration name="JUnit Test" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1571,19 +1582,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4800">
-          <caret line="324" column="107" lean-forward="false" selection-start-line="324" selection-start-column="107" selection-end-line="324" selection-end-column="107" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/SettlementColorTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/AITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="203" column="42" lean-forward="false" selection-start-line="203" selection-start-column="42" selection-end-line="203" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#21550#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1595,21 +1609,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/AITest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="203" column="42" lean-forward="false" selection-start-line="203" selection-start-column="42" selection-end-line="203" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#21550#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NEW_AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-446">
-          <caret line="29" column="41" lean-forward="false" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+        <state relative-caret-position="109">
+          <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#foundNewSettlementSomewhere#0;class#NEW_AI#0" expanded="false" />
@@ -1625,6 +1628,14 @@
             <element signature="method#hasServerPlayerPlacedAllTwoPieces#0;class#NEW_AI#0" expanded="false" />
             <element signature="method#haveAllTwoPiecesBeenPlaced#0;class#NEW_AI#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="356" column="148" lean-forward="false" selection-start-line="356" selection-start-column="148" selection-end-line="356" selection-end-column="148" />
+          <folding />
         </state>
       </provider>
     </entry>

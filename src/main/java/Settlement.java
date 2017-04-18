@@ -287,7 +287,7 @@ public class Settlement {
 
             int currentSettlement = getSettlementID(adjacentHexes.get(i));
 
-            if(currentSettlement != -1) {
+            if(currentSettlement != -1 && player.getPlayerColor() == settlementColor(adjacentHexes.get(i))) {
 
                 int settlementSize = settlementMap.get(currentSettlement).size();
 
@@ -340,7 +340,7 @@ public class Settlement {
 
         for (int i = 0; i < pickAHex.size(); i++){
 
-            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex().equals("Tiger")){
+            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex().equals("Tiger") && player.getPlayerColor() == settlementColor(pickAHex.get(i))){
                 return false;
             }
         }
@@ -354,7 +354,7 @@ public class Settlement {
 
         for (int i = 0; i < pickAHex.size(); i++){
 
-            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex().equals("Totoro")){
+            if (hexGrid.getHexValue(pickAHex.get(i)).getPieceOnHex().equals("Totoro") && player.getPlayerColor() == settlementColor(pickAHex.get(i))){
                 return false;
             }
         }
