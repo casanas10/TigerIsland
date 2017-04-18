@@ -78,9 +78,11 @@ public class MoveProtocol {
         }
 
         System.out.println("Settlements Game 1");
+        AI1.getAiPlayer().getRemainingMeeples();
         AI1.getIslandMap().getSettlementObj().printAllSettlements(AI1.getAiPlayer());
 
         System.out.println("Settlements Game 2");
+        AI2.getAiPlayer().getRemainingMeeples();
         AI2.getIslandMap().getSettlementObj().printAllSettlements(AI2.getAiPlayer());
 
         System.out.println("---------------------------------------------");

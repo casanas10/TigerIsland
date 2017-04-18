@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/MoveProtocol.java" afterPath="$PROJECT_DIR$/src/main/java/MoveProtocol.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/NEW_AI.java" afterPath="$PROJECT_DIR$/src/main/java/NEW_AI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/AITest.java" afterPath="$PROJECT_DIR$/test/AITest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,8 +32,8 @@
       <file leaf-file-name="ALE_AI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="34" column="43" lean-forward="false" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+            <state relative-caret-position="454">
+              <caret line="588" column="22" lean-forward="true" selection-start-line="551" selection-start-column="9" selection-end-line="588" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -42,8 +42,8 @@
       <file leaf-file-name="NEW_AI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/NEW_AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+            <state relative-caret-position="3291">
+              <caret line="251" column="9" lean-forward="true" selection-start-line="251" selection-start-column="9" selection-end-line="251" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#placeTileSomewhere#0;class#NEW_AI#0" expanded="false" />
@@ -94,6 +94,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="BuildResult.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="48" column="30" lean-forward="false" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoveProtocol.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MoveProtocol.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="990">
+              <caret line="99" column="46" lean-forward="true" selection-start-line="99" selection-start-column="46" selection-end-line="99" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -106,11 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>FORfeited</find>
-      <find>level</find>
-      <find>GAME B</find>
-      <find>volcano</find>
-      <find>19</find>
       <find>18</find>
       <find>NUKED</find>
       <find>TIGER</find>
@@ -118,7 +133,6 @@
       <find>forfe</find>
       <find>Invalid Hex to place</find>
       <find>forfeit</find>
-      <find>Forfeited</find>
       <find>PLAYER 1 WIN</find>
       <find>begin round</find>
       <find>GAME A</find>
@@ -130,12 +144,18 @@
       <find>Black</find>
       <find>&quot;Black&quot;</find>
       <find>&quot;White&quot;</find>
-      <find>tiger</find>
       <find>illegal</find>
       <find>PLAYER 2 WIN</find>
-      <find>adj</find>
-      <find>forfeited</find>
       <find>Over</find>
+      <find>tiger</find>
+      <find>adj</find>
+      <find>PLAYER 2</find>
+      <find>WIN</find>
+      <find>YEAH</find>
+      <find>OVER</find>
+      <find>ROUND</find>
+      <find>forfeited</find>
+      <find>Forfeited</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -195,8 +215,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Nuking.java" />
         <option value="$PROJECT_DIR$/src/main/java/Builder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MoveProtocol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BuildResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/MatchProtocol.java" />
         <option value="$PROJECT_DIR$/test/MeepleTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/AI.java" />
@@ -212,8 +230,10 @@
         <option value="$PROJECT_DIR$/test/TigerTest.java" />
         <option value="$PROJECT_DIR$/test/BuilderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/NEW_AI.java" />
         <option value="$PROJECT_DIR$/test/AITest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BuildResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MoveProtocol.java" />
+        <option value="$PROJECT_DIR$/src/main/java/NEW_AI.java" />
       </list>
     </option>
   </component>
@@ -320,12 +340,12 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="extract.method.default.visibility" value="private" />
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.RUN_C">
+    <configuration default="false" name="RUN_P" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="heygang TEAM_C PASS_C" />
+      <option name="PROGRAM_PARAMETERS" value="heygang TEAM_P PASS_P" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -643,6 +663,21 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="false" name="RUN_C" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="heygang TEAM_C PASS_C" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="TigerIsland" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="false" name="JUnit Test" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="TigerIsland" />
@@ -686,18 +721,19 @@
       <patterns />
       <method />
     </configuration>
-    <list size="7">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.JUnit Test" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.SettlementColorTest.checkNuking" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.fixNukingScenarion" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.level3HexHasAMeepleAdjacent" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.BuilderTest.updateScoreForAddingATigerSucceeds" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.AITest.buildNextToHigherGround" />
+    <list size="8">
+      <item index="0" class="java.lang.String" itemvalue="Application.RUN_C" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.JUnit Test" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.SettlementColorTest.checkNuking" />
+      <item index="3" class="java.lang.String" itemvalue="Application.RUN_P" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.fixNukingScenarion" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.AITest.level3HexHasAMeepleAdjacent" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.BuilderTest.updateScoreForAddingATigerSucceeds" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.AITest.buildNextToHigherGround" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="0" class="java.lang.String" itemvalue="Application.RUN_P" />
         <item index="1" class="java.lang.String" itemvalue="JUnit.AITest.buildNextToHigherGround" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.AITest.level3HexHasAMeepleAdjacent" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.BuilderTest.updateScoreForAddingATigerSucceeds" />
@@ -715,20 +751,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1490119781401</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Updated tile rotation test so that it has tests for even and odd rows. Updated some logic in placement validity for checking for empty hexes. Added logic in game to place tiles in a loop. Tiles can be placed correctly and incorrectly and have an error message shown.">
-      <created>1490283793870</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1490283793870</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Updated tile rotation test so that it has tests for even and odd rows. Updated some logic in placement validity for checking for empty hexes. Added logic in game to place tiles in a loop. Tiles can be placed correctly and incorrectly and have an error message shown.">
-      <created>1490300687374</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1490300687374</updated>
     </task>
     <task id="LOCAL-00007" summary="Making builder">
       <created>1490389041487</created>
@@ -1059,7 +1081,21 @@
       <option name="project" value="LOCAL" />
       <updated>1492536964559</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Added building next to higher level hex">
+      <created>1492538185995</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1492538185995</updated>
+    </task>
+    <task id="LOCAL-00055" summary="NO FORFEITS, NO ILLEGEAL MOVES, AND PLACED ALL 2 PIECES">
+      <created>1492541979269</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1492541979269</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1096,7 +1132,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1865" y="-34" width="1865" height="1057" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1108,7 +1144,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55214053" sideWeight="0.51979166" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34542587" sideWeight="0.49121523" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3970894" sideWeight="0.48020834" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3970894" sideWeight="0.48020834" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.49791667" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1136,8 +1172,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated Rotate Tile Tests to account for the origin being on an even row and an odd row" />
-    <MESSAGE value="Updated tile rotation test so that it has tests for even and odd rows. Updated some logic in placement validity for checking for empty hexes. Added logic in game to place tiles in a loop. Tiles can be placed correctly and incorrectly and have an error message shown." />
     <MESSAGE value="Gettng this stupid shit to work" />
     <MESSAGE value="Making builder" />
     <MESSAGE value="workspace issue" />
@@ -1161,7 +1195,9 @@
     <MESSAGE value="Nuking, expanding, and placing totoros work" />
     <MESSAGE value="Fixed networking protocol" />
     <MESSAGE value="Fixed tiger playground" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed tiger playground" />
+    <MESSAGE value="Added building next to higher level hex" />
+    <MESSAGE value="NO FORFEITS, NO ILLEGEAL MOVES, AND PLACED ALL 2 PIECES" />
+    <option name="LAST_COMMIT_MESSAGE" value="NO FORFEITS, NO ILLEGEAL MOVES, AND PLACED ALL 2 PIECES" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1349,14 +1385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MoveProtocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2853">
-          <caret line="226" column="27" lean-forward="false" selection-start-line="226" selection-start-column="27" selection-end-line="226" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MatchProtocol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
@@ -1364,14 +1392,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="46" column="47" lean-forward="false" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1591,26 +1611,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="34" column="43" lean-forward="false" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
           <caret line="356" column="148" lean-forward="false" selection-start-line="356" selection-start-column="148" selection-end-line="356" selection-end-column="148" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2340">
-          <caret line="156" column="46" lean-forward="false" selection-start-line="156" selection-start-column="46" selection-end-line="156" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -1626,10 +1630,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2340">
+          <caret line="156" column="46" lean-forward="false" selection-start-line="156" selection-start-column="46" selection-end-line="156" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="48" column="30" lean-forward="false" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="588" column="22" lean-forward="true" selection-start-line="551" selection-start-column="9" selection-end-line="588" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveProtocol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="99" column="46" lean-forward="true" selection-start-line="99" selection-start-column="46" selection-end-line="99" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NEW_AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+        <state relative-caret-position="3291">
+          <caret line="251" column="9" lean-forward="true" selection-start-line="251" selection-start-column="9" selection-end-line="251" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#placeTileSomewhere#0;class#NEW_AI#0" expanded="false" />
