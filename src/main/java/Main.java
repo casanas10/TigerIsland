@@ -30,5 +30,24 @@ public class Main {
         client.setUsername(args[1]);
         client.setPassword(args[2]);
         client.OpenClient();
+
+//        Scanner s = new Scanner(System.in);
+//        String tournamentPW = null;
+//        String username = null;
+//        String password = null;
+//
+//        Client client = new Client();
+//
+//        System.out.println("Enter Tournament Password: ");
+//        tournamentPW = s.next();
+//        System.out.println("Enter username: ");
+//        username = s.next();
+//        System.out.println("Enter password: ");
+//        password = s.next();
+//
+//        client.setTournamentPassword(tournamentPW);
+//        client.setUsername(username);
+//        client.setPassword(password);
+//        client.OpenClient();
     }
 }

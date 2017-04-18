@@ -169,7 +169,7 @@ public class NEW_AI {
 
                     Nuking nuker = new Nuking();
 
-                    if (nuker.canYouNukeSettlement(islandMap, pairs, activeHexesOnMap.get(i))) {
+                    if (nuker.canYouNukeSettlement(islandMap, pairs, activeHexesOnMap.get(i)) && ableToBuild()) {
 
                         if (islandMap.addTileToMap(activeHexesOnMap.get(i), orientation[j], terrainsArray, aiPlayer)){
 
@@ -242,13 +242,8 @@ public class NEW_AI {
 
         if (buildResult.hexID == -1 || buildResult.hexID == 0){
 
-            System.out.println("NO MORE MEEEEPLLLEEEESSSS");
-
-            HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(islandMap.getAllHexesOnMap());
-
-            int[] tileInfo = allPossibleTiles.get(0);
-
-            buildResult.hexID = tileInfo[0];
+            buildResult = foundNewSettlementSomewhere();
+            
         }
 
         MoveData info = new MoveData();
@@ -286,13 +281,39 @@ public class NEW_AI {
 
         for (int i = 0; i < activeHexesOnMap.size(); i++){
 
-            if (builder.build(aiPlayer, islandMap, buildOption,activeHexesOnMap.get(i))){
+            Hex currentHex = islandMap.getHex(activeHexesOnMap.get(i));
 
-                return (new BuildResult(true, buildOption, activeHexesOnMap.get(i)));
+            if(builder.verifyValidHexForSettlement(currentHex)){
+
+                if (builder.build(aiPlayer, islandMap, buildOption,activeHexesOnMap.get(i))){
+
+                    return (new BuildResult(true, buildOption, activeHexesOnMap.get(i)));
+                }
             }
+
         }
 
         return (new BuildResult(false));
+    }
+
+    public boolean ableToBuild() {
+
+        ArrayList<Integer> activeHexesOnMap = islandMap.getAllHexesOnMap();
+
+        int buildOption = 1;
+
+        for (int i = 0; i < activeHexesOnMap.size(); i++){
+
+            Hex currentHex = islandMap.getHex(activeHexesOnMap.get(i));
+
+            if(builder.verifyValidHexForSettlement(currentHex)){
+
+                return true;
+            }
+
+        }
+
+        return false;
     }
 
     public NukeResult placeTileSomewhere() {
