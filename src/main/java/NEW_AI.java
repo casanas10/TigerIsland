@@ -115,11 +115,11 @@ public class NEW_AI {
 
                     if (nuker.canYouNukeSettlement(islandMap, pairs, activeHexesOnMap.get(i))) {
 
-                        System.out.println("NUKED SUCCESSFULLY");
-
-                        System.out.print(activeHexesOnMap.get(i) + " " + orientation[j]);
-
                         if (islandMap.addTileToMap(activeHexesOnMap.get(i), orientation[j], terrainsArray, aiPlayer)){
+
+                            System.out.println("NUKED SUCCESSFULLY");
+
+                            System.out.print(activeHexesOnMap.get(i) + " " + orientation[j]);
 
                             return (new NukeResult(true, activeHexesOnMap.get(i), orientation[j]));
                         }
@@ -141,7 +141,7 @@ public class NEW_AI {
 
         for (int i = 0; i < listHexesOnMap.size(); i++){
 
-            if(islandMap.getHex(listHexesOnMap.get(i)).getLevel() == 3 && !(islandMap.getHex(listHexesOnMap.get(i)).getTerrain().equals("Volcano"))){
+            if(islandMap.getHex(listHexesOnMap.get(i)).getLevel() >= 3 && !(islandMap.getHex(listHexesOnMap.get(i)).getTerrain().equals("Volcano"))){
 
                 level3Hexes.add(listHexesOnMap.get(i));
 
@@ -406,25 +406,18 @@ public class NEW_AI {
 
         BuildResult buildResult = findHexAtLevel3();
 
-        if (buildResult.buildSuccessfull){
+        if (buildResult.buildSuccessfull && aiPlayer.getRemainingTigers() != 0){
 
             for(int i = 0; i < buildResult.listHigherLevelHexes.size(); i++){
 
-                Hex currentHex = islandMap.getHex(buildResult.listHigherLevelHexes.get(i));
+                Settlement settlement = islandMap.getSettlementObj();
 
-                ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(currentHex);
+                if ( settlement.isTigerNextToSettlement(buildResult.listHigherLevelHexes.get(i), aiPlayer)) {
 
-                for (int j = 0; j <adjacentHexes.size(); j++){
+                    int buildOption = 4;
 
-                    if (islandMap.getHex(adjacentHexes.get(j)).getSettlementID() != -1){
-
-                        int buildOption = 4;
-
-                        if (builder.build(aiPlayer, islandMap, buildOption, currentHex.getHexID())){
-
-                            return (new BuildResult(true, buildOption, currentHex.getHexID()));
-
-                        }
+                    if (builder.build(aiPlayer, islandMap, buildOption, buildResult.listHigherLevelHexes.get(i))){
+                        return (new BuildResult(true, buildOption, buildResult.listHigherLevelHexes.get(i)));
                     }
                 }
             }

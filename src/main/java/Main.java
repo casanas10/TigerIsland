@@ -17,23 +17,18 @@ public class Main {
 //        });
 //        Game game = new Game();
 //        game.gameRunning();
-        Scanner s = new Scanner(System.in);
-        String tournamentPW = null;
-        String username = null;
-        String password = null;
+
+        if (args.length != 3){
+
+            System.out.println("Invalid args");
+            return;
+        }
 
         Client client = new Client();
 
-        System.out.println("Enter Tournament Password: ");
-        tournamentPW = s.next();
-        System.out.println("Enter username: ");
-        username = s.next();
-        System.out.println("Enter password: ");
-        password = s.next();
-
-        client.setTournamentPassword(tournamentPW);
-        client.setUsername(username);
-        client.setPassword(password);
+        client.setTournamentPassword(args[0]);
+        client.setUsername(args[1]);
+        client.setPassword(args[2]);
         client.OpenClient();
     }
 }

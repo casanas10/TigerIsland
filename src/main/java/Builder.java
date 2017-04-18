@@ -53,7 +53,7 @@ public class Builder {
             return true;
         }
         else{
-            System.out.println("Invalid hex to place a new settlement");
+//            System.out.println("Invalid hex to place a new settlement");
             return false;
         }
     }
