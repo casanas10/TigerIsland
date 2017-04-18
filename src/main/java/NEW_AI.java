@@ -57,12 +57,21 @@ public class NEW_AI {
 
         BuildResult buildResult;
 
-        buildResult = isThereSettlementAdjacentToLevel3Hex();
+        buildResult = BuildATigerPlayground();
 
         if (buildResult.buildSuccessfull){
 
             return buildResult;
         }
+
+
+        buildResult = buildNextToHigherLevelHex();
+
+        if(buildResult.buildSuccessfull){
+
+            return buildResult;
+        }
+
 
         buildResult = foundNewSettlementSomewhere();
 
@@ -72,6 +81,33 @@ public class NEW_AI {
         }
 
         return buildResult;
+    }
+
+    public BuildResult buildNextToHigherLevelHex() {
+
+        BuildResult buildResult = findHexAtLevel3();
+
+        int buildOption = 1;
+
+        if (buildResult.buildSuccessfull){
+
+            for(int i = 0; i < buildResult.listHigherLevelHexes.size(); i++){
+
+                ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(buildResult.listHigherLevelHexes.get(i)));
+
+                for (int j = 0; j < adjacentHexes.size(); j++){
+
+                    if (builder.build(aiPlayer, islandMap, buildOption, adjacentHexes.get(j))){
+
+                        return (new BuildResult(true, buildOption, adjacentHexes.get(j)));
+                    }
+                }
+
+            }
+        }
+
+
+        return (new BuildResult(false));
     }
 
     private NukeResult placeTile() {
@@ -407,7 +443,7 @@ public class NEW_AI {
         return false;
     }
 
-    public BuildResult isThereSettlementAdjacentToLevel3Hex() {
+    public BuildResult BuildATigerPlayground() {
 
         BuildResult buildResult = findHexAtLevel3();
 

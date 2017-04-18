@@ -143,7 +143,7 @@ public class AITest {
 
         ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
 
-        BuildResult buildResult = ai.isThereSettlementAdjacentToLevel3Hex();
+        BuildResult buildResult = ai.BuildATigerPlayground();
 
         Assert.assertEquals(19701, buildResult.hexID);
 
@@ -199,9 +199,39 @@ public class AITest {
 
         ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
 
-        int hexID = ai.isThereSettlementAdjacentToLevel3Hex().hexID;
+        int hexID = ai.BuildATigerPlayground().hexID;
 
         Assert.assertEquals(19701, hexID);
+    }
+
+    @Test
+    public void buildNextToHigherGround() {
+
+        ai.getIslandMap().addTileToMap(19900, 120);
+
+        Hex currentHex = ai.getIslandMap().getHex(19900);
+        currentHex.incrementLevel();
+        currentHex.incrementLevel();
+        currentHex.setTerrain("Volcano");
+
+        currentHex = ai.getIslandMap().getHex(19901);
+        currentHex.incrementLevel();
+        currentHex.incrementLevel();
+        currentHex.setTerrain("Lake");
+
+        currentHex = ai.getIslandMap().getHex(19701);
+        currentHex.incrementLevel();
+        currentHex.incrementLevel();
+        currentHex.setTerrain("Lake");
+
+        ai.getIslandMap().addTileToMap(19301, 0);
+       // ai.getIslandMap().getSettlementObj().addSettlement(19501, ai.getAiPlayer());
+
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+
+        int hexID = ai.buildNextToHigherLevelHex().hexID;
+
+        Assert.assertEquals(19501, hexID);
     }
 
 //
