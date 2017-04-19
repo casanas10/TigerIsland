@@ -106,8 +106,8 @@ public class AITest {
 
         BuildResult buildResult = ai.findHexAtLevel3();
 
-        for (int i = 0; i < buildResult.listHigherLevelHexes.size(); i++){
-            System.out.println(buildResult.listHigherLevelHexes.get(i));
+        for (int i = 0; i < buildResult.listHexes.size(); i++){
+            System.out.println(buildResult.listHexes.get(i));
         }
 
         ArrayList<Integer> expectedHexes = new ArrayList<Integer>(){{
@@ -115,7 +115,7 @@ public class AITest {
             add(19901);
         }};
 
-        Assert.assertTrue(expectedHexes.equals(buildResult.listHigherLevelHexes));
+        Assert.assertTrue(expectedHexes.equals(buildResult.listHexes));
 
     }
 
@@ -232,6 +232,55 @@ public class AITest {
         int hexID = ai.buildNextToHigherLevelHex().hexID;
 
         Assert.assertEquals(19501, hexID);
+    }
+
+    @Test
+    public void ableToExpand() {
+
+        String[] terrains = ai.getIslandMap().getNewTile();
+        ai.setTerrainsArray(terrains);
+
+        System.out.println(ai.ableToExpand());
+
+        ai.getIslandMap().addTileToMap(19500, 60);
+        ai.getIslandMap().getHex(19701).setTerrain("Grassland");
+        ai.getIslandMap().getHex(19501).setTerrain("Grassland");
+        ai.getIslandMap().getSettlementObj().addSettlement(19501, ai.getAiPlayer());
+
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+
+        ai.getIslandMap().addTileToMap(19499, 180);
+        ai.getIslandMap().getHex(19300).setTerrain("Rocky");
+        ai.getIslandMap().getHex(19299).setTerrain("Rocky");
+        ai.getIslandMap().getSettlementObj().addSettlement(19299, ai.getAiPlayer());
+
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+
+        ai.getIslandMap().addTileToMap(20101, 180);
+        ai.getIslandMap().getHex(19900).setTerrain("Grassland");
+        ai.getIslandMap().getHex(19901).setTerrain("Grassland");
+
+        BuildResult buildResult = ai.ableToExpand();
+
+        ArrayList<Integer> listHexes = buildResult.listHexes;
+
+        for (int i = 0; i < listHexes.size(); i++){
+            System.out.println(listHexes.get(i));
+        }
+
+        ai.getAiPlayer().setMeepleCount();
+
+        NukeResult nukeResult = ai.placeTileSomewhere();
+        buildResult = ai.findTheBestExpansion();
+
+        MoveData moveData = ai.BuildAction(nukeResult, buildResult);
+
+        System.out.println(moveData.getExtendTerrain());
+
+        System.out.println(buildResult.buildSuccessfull);
+        System.out.println(buildResult.hexID);
+        System.out.println(buildResult.terrainExtend);
+
     }
 
 //

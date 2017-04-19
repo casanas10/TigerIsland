@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/BuildResult.java" afterPath="$PROJECT_DIR$/src/main/java/BuildResult.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/NEW_AI.java" afterPath="$PROJECT_DIR$/src/main/java/NEW_AI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Player.java" afterPath="$PROJECT_DIR$/src/main/java/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java" afterPath="$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/AITest.java" afterPath="$PROJECT_DIR$/test/AITest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,28 +35,8 @@
       <file leaf-file-name="ALE_AI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="154" column="34" lean-forward="false" selection-start-line="154" selection-start-column="34" selection-end-line="154" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Settlement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Settlement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="333" column="0" lean-forward="false" selection-start-line="333" selection-start-column="0" selection-end-line="333" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuildResult.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="39" />
+            <state relative-caret-position="72">
+              <caret line="521" column="11" lean-forward="true" selection-start-line="511" selection-start-column="10" selection-end-line="521" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -60,8 +45,8 @@
       <file leaf-file-name="MoveProtocol.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveProtocol.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+            <state relative-caret-position="167">
+              <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,8 +55,8 @@
       <file leaf-file-name="NEW_AI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/NEW_AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2118">
-              <caret line="282" column="17" lean-forward="false" selection-start-line="282" selection-start-column="17" selection-end-line="282" selection-end-column="17" />
+            <state relative-caret-position="282">
+              <caret line="156" column="8" lean-forward="false" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#placeTileSomewhere#0;class#NEW_AI#0" expanded="false" />
@@ -79,31 +64,10 @@
                 <element signature="method#getIslandMap#0;class#NEW_AI#0" expanded="false" />
                 <element signature="method#getAiPlayer#0;class#NEW_AI#0" expanded="false" />
                 <element signature="method#getServerPlayer#0;class#NEW_AI#0" expanded="false" />
-                <element signature="method#updateOpponentMove#0;class#NEW_AI#0" expanded="false" />
                 <element signature="method#hasAIPlayerPlacedAllTwoPieces#0;class#NEW_AI#0" expanded="false" />
                 <element signature="method#hasServerPlayerPlacedAllTwoPieces#0;class#NEW_AI#0" expanded="false" />
                 <element signature="method#haveAllTwoPiecesBeenPlaced#0;class#NEW_AI#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Builder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="31" selection-end-column="28" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -118,24 +82,64 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MatchProtocol.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/MatchProtocol.java">
+      <file leaf-file-name="AITest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/AITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="53" column="12" lean-forward="false" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="369">
+              <caret line="277" column="56" lean-forward="false" selection-start-line="277" selection-start-column="56" selection-end-line="277" selection-end-column="56" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RoundProtocol.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/RoundProtocol.java">
+      <file leaf-file-name="PlayerPieceContainer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="363">
+              <caret line="106" column="30" lean-forward="false" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Builder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1410">
+              <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3894">
+              <caret line="489" column="38" lean-forward="false" selection-start-line="489" selection-start-column="32" selection-end-line="489" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoveData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MoveData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="111" column="18" lean-forward="false" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MatchProtocol.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MatchProtocol.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -152,16 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>forfeit</find>
-      <find>PLAYER 1 WIN</find>
-      <find>begin round</find>
-      <find>GAME A</find>
-      <find>adjacent</find>
-      <find>gid1</find>
-      <find>hi</find>
-      <find>int buildOption = 4;</find>
-      <find>white</find>
-      <find>Black</find>
       <find>&quot;Black&quot;</find>
       <find>&quot;White&quot;</find>
       <find>illegal</find>
@@ -182,6 +176,16 @@
       <find>forfeite</find>
       <find>forfeited</find>
       <find>FORFEITED</find>
+      <find>ableToex</find>
+      <find>best</find>
+      <find>hexes</find>
+      <find>TIGER</find>
+      <find>expand</find>
+      <find>extend</find>
+      <find>expandSet</find>
+      <find>update</find>
+      <find>expanded</find>
+      <find>end</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -209,8 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/PlacementValidity.java" />
-        <option value="$PROJECT_DIR$/test/IslandMapTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/HexGrid.java" />
         <option value="$PROJECT_DIR$/src/main/java/EndOfTurn.java" />
         <option value="$PROJECT_DIR$/src/main/java/RotateTile.java" />
@@ -255,10 +257,12 @@
         <option value="$PROJECT_DIR$/test/TigerTest.java" />
         <option value="$PROJECT_DIR$/test/BuilderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
-        <option value="$PROJECT_DIR$/test/AITest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BuildResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveProtocol.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BuildResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Player.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java" />
+        <option value="$PROJECT_DIR$/test/AITest.java" />
         <option value="$PROJECT_DIR$/src/main/java/NEW_AI.java" />
       </list>
     </option>
@@ -419,27 +423,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="BuilderTest.updateScoreForAddingATigerSucceeds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="TigerIsland" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BuilderTest" />
-      <option name="METHOD_NAME" value="updateScoreForAddingATigerSucceeds" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="AITest.buildNextToHigherGround" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="TigerIsland" />
@@ -469,6 +452,27 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AITest" />
       <option name="METHOD_NAME" value="foundNewSettlementTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AITest.ableToExpand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="TigerIsland" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AITest" />
+      <option name="METHOD_NAME" value="ableToExpand" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -769,17 +773,17 @@
       <item index="2" class="java.lang.String" itemvalue="JUnit.SettlementColorTest.checkNuking" />
       <item index="3" class="java.lang.String" itemvalue="Application.RUN_P" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.level3HexHasAMeepleAdjacent" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.BuilderTest.updateScoreForAddingATigerSucceeds" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.AITest.buildNextToHigherGround" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.AITest.foundNewSettlementTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.AITest.buildNextToHigherGround" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.AITest.foundNewSettlementTest" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.AITest.ableToExpand" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.RUN_P" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AITest.foundNewSettlementTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AITest.buildNextToHigherGround" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.level3HexHasAMeepleAdjacent" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.BuilderTest.updateScoreForAddingATigerSucceeds" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AITest.ableToExpand" />
+        <item index="1" class="java.lang.String" itemvalue="Application.RUN_P" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AITest.foundNewSettlementTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.buildNextToHigherGround" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.level3HexHasAMeepleAdjacent" />
       </list>
     </recent_temporary>
   </component>
@@ -793,13 +797,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1490119781401</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Updated branch to add placing pieces on hexes. No settlement checking has been implemented. Player pieces successfully decrement. Pieces cannot be added on volcanos, or where other pieces already exist.">
-      <created>1490399529845</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1490399529845</updated>
     </task>
     <task id="LOCAL-00011" summary=" Deleted some debugging prompts">
       <created>1490399670872</created>
@@ -1137,39 +1134,46 @@
       <option name="project" value="LOCAL" />
       <updated>1492562288347</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="NO FORFEITS, NO ILLEGEAL MOVES, AND PLACED ALL 2 PIECES">
+      <created>1492562372716</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1492562372717</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AITest_buildNextToHigherGround - 2017.04.18 at 13h 47m 27s.xml">
-      <configuration name="AITest.buildNextToHigherGround" configurationId="JUnit" />
+    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 35m 36s.xml">
+      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_buildNextToHigherGround - 2017.04.18 at 13h 49m 33s.xml">
-      <configuration name="AITest.buildNextToHigherGround" configurationId="JUnit" />
+    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 47m 11s.xml">
+      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_buildNextToHigherGround - 2017.04.18 at 13h 50m 51s.xml">
-      <configuration name="AITest.buildNextToHigherGround" configurationId="JUnit" />
+    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 50m 24s.xml">
+      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_buildNextToHigherGround - 2017.04.18 at 13h 52m 25s.xml">
-      <configuration name="AITest.buildNextToHigherGround" configurationId="JUnit" />
+    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 50m 36s.xml">
+      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_buildNextToHigherGround - 2017.04.18 at 13h 52m 46s.xml">
-      <configuration name="AITest.buildNextToHigherGround" configurationId="JUnit" />
+    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 50m 49s.xml">
+      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_buildNextToHigherGround - 2017.04.18 at 13h 53m 31s.xml">
-      <configuration name="AITest.buildNextToHigherGround" configurationId="JUnit" />
+    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 50m 59s.xml">
+      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_foundNewSettlementTest - 2017.04.18 at 15h 24m 57s.xml">
-      <configuration name="AITest.foundNewSettlementTest" configurationId="JUnit" />
+    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 52m 09s.xml">
+      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AITest_level3HexHasAMeepleAdjacent - 2017.04.18 at 13h 27m 22s.xml">
-      <configuration name="AITest.level3HexHasAMeepleAdjacent" configurationId="JUnit" />
+    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 59m 52s.xml">
+      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.18 at 13h 34m 18s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="AITest_ableToExpand - 2017.04.18 at 22h 01m 37s.xml">
+      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Test - 2017.04.18 at 13h 35m 53s.xml">
-      <configuration name="JUnit Test" configurationId="JUnit" />
+    <history-entry file="AITest_ableToExpand - 2017.04.18 at 22h 03m 26s.xml">
+      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1186,7 +1190,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55214053" sideWeight="0.51979166" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34511435" sideWeight="0.49121523" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3970894" sideWeight="0.48020834" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3970894" sideWeight="0.48020834" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.49791667" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1254,7 +1258,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="183" />
+      <option name="time" value="188" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1264,55 +1268,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/AIPlayingTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/MoveData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="123" column="16" lean-forward="false" selection-start-line="123" selection-start-column="16" selection-end-line="123" selection-end-column="16" />
-          <folding>
-            <element signature="e#1755#1756#0" expanded="false" />
-            <element signature="e#1792#1793#0" expanded="false" />
-            <element signature="e#1849#1850#0" expanded="false" />
-            <element signature="e#1901#1902#0" expanded="false" />
-            <element signature="e#1939#1940#0" expanded="false" />
-            <element signature="e#1976#1977#0" expanded="false" />
-            <element signature="e#2033#2034#0" expanded="false" />
-            <element signature="e#2085#2086#0" expanded="false" />
-            <element signature="e#2123#2124#0" expanded="false" />
-            <element signature="e#2160#2161#0" expanded="false" />
-            <element signature="e#2217#2218#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="false" />
-            <element signature="e#2304#2305#0" expanded="false" />
-            <element signature="e#2338#2339#0" expanded="false" />
-            <element signature="e#2389#2390#0" expanded="false" />
-            <element signature="e#2435#2436#0" expanded="false" />
-            <element signature="e#2470#2471#0" expanded="false" />
-            <element signature="e#2504#2505#0" expanded="false" />
-            <element signature="e#2555#2556#0" expanded="false" />
-            <element signature="e#2601#2602#0" expanded="false" />
-            <element signature="e#2637#2638#0" expanded="false" />
-            <element signature="e#2672#2673#0" expanded="false" />
-            <element signature="e#2725#2726#0" expanded="false" />
-            <element signature="e#2773#2774#0" expanded="false" />
-            <element signature="e#2809#2810#0" expanded="false" />
-            <element signature="e#2844#2845#0" expanded="false" />
-            <element signature="e#2897#2898#0" expanded="false" />
-            <element signature="e#2945#2946#0" expanded="false" />
-            <element signature="e#2981#2982#0" expanded="false" />
-            <element signature="e#3016#3017#0" expanded="false" />
-            <element signature="e#3069#3070#0" expanded="false" />
-            <element signature="e#3117#3118#0" expanded="false" />
-            <element signature="e#3157#3158#0" expanded="false" />
-            <element signature="e#3193#3194#0" expanded="false" />
-            <element signature="e#3251#3252#0" expanded="false" />
-            <element signature="e#3301#3302#0" expanded="false" />
-            <element signature="e#3343#3344#0" expanded="false" />
-            <element signature="e#3379#3380#0" expanded="false" />
-            <element signature="e#3439#3440#0" expanded="false" />
-            <element signature="e#3489#3490#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TerrainsStep.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1360,22 +1315,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1480,14 +1419,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="1432" column="13" lean-forward="false" selection-start-line="1432" selection-start-column="13" selection-end-line="1432" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1620,33 +1551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/AITest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#22471#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -1671,21 +1575,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="154" column="34" lean-forward="false" selection-start-line="154" selection-start-column="34" selection-end-line="154" selection-end-column="34" />
+        <state relative-caret-position="-162">
+          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MatchProtocol.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="53" column="12" lean-forward="false" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="327">
+          <caret line="46" column="8" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1697,18 +1599,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3894">
+          <caret line="489" column="38" lean-forward="false" selection-start-line="489" selection-start-column="32" selection-end-line="489" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="106" column="30" lean-forward="false" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1410">
+          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="111" column="18" lean-forward="false" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="521" column="11" lean-forward="true" selection-start-line="511" selection-start-column="10" selection-end-line="521" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/AITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="277" column="56" lean-forward="false" selection-start-line="277" selection-start-column="56" selection-end-line="277" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MatchProtocol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveProtocol.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+        <state relative-caret-position="167">
+          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NEW_AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2118">
-          <caret line="282" column="17" lean-forward="false" selection-start-line="282" selection-start-column="17" selection-end-line="282" selection-end-column="17" />
+        <state relative-caret-position="282">
+          <caret line="156" column="8" lean-forward="false" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#placeTileSomewhere#0;class#NEW_AI#0" expanded="false" />
@@ -1716,7 +1676,6 @@
             <element signature="method#getIslandMap#0;class#NEW_AI#0" expanded="false" />
             <element signature="method#getAiPlayer#0;class#NEW_AI#0" expanded="false" />
             <element signature="method#getServerPlayer#0;class#NEW_AI#0" expanded="false" />
-            <element signature="method#updateOpponentMove#0;class#NEW_AI#0" expanded="false" />
             <element signature="method#hasAIPlayerPlacedAllTwoPieces#0;class#NEW_AI#0" expanded="false" />
             <element signature="method#hasServerPlayerPlacedAllTwoPieces#0;class#NEW_AI#0" expanded="false" />
             <element signature="method#haveAllTwoPiecesBeenPlaced#0;class#NEW_AI#0" expanded="false" />

@@ -57,6 +57,16 @@ public class NEW_AI {
 
         BuildResult buildResult;
 
+        if (aiPlayer.getRemainingTigers() == 0){
+
+            buildResult = findTheBestExpansion();
+
+            if (buildResult.buildSuccessfull){
+
+                return buildResult;
+            }
+        }
+
         buildResult = BuildATigerPlayground();
 
         if (buildResult.buildSuccessfull){
@@ -83,6 +93,83 @@ public class NEW_AI {
         return buildResult;
     }
 
+    public BuildResult findTheBestExpansion() {
+
+        ArrayList<Integer> hexesThatCanBeExpanded = ableToExpand().listHexes;
+
+        int tempMaxSize = 0;
+        int[] hexIDPlusTerrain = new int[2];
+
+        int meepleNeededToCompleteExpansion = 0;
+
+        for (int i = 0; i < hexesThatCanBeExpanded.size(); i++){
+
+            int hexID = hexesThatCanBeExpanded.get(i);
+
+            ExtendSettlement extend = new ExtendSettlement(hexID,islandMap,aiPlayer);
+
+            ArrayList<Integer> jungles = extend.getTerrainList("Jungle");
+            ArrayList<Integer> lakes = extend.getTerrainList("Lake");
+            ArrayList<Integer> rockys = extend.getTerrainList("Rocky");
+            ArrayList<Integer> grass = extend.getTerrainList("Grassland");
+
+            int jungleSize = jungles.size();
+            int lakeSize = lakes.size();
+            int rockySize = rockys.size();
+            int grassSize = grass.size();
+
+            int[] arraylistSizes = {jungleSize, lakeSize, rockySize, grassSize};
+
+            int max = arraylistSizes[0];
+
+            int bestTerrain = 0;
+
+            for (int j = 0; j < arraylistSizes.length; j++){
+
+                if (arraylistSizes[j] > max) {
+                    max = arraylistSizes[j];
+                    bestTerrain = j;
+                }
+            }
+
+            if (max > tempMaxSize){
+                hexIDPlusTerrain[0] = hexID; //hexid
+                hexIDPlusTerrain[1] = bestTerrain;  //terrain max expansion
+
+                tempMaxSize = max;
+                meepleNeededToCompleteExpansion = max;
+            }
+        }
+
+        String terrainToExpand = "";
+
+        if (hexIDPlusTerrain[1] == 0){
+            terrainToExpand = "Jungle";
+        } else if (hexIDPlusTerrain[1] == 1){
+            terrainToExpand = "Lake";
+        } else if (hexIDPlusTerrain[1] == 2){
+            terrainToExpand = "Rocky";
+        } else if (hexIDPlusTerrain[1] == 3){
+            terrainToExpand = "Grassland";
+        }
+
+        int buildOption = 2;
+        
+        if (terrainToExpand != ""){
+
+            if (aiPlayer.getRemainingMeeples() - meepleNeededToCompleteExpansion >= 0){
+
+                if (builder.extend(hexIDPlusTerrain[0], islandMap, aiPlayer,terrainToExpand)) {
+
+                    return (new BuildResult(true, buildOption, hexIDPlusTerrain[0], terrainToExpand));
+                }
+            }
+
+        }
+
+        return (new BuildResult(false));
+    }
+
     public BuildResult buildNextToHigherLevelHex() {
 
         BuildResult buildResult = findHexAtLevel3();
@@ -91,9 +178,9 @@ public class NEW_AI {
 
         if (buildResult.buildSuccessfull){
 
-            for(int i = 0; i < buildResult.listHigherLevelHexes.size(); i++){
+            for(int i = 0; i < buildResult.listHexes.size(); i++){
 
-                ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(buildResult.listHigherLevelHexes.get(i)));
+                ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(buildResult.listHexes.get(i)));
 
                 for (int j = 0; j < adjacentHexes.size(); j++){
 
@@ -110,9 +197,9 @@ public class NEW_AI {
 
         if (buildResult.buildSuccessfull){
 
-            for(int i = 0; i < buildResult.listHigherLevelHexes.size(); i++){
+            for(int i = 0; i < buildResult.listHexes.size(); i++){
 
-                ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(buildResult.listHigherLevelHexes.get(i)));
+                ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(buildResult.listHexes.get(i)));
 
                 for (int j = 0; j < adjacentHexes.size(); j++){
 
@@ -277,7 +364,6 @@ public class NEW_AI {
                     info.setBuildOptionX(serverCoordinatesBuild[0]);
                     info.setBuildOptionY(serverCoordinatesBuild[1]);
                     info.setBuildOptionZ(serverCoordinatesBuild[2]);
-                    info.setBuildOption(buildOption);
 
                     return info;
                 }
@@ -308,6 +394,10 @@ public class NEW_AI {
         info.setBuildOptionY(serverCoordinatesBuild[1]);
         info.setBuildOptionZ(serverCoordinatesBuild[2]);
 
+        if (buildResult.buildOption == 2){
+            info.setExtendTerrain(buildResult.terrainExtend);
+        }
+
         return info;
     }
 
@@ -329,6 +419,43 @@ public class NEW_AI {
                 }
             }
 
+        }
+
+        return (new BuildResult(false));
+    }
+
+
+    public BuildResult ableToExpand() {
+
+        ArrayList<Integer> hexesThatCanBeExpanded = new ArrayList<>();
+
+        boolean ableToExpandFromASettlement = false;
+
+        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(aiPlayer);
+
+        for (int i = 0; i < settlements.size(); i++){
+
+            if (settlements.get(i) != -1) {
+
+                ArrayList<Integer> hexes  = islandMap.getSettlementObj().getSettlementHexIDs(settlements.get(i));
+
+                ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(hexes.get(0)));
+
+                for (int j = 0; j < adjacentHexes.size(); j++){
+
+                    if (!(islandMap.getHex(adjacentHexes.get(j)).getTerrain().equals("Volcano")) && islandMap.getHex(adjacentHexes.get(j)).getTileID() != -1 && islandMap.getHex(adjacentHexes.get(j)).checkIfHexIsNotSettled()){
+
+                        hexesThatCanBeExpanded.add(hexes.get(0));
+
+                        ableToExpandFromASettlement = true;
+                    }
+                }
+            }
+        }
+
+        if (ableToExpandFromASettlement){
+
+            return (new BuildResult(true, hexesThatCanBeExpanded));
         }
 
         return (new BuildResult(false));
@@ -560,18 +687,18 @@ public class NEW_AI {
 
         if (buildResult.buildSuccessfull && aiPlayer.getRemainingTigers() != 0){
 
-            for(int i = 0; i < buildResult.listHigherLevelHexes.size(); i++){
+            for(int i = 0; i < buildResult.listHexes.size(); i++){
 
                 Settlement settlement = islandMap.getSettlementObj();
 
-                Hex currentHex = islandMap.getHex(buildResult.listHigherLevelHexes.get(i));
+                Hex currentHex = islandMap.getHex(buildResult.listHexes.get(i));
 
                 if (builder.verifyValidHexForTiger(currentHex) && settlement.isTigerNextToSettlement(currentHex.getHexID(), aiPlayer)) {
 
                     int buildOption = 4;
 
-                    if (builder.build(aiPlayer, islandMap, buildOption, buildResult.listHigherLevelHexes.get(i))){
-                        return (new BuildResult(true, buildOption, buildResult.listHigherLevelHexes.get(i)));
+                    if (builder.build(aiPlayer, islandMap, buildOption, buildResult.listHexes.get(i))){
+                        return (new BuildResult(true, buildOption, buildResult.listHexes.get(i)));
                     }
                 }
             }
