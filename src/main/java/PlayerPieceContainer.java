@@ -101,14 +101,4 @@ public class PlayerPieceContainer {
         }
         return null;
     }
-
-    public void setNumberOfMeeplesLeft() {
-
-        for ( int i =0; i < 15; i++){
-            meeples.remove(meeples.size()-1);
-
-        }
-
-        System.out.println(getMeeples().size());
-    }
 }

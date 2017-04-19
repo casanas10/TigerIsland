@@ -154,7 +154,7 @@ public class NEW_AI {
         }
 
         int buildOption = 2;
-        
+
         if (terrainToExpand != ""){
 
             if (aiPlayer.getRemainingMeeples() - meepleNeededToCompleteExpansion >= 0){
@@ -376,6 +376,7 @@ public class NEW_AI {
         int tileY = islandMap.getHex(nukeResult.hexID).getY();
         int orientation = nukeResult.orientation;
 
+        System.out.println("YEYEYE: " + islandMap.getHex(buildResult.hexID).getX());
         int buildOptX = islandMap.getHex(buildResult.hexID).getX();
         int buildOptY = islandMap.getHex(buildResult.hexID).getY();
 

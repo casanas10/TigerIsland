@@ -43,10 +43,6 @@ public class Player {
         return playerPieceContainer.getNumberOfMeeples();
     }
 
-    public void setMeepleCount(){
-        playerPieceContainer.setNumberOfMeeplesLeft();
-    }
-
     public int getRemainingTotoros(){
         return playerPieceContainer.getNumberOfTotoros();
     }

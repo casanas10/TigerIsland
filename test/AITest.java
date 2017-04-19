@@ -268,8 +268,6 @@ public class AITest {
             System.out.println(listHexes.get(i));
         }
 
-        ai.getAiPlayer().setMeepleCount();
-
         NukeResult nukeResult = ai.placeTileSomewhere();
         buildResult = ai.findTheBestExpansion();
 

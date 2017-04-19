@@ -339,7 +339,7 @@ public class ExtendSettlement {
             return false;
         }
         if(terrain.equals("Lake")){
-            if((lakesToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
+            if((lakesToExtendOn.isEmpty()) || (meeplesRequired(terrain) > player.getRemainingMeeples())){
                 return false;
             }
             else{
@@ -352,7 +352,7 @@ public class ExtendSettlement {
             }
         }
         if(terrain.equals("Grassland")){
-            if((grasslandsToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
+            if((grasslandsToExtendOn.isEmpty()) || (meeplesRequired(terrain) > player.getRemainingMeeples())){
                 return false;
             }
             else{
@@ -365,7 +365,7 @@ public class ExtendSettlement {
             }
         }
         if(terrain.equals("Rocky")){
-            if((rockysToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
+            if((rockysToExtendOn.isEmpty()) || (meeplesRequired(terrain) > player.getRemainingMeeples())){
                 return false;
             }
             else{
@@ -378,7 +378,7 @@ public class ExtendSettlement {
             }
         }
         if(terrain.equals("Jungle")){
-            if((junglesToExtendOn.isEmpty()) || (meeplesRequired(terrain) >= player.getRemainingMeeples())){
+            if((junglesToExtendOn.isEmpty()) || (meeplesRequired(terrain) > player.getRemainingMeeples())){
                 return false;
             }
             else{
