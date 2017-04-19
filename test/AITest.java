@@ -281,50 +281,48 @@ public class AITest {
 
     }
 
-//
-//    @Test
-//    public void getAllSettlement5orMore(){
-//
-//        ai.getIslandMap().getSettlementObj().addSettlement(19701, ai.getAiPlayer());
-//        ai.getIslandMap().getSettlementObj().addSettlement(19702, ai.getAiPlayer());
-//        ai.getIslandMap().getSettlementObj().addSettlement(19703, ai.getAiPlayer());
-//        ai.getIslandMap().getSettlementObj().addSettlement(19503, ai.getAiPlayer());
-//        ai.getIslandMap().getSettlementObj().addSettlement(19304, ai.getAiPlayer());
-//
-//        ai.getIslandMap().getSettlementObj().addSettlement(19502, ai.getServerPlayer());
-//        ai.getIslandMap().getSettlementObj().addSettlement(19102, ai.getServerPlayer());
-//
-//        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
-//
-//        BuildResult result = ai.findAISettlements5orGreater(ai.getAiPlayer());
-//
-//        Assert.assertEquals(0, result.foundSettlementToPlaceTotoro);
-//    }
 
-//
-//    @Test
-//    public void addTotoroIfYouSeeSettlementOfSize5orMore(){
-//
-//        ai.getIslandMap().getSettlementObj().addSettlement(19701, ai.getAiPlayer());
-//        ai.getIslandMap().getSettlementObj().addSettlement(19702, ai.getAiPlayer());
-//        ai.getIslandMap().getSettlementObj().addSettlement(19703, ai.getAiPlayer());
-//        ai.getIslandMap().getSettlementObj().addSettlement(19503, ai.getAiPlayer());
-//        ai.getIslandMap().getSettlementObj().addSettlement(19304, ai.getAiPlayer());
-//
-//        ai.getIslandMap().getSettlementObj().addSettlement(19502, ai.getServerPlayer());
-//        ai.getIslandMap().getSettlementObj().addSettlement(19102, ai.getServerPlayer());
-//
-//        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
-//
-//        String[] terrains = ai.getIslandMap().getNewTile();
-//        ai.setTerrainsArray(terrains);
-//
-//        BuildResult result = ai.findAISettlements5orGreater(ai.getAiPlayer());
-//
-//        ai.play();
-//
-//        Assert.assertEquals("Totoro", ai.getIslandMap().getHex(19700).getPieceOnHex());
-//    }
+    @Test
+    public void getAllSettlement5orMore(){
+
+        ai.getIslandMap().getSettlementObj().addSettlement(19701, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19702, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19703, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19503, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19304, ai.getAiPlayer());
+
+        ai.getIslandMap().getSettlementObj().addSettlement(19502, ai.getServerPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19102, ai.getServerPlayer());
+
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+
+        int result = ai.findAISettlements5orGreater(ai.getAiPlayer());
+
+        Assert.assertEquals(0, result);
+    }
+
+
+    @Test
+    public void addTotoroIfYouSeeSettlementOfSize5orMore(){
+
+        ai.getIslandMap().getSettlementObj().addSettlement(19701, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19702, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19703, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19503, ai.getAiPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19304, ai.getAiPlayer());
+
+        ai.getIslandMap().getSettlementObj().addSettlement(19502, ai.getServerPlayer());
+        ai.getIslandMap().getSettlementObj().addSettlement(19102, ai.getServerPlayer());
+
+        ai.getIslandMap().getSettlementObj().printAllSettlements(ai.getAiPlayer());
+
+        String[] terrains = ai.getIslandMap().getNewTile();
+        ai.setTerrainsArray(terrains);
+
+        ai.play();
+
+        Assert.assertEquals("Totoro", ai.getIslandMap().getHex(19501).getPieceOnHex());
+    }
 //
 //    @Test
 //    public void ableToExpand() {

@@ -7,7 +7,6 @@ public class BuildResult {
 
     public boolean buildSuccessfull;
     public int hexID;
-    public int foundSettlementToPlaceTotoro;
     public int buildOption;
     public ArrayList<Integer> listHexes;
     public String terrainExtend;
@@ -15,29 +14,14 @@ public class BuildResult {
     public BuildResult(boolean successful) {
         this.buildSuccessfull = successful;
         this.hexID = -1;
-        this.foundSettlementToPlaceTotoro = -1;
         this.buildOption = -1;
         this.listHexes = new ArrayList<>();
         this.terrainExtend = "";
     }
 
     public BuildResult(boolean successfull, int buildOption, int id){
-
-        if (buildOption == 4){
-            this.buildSuccessfull = successfull;
-            this.hexID = id;
-            this.foundSettlementToPlaceTotoro = -1;
-
-        } else if (buildOption == 3){
-            this.buildSuccessfull = successfull;
-            this.hexID = -1;
-            this.foundSettlementToPlaceTotoro = id;
-        } else if (buildOption == 1){
-            this.buildSuccessfull = successfull;
-            this.hexID = id;
-            this.foundSettlementToPlaceTotoro = -1;
-        }
-
+        this.buildSuccessfull = successfull;
+        this.hexID = id;
         this.buildOption = buildOption;
         this.listHexes = new ArrayList<>();
         this.terrainExtend = "";
@@ -49,7 +33,6 @@ public class BuildResult {
         this.listHexes = listHexes;
         this.hexID = -1;
         this.buildOption = -1;
-        this.foundSettlementToPlaceTotoro = -1;
         this.terrainExtend = "";
     }
 
@@ -58,7 +41,6 @@ public class BuildResult {
         this.buildOption = buildOption;
         this.hexID = id;
         this.terrainExtend = terrainExtend;
-        this.foundSettlementToPlaceTotoro = -1;
         this.listHexes = new ArrayList<>();
     }
 }

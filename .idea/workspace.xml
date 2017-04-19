@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c462fb03-fae3-402c-bffc-8467c34af812" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/BuildResult.java" afterPath="$PROJECT_DIR$/src/main/java/BuildResult.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/NEW_AI.java" afterPath="$PROJECT_DIR$/src/main/java/NEW_AI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/AITest.java" afterPath="$PROJECT_DIR$/test/AITest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,8 +33,8 @@
       <file leaf-file-name="ALE_AI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="521" column="11" lean-forward="true" selection-start-line="511" selection-start-column="10" selection-end-line="521" selection-end-column="11" />
+            <state relative-caret-position="357">
+              <caret line="672" column="7" lean-forward="true" selection-start-line="659" selection-start-column="0" selection-end-line="672" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -40,7 +43,7 @@
       <file leaf-file-name="MoveProtocol.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveProtocol.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
+            <state relative-caret-position="212">
               <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
               <folding />
             </state>
@@ -50,8 +53,8 @@
       <file leaf-file-name="NEW_AI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/NEW_AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="852">
-              <caret line="379" column="67" lean-forward="false" selection-start-line="379" selection-start-column="67" selection-end-line="379" selection-end-column="67" />
+            <state relative-caret-position="766">
+              <caret line="420" column="0" lean-forward="false" selection-start-line="420" selection-start-column="0" selection-end-line="420" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#placeTileSomewhere#0;class#NEW_AI#0" expanded="false" />
@@ -70,38 +73,8 @@
       <file leaf-file-name="AITest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/AITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="269" column="0" lean-forward="false" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Builder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Builder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1410">
-              <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3894">
-              <caret line="489" column="38" lean-forward="false" selection-start-line="489" selection-start-column="32" selection-end-line="489" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/MoveData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="111" column="18" lean-forward="false" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+            <state relative-caret-position="341">
+              <caret line="323" column="68" lean-forward="false" selection-start-line="323" selection-start-column="68" selection-end-line="323" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -139,6 +112,36 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="BuildResult.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="645">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NukeResult.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/NukeResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerPieceContainer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="93" column="49" lean-forward="false" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -151,10 +154,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>illegal</find>
-      <find>PLAYER 2 WIN</find>
-      <find>Over</find>
-      <find>tiger</find>
       <find>adj</find>
       <find>PLAYER 2</find>
       <find>WIN</find>
@@ -163,8 +162,6 @@
       <find>ROUND</find>
       <find>Forfeited</find>
       <find>dead</find>
-      <find>NO MORE</find>
-      <find>UNABLE</find>
       <find>GAME</find>
       <find>forfeite</find>
       <find>forfeited</find>
@@ -177,10 +174,16 @@
       <find>extend</find>
       <find>update</find>
       <find>expanded</find>
-      <find>expandSet</find>
-      <find>BuildAc</find>
       <find>end</find>
+      <find>BuildAc</find>
       <find>YEYE</find>
+      <find>Nuked</find>
+      <find>expandSet</find>
+      <find>nuke</find>
+      <find>findAISettlements5orGreater</find>
+      <find>NO MORE</find>
+      <find>UNABLE</find>
+      <find>END</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -253,11 +256,11 @@
         <option value="$PROJECT_DIR$/src/main/java/Settlement.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveProtocol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BuildResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java" />
         <option value="$PROJECT_DIR$/src/main/java/Player.java" />
-        <option value="$PROJECT_DIR$/test/AITest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ExtendSettlement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java" />
+        <option value="$PROJECT_DIR$/test/AITest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BuildResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/NEW_AI.java" />
       </list>
     </option>
@@ -381,7 +384,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1038" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
-  <component name="RunManager" selected="Application.RUN_C">
+  <component name="RunManager" selected="JUnit.AITest.addTotoroIfYouSeeSettlementOfSize5orMore">
     <configuration default="false" name="RUN_P" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -395,48 +398,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="TigerIsland" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="AITest.level3HexHasAMeepleAdjacent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="TigerIsland" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AITest" />
-      <option name="METHOD_NAME" value="level3HexHasAMeepleAdjacent" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AITest.buildNextToHigherGround" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="TigerIsland" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AITest" />
-      <option name="METHOD_NAME" value="buildNextToHigherGround" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="false" name="AITest.foundNewSettlementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -468,6 +429,48 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AITest" />
       <option name="METHOD_NAME" value="ableToExpand" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AITest.getAllSettlement5orMore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="TigerIsland" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AITest" />
+      <option name="METHOD_NAME" value="getAllSettlement5orMore" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AITest.addTotoroIfYouSeeSettlementOfSize5orMore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="TigerIsland" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AITest" />
+      <option name="METHOD_NAME" value="addTotoroIfYouSeeSettlementOfSize5orMore" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -767,18 +770,18 @@
       <item index="1" class="java.lang.String" itemvalue="JUnit.JUnit Test" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.SettlementColorTest.checkNuking" />
       <item index="3" class="java.lang.String" itemvalue="Application.RUN_P" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.level3HexHasAMeepleAdjacent" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.AITest.buildNextToHigherGround" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.AITest.foundNewSettlementTest" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.AITest.ableToExpand" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.foundNewSettlementTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.AITest.ableToExpand" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.AITest.getAllSettlement5orMore" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.AITest.addTotoroIfYouSeeSettlementOfSize5orMore" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.RUN_P" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AITest.ableToExpand" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AITest.foundNewSettlementTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.buildNextToHigherGround" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.level3HexHasAMeepleAdjacent" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AITest.addTotoroIfYouSeeSettlementOfSize5orMore" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AITest.getAllSettlement5orMore" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AITest.ableToExpand" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AITest.foundNewSettlementTest" />
       </list>
     </recent_temporary>
   </component>
@@ -792,20 +795,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1490119781401</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Fixed Hex to hold player color">
-      <created>1490457082473</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1490457082473</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Added scoring for adding a new settlement(Meeple), adding a Totoro and adding a Tiger. 1 point, 200 points, or 75 points are added to the players score accordingly">
-      <created>1490462738430</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1490462738430</updated>
     </task>
     <task id="LOCAL-00015" summary="Fixed all Merging Errors">
       <created>1490643995108</created>
@@ -1136,31 +1125,24 @@
       <option name="project" value="LOCAL" />
       <updated>1492568645216</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="previous commit had null exception">
+      <created>1492568677052</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1492568677052</updated>
+    </task>
+    <task id="LOCAL-00063" summary="fixed null pointer">
+      <created>1492573280491</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1492573280491</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 35m 36s.xml">
-      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 47m 11s.xml">
-      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 50m 24s.xml">
-      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 50m 36s.xml">
-      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 50m 49s.xml">
-      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 50m 59s.xml">
-      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 52m 09s.xml">
-      <configuration name="AITest.ableToExpand" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AITest_ableToExpand - 2017.04.18 at 21h 59m 52s.xml">
       <configuration name="AITest.ableToExpand" configurationId="JUnit" />
     </history-entry>
@@ -1169,6 +1151,27 @@
     </history-entry>
     <history-entry file="AITest_ableToExpand - 2017.04.18 at 22h 03m 26s.xml">
       <configuration name="AITest.ableToExpand" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AITest_addTotoroIfYouSeeSettlementOfSize5orMore - 2017.04.19 at 05h 15m 04s.xml">
+      <configuration name="AITest.addTotoroIfYouSeeSettlementOfSize5orMore" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AITest_addTotoroIfYouSeeSettlementOfSize5orMore - 2017.04.19 at 05h 16m 44s.xml">
+      <configuration name="AITest.addTotoroIfYouSeeSettlementOfSize5orMore" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AITest_addTotoroIfYouSeeSettlementOfSize5orMore - 2017.04.19 at 05h 19m 03s.xml">
+      <configuration name="AITest.addTotoroIfYouSeeSettlementOfSize5orMore" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AITest_addTotoroIfYouSeeSettlementOfSize5orMore - 2017.04.19 at 05h 22m 06s.xml">
+      <configuration name="AITest.addTotoroIfYouSeeSettlementOfSize5orMore" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AITest_addTotoroIfYouSeeSettlementOfSize5orMore - 2017.04.19 at 05h 23m 54s.xml">
+      <configuration name="AITest.addTotoroIfYouSeeSettlementOfSize5orMore" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AITest_addTotoroIfYouSeeSettlementOfSize5orMore - 2017.04.19 at 05h 24m 38s.xml">
+      <configuration name="AITest.addTotoroIfYouSeeSettlementOfSize5orMore" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AITest_getAllSettlement5orMore - 2017.04.19 at 05h 12m 38s.xml">
+      <configuration name="AITest.getAllSettlement5orMore" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1213,8 +1216,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Gettng this stupid shit to work" />
-    <MESSAGE value="Making builder" />
     <MESSAGE value="workspace issue" />
     <MESSAGE value="Updated branch to add placing pieces on hexes. No settlement checking has been implemented. Player pieces successfully decrement. Pieces cannot be added on volcanos, or where other pieces already exist." />
     <MESSAGE value=" Deleted some debugging prompts" />
@@ -1238,7 +1239,9 @@
     <MESSAGE value="Fixed tiger playground" />
     <MESSAGE value="Added building next to higher level hex" />
     <MESSAGE value="NO FORFEITS, NO ILLEGEAL MOVES, AND PLACED ALL 2 PIECES" />
-    <option name="LAST_COMMIT_MESSAGE" value="NO FORFEITS, NO ILLEGEAL MOVES, AND PLACED ALL 2 PIECES" />
+    <MESSAGE value="previous commit had null exception" />
+    <MESSAGE value="fixed null pointer" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed null pointer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1301,14 +1304,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NukeResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1569,14 +1564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162">
-          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3894">
@@ -1601,22 +1588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="521" column="11" lean-forward="true" selection-start-line="511" selection-start-column="10" selection-end-line="521" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MoveProtocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MatchProtocol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -1624,14 +1595,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="102" column="5" lean-forward="false" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1651,14 +1614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/AITest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="269" column="0" lean-forward="false" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ExtendSettlement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -1667,10 +1622,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveProtocol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PlayerPieceContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="93" column="49" lean-forward="false" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/NukeResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/AITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="323" column="68" lean-forward="false" selection-start-line="323" selection-start-column="68" selection-end-line="323" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ALE_AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="672" column="7" lean-forward="true" selection-start-line="659" selection-start-column="0" selection-end-line="672" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BuildResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NEW_AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="852">
-          <caret line="379" column="67" lean-forward="false" selection-start-line="379" selection-start-column="67" selection-end-line="379" selection-end-column="67" />
+        <state relative-caret-position="766">
+          <caret line="420" column="0" lean-forward="false" selection-start-line="420" selection-start-column="0" selection-end-line="420" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#placeTileSomewhere#0;class#NEW_AI#0" expanded="false" />

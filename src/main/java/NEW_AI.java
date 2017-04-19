@@ -74,6 +74,13 @@ public class NEW_AI {
             return buildResult;
         }
 
+        buildResult = buildATotoroSantuary();
+
+        if (buildResult.buildSuccessfull){
+
+            return buildResult;
+        }
+
 
         buildResult = buildNextToHigherLevelHex();
 
@@ -91,6 +98,51 @@ public class NEW_AI {
         }
 
         return buildResult;
+    }
+
+    public int findAISettlements5orGreater(Player aiPlayer) {
+
+        ArrayList<Integer> settlements = islandMap.getPlayerSettlement(aiPlayer);
+
+        int foundSettlementID = -1;
+
+        for (int i = 1; i < settlements.size(); i++){
+            if (islandMap.getSettlementsMap().get(settlements.get(i)).size() >= 5 && islandMap.getSettlementObj().doesNotHaveATotoro(settlements.get(i),aiPlayer)){
+                foundSettlementID = settlements.get(i);
+            }
+        }
+
+        return foundSettlementID;
+    }
+
+    public BuildResult buildATotoroSantuary() {
+
+        if (findAISettlements5orGreater(aiPlayer) != -1 ) {
+
+            //get all hexes in the settlement
+            ArrayList<Integer> hexesOnSettlement = islandMap.getSettlementsMap().get(findAISettlements5orGreater(aiPlayer));
+
+            int buildOption = 3;
+
+            //see where you can place a totoro
+            for(int i = 0; i < hexesOnSettlement.size(); i++){
+
+                ArrayList<Integer> adjacentHexes = validity.searchTheSixAdjacentHexes(islandMap.getHex(hexesOnSettlement.get(i)));
+
+                for (int j = 0; j < adjacentHexes.size(); j++){
+
+                    if(builder.build(aiPlayer, islandMap, buildOption, adjacentHexes.get(j))){
+
+                        System.out.println(adjacentHexes.get(j));
+                        return (new BuildResult(true, buildOption, adjacentHexes.get(j)));
+                    }
+                }
+
+            }
+
+        }
+
+        return (new BuildResult(false));
     }
 
     public BuildResult findTheBestExpansion() {
@@ -342,6 +394,32 @@ public class NEW_AI {
                 int[] pairs = tile.checkPair();
 
                 if (builder.build(aiPlayer, islandMap, buildOption, pairs[1])){
+
+                    int tileX = islandMap.getHex(nukeResult.hexID).getX();
+                    int tileY = islandMap.getHex(nukeResult.hexID).getY();
+                    int orientation = nukeResult.orientation;
+
+                    int buildOptX = islandMap.getHex(pairs[1]).getX();
+                    int buildOptY = islandMap.getHex(pairs[1]).getY();
+
+                    int serverOrientation = rotationConverter.oursToServer(orientation);
+                    int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+
+                    info.setOrientation(serverOrientation);
+                    info.setTilePlacementX(serverCoordinatesTile[0]);
+                    info.setTilePlacementY(serverCoordinatesTile[1]);
+                    info.setTilePlacementZ(serverCoordinatesTile[2]);
+
+                    int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+
+                    info.setBuildOption(buildOption);
+                    info.setBuildOptionX(serverCoordinatesBuild[0]);
+                    info.setBuildOptionY(serverCoordinatesBuild[1]);
+                    info.setBuildOptionZ(serverCoordinatesBuild[2]);
+
+                    return info;
+
+                } else if (builder.build(aiPlayer, islandMap, buildOption, pairs[2])){
 
                     int tileX = islandMap.getHex(nukeResult.hexID).getX();
                     int tileY = islandMap.getHex(nukeResult.hexID).getY();
