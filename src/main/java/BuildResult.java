@@ -40,6 +40,7 @@ public class BuildResult {
 
         this.buildOption = buildOption;
         this.listHexes = new ArrayList<>();
+        this.terrainExtend = "";
 
     }
 
@@ -49,6 +50,7 @@ public class BuildResult {
         this.hexID = -1;
         this.buildOption = -1;
         this.foundSettlementToPlaceTotoro = -1;
+        this.terrainExtend = "";
     }
 
     public BuildResult(boolean successfull, int buildOption, int id, String terrainExtend){
@@ -56,5 +58,7 @@ public class BuildResult {
         this.buildOption = buildOption;
         this.hexID = id;
         this.terrainExtend = terrainExtend;
+        this.foundSettlementToPlaceTotoro = -1;
+        this.listHexes = new ArrayList<>();
     }
 }
