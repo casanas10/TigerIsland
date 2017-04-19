@@ -9,15 +9,16 @@ public class BuildResult {
     public int hexID;
     public int foundSettlementToPlaceTotoro;
     public int buildOption;
-    public ArrayList<Integer> listHigherLevelHexes;
-
+    public ArrayList<Integer> listHexes;
+    public String terrainExtend;
 
     public BuildResult(boolean successful) {
         this.buildSuccessfull = successful;
         this.hexID = -1;
         this.foundSettlementToPlaceTotoro = -1;
         this.buildOption = -1;
-        this.listHigherLevelHexes = new ArrayList<>();
+        this.listHexes = new ArrayList<>();
+        this.terrainExtend = "";
     }
 
     public BuildResult(boolean successfull, int buildOption, int id){
@@ -38,16 +39,22 @@ public class BuildResult {
         }
 
         this.buildOption = buildOption;
-        this.listHigherLevelHexes = new ArrayList<>();
+        this.listHexes = new ArrayList<>();
 
     }
 
-    public BuildResult(boolean buildSuccessfull, ArrayList<Integer> listHigherLevelHexes){
+    public BuildResult(boolean buildSuccessfull, ArrayList<Integer> listHexes){
         this.buildSuccessfull = buildSuccessfull;
-        this.listHigherLevelHexes = listHigherLevelHexes;
+        this.listHexes = listHexes;
         this.hexID = -1;
         this.buildOption = -1;
         this.foundSettlementToPlaceTotoro = -1;
     }
 
+    public BuildResult(boolean successfull, int buildOption, int id, String terrainExtend){
+        this.buildSuccessfull = successfull;
+        this.buildOption = buildOption;
+        this.hexID = id;
+        this.terrainExtend = terrainExtend;
+    }
 }
