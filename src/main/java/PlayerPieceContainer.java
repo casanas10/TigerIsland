@@ -91,7 +91,7 @@ public class PlayerPieceContainer {
                            totoros.remove(totoros.size()-1);
                            return totoro;
 
-            case "Tiger":  if(getNumberOfMeeples() == 0){
+            case "Tiger":  if(getNumberOfTigers() == 0){
                                 break;
                            }
                            Tiger tiger = tigers.get(tigers.size() - 1);
