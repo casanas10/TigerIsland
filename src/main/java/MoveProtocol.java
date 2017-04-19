@@ -229,7 +229,8 @@ public class MoveProtocol {
                         AI2.updateOpponentMove(moveData);
                 } else {
                     //check if server says we lost; check which game if so.
-                    moveData = parseMessage(fromServerArr, in);
+//                    if (!fromServerArr[6].equals("LOST"))
+                        moveData = parseMessage(fromServerArr, in);
 
                 }
             }
@@ -267,7 +268,8 @@ public class MoveProtocol {
                     AI2.updateOpponentMove(moveData);
             } else {
                 //check if server says we lost; check which game if so.
-                moveData = parseMessage(fromServerArr, in);
+//                if (!fromServerArr[6].equals("LOST"))
+                    moveData = parseMessage(fromServerArr, in);
 
             }
         }
@@ -278,7 +280,7 @@ public class MoveProtocol {
         String fromServer;
         MoveData moveData;
 
-        if (fromServerArr[6].equals("FORFEITED:") || fromServerArr[6].equals("LOST:")) {
+        if (fromServerArr[6].equals("FORFEITED:") || fromServerArr[6].equals("LOST:") || fromServerArr[2].equals("OVER")) {
 
             System.out.println("forfeited");
 

@@ -242,8 +242,46 @@ public class NEW_AI {
 
         if (buildResult.hexID == -1 || buildResult.hexID == 0){
 
-            buildResult = foundNewSettlementSomewhere();
-            
+            int buildOption = 1;
+
+            MoveData info = new MoveData();
+
+            HashMap<Integer, int[]> allPossibleTiles = getAllPossibleTilePlacementPosition(islandMap.getAllHexesOnMap());
+
+            for (int i = 0; i < allPossibleTiles.size(); i++){
+
+                tile = new RotateTile(nukeResult.hexID, nukeResult.orientation);
+
+                int[] pairs = tile.checkPair();
+
+                if (builder.build(aiPlayer, islandMap, buildOption, pairs[1])){
+
+                    int tileX = islandMap.getHex(nukeResult.hexID).getX();
+                    int tileY = islandMap.getHex(nukeResult.hexID).getY();
+                    int orientation = nukeResult.orientation;
+
+                    int buildOptX = islandMap.getHex(pairs[1]).getX();
+                    int buildOptY = islandMap.getHex(pairs[1]).getY();
+
+                    int serverOrientation = rotationConverter.oursToServer(orientation);
+                    int[] serverCoordinatesTile = coordinateConverter.oursToServer(tileX, tileY);
+
+                    info.setOrientation(serverOrientation);
+                    info.setTilePlacementX(serverCoordinatesTile[0]);
+                    info.setTilePlacementY(serverCoordinatesTile[1]);
+                    info.setTilePlacementZ(serverCoordinatesTile[2]);
+
+                    int[] serverCoordinatesBuild = coordinateConverter.oursToServer(buildOptX, buildOptY);
+
+                    info.setBuildOption(buildOption);
+                    info.setBuildOptionX(serverCoordinatesBuild[0]);
+                    info.setBuildOptionY(serverCoordinatesBuild[1]);
+                    info.setBuildOptionZ(serverCoordinatesBuild[2]);
+                    info.setBuildOption(buildOption);
+
+                    return info;
+                }
+            }
         }
 
         MoveData info = new MoveData();
